@@ -301,7 +301,7 @@ p {
   height: 100%;
   top: 0px;
   left: 0px;
-  background: url('resources/achievement/portraitBg.jpg')
+  background: url('ru-RU/resources/achievement/portraitBg.jpg')
     center / auto 100% no-repeat;
   z-index: 520;
   display: none;
@@ -313,7 +313,7 @@ p {
   height: 100%;
   top: 0px;
   left: 0px;
-  background: url('resources/achievement/listBG.jpg')
+  background: url('ru-RU/resources/achievement/listBG.jpg')
     center / auto 100% no-repeat;
   z-index: 1200;
   display: none;
@@ -356,7 +356,7 @@ p {
   width: 28.55rem;
   left: 0;
   bottom: 0;
-  background: url('resources/achievement/barBottom.png');
+  background: url('ru-RU/resources/achievement/barBottom.png');
   background-size: 28.55rem 2.1rem;
   background-position: left;
   background-repeat: no-repeat;
@@ -380,7 +380,7 @@ p {
   height: 2.1rem;
   left: 0;
   bottom: 0;
-  background: url('resources/achievement/barTop.png');
+  background: url('ru-RU/resources/achievement/barTop.png');
   background-size: 28.55rem 2.1rem;
   background-position: left;
   background-repeat: no-repeat;
@@ -393,7 +393,7 @@ p {
   bottom: -1.75rem;
   height: 4.5rem;
   width: 39.1rem;
-  background: url('resources/achievement/barFrame.png');
+  background: url('ru-RU/resources/achievement/barFrame.png');
   background-size: 39.1rem 4.5rem;
   background-position: left;
   background-repeat: no-repeat;
@@ -406,7 +406,7 @@ p {
   width: 2.6rem;
   left: 0;
   bottom: -0.375rem;
-  background: url('resources/achievement/barIcon.png');
+  background: url('ru-RU/resources/achievement/barIcon.png');
   background-size: 2.6rem 2.85rem;
   background-position: left;
   background-repeat: no-repeat;
@@ -420,7 +420,7 @@ p {
   width: 5.9rem;
   right: 0.75rem;
   bottom: 0.65rem;
-  background: url('resources/achievement/details.png');
+  background: url('ru-RU/resources/achievement/details.png');
     center / auto 100% no-repeat;
   cursor: pointer;
 }
@@ -768,7 +768,7 @@ p {
   top: 0;
   right: 0;
   z-index: 810;
-  background: url('resources/achievement/exit.png');
+  background: url('ru-RU/resources/achievement/exit.png');
   background-size: 100% 100%;
   background-position: center;
   cursor: pointer;
@@ -1895,11 +1895,11 @@ ul li {
 }
 
 #pagenum-5 {
-  background-image: url('resources/achievement/leftPage.png');
+  background-image: url('ru-RU/resources/achievement/leftPage.png');
 }
 
 #pagenum-6 {
-  background-image: url('resources/achievement/rightPage.png');
+  background-image: url('ru-RU/resources/achievement/rightPage.png');
 }
 
 #pagenum-7 {
