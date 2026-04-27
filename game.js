@@ -2601,26 +2601,109 @@ if (GetQueryString('auth_key')) {
 //achievement-------------------------------------------
 var ajax_answer_achievement = null
 
+var local_achievement_db = {
+  "10010": { title: "往日是一首序曲", text: "你阅读了第一章的剧情。", image: "normal" },
+  "10011": { title: "入此门者，当放弃一切希望", text: "你发现了关于《神曲》的注释。", image: "welt" },
+  "10012": { title: "无名之地的意义", text: "你发现了关于地名的注释。", image: "normal" },
+  "10013": { title: "好故事都值得修饰", text: "你发现了关于休·卡斯沃尔的注释。", image: "welt" },
+  "10020": { title: "我们所要做的事，应该一想到就做", text: "你阅读了第二章的剧情。", image: "normal" },
+  "10021": { title: "我宁愿失去印度，也不愿失去莎士比亚", text: "你发现了关于莎士比亚的注释。", image: "ein" },
+  "10022": { title: "We are not amused", text: "你发现了关于维多利亚女王的注释。", image: "ein" },
+  "10030": { title: "The day is long that never finds the night", text: "你阅读了第三章的剧情。", image: "normal" },
+  "10031": { title: "and yes I said yes I will yes", text: "你发现了关于《尤利西斯》的注释。", image: "welt" },
+  "10032": { title: "对此我们自然希望能有一个严格的证明", text: "你在选项中尝试了错误的证明方法。", image: "schro" },
+  "10033": { title: "一个我正试图从中醒来的噩梦", text: "你在选项中感受到了历史的重量。", image: "welt" },
+  "10040": { title: "Small and white, clean and bright", text: "你阅读了第四章的剧情。", image: "normal" },
+  "10041": { title: "维克多·拉斯洛就在那架飞机上", text: "你发现了关于《北非谍影》的注释。", image: "normal" },
+  "10050": { title: "We shall meet in the place where there is no darkness", text: "你阅读了第五章的剧情。", image: "normal" },
+  "10051": { title: "其必也射乎", text: "你发现了关于《论语》的注释。", image: "welt" },
+  "10060": { title: "我曾于此独自歌唱，也曾于此默默怀念", text: "你阅读了第六章的剧情。", image: "normal" },
+  "10061": { title: "这并不是一个故事的结束", text: "你发现了关于《艾凡赫》的注释。", image: "welt" },
+  "10070": { title: "那些终将汇入时间长河的泪水", text: "你阅读了第七章的剧情。", image: "normal" },
+  "10071": { title: "大宪章", text: "你发现了关于《大宪章》的注释。", image: "ein" },
+  "10080": { title: "所有的结局都已写好，所有的泪水都已启程", text: "你阅读了第八章的剧情。", image: "normal" },
+  "10081": { title: "一切真理最初都是狂言", text: "你发现了关于萧伯纳的注释。", image: "ein" },
+  "10090": { title: "如果我们必须在那之前，在那之后", text: "你阅读了第九章的剧情。", image: "normal" },
+  "10100": { title: "在时间的无涯荒野中", text: "你阅读了第十章的剧情。", image: "normal" },
+  "10110": { title: "即使它是一颗流星", text: "你阅读了第十一章的剧情。", image: "normal" },
+  "10111": { title: "三只小猪", text: "你发现了关于《三只小猪》的注释。", image: "tesla" },
+  "10120": { title: "这是世界的毁灭方式", text: "你阅读了第十二章的剧情。", image: "normal" },
+  "10121": { title: "荒原", text: "你发现了关于《荒原》的注释。", image: "welt" },
+  "10130": { title: "如果我们不得不失去彼此", text: "你阅读了第十三章的剧情。", image: "normal" },
+  "10131": { title: "弗兰肯斯坦", text: "你发现了关于玛丽·雪莱的注释。", image: "ein" },
+  "10140": { title: "在被忘记的岁月中", text: "你阅读了第十四章的剧情。", image: "normal" },
+  "10150": { title: "我甚至记不清我是什么时候离开的", text: "你阅读了第十五章的剧情。", image: "normal" },
+  "10151": { title: "世界并不是平坦的", text: "你发现了关于《弗莱彻论证》的注释。", image: "schro" },
+  "10160": { title: "我们应当在此时此刻，也在那时那刻", text: "你阅读了第十六章的剧情。", image: "normal" },
+  "10170": { title: "在这一刻，我们也成了历史", text: "你阅读了第十七章的剧情。", image: "normal" },
+  "10171": { title: "理性的边界", text: "你发现了关于康德的注释。", image: "ein" },
+  "10172": { title: "God save the king?", text: "你发现了关于《天佑吾王》的注释。", image: "normal" },
+  "10173": { title: "One if by land, and two if by sea", text: "你发现了关于保罗·里维尔的注释。", image: "normal" },
+  "10180": { title: "我既是吞灭一切的死，又是将要诞生者的生", text: "你阅读了第十八章的剧情。", image: "normal" },
+  "10181": { title: "一支军队拥有一个国家", text: "你发现了关于普鲁士的注释。", image: "ein" },
+  "10182": { title: "YOU ARE ENTERING THE AMERICAN SECTOR", text: "你发现了关于柏林墙的注释。", image: "normal" },
+  "10183": { title: "新罗马", text: "你发现了关于华盛顿的注释。", image: "normal" },
+  "10190": { title: "圣枪绽放", text: "你阅读了第十九章的剧情。", image: "normal" },
+  "10191": { title: "叫我伊希梅尔吧", text: "你发现了关于《白鲸》的注释。", image: "welt" },
+  "10192": { title: "相约星期二", text: "你发现了关于莫里·施瓦茨的注释。", image: "normal" },
+  "10200": { title: "麦田里的守望者", text: "你阅读了第二十章的剧情。", image: "normal" },
+  "10201": { title: "那些令人无法理解的符号", text: "你发现了关于《伏尼契手稿》的注释。", image: "normal" },
+  "10202": { title: "奇想天外", text: "你发现了关于江户川乱步的注释。", image: "normal" },
+  "10203": { title: "Caledfwlch, Caliburn, Excalibur", text: "你发现了关于王者之剑的注释。", image: "normal" },
+  "10210": { title: "世界已准备好被毁灭", text: "你阅读了第二十一章的剧情。", image: "normal" },
+  "10211": { title: "那是你们自己的问题", text: "你发现了关于薩特的注释。", image: "ein" },
+  "10220": { title: "在时间的灰烬中", text: "你阅读了第二十二章的剧情。", image: "normal" },
+  "10221": { title: "我是医生，不是医生", text: "你发现了关于《日内瓦宣言》的注释。", image: "normal" },
+  "10230": { title: "星辰已准备好被点亮", text: "你阅读了第二十三章的剧情。", image: "normal" },
+  "10231": { title: "你发现了关于十一维时空的注释。", text: "你发现了关于十一维时空的注释。", image: "nancy" },
+  "10240": { title: "往日是一首终曲", text: "你阅读了第二十四章的剧情。", image: "normal" },
+  "10241": { title: "维克多·拉斯洛就在那架飞机上", text: "你发现了关于《北非谍影》的注释。", image: "normal" }
+};
+
 function post_achievement(str_ach, callbackOne, callbackTwo) {
-  ajax_answer_achievement = null
-  $.ajax({
-    type: 'POST',
-    url: 'ru-RU/resources/utils/achievement.php',
-    dataType: 'json',
-    data: {
-      achievement: str_ach,
-      chapter: now_galgame,
-      scene: now_scene,
-    },
-    success: function (result) {
-      ajax_answer_achievement = result
-      if (callbackOne) callbackOne()
-    },
-    error: function (XMLHttpRequest, textStatus, errorThrown) {
-      ajax_answer_achievement = null
-      if (callbackTwo) callbackTwo()
-    },
-  })
+  ajax_answer_achievement = null;
+  let saved_achievements = JSON.parse(localStorage.getItem('anti_entropy_achievements')) || [];
+
+  if (str_ach === 'LOAD') {
+    let unlocked_list = saved_achievements.map(function(id) {
+        let info = local_achievement_db[id] || { 
+            title: "???", 
+            text: "Достижение не описано в базе", 
+            image: "normal" 
+        };
+        return {
+            achievement: parseInt(id),
+            title: info.title,
+            image: info.image,
+            text: info.text
+        };
+    });
+
+    ajax_answer_achievement = {
+      retcode: 1,
+      msg: "The achievement record has been loaded.",
+      progress: (saved_achievements.length / Object.keys(local_achievement_db).length).toFixed(2),
+      achievement: unlocked_list,
+      portrait: [
+        {name: "welt", index: 750}, {name: "nokia", index: 550}, {name: "schro", index: 555}, 
+        {name: "nancy", index: 745}, {name: "ada", index: 550}, {name: "reanna", index: 545}, 
+        {name: "ein", index: 749}, {name: "ha", index: 552}, {name: "fuhua", index: 746}, 
+        {name: "tesla", index: 760}, {name: "otto", index: 750}, {name: "yang", index: 750}, 
+        {name: "plank", index: 549}
+      ]
+    };
+
+    if (callbackOne) callbackOne();
+  } else {
+    if (!saved_achievements.includes(str_ach)) {
+      saved_achievements.push(str_ach);
+      localStorage.setItem('anti_entropy_achievements', JSON.stringify(saved_achievements));
+      console.log("Достижение сохранено локально: " + str_ach);
+    }
+    
+    ajax_answer_achievement = { retcode: 1 };
+    if (callbackOne) callbackOne();
+  }
 }
 
 var achievement_result = null
