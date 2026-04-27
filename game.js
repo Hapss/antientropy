@@ -6,9 +6,9 @@ var now_action_tag = '_2017_anti_entropy_now_action'
 var now_galgame = 1
 var sceneList = []
 var characterData = []
-var now_scene = -1 //存放当前场景，存档
+var now_scene = -1 // Текущая сцена для сохранения
 var now_action = -1
-var historyChoiceList = [] //用于记录当前场景的历史选择
+var historyChoiceList = [] // Используется для записи истории выборов в текущей сцене
 var uiImageList = new Array()
 var showInSceneList = new Array()
 var date_url = ''
@@ -45,13 +45,13 @@ uiImageList.push(
 function tryAudio(pauseOrPlay, indexOrInner, countNumber) {
   var audio
   if (indexOrInner == 0) audio = $('#indexbgm')[0]
-  else audio = $('#bgm')[0] //选择控件
+  else audio = $('#bgm')[0] // Выбор элемента
   if (pauseOrPlay == 0) {
     audio.pause()
     if (!isNaN(audio.duration)) audio.currentTime = 0
     if (indexOrInner == 0) indexAudioPlayingflag = false
     else innerAudioPlayingflag = false
-    return //暂停，立即执行
+    return // Пауза, немедленное выполнение
   }
   if (countNumber != 0) {
     if (indexOrInner == 0 && indexAudioPlayingflag == false) return
@@ -93,22 +93,22 @@ $(function () {
 
 window.onresize = function () {
   check_size()
-  if (wrk_check_size()) window.scrollTo(0, 1) //隐藏浏览器工具栏
+  if (wrk_check_size()) window.scrollTo(0, 1) // Скрытие панели инструментов браузера
 }
 window.addEventListener(
   'orientationchange',
   function () {
-    window.scrollTo(0, 1) //隐藏浏览器工具栏
+    window.scrollTo(0, 1) // Скрытие панели инструментов браузера
   },
   false
 )
 //------------------------------------------------------
 
-//主框体单击响应事件------------------------------------
-var listenScene //监听场景动向
-var listenAction //监听行动列动向
-var listenLoading //监听读档动向
-var str_index_in_Autotype //打字机动画用
+// События клика в главном окне------------------------------------
+var listenScene // Отслеживание движения сцены
+var listenAction // Отслеживание движения строк действий
+var listenLoading // Отслеживание движения загрузки архивов
+var str_index_in_Autotype // Для анимации пишущей машинки
 
 function setListens(s, a, k) {
   listenScene = s
@@ -118,8 +118,8 @@ function setListens(s, a, k) {
 
 $('.galgame-content').click(function () {
   if (listenScene != null && listenAction != null) {
-    if (listenLoading != 1) nextAction(listenScene, listenAction) //进行下一步
-    else Action(listenScene, listenAction, listenLoading) //调回状态
+    if (listenLoading != 1) nextAction(listenScene, listenAction) // Следующий шаг
+    else Action(listenScene, listenAction, listenLoading) // Возврат статуса
   } else if (
     listenScene == null &&
     listenAction == null &&
@@ -127,26 +127,26 @@ $('.galgame-content').click(function () {
   ) {
     if (listenLoading >= 0) {
       if (autoSpeed == 'typing')
-        dialogAutoplay('stop') //自动播放的打字，优先关闭自动播放
-      else str_index_in_autotype = listenLoading //打字机状态调整
-    } else if (listenLoading == -1) dialogAutoplay('stop') //处理自动播放变化
-    else if (listenLoading == -2) $('.dialog-overflow').stop(true, true) //立即结束滚屏动画
+        dialogAutoplay('stop') // При автовоспроизведении печати приоритет отдается остановке автовоспроизведения
+      else str_index_in_autotype = listenLoading // Настройка состояния пишущей машинки
+    } else if (listenLoading == -1) dialogAutoplay('stop') // Обработка изменений автовоспроизведения
+    else if (listenLoading == -2) $('.dialog-overflow').stop(true, true) // Немедленное завершение анимации прокрутки экрана
   }
 })
 
 var textSpeed = 75
-//全局变量相关：打字机效果
+// Связано с глобальными переменными: эффект пишущей машинки
 $.fn.autotype_text = function (gotoScene, gotoAction) {
   var str
   var timer_key
   var $pThis = $(this)
-  $('.dialog-overflow').scrollTop(0) //开始打字前校正滚动条位置
+  $('.dialog-overflow').scrollTop(0) // Коррекция положения полосы прокрутки перед началом печати
 
   if (autoSpeed != 'skip') {
     str = $pThis.html()
     if (str.indexOf('<') >= 0) {
       return
-    } //注入了html文档的情形
+    } // Случай внедрения HTML-документа
 
     if (isdialogAutoplay()) dialogAutoplayAutoStop('autotype')
 
@@ -157,22 +157,22 @@ $.fn.autotype_text = function (gotoScene, gotoAction) {
 
     timer_key = setInterval(function () {
       str_index_in_autotype++
-      $pThis.html(str.substring(0, str_index_in_autotype)) //当前显示的文本长度
+      $pThis.html(str.substring(0, str_index_in_autotype)) // Длина отображаемого в данный момент текста
 
       if (
         $('.dialog-overflow')[0].scrollHeight > $('.dialog-overflow').height()
       ) {
-        //超出内容一次性显示完毕
+        // Если содержимое выходит за пределы, отобразить все сразу
         $pThis.html(str)
         str_index_in_autotype = str.length
       }
       if (isdialogAutoplay()) {
-        //打字动画中自动播放开启
+        // Автовоспроизведение включено во время анимации набора текста
         $pThis.html(str)
         str_index_in_autotype = str.length
       }
       if (str_index_in_autotype >= str.length) {
-        clearInterval(timer_key) //结束setInterval的定时循环
+        clearInterval(timer_key) // Завершение временного цикла setInterval
         if (isdialogAutoplay()) {
           if (autoSpeed == 'auto') {
             dialogAutoplay('countinue')
@@ -187,10 +187,10 @@ $.fn.autotype_text = function (gotoScene, gotoAction) {
   }
 }
 
-//全局变量相关：自动播放
-var dialogAutoplayFlag = -1 //控制自动播放
-var timer_Autoplay //每次单击调用的是同一个timer
-var autoSpeed = 'stop' //skip和autoplay的速度变量
+// Связано с глобальными переменными: автовоспроизведение
+var dialogAutoplayFlag = -1 // Управление автовоспроизведением
+var timer_Autoplay // Каждый клик вызывает один и тот же таймер
+var autoSpeed = 'stop' // Переменная скорости для skip и autoplay
 
 $('.dialog-btn-autoplay').click(function (e) {
   e.stopPropagation()
@@ -208,7 +208,7 @@ $('.dialog-btn-autoplay').click(function (e) {
 $('.dialog-btn-skip').click(function (e) {
   e.stopPropagation()
   if (listenScene == null && listenAction == null && listenLoading != null) {
-    if (listenLoading >= 0) str_index_in_autotype = listenLoading //打字机状态调整
+    if (listenLoading >= 0) str_index_in_autotype = listenLoading // Настройка состояния пишущей машинки
   }
   dialogAutoplay('skip')
 })
@@ -216,17 +216,17 @@ $('.dialog-btn-skip').click(function (e) {
 function dialogAutoplay(keySpeed) {
   var tempTimeout
   if (keySpeed == null || keySpeed == 'auto' || keySpeed == 'countinue') {
-    //按下auto
+    // Нажатие auto
     if (autoSpeed == 'skip' && isdialogAutoplay()) {
-      //在skip时按下auto
+      // Нажатие auto во время skip
       dialogAutoplayAutoStop()
     }
     autoSpeed = 'auto'
     $('.dialog-btn-autoplay').addClass('dialog-btn-autoplay-on')
   } else if (keySpeed == 'skip') {
-    //按下skip
+    // Нажатие skip
     if (autoSpeed == 'auto' && isdialogAutoplay()) {
-      //在auto时按下skip
+      // Нажатие skip во время auto
       dialogAutoplayAutoStop()
     }
     autoSpeed = 'skip'
@@ -237,7 +237,7 @@ function dialogAutoplay(keySpeed) {
   }
   changedialogAutoplayFlag()
   if (isdialogAutoplay()) {
-    setListens(null, null, -1) //主操作响应事件改变
+    setListens(null, null, -1) // Изменение события отклика на основную операцию
     if (keySpeed == 'countinue') {
       tempTimeout = baseTime()
     } else {
@@ -321,7 +321,7 @@ function dialogAutoplayAutoStop(keyFlag) {
 }
 
 //------------------------------------------------------
-//CG展示
+// Демонстрация CG
 var cgPageIndex = 0
 var cgPageLength = 0
 var cgListTemp = null
@@ -355,7 +355,7 @@ function cgPage(page, flag) {
   for (i = page * 4; i < (page + 1) * 4; i++) {
     $('#cg-' + (i - page * 4)).hide()
   }
-  //preload
+  // Предзагрузка (preload)
   var cgImageList = new Array()
   j = 0
   for (i in cgListSort) {
@@ -368,10 +368,10 @@ function cgPage(page, flag) {
     j++
   }
   preLoadUiImages('cg', cgImageList)
-  //检测预加载图片是否加载完毕
+  // Проверка, завершилась ли загрузка предзагруженных изображений
   if (preLoadImagesCheck() > 0) {
-    //如果已经预载过
-    //加载
+    // Если уже предзагружено
+    // Загрузка
     j = 0
     for (i in cgListSort) {
       if (j >= page * 4 && j < (page + 1) * 4) {
@@ -401,9 +401,9 @@ function cgPage(page, flag) {
     var i
     var j
     if (preLoadImagesCheck() > 0 || countIndexTimer > 1000) {
-      //图片预载完毕，或者超时
+      // Изображения загружены, либо истекло время ожидания
       clearTimeout(preLoadImagesTimer)
-      //加载
+      // Загрузка
       j = 0
       for (i in cgListSort) {
         if (j >= page * 4 && j < (page + 1) * 4) {
@@ -474,7 +474,7 @@ function generate_all_characterData(name) {
   })
   if (!xmlDoc) return
   if (characterData.length) {
-    //此时xml已经载入过
+    // В этот момент xml уже загружен
     var imageList = xmlDoc.getElementsByTagName('image')
     preLoadImagesBegin(imageList)
     return
@@ -483,7 +483,7 @@ function generate_all_characterData(name) {
     generate_all_characterData(name)
   })
   if (!xmlDoc) return
-  //此时characterData还是空的，从下面开始读入
+  // На данный момент characterData пуста, читаем её со следующей строки
   var characterList = xmlDoc.getElementsByTagName('character')
   for (j = 0; j < characterList.length; j++) {
     var newCharacter = {}
@@ -534,7 +534,7 @@ function generate_all_characterData(name) {
       )
     }
   }
-  //此时xml已经载入过
+  // В этот момент xml уже загружен
   xmlDoc = loadExistXmlFile(name)
   var imageList = xmlDoc.getElementsByTagName('image')
   preLoadImagesBegin(imageList)
@@ -558,7 +558,7 @@ function galgame(name) {
     galgame(name)
   })
   if (!xmlDoc) return
-  //--让scene的id在sceneList中有意义
+  //--Сделать идентификатор scene значимым в sceneList
   var sceneList0 = []
   sceneList0 = xmlDoc.getElementsByTagName('scene')
   sceneList = new Array()
@@ -572,7 +572,7 @@ function galgame(name) {
     }
     for (j = 0; uselessTexts[j] != null; j++) {
       thisSceneTemp.removeChild(uselessTexts[j])
-    } //在此处清除所有#text
+    } // Удаляем все элементы #text на этом этапе
     j = thisSceneTemp.getAttribute('id')
     sceneList[Number(j)] = thisSceneTemp
     sceneList0[i] = null
@@ -613,22 +613,21 @@ function checkTextScroll() {
       textLenth: (baseTime() / 5) * ((scrollTop1 - scrollTop0) / lineHeight),
     }
   } else if (scrollTop0 + showHeight < scrollHeight0 - lineHeight / 5) {
-    return { scrollTop: scrollTop1, textLenth: baseTime() / 20 } //误差累积的情形
+    return { scrollTop: scrollTop1, textLenth: baseTime() / 20 } // Ситуация с накоплением ошибок
   } else {
-    return null //到底了
+    return null // Достигнут конец
   }
 }
 
 var lastEventNode = 0
 
 function Action(gotoScene, gotoAction, skipKey, loadKey2) {
-  //console.log("action: " + gotoScene + ', ' + gotoAction + ', ' +skipKey + ', ' + loadKey2 + '; autoSpeed:' + autoSpeed) ;
   var thisScene
   var thisEvent
-  //首先判断文本滚动的情况，优先显示完毕当前文本
+  // Сначала оцениваем прокрутку текста, чтобы завершить отображение текущего текста в приоритетном порядке
   checkTextScrollLastMove = 0
   if (!skipKey && autoSpeed != 'skip' && gotoScene == now_scene) {
-    //如果不是读档的情形
+    // Если это не загрузка архива
     var checkTextScroll_answer = checkTextScroll()
     if (checkTextScroll_answer != null) {
       checkTextScrollLastMove = checkTextScroll_answer.textLenth * 5 * 2.5
@@ -642,7 +641,7 @@ function Action(gotoScene, gotoAction, skipKey, loadKey2) {
           },
           step: function () {
             if (autoSpeed == 'stop') {
-              setListens(null, null, -2) //单击事件变成快速完成动画
+              setListens(null, null, -2) // Событие клика быстро завершает анимацию
             } else if (autoSpeed == 'skip') {
               $('.dialog-overflow').stop(true, true)
             }
@@ -658,7 +657,6 @@ function Action(gotoScene, gotoAction, skipKey, loadKey2) {
               dialogAutoplay('auto')
             } else {
               setListens(gotoScene, lastEventNode)
-              //console.log("set: " + lastEventNode);
             }
           },
         }
@@ -666,7 +664,7 @@ function Action(gotoScene, gotoAction, skipKey, loadKey2) {
       return
     }
   }
-  if (autoSpeed == 'stop') setListens(gotoScene, gotoAction) //普通状态
+  if (autoSpeed == 'stop') setListens(gotoScene, gotoAction) // Нормальное состояние
   //--
   remark_btn_hide()
   $('.choice_list').hide()
@@ -675,7 +673,7 @@ function Action(gotoScene, gotoAction, skipKey, loadKey2) {
   thisScene = sceneList[gotoScene]
 
   if (gotoAction < 2) {
-    historyChoiceList = new Array() //清空选择标记
+    historyChoiceList = new Array() // Очистить отметки выбора
   }
   thisEvent = thisScene.childNodes[gotoAction]
 
@@ -701,7 +699,7 @@ function Action(gotoScene, gotoAction, skipKey, loadKey2) {
             'ru-RU/resources/background/' +
               thisScene.getAttribute('background') +
               "') no-repeat"
-          ) //附加属性 white去除 否则会一瞬间跳白
+          ) // Добавленный атрибут white удаляется, иначе он мгновенно прыгнет на белый цвет
           .css('background-size', size + ' ' + size)
           .css('background-position', 'center')
       }
@@ -723,16 +721,15 @@ function Action(gotoScene, gotoAction, skipKey, loadKey2) {
 }
 
 function processAction(act, gotoScene, gotoAction, skipKey, loadKey2) {
-  //console.log('⬆ ' + act.nodeName);
   if ($.inArray(act.nodeName, ['text', 'speak', 'choices']) >= 0) {
     $('#all').show()
   }
   switch (act.nodeName) {
     case 'cg':
       if (skipKey) {
-        if (loadKey2) return //读档时跳过CG
+        if (loadKey2) return // Пропуск CG при загрузке архива
       }
-      dialogAutoplay('stop') //强制终止自动播放
+      dialogAutoplay('stop') // Принудительно прекратить автовоспроизведение
       lastEventNode = gotoAction
       $('#all').hide()
       var fadeInTimeCG = 300
@@ -784,7 +781,7 @@ function processAction(act, gotoScene, gotoAction, skipKey, loadKey2) {
       lastEventNode = gotoAction
       $('#all').hide()
       if (skipKey || autoSpeed == 'skip') {
-        //快速播放或读档时跳过
+        // Пропускается при быстрой перемотке вперед или загрузке файла сохранения
         return
       }
       var time = 0.5
@@ -830,7 +827,7 @@ function processAction(act, gotoScene, gotoAction, skipKey, loadKey2) {
     case 'shake':
       lastEventNode = gotoAction
       if (skipKey || autoSpeed == 'skip') {
-        //快速播放或读档时跳过
+        // Пропускается при быстрой перемотке вперед или загрузке файла сохранения
         return
       }
       var time = Number(act.getAttribute('time'))
@@ -850,7 +847,7 @@ function processAction(act, gotoScene, gotoAction, skipKey, loadKey2) {
 
     case 'text':
       lastEventNode = gotoAction
-      ClearDialog() //清除临时加载的格式
+      ClearDialog() // Очистить временно загруженное форматирование
       $('.dialog-chara').hide()
       post_achievement_in_event(act)
       var tempAttribute = act.getAttribute('article')
@@ -894,7 +891,7 @@ function processAction(act, gotoScene, gotoAction, skipKey, loadKey2) {
 
     case 'speak':
       lastEventNode = gotoAction
-      ClearDialog() //清除临时加载的格式
+      ClearDialog() // Очистить временно загруженное форматирование
       post_achievement_in_event(act)
       $('.dialog').removeClass('dialog_article')
       $('.dialog-overflow')
@@ -922,9 +919,9 @@ function processAction(act, gotoScene, gotoAction, skipKey, loadKey2) {
     case 'choices':
       lastEventNode = gotoAction
       if (skipKey) {
-        if (loadKey2) return //读档过程中，跳过
+        if (loadKey2) return // Во время процесса загрузки пропустить
       }
-      dialogAutoplay('stop') //强制终止自动播放
+      dialogAutoplay('stop') // Принудительно прекратить автовоспроизведение
       var choiceList = act.childNodes
       var choices = []
       for (var i = 0; i < choiceList.length; i++) {
@@ -935,7 +932,7 @@ function processAction(act, gotoScene, gotoAction, skipKey, loadKey2) {
                 text: getText(choiceList[i]),
                 continueScene: gotoScene,
                 continueAction: gotoAction,
-              }) //选择肢无影响
+              }) // Выбор конечности не дает никакого эффекта
             } else {
               choices.push({
                 text: getText(choiceList[i]),
@@ -1025,7 +1022,7 @@ function processAction(act, gotoScene, gotoAction, skipKey, loadKey2) {
 
     case 'end':
       lastEventNode = gotoAction
-      dialogAutoplay('stop') //强制终止自动播放
+      dialogAutoplay('stop') // Принудительно прекратить автовоспроизведение
       post_achievement_in_event(act)
       if (act.getAttribute('last')) {
         endGame(-1)
@@ -1040,7 +1037,7 @@ function processAction(act, gotoScene, gotoAction, skipKey, loadKey2) {
     case 'sound':
       lastEventNode = gotoAction
       if (skipKey || autoSpeed == 'skip') {
-        //读档或快进跳过历史音效
+        // Пропускать звуковые эффекты в истории при загрузке или перемотке
         return
       }
       var sound = $('#sound')[0]
@@ -1094,16 +1091,6 @@ var thanksWordsFlag = false
 
 function thanksWords() {
   thanksWordsFlag = true
-  // pv("gameEnd_Newest");
-  // if (GetQueryString("from") == "wx") {
-  //     pv("gameEnd_Newest_WX");
-  // } else if (GetQueryString("from") == "bh3") {
-  //     pv("gameEnd_Newest_BH3");
-  // } else if (GetQueryString("from") == "ipz") {
-  //     pv("gameEnd_Newest_IPZ");
-  // } else if (GetQueryString("from") == "cd") {
-  //     pv("gameEnd_Newest_CD");
-  // }
   $('#confirm_1')
     .html(`<div class="submit-center ${tl_css_lang}"></div>`)
     .css(
@@ -1148,14 +1135,14 @@ function gotoA(sceneKey, change, skipKey) {
       changeColour = null
     }
   }
-  if (changeColour) dialogAutoplay('stop') //强制终止自动播放
-  $('.white').removeClass().addClass('white').hide() //容错
+  if (changeColour) dialogAutoplay('stop') // Принудительно прекратить автовоспроизведение
+  $('.white').removeClass().addClass('white').hide() // Отказоустойчивость
   $('.background')
     .css('transition-duration', '0ms')
     .css('transform', 'scale(1,1)')
     .css('transform-origin', 'center')
   if (changeColour) {
-    setListens() //单击暂时无响应
+    setListens() // Нет ответа на клик в настоящее время
     $('.white')
       .css('background', changeColour)
       .fadeIn(changeTime, function () {
@@ -1171,9 +1158,9 @@ function gotoA(sceneKey, change, skipKey) {
 var actionTimer
 
 function nextAction(nowScene, nowAction, nowKey) {
-  systemAutoSave() //自动保存
+  systemAutoSave() // Автоматическое сохранение
   if (!isdialogAutoplay()) {
-    setListens() //单击暂时无响应
+    setListens() // Нет ответа на клик в настоящее время
   }
   if (actionTimer) {
     clearTimeout(actionTimer)
@@ -1201,9 +1188,9 @@ function RefreshDialog(
     )
   })
   if (checkTextScroll() == null) {
-    $('.dialog-overflow_article').addClass('dialog-overflow_article_center') //居中
+    $('.dialog-overflow_article').addClass('dialog-overflow_article_center') // По центру
   } else {
-    $('.dialog-overflow_article').removeClass('dialog-overflow_article_center') //取消居中
+    $('.dialog-overflow_article').removeClass('dialog-overflow_article_center') // Отменить центрирование
   }
   if (textColour != null) $('.dialog-text').css('color', textColour)
   else $('.dialog-text').css('color', '#ffffff')
@@ -1233,7 +1220,7 @@ function ShowDialog(mode, content) {
               c3: i,
             },
             function (e) {
-              historyChoiceList[e.data.c2] = e.data.c3 // 记录非转场选择
+              historyChoiceList[e.data.c2] = e.data.c3 // Запись выбора, не связанного с переходом
               nextAction(e.data.c1, e.data.c2)
               $('.choice_list').hide()
               $('.choice_list').html('')
@@ -1329,7 +1316,7 @@ function ToggleWindow(mode) {
 }
 /////////////////////////////////
 
-//自动存档----------------------------------------------------------
+// Автоматическое сохранение----------------------------------------------------------
 function systemAutoSave() {
   setCookie(now_galgame_tag, now_galgame)
   setCookie(now_scene_tag, now_scene)
@@ -1389,7 +1376,7 @@ function startGame(galgameKey, loadKey) {
     return
   }
   startLoad()
-  //catalogListTemp 和 catalogListLength都是全局变量，注意
+  // catalogListTemp и catalogListLength являются глобальными переменными, обратите внимание
   var xmlDoc = loadExistXmlFile('catalog_list', function () {
     catalogListTemp =
       xml_files_all_in_this['catalog_list'].getElementsByTagName('log')
@@ -1400,26 +1387,26 @@ function startGame(galgameKey, loadKey) {
   if (!xmlDoc) return
   for (var i = 0; i < catalogListLength; i++) {
     if (getText(catalogListTemp[i]) == galgameKey) {
-      playKey = galgameKey //传入的是文件名
+      playKey = galgameKey // Передаваемый параметр — имя файла
       break
     }
     if (catalogListTemp[i].getAttribute('id') == galgameKey) {
-      playKey = getText(catalogListTemp[i]) //传入的是ID
+      playKey = getText(catalogListTemp[i]) // Передаваемый параметр — ID
       break
     }
   }
   if (playKey != galgameKey && Number(galgameKey) < 1) {
     i--
-    playKey = getText(catalogListTemp[i]) //无效参数，读取最新章节
+    playKey = getText(catalogListTemp[i]) // Недопустимый параметр, чтение последней главы
   } else if (i >= catalogListLength) {
-    //传入的可能是章节列表中的数组序号，所以之前的循环中没有检测到任何结果
+    // Входным значением может быть порядковый номер массива в списке глав, поэтому ничего не найдено в предыдущем цикле
     if (catalogListTemp[Number(galgameKey) - 1] != null) {
       playKey = getText(catalogListTemp[Number(galgameKey) - 1])
       i = Number(galgameKey) - 1
     } else {
       LoadFinish()
       thanksWords()
-      return //章节到头
+      return // Глава заканчивается
     }
   }
 
@@ -1430,34 +1417,23 @@ function startGame(galgameKey, loadKey) {
   }
 
   galgame(playKey)
-  now_galgame = i + 1 //from 1, not 0
+  now_galgame = i + 1 // от 1, а не от 0
 
-  // pv("gameStart_" + now_galgame);
-
-  // if (GetQueryString("from") == "wx") {
-  //     pv("gameStart_" + now_galgame + "_WX");
-  // } else if (GetQueryString("from") == "bh3") {
-  //     pv("gameStart_" + now_galgame + "_BH3");
-  // } else if (GetQueryString("from") == "ipz") {
-  //     pv("gameStart_" + now_galgame + "_IPZ");
-  // } else if (GetQueryString("from") == "cd") {
-  //     pv("gameStart_" + now_galgame + "_CD");
-  // }
-  //检测预加载图片是否加载完毕
+  // Проверка, завершилась ли загрузка предзагруженных изображений
   var countIndexTimer = 0
   var preLoadImagesTimer = setInterval(function () {
     if (!loadExistXmlFile(playKey, function () {})) {
-      //xml声明加载不受超时限制
+      // Загрузка декларации xml не подлежит тайм-ауту
       countIndexTimer++
       return
     }
     if (!characterData.length) {
-      //xml声明加载不受超时限制
+      // Загрузка декларации xml не подлежит тайм-ауту
       countIndexTimer++
       return
     }
     if (preLoadImagesCheck() > 0 || countIndexTimer > 100) {
-      //图片加载完毕，或者超时
+      // Изображения загружены, либо истекло время ожидания
       clearTimeout(preLoadImagesTimer)
       $('.cg').css('display', 'none')
       $('.transition').fadeIn(300, function () {
@@ -1465,7 +1441,7 @@ function startGame(galgameKey, loadKey) {
         $('.cg-wrapper').hide()
       })
       var bgm = $('#indexbgm')[0]
-      bgm.pause() //main bgm
+      bgm.pause() // главная bgm
       setTimeout('$(".menuscene").fadeOut()', 350)
       setTimeout('$(".transition").fadeOut(450);', 450)
       LoadFinish()
@@ -1475,7 +1451,7 @@ function startGame(galgameKey, loadKey) {
         Action(0, 0)
       } else {
         for (i = 0; i < loadKey.A; i++) {
-          Action(loadKey.S, i, 1, 1) //all Action para
+          Action(loadKey.S, i, 1, 1) // все параметры действия
         }
         Action(loadKey.S, loadKey.A)
       }
@@ -1499,7 +1475,7 @@ function preLoadUiImages(resStr, resList, flag_continue) {
       .bind('error', function () {
         var count = $(this).data('retryCount')
         if (count < 5) {
-          //尝试次数
+          // Количество попыток
           $(this).data('retryCount', count + 1)
           this.src = this.src
         }
@@ -1509,12 +1485,12 @@ function preLoadUiImages(resStr, resList, flag_continue) {
 }
 
 function preLoadImagesBegin(imageList) {
-  showInSceneList = new Array() //清空立绘缓存名单
+  showInSceneList = new Array() // Очистить кэш-список изображений
   bgInSceneList = new Array()
   cgInSceneList = new Array()
   var charaDefErrorList = new Array()
   for (i in sceneList) {
-    var thisScene = sceneList[i] //场景列表在流程上已被读取
+    var thisScene = sceneList[i] // Список сцен прочитан в процессе
     var thisBgFileName = thisScene.getAttribute('background')
     if (thisBgFileName.length) {
       if (
@@ -1531,7 +1507,7 @@ function preLoadImagesBegin(imageList) {
         if (chara) {
           if (characterData[chara]) {
             if ($.inArray(characterData[chara]['src'], showInSceneList) < 0) {
-              showInSceneList.push(characterData[chara]['src']) //只存储确实使用过且被声明的立绘
+              showInSceneList.push(characterData[chara]['src']) // Храните только действительно использованные и задекларированные изображения
             }
           } else if (!charaDefErrorList[chara]) {
             console.log('Defination Error: ' + chara)
@@ -1591,7 +1567,7 @@ function preLoadImagesBegin(imageList) {
       .bind('error', function () {
         var count = $(this).data('retryCount')
         if (count < 5) {
-          //尝试次数
+          // Количество попыток
           $(this).data('retryCount', count + 1)
           this.src = this.src
         }
@@ -1607,7 +1583,7 @@ function preLoadImagesBegin(imageList) {
     .bind('error', function () {
       var count = $(this).data('retryCount')
       if (count < 5) {
-        //尝试次数
+        // Количество попыток
         $(this).data('retryCount', count + 1)
         this.src = this.src
       }
@@ -1637,12 +1613,12 @@ function endGame(keyFlag) {
     if (!isNaN(bgm.duration)) bgm.currentTime = 0
     var sound = $('#sound')[0]
     sound.pause()
-    if (!isNaN(sound.duration)) sound.currentTime = 0 //stop bgm se
+    if (!isNaN(sound.duration)) sound.currentTime = 0 // остановить bgm se
     $('.menuscene').fadeIn(500, function () {
       $('.cg').css('display', 'none')
       bgm = $('#indexbgm')[0]
       if (!isNaN(bgm.duration)) bgm.currentTime = 0
-      bgm.play() //main bgm
+      bgm.play() // главная bgm
       LoadFinish()
       if (thanksWordsFlag) {
         nextChapterBox()
@@ -1656,26 +1632,16 @@ function endGame(keyFlag) {
     if (!isNaN(bgm.duration)) bgm.currentTime = 0
     var sound = $('#sound')[0]
     sound.pause()
-    if (!isNaN(sound.duration)) sound.currentTime = 0 //stop bgm se
+    if (!isNaN(sound.duration)) sound.currentTime = 0 // остановить bgm se
     $('.menuscene').fadeIn(500, function () {
       $('.cg').css('display', 'none')
       bgm = $('#indexbgm')[0]
       if (!isNaN(bgm.duration)) bgm.currentTime = 0
-      bgm.play() //main bgm
+      bgm.play() // главная bgm
       LoadFinish()
       nextChapterBox()
     })
   } else {
-    // pv("gameEnd_" + now_galgame);
-    // if (GetQueryString("from") == "wx") {
-    //     pv("gameEnd_" + now_galgame + "_WX");
-    // } else if (GetQueryString("from") == "bh3") {
-    //     pv("gameEnd_" + now_galgame + "_BH3");
-    // } else if (GetQueryString("from") == "ipz") {
-    //     pv("gameEnd_" + now_galgame + "_IPZ");
-    // } else if (GetQueryString("from") == "cd") {
-    //     pv("gameEnd_" + now_galgame + "_CD");
-    // }
     startGame(now_galgame + 1, { S: 0, A: 0 })
   }
 }
@@ -1697,7 +1663,7 @@ function ShowUi(dialog, chara) {
 }
 
 function ToggleCloseButton(close_obj) {
-  //功能是否已经变化？
+  // Изменилась ли функция?
   var close_btn_data = $('.close_btn').attr('data')
   if (close_btn_data) {
     $('.close_btn').toggle()
@@ -1709,7 +1675,7 @@ function ToggleCloseButton(close_obj) {
   }
 }
 
-//读档存档
+// Загрузить архив / сохранить архив
 function add_record() {
   dialogAutoplay('stop')
   $('#confirm_1').html(
@@ -1820,11 +1786,11 @@ function browserRedirect() {
 function check_size() {
   var winWidth
   var winHeight
-  //获取窗口宽度
+  // Получить ширину окна
   if (window.innerWidth) {
     winWidth = window.innerWidth
   } else if (document.body && document.body.clientWidth) {
-    winWidth = document.body.clientWidth //获取窗口高度
+    winWidth = document.body.clientWidth // Получить высоту окна
   }
   winWidth = parseInt(winWidth)
   if (window.innerHeight) {
@@ -1833,7 +1799,7 @@ function check_size() {
     winHeight = document.body.clientHeight
   }
   winHeight = parseInt(winHeight)
-  //通过深入Document内部对body进行检测，获取窗口大小
+  // Получение размера окна путем глубокой проверки тела внутри Document
   if (
     document.documentElement &&
     document.documentElement.clientHeight &&
@@ -1866,10 +1832,10 @@ function check_size() {
     .css('left', ($('.black').width() - $('.frame').width()) / 2 + 'px')
     .css('top', ($('.black').height() - $('.frame').height()) / 2 + 'px')
 
-  window.scrollTo(0, 1) //隐藏浏览器工具栏
+  window.scrollTo(0, 1) // Скрытие панели инструментов браузера
 }
 
-// CUSTOM: requests XML from user-configurable xmlPath, if it fails, it'll fall back to main VN repo
+// CUSTOM: запрашивает XML по настраиваемому пользователем xmlPath, в случае неудачи он вернется к основному репо VN
 function get_xml_ajax_async(
   xmlName,
   callBack,
@@ -1912,10 +1878,9 @@ function loadExistXmlFile(xmlName, callBack, fileType) {
   if (xml_files_all_in_this.hasOwnProperty(xmlName)) {
     return xml_files_all_in_this[xmlName]
   } else if (loading_xml_files.hasOwnProperty(xmlName)) {
-    return null //排除意外并发
+    return null // Исключить непредвиденный параллелизм
   } else {
     loading_xml_files[xmlName] = true
-    //console.log(xmlName + ' start load');
     var customUrl = undefined;
     if (xmlName === 'exhibition_list') {
         customUrl = 'ru-RU/resources/utils/exhibition_list.xml';
@@ -1936,14 +1901,14 @@ function loadExistXmlFile(xmlName, callBack, fileType) {
 function getText(e) {
   var t = ''
   if (!e) return null
-  e = e.childNodes || e //如果传入的是元素，则继续遍历其子元素；否则假定它是一个数组
+  e = e.childNodes || e // Если передан элемент, то продолжаем обход его дочерних элементов; в противном случае предполагаем, что это массив
   for (var i = 0; i < e.length; i++) {
-    //如果不是元素，追回其文本值；
-    //否则，递归遍历所有元素的子节点；
+    // Если это не элемент, то возвращаем его текстовое значение;
+    // в противном случае рекурсивно проходим по всем дочерним узлам элемента;
     if (e[i].nodeType) {
       t += e[i].nodeType != 1 ? e[i].nodeValue : getText(e[i].childNodes)
     } else {
-      t += e[i] //字符串的情形
+      t += e[i] // Случай со строкой
     }
   }
   return t
@@ -1965,7 +1930,7 @@ function base64Decode(input) {
 }
 
 //-------------------------------------------------------
-//Catalog 目录界面
+// Интерфейс оглавления
 var catalogPageIndex = 0
 var catalogListLength = 0
 var catalogListTemp = null
@@ -2304,7 +2269,7 @@ $('.pagenum#pagenum-7').click(function () {
       $('.pagenum#pagenum-7').addClass('pagenum-gray')
     }
   }
-}) //向前
+}) // Назад
 
 $('.pagenum#pagenum-8').click(function () {
   if ((catalogPageIndex + 1) * 2 < catalogListLength) {
@@ -2317,36 +2282,25 @@ $('.pagenum#pagenum-8').click(function () {
       $('.pagenum#pagenum-8').addClass('pagenum-gray')
     }
   }
-}) //向后
+}) // Вперед
 
 function showCatalogFrame(page) {
-  //new
+  // Новое
   catalogPageNew(page)
 }
 //-------------------------------------------------------
 
 function setCookie(name, value) {
-  // var Days = 30;
-  // var exp = new Date();
-  // exp.setTime(exp.getTime() + Days * 24 * 60 * 60 * 1000);
-  // document.cookie = name + "=" + escape(value) + ";expires=" + exp.toGMTString();
   localStorage.setItem(name, value)
 }
 
-///删除cookie
+/// Удалить cookie
 function delCookie(name) {
-  // var exp = new Date();
-  // exp.setTime(exp.getTime() - 1);
-  // var cval = getCookie(name);
-  // if (cval != null) document.cookie = name + "=" + cval + ";expires=" + exp.toGMTString();
   localStorage.removeItem(name)
 }
 
-//读取cookie
+// Прочитать cookie
 function getCookie(name) {
-  // var arr = document.cookie.match(new RegExp("(^| )" + name + "=([^;]*)(;|$)"));
-  // if (arr != null) return unescape(arr[2]);
-  // return null;
   return localStorage.getItem(name)
 }
 
@@ -2357,7 +2311,7 @@ function GetQueryString(_name) {
   return null
 }
 
-//历史纪录相关------------------------------------------------------
+// Связано с историей------------------------------------------------------
 $('.dialog-btn-history').click(function (e) {
   e.stopPropagation()
   showHistory()
@@ -2475,7 +2429,7 @@ function hideHistory() {
 }
 //----------------------------------------------------------------
 
-//文本注释系统相关------------------------------------------------
+// Связано с системой текстовых примечаний------------------------------------------------
 $('.remark').hide()
 remark_btn_hide()
 
@@ -2558,11 +2512,11 @@ function wrk_get_size() {
   if (window.innerWidth) winWidth = window.innerWidth
   else if (document.body && document.body.clientWidth)
     winWidth = document.body.clientWidth
-  //获取窗口高度
+  // Получить высоту окна
   if (window.innerHeight) winHeight = window.innerHeight
   else if (document.body && document.body.clientHeight)
     winHeight = document.body.clientHeight
-  //通过深入Document内部对body进行检测，获取窗口大小
+  // Получение размера окна путем глубокой проверки тела внутри Document
   if (
     document.documentElement &&
     document.documentElement.clientHeight &&
@@ -2598,112 +2552,159 @@ if (GetQueryString('auth_key')) {
       GetQueryString('sign')
   }
 }
-//achievement-------------------------------------------
-var ajax_answer_achievement = null
 
-var local_achievement_db = {
-  "10010": { title: "往日是一首序曲", text: "你阅读了第一章的剧情。", image: "normal" },
-  "10011": { title: "入此门者，当放弃一切希望", text: "你发现了关于《神曲》的注释。", image: "welt" },
-  "10012": { title: "无名之地的意义", text: "你发现了关于地名的注释。", image: "normal" },
-  "10013": { title: "好故事都值得修饰", text: "你发现了关于休·卡斯沃尔的注释。", image: "welt" },
-  "10020": { title: "我们所要做的事，应该一想到就做", text: "你阅读了第二章的剧情。", image: "normal" },
-  "10021": { title: "我宁愿失去印度，也不愿失去莎士比亚", text: "你发现了关于莎士比亚的注释。", image: "ein" },
-  "10022": { title: "We are not amused", text: "你发现了关于维多利亚女王的注释。", image: "ein" },
-  "10030": { title: "The day is long that never finds the night", text: "你阅读了第三章的剧情。", image: "normal" },
-  "10031": { title: "and yes I said yes I will yes", text: "你发现了关于《尤利西斯》的注释。", image: "welt" },
-  "10032": { title: "对此我们自然希望能有一个严格的证明", text: "你在选项中尝试了错误的证明方法。", image: "schro" },
-  "10033": { title: "一个我正试图从中醒来的噩梦", text: "你在选项中感受到了历史的重量。", image: "welt" },
-  "10040": { title: "Small and white, clean and bright", text: "你阅读了第四章的剧情。", image: "normal" },
-  "10041": { title: "维克多·拉斯洛就在那架飞机上", text: "你发现了关于《北非谍影》的注释。", image: "normal" },
-  "10050": { title: "We shall meet in the place where there is no darkness", text: "你阅读了第五章的剧情。", image: "normal" },
-  "10051": { title: "其必也射乎", text: "你发现了关于《论语》的注释。", image: "welt" },
-  "10060": { title: "我曾于此独自歌唱，也曾于此默默怀念", text: "你阅读了第六章的剧情。", image: "normal" },
-  "10061": { title: "这并不是一个故事的结束", text: "你发现了关于《艾凡赫》的注释。", image: "welt" },
-  "10070": { title: "那些终将汇入时间长河的泪水", text: "你阅读了第七章的剧情。", image: "normal" },
-  "10071": { title: "大宪章", text: "你发现了关于《大宪章》的注释。", image: "ein" },
-  "10080": { title: "所有的结局都已写好，所有的泪水都已启程", text: "你阅读了第八章的剧情。", image: "normal" },
-  "10081": { title: "一切真理最初都是狂言", text: "你发现了关于萧伯纳的注释。", image: "ein" },
-  "10090": { title: "如果我们必须在那之前，在那之后", text: "你阅读了第九章的剧情。", image: "normal" },
-  "10100": { title: "在时间的无涯荒野中", text: "你阅读了第十章的剧情。", image: "normal" },
-  "10110": { title: "即使它是一颗流星", text: "你阅读了第十一章的剧情。", image: "normal" },
-  "10111": { title: "三只小猪", text: "你发现了关于《三只小猪》的注释。", image: "tesla" },
-  "10120": { title: "这是世界的毁灭方式", text: "你阅读了第十二章的剧情。", image: "normal" },
-  "10121": { title: "荒原", text: "你发现了关于《荒原》的注释。", image: "welt" },
-  "10130": { title: "如果我们不得不失去彼此", text: "你阅读了第十三章的剧情。", image: "normal" },
-  "10131": { title: "弗兰肯斯坦", text: "你发现了关于玛丽·雪莱的注释。", image: "ein" },
-  "10140": { title: "在被忘记的岁月中", text: "你阅读了第十四章的剧情。", image: "normal" },
-  "10150": { title: "我甚至记不清我是什么时候离开的", text: "你阅读了第十五章的剧情。", image: "normal" },
-  "10151": { title: "世界并不是平坦的", text: "你发现了关于《弗莱彻论证》的注释。", image: "schro" },
-  "10160": { title: "我们应当在此时此刻，也在那时那刻", text: "你阅读了第十六章的剧情。", image: "normal" },
-  "10170": { title: "在这一刻，我们也成了历史", text: "你阅读了第十七章的剧情。", image: "normal" },
-  "10171": { title: "理性的边界", text: "你发现了关于康德的注释。", image: "ein" },
-  "10172": { title: "God save the king?", text: "你发现了关于《天佑吾王》的注释。", image: "normal" },
-  "10173": { title: "One if by land, and two if by sea", text: "你发现了关于保罗·里维尔的注释。", image: "normal" },
-  "10180": { title: "我既是吞灭一切的死，又是将要诞生者的生", text: "你阅读了第十八章的剧情。", image: "normal" },
-  "10181": { title: "一支军队拥有一个国家", text: "你发现了关于普鲁士的注释。", image: "ein" },
-  "10182": { title: "YOU ARE ENTERING THE AMERICAN SECTOR", text: "你发现了关于柏林墙的注释。", image: "normal" },
-  "10183": { title: "新罗马", text: "你发现了关于华盛顿的注释。", image: "normal" },
-  "10190": { title: "圣枪绽放", text: "你阅读了第十九章的剧情。", image: "normal" },
-  "10191": { title: "叫我伊希梅尔吧", text: "你发现了关于《白鲸》的注释。", image: "welt" },
-  "10192": { title: "相约星期二", text: "你发现了关于莫里·施瓦茨的注释。", image: "normal" },
-  "10200": { title: "麦田里的守望者", text: "你阅读了第二十章的剧情。", image: "normal" },
-  "10201": { title: "那些令人无法理解的符号", text: "你发现了关于《伏尼契手稿》的注释。", image: "normal" },
-  "10202": { title: "奇想天外", text: "你发现了关于江户川乱步的注释。", image: "normal" },
-  "10203": { title: "Caledfwlch, Caliburn, Excalibur", text: "你发现了关于王者之剑的注释。", image: "normal" },
-  "10210": { title: "世界已准备好被毁灭", text: "你阅读了第二十一章的剧情。", image: "normal" },
-  "10211": { title: "那是你们自己的问题", text: "你发现了关于薩特的注释。", image: "ein" },
-  "10220": { title: "在时间的灰烬中", text: "你阅读了第二十二章的剧情。", image: "normal" },
-  "10221": { title: "我是医生，不是医生", text: "你发现了关于《日内瓦宣言》的注释。", image: "normal" },
-  "10230": { title: "星辰已准备好被点亮", text: "你阅读了第二十三章的剧情。", image: "normal" },
-  "10231": { title: "你发现了关于十一维时空的注释。", text: "你发现了关于十一维时空的注释。", image: "nancy" },
-  "10240": { title: "往日是一首终曲", text: "你阅读了第二十四章的剧情。", image: "normal" },
-  "10241": { title: "维克多·拉斯洛就在那架飞机上", text: "你发现了关于《北非谍影》的注释。", image: "normal" }
-};
+//Достижения-------------------------------------------
+var ajax_answer_achievement = null;
+
+// Статичная база данных всех возможных достижений из achievement.php
+var masterAchievementData = [
+  {"achievement":10010,"text":"\u4f60\u9605\u8bfb\u4e86\u7b2c\u4e00\u7ae0\u7684\u5267\u60c5\u3002","image":"normal"},
+  {"achievement":10011,"text":"\u4f60\u53d1\u73b0\u4e86\u5173\u4e8e\u300a\u795e\u66f2\u300b\u7684\u6ce8\u91ca\u3002","image":"welt"},
+  {"achievement":10012,"text":"\u4f60\u53d1\u73b0\u4e86\u5173\u4e8e\u7684\u91cc\u96c5\u65af\u7279\u7684\u6ce8\u91ca\u3002","image":"tesla"},
+  {"achievement":10013,"text":"\u4f60\u53d1\u73b0\u4e86\u5173\u4e8e\u300a\u9b54\u6212\u300b\u7684\u6ce8\u91ca\u3002","image":"ein"},
+  {"achievement":10020,"text":"\u4f60\u9605\u8bfb\u4e86\u7b2c\u4e8c\u7ae0\u7684\u5267\u60c5\u3002","image":"normal"},
+  {"achievement":10021,"text":"\u4f60\u53d1\u73b0\u4e86\u5173\u4e8e\u5e1d\u56fd\u7814\u7a76\u9662\u7684\u6ce8\u91ca\u3002","image":"welt"},
+  {"achievement":10022,"text":"\u4f60\u53d1\u73b0\u4e86\u5173\u4e8e\u7ef4\u591a\u5229\u4e9a\u4e0e\u963f\u5c14\u4f2f\u7279\u535a\u7269\u9986\u7684\u6ce8\u91ca\u3002","image":"ein"},
+  {"achievement":10030,"text":"\u4f60\u9605\u8bfb\u4e86\u7b2c\u4e09\u7ae0\u7684\u5267\u60c5\u3002","image":"normal"},
+  {"achievement":10031,"text":"\u4f60\u53d1\u73b0\u4e86\u5173\u4e8e\u300a\u5c24\u5229\u897f\u65af\u300b\u7684\u6ce8\u91ca\u3002","image":"tesla"},
+  {"achievement":10032,"text":"\u4f60\u9009\u62e9\u4e86\u67d0\u4e2a\u5206\u652f\u9009\u9879\u3002","image":"ein"},
+  {"achievement":10033,"text":"\u4f60\u9009\u62e9\u4e86\u67d0\u4e2a\u5206\u652f\u9009\u9879\u3002","image":"welt"},
+  {"achievement":10040,"text":"\u4f60\u9605\u8bfb\u4e86\u7b2c\u56db\u7ae0\u7684\u5267\u60c5\u3002","image":"normal"},
+  {"achievement":10041,"text":"\u4f60\u53d1\u73b0\u4e86\u5173\u4e8e\u4ea8\u5f17\u83b1\u00b7\u9c8d\u5609\u7684\u6ce8\u91ca\u3002","image":"nokia"},
+  {"achievement":10042,"text":"\u4f60\u53d1\u73b0\u4e86\u5173\u4e8e\u300a\u4f0a\u5a03\u7684\u6ce2\u5c14\u5361\u300b\u7684\u6ce8\u91ca\u3002","image":"nokia"},
+  {"achievement":10043,"text":"\u4f60\u53d1\u73b0\u4e86\u5173\u4e8e\u300a\u522b\u95f9\u4e86\uff0c\u8d39\u66fc\u5148\u751f\u300b\u7684\u6ce8\u91ca\u3002","image":"plank"},
+  {"achievement":10050,"text":"\u4f60\u9605\u8bfb\u4e86\u7b2c\u4e94\u7ae0\u7684\u5267\u60c5\u3002","image":"normal"},
+  {"achievement":10051,"text":"\u4f60\u53d1\u73b0\u4e86\u5173\u4e8e\u672b\u6b21\u51b0\u76db\u671f\u7684\u6ce8\u91ca\u3002","image":"schro"},
+  {"achievement":10052,"text":"\u4f60\u53d1\u73b0\u4e86\u5173\u4e8e\u4e0d\u786e\u5b9a\u6027\u539f\u7406\u7684\u6ce8\u91ca\u3002","image":"schro"},
+  {"achievement":10053,"text":"\u4f60\u53d1\u73b0\u4e86\u5173\u4e8e\u8001\u5fe0\u5b9e\u6cc9\u7684\u6ce8\u91ca\u3002","image":"plank"},
+  {"achievement":10060,"text":"\u4f60\u9605\u8bfb\u4e86\u7b2c\u516d\u7ae0\u7684\u5267\u60c5\u3002","image":"normal"},
+  {"achievement":10061,"text":"\u4f60\u53d1\u73b0\u4e86\u5173\u4e8e\u5e9e\u8d1d\u7684\u6ce8\u91ca\u3002","image":"welt"},
+  {"achievement":10062,"text":"\u4f60\u53d1\u73b0\u4e86\u5173\u4e8e\u300a\u57fa\u7763\u5c71\u4f2f\u7235\u300b\u7684\u6ce8\u91ca\u3002","image":"plank"},
+  {"achievement":10063,"text":"\u4f60\u53d1\u73b0\u4e86\u5173\u4e8e\u4f26\u8482\u5c3c\u6069\u7684\u6ce8\u91ca\u3002","image":"ein"},
+  {"achievement":10070,"text":"\u4f60\u9605\u8bfb\u4e86\u7b2c\u4e03\u7ae0\u7684\u5267\u60c5\u3002","image":"normal"},
+  {"achievement":10071,"text":"\u4f60\u53d1\u73b0\u4e86\u5173\u4e8e\u7f57\u5fb7\u5c9b\u7684\u6ce8\u91ca\u3002","image":"tesla"},
+  {"achievement":10072,"text":"\u4f60\u53d1\u73b0\u4e86\u5173\u4e8e\u65bd\u6d17\u8005\u7ea6\u7ff0\u7684\u6ce8\u91ca\u3002","image":"tesla"},
+  {"achievement":10073,"text":"\u4f60\u53d1\u73b0\u4e86\u5173\u4e8e\u7eb3\u5c14\u900a\u7684\u540d\u8a00\u7684\u6ce8\u91ca\u3002","image":"welt"},
+  {"achievement":10080,"text":"\u4f60\u9605\u8bfb\u4e86\u7b2c\u516b\u7ae0\u7684\u5267\u60c5\u3002","image":"normal"},
+  {"achievement":10081,"text":"\u4f60\u53d1\u73b0\u4e86\u5173\u4e8e\u6d1b\u592b\u83b1\u65af\u4f2f\u7235\u592b\u4eba\u7684\u6ce8\u91ca\u3002","image":"ada"},
+  {"achievement":10082,"text":"\u4e0d\u2026\u2026\u4f60\u4ec0\u4e48\u4e5f\u6ca1\u6709\u53d1\u73b0\u3002\u55ef\u3002","image":"ada"},
+  {"achievement":10083,"text":"\u4f60\u53d1\u73b0\u4e86\u5173\u4e8e\u692d\u5706\u66f2\u7ebf\u5bc6\u7801\u7684\u6ce8\u91ca\u3002","image":"ada"},
+  {"achievement":10090,"text":"\u4f60\u9605\u8bfb\u4e86\u7b2c\u4e5d\u7ae0\u7684\u5267\u60c5\u3002","image":"normal"},
+  {"achievement":10091,"text":"\u4f60\u53d1\u73b0\u4e86\u5173\u4e8e\u7279\u65af\u62c9\u8eab\u4efd\u4fe1\u606f\u7684\u6ce8\u91ca\u3002","image":"tesla"},
+  {"achievement":10100,"text":"\u4f60\u9605\u8bfb\u4e86\u7b2c\u5341\u7ae0\u7684\u5267\u60c5\u3002","image":"normal"},
+  {"achievement":10101,"text":"\u4f60\u53d1\u73b0\u4e86\u5173\u4e8e\u70ed\u529b\u5b66\u7b2c\u4e8c\u5b9a\u5f8b\u7684\u6ce8\u91ca\u3002","image":"schro"},
+  {"achievement":10102,"text":"\u4f60\u53d1\u73b0\u4e86\u5173\u4e8e\u822c\u5ea6\u7684\u6ce8\u91ca\u3002","image":"tesla"},
+  {"achievement":10103,"text":"\u4f60\u53d1\u73b0\u4e86\u5173\u4e8e\u201c\u7ec8\u6781\u7b54\u6848\u201d\u7684\u6ce8\u91ca\u3002","image":"welt"},
+  {"achievement":10110,"text":"\u4f60\u9605\u8bfb\u4e86\u7b2c\u5341\u4e00\u7ae0\u7684\u5267\u60c5\u3002","image":"normal"},
+  {"achievement":10111,"text":"\u4f60\u53d1\u73b0\u4e86\u5173\u4e8e\u5e03\u9c81\u56fe\u7684\u6ce8\u91ca\u3002","image":"welt"},
+  {"achievement":10120,"text":"\u4f60\u9605\u8bfb\u4e86\u7b2c\u5341\u4e8c\u7ae0\u7684\u5267\u60c5\u3002","image":"normal"},
+  {"achievement":10121,"text":"\u4f60\u53d1\u73b0\u4e86\u5173\u4e8e\u300a\u4e39\u5c3c\u7537\u5b69\u300b\u7684\u6ce8\u91ca\u3002","image":"welt"},
+  {"achievement":10130,"text":"\u4f60\u9605\u8bfb\u4e86\u7b2c\u5341\u4e09\u7ae0\u7684\u5267\u60c5\u3002","image":"normal"},
+  {"achievement":10140,"text":"\u4f60\u9605\u8bfb\u4e86\u7b2c\u5341\u56db\u7ae0\u7684\u5267\u60c5\u3002","image":"normal"},
+  {"achievement":10141,"text":"\u4f60\u53d1\u73b0\u4e86\u5173\u4e8e\u5929\u6d25\u56db\u7684\u6ce8\u91ca\u3002","image":"ein"},
+  {"achievement":10142,"text":"\u4f60\u53d1\u73b0\u4e86\u5173\u4e8e\u4ed9\u5973\u5ea7\u7684\u6ce8\u91ca\u3002","image":"ein"},
+  {"achievement":10143,"text":"\u4f60\u53d1\u73b0\u4e86\u5173\u4e8e\u5317\u843d\u5e08\u95e8\u7684\u6ce8\u91ca\u3002","image":"ein"},
+  {"achievement":10150,"text":"\u4f60\u9605\u8bfb\u4e86\u7b2c\u5341\u4e94\u7ae0\u7684\u5267\u60c5\u3002","image":"normal"},
+  {"achievement":10151,"text":"\u4f60\u53d1\u73b0\u4e86\u5173\u4e8e\u672c\u4f53\u8bba\u7684\u6ce8\u91ca\u3002","image":"otto"},
+  {"achievement":10152,"text":"\u4f60\u53d1\u73b0\u4e86\u5173\u4e8e\u300a\u9752\u5e74\u5728\u9009\u62e9\u804c\u4e1a\u65f6\u7684\u8003\u8651\u300b\u7684\u6ce8\u91ca\u3002","image":"welt"},
+  {"achievement":10160,"text":"\u4f60\u9605\u8bfb\u4e86\u7b2c\u5341\u516d\u7ae0\u7684\u5267\u60c5\u3002","image":"normal"},
+  {"achievement":10161,"text":"\u4f60\u53d1\u73b0\u4e86\u5173\u4e8e\u300a\u7f8e\u56fd\u72ec\u7acb\u5ba3\u8a00\u300b\u7684\u6ce8\u91ca\u3002","image":"ein"},
+  {"achievement":10162,"text":"\u4f60\u53d1\u73b0\u4e86\u5173\u4e8e\u300a\u5171\u4ea7\u515a\u5ba3\u8a00\u300b\u7684\u6ce8\u91ca\u3002","image":"ein"},
+  {"achievement":10170,"text":"\u4f60\u9605\u8bfb\u4e86\u7b2c\u5341\u4e03\u7ae0\u7684\u5267\u60c5\u3002","image":"normal"},
+  {"achievement":10171,"text":"\u4f60\u53d1\u73b0\u4e86\u5173\u4e8e\u300a\u5bbd\u5bb9\u300b\u7684\u6ce8\u91ca\u3002","image":"tesla"},
+  {"achievement":10172,"text":"\u4f60\u53d1\u73b0\u4e86\u5173\u4e8e\u6ce2\u58eb\u987f\u5c60\u6740\u7684\u6ce8\u91ca\u3002","image":"ein"},
+  {"achievement":10173,"text":"\u4f60\u53d1\u73b0\u4e86\u5173\u4e8e\u5217\u514b\u661f\u6566\u548c\u5eb7\u79d1\u5fb7\u6218\u5f79\u7684\u6ce8\u91ca\u3002","image":"welt"},
+  {"achievement":10180,"text":"\u4f60\u9605\u8bfb\u4e86\u7b2c\u5341\u516b\u7ae0\u7684\u5267\u60c5\u3002","image":"normal"},
+  {"achievement":10181,"text":"\u4f60\u53d1\u73b0\u4e86\u5173\u4e8e\u52c3\u5170\u767b\u5821\u95e8\u7684\u6ce8\u91ca\u3002","image":"welt"},
+  {"achievement":10182,"text":"\u4f60\u53d1\u73b0\u4e86\u5173\u4e8e\u67cf\u6797\u5360\u9886\u533a\u7684\u6ce8\u91ca\u3002","image":"welt"},
+  {"achievement":10183,"text":"\u4f60\u53d1\u73b0\u4e86\u5173\u4e8e\u7f8e\u56fd1\u53f7\u56fd\u9053\u7684\u6ce8\u91ca\u3002","image":"tesla"},
+  {"achievement":10190,"text":"\u4f60\u9605\u8bfb\u4e86\u7b2c\u5341\u4e5d\u7ae0\u7684\u5267\u60c5\u3002","image":"normal"},
+  {"achievement":10191,"text":"\u4f60\u53d1\u73b0\u4e86\u5173\u4e8e\u300a\u767d\u9cb8\u300b\u7684\u6ce8\u91ca\u3002","image":"reana"},
+  {"achievement":10192,"text":"\u4f60\u53d1\u73b0\u4e86\u5173\u4e8e\u63d0\u5c14\u7684\u6ce8\u91ca\u3002","image":"tesla"},
+  {"achievement":10200,"text":"\u4f60\u9605\u8bfb\u4e86\u7b2c\u4e8c\u5341\u7ae0\u7684\u5267\u60c5\u3002","image":"normal"},
+  {"achievement":10201,"text":"\u4f60\u53d1\u73b0\u4e86\u5173\u4e8e\u571f\u8033\u5176\u72ec\u7acb\u6218\u4e89\u7684\u6ce8\u91ca\u3002","image":"reana"},
+  {"achievement":10202,"text":"\u4f60\u53d1\u73b0\u4e86\u5173\u4e8e\u767e\u5c81\u5170\u7684\u6ce8\u91ca\u3002","image":"reana"},
+  {"achievement":10203,"text":"\u4f60\u53d1\u73b0\u4e86\u5173\u4e8e\u4e9a\u745f\u738b\u7684\u6ce8\u91ca\u3002","image":"tesla"},
+  {"achievement":10210,"text":"\u4f60\u9605\u8bfb\u4e86\u7b2c\u4e8c\u5341\u4e00\u7ae0\u7684\u5267\u60c5\u3002","image":"normal"},
+  {"achievement":10211,"text":"\u4f60\u53d1\u73b0\u4e86\u5173\u4e8e\u77f3\u70ad\u9178\u7684\u6ce8\u91ca\u3002","image":"reana"},
+  {"achievement":10212,"text":"\u4f60\u53d1\u73b0\u4e86\u5173\u4e8e\u963f\u65af\u7279\u62c9\u7684\u6ce8\u91ca\u3002","image":"tesla"},
+  {"achievement":10220,"text":"\u4f60\u9605\u8bfb\u4e86\u7b2c\u4e8c\u5341\u4e8c\u7ae0\u7684\u5267\u60c5\u3002","image":"normal"},
+  {"achievement":10221,"text":"\u4f60\u53d1\u73b0\u4e86\u5173\u4e8e\u300a\u65e5\u5185\u74e6\u5ba3\u8a00\u300b\u7684\u6ce8\u91ca\u3002","image":"normal"},
+  {"achievement":10230,"text":"\u4f60\u9605\u8bfb\u4e86\u7b2c\u4e8c\u5341\u4e09\u7ae0\u7684\u5267\u60c5\u3002","image":"normal"},
+  {"achievement":10231,"text":"\u4f60\u53d1\u73b0\u4e86\u5173\u4e8e\u5341\u4e00\u7ef4\u65f6\u7a7a\u7684\u6ce8\u91ca\u3002","image":"nancy"},
+  {"achievement":10240,"text":"\u4f60\u9605\u8bfb\u4e86\u7b2c\u4e8c\u5341\u56db\u7ae0\u7684\u5267\u60c5\u3002","image":"normal"},
+  {"achievement":10241,"text":"\u4f60\u53d1\u73b0\u4e86\u5173\u4e8e\u6a21\u62df\u4fe1\u53f7\u7684\u6ce8\u91ca\u3002","image":"ada"},
+  {"achievement":10242,"text":"\u4f60\u53d1\u73b0\u4e86\u5173\u4e8e\u300a\u65af\u5361\u5e03\u7f57\u96c6\u5e02\u300b\u7684\u6ce8\u91ca\u3002","image":"nancy"},
+  {"achievement":10250,"text":"\u4f60\u9605\u8bfb\u4e86\u7b2c\u4e8c\u5341\u4e94\u7ae0\u7684\u5267\u60c5\u3002","image":"normal"},
+  {"achievement":10251,"text":"\u4f60\u53d1\u73b0\u4e86\u5173\u4e8e\u300a\u89e3\u653e\u4e86\u7684\u666e\u7f57\u7c73\u4fee\u65af\u300b\u7684\u6ce8\u91ca\u3002","image":"welt"},
+  {"achievement":10260,"text":"\u4f60\u9605\u8bfb\u4e86\u7b2c\u4e8c\u5341\u516d\u7ae0\u7684\u5267\u60c5\u3002","image":"normal"},
+  {"achievement":10261,"text":"\u4f60\u53d1\u73b0\u4e86\u5173\u4e8e\u300a\u9ea6\u514b\u767d\u300b\u7684\u6ce8\u91ca\u3002","image":"otto"},
+  {"achievement":10262,"text":"\u4f60\u53d1\u73b0\u4e86\u5173\u4e8e\u201c\u5fd2\u4fee\u65af\u4e4b\u8239\u201d\u7684\u6ce8\u91ca\u3002","image":"reana"}
+];
+
+var masterPortraits = [
+  {name: "welt", index: 750}, {name: "nokia", index: 550}, {name: "schro", index: 555},
+  {name: "nancy", index: 745}, {name: "ada", index: 550}, {name: "reanna", index: 545},
+  {name: "ein", index: 749}, {name: "ha", index: 552}, {name: "fuhua", index: 746},
+  {name: "tesla", index: 760}, {name: "otto", index: 750}, {name: "yang", index: 750}, {name: "plank", index: 549}
+];
+
+function getLocalAchievements() {
+  var saved = localStorage.getItem('anti_entropy_achievements');
+  if (saved) {
+    try {
+      return JSON.parse(saved);
+    } catch(e) { }
+  }
+  return [];
+}
+
+function saveLocalAchievement(ach_id) {
+  var saved = getLocalAchievements();
+  var id = Number(ach_id);
+  if (saved.indexOf(id) === -1) {
+    saved.push(id);
+    localStorage.setItem('anti_entropy_achievements', JSON.stringify(saved));
+  }
+}
 
 function post_achievement(str_ach, callbackOne, callbackTwo) {
   ajax_answer_achievement = null;
-  let saved_achievements = JSON.parse(localStorage.getItem('anti_entropy_achievements')) || [];
 
-  if (str_ach === 'LOAD') {
-    let unlocked_list = saved_achievements.map(function(id) {
-        let info = local_achievement_db[id] || { 
-            title: "???", 
-            text: "Достижение не описано в базе", 
-            image: "normal" 
-        };
-        return {
-            achievement: parseInt(id),
-            title: info.title,
-            image: info.image,
-            text: info.text
-        };
-    });
+  // Имитация асинхронного вызова, чтобы сохранить оригинальный рабочий процесс
+  setTimeout(function() {
+    if (str_ach === 'LOAD') {
+      var unlockedIds = getLocalAchievements();
+      var unlockedAchievements = [];
+      for (var i = 0; i < masterAchievementData.length; i++) {
+        if (unlockedIds.indexOf(Number(masterAchievementData[i].achievement)) !== -1) {
+          unlockedAchievements.push(masterAchievementData[i]);
+        }
+      }
+      
+      // Вычисляем процент открытия достижений
+      var progress = masterAchievementData.length > 0 ? unlockedIds.length / masterAchievementData.length : 0;
+      
+      // Разблокируем персонажей галереи в соответствии с общим прогрессом достижений
+      var portraitsToReturn = masterPortraits.slice(0, Math.ceil(progress * masterPortraits.length));
 
-    ajax_answer_achievement = {
-      retcode: 1,
-      msg: "The achievement record has been loaded.",
-      progress: (saved_achievements.length / Object.keys(local_achievement_db).length).toFixed(2),
-      achievement: unlocked_list,
-      portrait: [
-        {name: "welt", index: 750}, {name: "nokia", index: 550}, {name: "schro", index: 555}, 
-        {name: "nancy", index: 745}, {name: "ada", index: 550}, {name: "reanna", index: 545}, 
-        {name: "ein", index: 749}, {name: "ha", index: 552}, {name: "fuhua", index: 746}, 
-        {name: "tesla", index: 760}, {name: "otto", index: 750}, {name: "yang", index: 750}, 
-        {name: "plank", index: 549}
-      ]
-    };
+      ajax_answer_achievement = {
+        retcode: 1,
+        msg: "The achievement record has been loaded locally.",
+        progress: progress.toString(),
+        portrait: portraitsToReturn,
+        achievement: unlockedAchievements
+      };
 
-    if (callbackOne) callbackOne();
-  } else {
-    if (!saved_achievements.includes(str_ach)) {
-      saved_achievements.push(str_ach);
-      localStorage.setItem('anti_entropy_achievements', JSON.stringify(saved_achievements));
-      console.log("Достижение сохранено локально: " + str_ach);
+      if (callbackOne) callbackOne();
+    } else {
+      if (str_ach) {
+        saveLocalAchievement(str_ach);
+      }
+      ajax_answer_achievement = { retcode: 1, msg: "success locally" };
+      if (callbackOne) callbackOne();
     }
-    
-    ajax_answer_achievement = { retcode: 1 };
-    if (callbackOne) callbackOne();
-  }
+  }, 0);
 }
 
 var achievement_result = null
@@ -2745,7 +2746,7 @@ function portraitPage(typeReturn) {
       achievement_result['progress'] * 28.55 - 1.3 + 'rem'
     achievement_list = achievement_result['achievement']
     achievement_portraits = achievement_result['portrait']
-    //preload
+    // preload
     var achievementImageList = new Array()
     achievementImageList.push(
       'portraitBg.jpg',
@@ -2781,11 +2782,11 @@ function portraitPage(typeReturn) {
       }
     }
     preLoadUiImages('achievement', achievementImageList)
-    //检测预加载图片是否加载完毕
+    // Проверка, завершилась ли загрузка предзагруженных изображений
     var countIndexTimer = 0
     var preLoadImagesTimer = setInterval(function () {
       if (preLoadImagesCheck() > 0 || countIndexTimer > 1000) {
-        //图片预载完毕，或者超时
+        // Изображения загружены, либо истекло время ожидания
         clearTimeout(preLoadImagesTimer)
         $('#family-portrait').addClass('family-portrait')
         $('#achievement-exhibition').addClass('achievement-exhibition')
