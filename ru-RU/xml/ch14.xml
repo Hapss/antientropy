@@ -1,0 +1,579 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data>
+    <story>
+        <scene id="0" background="bg.jpg">
+            <bgm src="mid-lude.mp3" status="start"></bgm>
+            <cg src="newchapter.png" bg="bg.jpg"></cg>
+            <goto goto="10" change="#000000"/>
+        </scene>
+        <scene id="10" background="westCliffBossRoom.jpg">
+            <bgm src="horror.mp3" status="start"></bgm>
+            <show chara="ritaAgentClose-up" position="center"/>
+            <speak chara="ritaNoFace">Это “Маркиза”.</speak>
+            <speak chara="ritaNoFace">Я была готова приветствовать “Адама”, но не ожидала, что “Джордж” появится вскоре после этого.</speak>
+            <speak chara="ritaNoFace">Что я должна приготовить для “основного блюда”? Пожалуйста, посоветуйте.</speak>
+            <goto goto="20" change="#ffffff"/>
+        </scene>
+        <scene id="20" background="westCliffDinnerRoom.jpg">
+            <bgm src="10_20_PeerGynt.mp3" status="start"></bgm>
+            <show chara="fuhuaEatBack" position="back"/>
+            <show chara="teslaEatGlassWinterClose" position="left"/>
+            <show chara="einSmileCoatClose" position="right" opacity="0.7"/>
+            <speak chara="teslaNoFace">Ух ты! Так роскошно! Я даже не могу сказать, что из этого основное блюдо!</speak>
+            <show chara="teslaEatGlassWinterClose" position="left" opacity="0.7"/>
+            <show chara="einSmileCoatClose" position="right"/>
+            <speak chara="einNoFace">...Не сдерживайся, наслаждайся едой.</speak>
+            <show chara="einSmileCoatClose" position="right" opacity="0.7"/>
+            <show chara="weltDarkSweaterClose" position="right"/>
+            <speak chara="weltNoFace"> ... </speak>
+            <show chara="weltDarkSweaterClose" position="right" opacity="0.7"/>
+            <show chara="teslaEatGlassWinterClose" position="left"/>
+            <speak chara="teslaNoFace">Что с тобой... Выглядишь таким кислым.</speak>
+            <show chara="teslaEatGlassWinterClose" position="left" opacity="0.7"/>
+            <show chara="weltDarkSweaterClose" position="right"/>
+            <speak chara="weltNoFace">Я... </speak>
+            <speak chara="weltNoFace">Я не могу перестать думать о Берлине трехлётней давности.</speak>
+            <speak chara="weltNoFace">Карл... </speak>
+            <speak chara="weltNoFace">Марта... </speak>
+            <speak chara="weltNoFace">Другие невинные люди... </speak>
+            <speak chara="weltNoFace"> ...В тот день их были три сотни тысяч.</speak>
+            <show chara="weltShameSweaterClose" position="right"/>
+            <speak chara="weltNoFace">Три сотни тысяч! </speak>
+            <speak chara="weltNoFace">Что это за бремя такое?</speak>
+            <show chara="weltShameSweaterClose" position="right" opacity="0.7"/>
+            <show chara="teslaBoringGlassWinterClose" position="left"/>
+            <speak chara="teslaNoFace"> ... </speak>
+            <show chara="teslaSmileGlassWinterClose" position="left"/>
+            <speak chara="teslaNoFace">Тебе следует проводить со мной больше времени, глупый.</speak>
+            <show chara="teslaSmileGlassWinterClose" position="left" opacity="0.7"/>
+            <show chara="weltSurpriseSweaterClose" position="right"/>
+            <speak chara="weltNoFace">??? </speak>
+            <show chara="weltSurpriseSweaterClose" position="right" opacity="0.7"/>
+            <show chara="teslaSmileGlassWinterClose" position="left"/>
+            <speak chara="teslaNoFace">Знай, что в нашей жизни нет ничего, что стоило бы помнить...</speak>
+            <speak chara="teslaNoFace"> ...Так что нет необходимости зацикливаться на прошлом.</speak>
+            <show chara="teslaShameGlassWinterClose" position="left"/>
+            <speak chara="teslaNoFace">И люди, и дела, побеги дав, увянут.</speak>
+            <speak chara="teslaNoFace">Исчезнет старина, сегодняшним став днём.</speak>
+            <speak chara="teslaNoFace">Но горы и река красоты сохраняют,</speak>
+            <speak chara="teslaNoFace">к которым восходя, мы память обретём.</speak> 
+            <show chara="teslaSnickerGlassWinterClose" position="left"/>
+            <speak chara="teslaNoFace">— Это стихотворение какого-то восточного поэта по имени Мэн Хаоран.</speak>
+            <speak chara="teslaNoFace">Ты знаешь китайский... Так что ты, вероятно, поймёшь смысл, стоящий за этим, лучше, чем я.</speak>
+            <show chara="weltDarkSweaterClose" position="right"/>
+            <speak chara="weltNoFace"> ... </speak>
+            <show chara="weltDarkSweaterClose" position="right" opacity="0.7"/>
+            <show chara="teslaBoringGlassWinterClose" position="left"/>
+            <speak chara="teslaNoFace">Возможно, в будущем ты услышишь гораздо больше историй о жертвах Берлинского инцидента.</speak>
+            <show chara="teslaNormalGlassWinterClose" position="left"/>
+            <speak chara="teslaNoFace">В любом случае... пожалуйста, не заставляй себя сплетать их прошлое с твоим будущем.</speak>
+            <show chara="teslaShameGlassWinterClose" position="left"/>
+            <speak chara="teslaNoFace">Нет никаких сомнений в том, что ты человек, одновременно благословлённый божественной удачей и проклятый гнилой —</speak>
+            <show chara="teslaSnickerGlassWinterClose" position="left"/>
+            <speak chara="teslaNoFace">Но ты им ничего не должен, и они тебе тоже.</speak>
+            <show chara="teslaSmileGlassWinterClose" position="left"/>
+            <speak chara="teslaNoFace">Это твоя жизнь, так что просто живи дальше с чистой совестью.</speak>
+            <show chara="teslaSmileGlassWinterClose" position="left" opacity="0.7"/>
+            <show chara="weltDarkSweaterClose" position="right"/>
+            <speak chara="weltNoFace"> ... </speak>
+            <speak chara="weltNoFace"> ...... </speak>
+            <speak chara="weltNoFace"> ......... </speak>
+            <show chara="weltGiggleSweaterClose" position="right"/>
+            <speak chara="weltNoFace">Да. </speak>
+            <show chara="weltGiggleSweaterClose" position="right" opacity="0.7"/>
+            <show chara="teslaSnickerGlassWinterClose" position="left"/>
+            <speak chara="teslaNoFace">Да. Верно.</speak>
+            <show chara="teslaSmileGlassWinterClose" position="left"/>
+            <speak chara="teslaNoFace">Хороший мальчик~ Хороший мальчик~~</speak>
+            <show chara="teslaEatGlassWinterClose" position="left"/>
+            <speak chara="teslaNoFace">Ну же, покушай~~~</speak>
+            <show chara="teslaEatGlassWinterClose" position="left" opacity="0.7"/>
+            <show chara="einSmileCoatClose" position="right"/>
+            <speak chara="einNoFace">Тесла... </speak>
+            <show chara="einSmileCoatClose" position="right" opacity="0.7"/>
+            <show chara="teslaShameGlassWinterClose" position="left"/>
+            <speak chara="teslaNoFace">Что? </speak>
+            <speak chara="teslaNoFace">Разве ты не собираешься похвалить меня?</speak>
+            <show chara="teslaShameGlassWinterClose" position="left" opacity="0.7"/>
+            <show chara="einSlyCoatClose" position="right"/>
+            <speak chara="einNoFace">Пффф... </speak>
+            <show chara="einSlyCoatClose" position="right" opacity="0.7"/>
+            <show chara="teslaShameGlassWinterClose" position="left"/>
+            <speak chara="teslaNoFace">В-в чём дело?... Л-люди иногда в кои-то веки проявляют некоторую честность!</speak>
+            <show chara="teslaShameGlassWinterClose" position="left" opacity="0.7"/>
+            <show chara="einSlyCoatClose" position="right"/>
+            <speak chara="einNoFace"> ...Так мило, мисс Тесла. </speak>
+            <show chara="einSlyCoatClose" position="right" opacity="0.7"/>
+            <show chara="teslaShoutGlassWinterClose" position="left"/>
+            <speak chara="teslaNoFace">В-в смысле "мило"?! </speak>
+            <goto goto="30" change="#ffffff"/>
+        </scene>
+        <scene id="30" background="westCliff.jpg">
+            <bgm src="10_20_PeerGynt.mp3" status="continue"></bgm>
+            <text>Хотя гостей, наслаждавшихся обедом, казалось, было всего несколько —</text>
+            <text remark="next">Но блюда, предлагаемые “West Cliff Rita”, варьируются от фуа-гра до устриц, от говяжьей вырезки до лангустиновых омаров...</text>
+            <remark>
+                <p class="article-text-h">Примечание:</p>
+                <p class="article-text">Лангустин (Nephropidae) - крупное морское ракообразное с широким ареалом распространения. Его часто ошибочно называют каменным омаром или раками (Palinuridae).</p>
+                <p class="article-text">Основные различия между лангустинами и раками включают: у лангустинов есть пара больших “клешней”, в то время как у раков их нет; усики лангустина тонкие и короткие, в то время как у раков усики длинные, толстые и заострённые; лангустины распространены по всему миру, в то время как раки распространены только в тропических и субтропических регионах.</p>
+            </remark>
+            <text>Все виды мяса стали легкодоступными, а обслуживание настолько экстравагантное, из-за чего некоторые испытывают лёгкое смущение.</text>
+            <show chara="teslaEatGlassWinterClose-up" position="center" opacity="0.8"/>
+            <speak chara="teslaNoFace">Вы! Вам не стыдно?!</speak>
+            <speak chara="teslaNoFace">Если вы не уберёте все тарелки, как вы вообще сможете посмотреть в глаза менеджеру, которая так усердно готовила всё?!</speak>
+            <show chara="teslaEatGlassWinterClose-up" position="center" opacity="0"/>
+            <text>В результате в три часа пополудни, когда солнечный свет становится самым уютным, человеку, который оправдал эти смелые, дальновидные слова, оставалось только лечь, раскинувшись, как ленивый тюлень, на свою собственную большую кровать.</text>
+            <show chara="teslaAstonishDrunkWinterClose-up" position="center" opacity="0.8"/>
+            <speak chara="teslaNoFace">Прогуляемся?</speak>
+            <show chara="teslaNormalDrunkWinterClose-up" position="center" opacity="0.8"/>
+            <speak chara="teslaNoFace">Не нужно обращаться ко мне за такими неторопливыми упражнениями для пожилых людей...</speak>
+            <show chara="teslaAstonishDrunkWinterClose-up" position="center" opacity="0.8"/>
+            <speak chara="teslaNoFace">Боулинг? Н-н-нет... В данный момент я не смогу играть, как бы сильно я ни старалась...</speak>
+            <show chara="teslaNormalDrunkWinterClose-up" position="center" opacity="0.8"/>
+            <speak chara="teslaNoFace">Ты иди дальше и прогуляйся... Тесла пойдёт немного понежиться в горячем источнике...</speak>
+            <show chara="teslaEatGlassWinterClose-up" position="center" opacity="0"/>
+            <text>Однако, говоря об этом... </text>
+            <text>По сравнению с её позорной историей переедания до больницы, можно ли считать это незначительным улучшением?</text>
+            <goto goto="40" change="#ffffff"/>
+        </scene>
+        <scene id="40" background="westCliffBeach.jpg">
+            <bgm src="themeWelt.mp3" status="start"></bgm>
+            <show chara="fuhuaWatchingSeaBack" position="back"/>
+            <text>Зима - время, когда горизонт ближе всего к нам.</text>
+            <text remark="next">Мрачные, холодные, сырые пляжи; океанские форты, покрытые ржавчиной; различные виды кораблей, за которыми тянется густой дым, - всё это описывает вид на море в целом.</text> 
+            <remark>
+                <p class="article-text-h">Примечание:</p>
+                <p class="article-text">Форты Маунселл представляют собой серию серийных башен противовоздушной обороны, построенных британцами в устье рек Темзы и Мерси во время Второй мировой войны.</p>
+                <p class="article-text">Структура морского форта аналогична структуре зенитной батареи на суше. Разница в том, что он построен на высоких сваях на бетонной барже. После того, как форт собран в доке, его буксируют в назначенное место в море, затем бетонную баржу затопляют, прочно закрепляя фундамент форта на морском дне.</p>
+                <p class="article-text">После Второй мировой войны форты были заброшены. Среди них “HM Fort Roughs”, расположенный в открытом море к востоку от графства Саффолк, был оккупирован семьёй ветерана армии Пэдди Роя Бейтса 2 сентября 1967 года. Более того, они провозгласили “независимость” в соответствии с международным правом как “Княжество Силенд”. Хотя международное сообщество считает, что это заявление не имеет легитимности, оно стало забавным случаем в применении международного права. (Примечание переводчика: в китайском тексте HM Fort Roughs было неправильно написано как HMS Fort Rough. Форт - это не корабль, поэтому HMS - неправильный префикс.)</p>
+            </remark>
+            <text>Превратности судьбы, одиночество, чувство безмятежности.</text>
+            <show chara="weltSurpriseWinterFar" position="left"/>
+            <show chara="einSmileWinterFar" position="center" opacity="0.7"/>
+            <speak chara="weltNoFace">Хах.</speak>
+            <show chara="weltSurpriseWinterFar" position="left" opacity="0.7"/>
+            <show chara="einSmileWinterFar" position="center"/>
+            <speak chara="einNoFace">Мм?</speak>
+            <show chara="einSmileWinterFar" position="center" opacity="0.7"/>
+            <show chara="weltSurpriseWinterFar" position="left"/>
+            <speak chara="weltNoFace">Вон тот человек... видела ли я её раньше, когда мы обедали?</speak>
+            <show chara="weltSurpriseWinterFar" position="left" opacity="0.7"/>
+            <show chara="einNormalWinterFar" position="center"/>
+            <speak chara="einNoFace">Да... Что такое?</speak>
+            <show chara="einNormalWinterFar" position="center" opacity="0.7"/>
+            <show chara="weltSurpriseWinterFar" position="left"/>
+            <speak chara="weltNoFace">...Не уверен.</speak>
+            <show chara="weltGiggleWinterFar" position="left"/>
+            <speak chara="weltNoFace">Но от неё определенно исходит “опасная аура”...</speak>
+            <show chara="weltGiggleWinterFar" position="left" opacity="0.7"/>
+            <show chara="fuhuaWatchingYouBack" position="back"/>
+            <speak chara="fuhuaNoNameNoFace"> ... </speak>
+            <show chara="weltShameWinterFar" position="left"/>
+            <speak chara="weltNoFace">(Чёрт... она не могла услышать, не так ли?)</speak>
+            <show chara="weltShameWinterFar" position="left" opacity="0.7"/>
+            <hide position="back"/>
+            <hide position="center"/>
+            <show chara="fuhuaNormalOpenEyeFar" position="right"/>
+            <speak chara="fuhuaNoNameNoFace"> ... </speak>
+            <show chara="fuhuaSmileCloseEyeFar" position="right"/>
+            <speak chara="fuhuaNoNameNoFace">「水落鱼梁浅，」(“Юйлянская коса под осень обнажилась.”)</speak>
+            <speak chara="fuhuaNoNameNoFace">「天寒梦泽深。 」(“Темнеет глубиной вода в Озёрах Грёз.”)</speak>
+            <speak chara="fuhuaNoNameNoFace">「羊公碑尚在，」(“Здесь генерала Яна могила сохранилась.”)</speak>
+            <speak chara="fuhuaNoNameNoFace">「读罢泪沾襟。 」(“Я надпись прочитал – рукав мой полон слёз.”)</speak>
+            <show chara="fuhuaSmileOpenEyeFar" position="right"/>
+            <speak chara="fuhuaNoNameNoFace">Это вторая половина прошлой поэмы ― Вы понимаете по-китайски, не так ли?</speak>
+            <show chara="fuhuaSmileOpenEyeFar" position="right" opacity="0.7"/>
+            <show chara="weltSurpriseWinterFar" position="left"/>
+            <speak chara="weltNoFace">Я могу немного говорить...</speak>
+            <speak chara="weltNoFace">...Вы с Востока?</speak>
+            <show chara="weltSurpriseWinterFar" position="left" opacity="0.7"/>
+            <show chara="fuhuaSmileCloseEyeFar" position="right"/>
+            <speak chara="fuhuaNoNameNoFace">Да. Если смотреть на это с местной точки зрения, Сянчжоу действительно находится на “Востоке”.</speak> 
+            <show chara="fuhuaSmileOpenEyeFar" position="right"/>
+            <speak chara="fuhuaNoNameNoFace">Ах, да. Позвольте мне подарить Вам эту книгу.</speak>
+            <show chara="fuhuaSmileOpenEyeFar" position="right" opacity="0.7"/>
+            <show chara="weltSurpriseWinterFar" position="left"/>
+            <speak chara="weltNoFace">Книга, д-для меня?</speak>
+            <show chara="weltSurpriseWinterFar" position="left" opacity="0.7"/>
+            <show chara="fuhuaNormalOpenEyeFar" position="right"/>
+            <speak chara="fuhuaNoNameNoFace">В ней ничего такого, просто сборник стихов.</speak>
+            <show chara="fuhuaSmileOpenEyeFar" position="right"/>
+            <speak chara="fuhuaNoNameNoFace">После того, как Вы прочитаете это, Вы можете сделать то, что я делала раньше, и продемонстрировать свои знания.</speak>
+            <show chara="fuhuaSmileOpenEyeFar" position="right" opacity="0.7"/>
+            <show chara="weltNormalWinterFar" position="left"/>
+            <speak chara="weltNoFace">Н-но... </speak>
+            <show chara="weltNormalWinterFar" position="left" opacity="0.7"/>
+            <show chara="fuhuaSmileCloseEyeFar" position="right"/>
+            <speak chara="fuhuaNoNameNoFace">Это пустяк. Я купила его по наитию.</speak>
+            <show chara="fuhuaNormalCloseEyeFar" position="right"/>
+            <speak chara="fuhuaNoNameNoFace">В последнее время у меня на уме было слишком много вещей, и я просто не могу держаться за всё это лишнее “мумбо-юмбо”.</speak>
+            <show chara="fuhuaSmileOpenEyeFar" position="right"/>
+            <speak chara="fuhuaNoNameNoFace">Кроме того...</speak>
+            <speak chara="fuhuaNoNameNoFace"> ...То, что она пересекла целое полушарие и оказалась у Вас на ладони, разве это не тоже своего рода предопределённая судьба?</speak>
+            <show chara="fuhuaSmileOpenEyeFar" position="right" opacity="0.7"/>
+            <show chara="weltSurpriseWinterFar" position="left"/>
+            <speak chara="weltNoFace">Судьба... говоришь.</speak>
+            <show chara="weltSurpriseWinterFar" position="left" opacity="0.7"/>
+            <show chara="fuhuaNormalOpenEyeFar" position="right"/>
+            <speak chara="fuhuaNoNameNoFace">Да.</speak>
+            <speak chara="fuhuaNoNameNoFace">Например, в только что упомянутом стихотворении ”Восхождение на Сяньшань (гору Сиань) с мудрецами".</speak>
+            <show chara="fuhuaNormalCloseEyeFar" position="right"/>
+            <speak chara="fuhuaNoNameNoFace">Географически Сяньшань - это всего лишь небольшой холмик во внутренних районах Сянчжоу. Это ничто по сравнению с Пятью Священными горами; ничто по сравнению с этими заснеженными горами; ничто по сравнению с Крышей Мира.</speak>
+            <show chara="fuhuaSeriousFar" position="right"/>
+            <speak chara="fuhuaNoNameNoFace">Но один друг однажды сказал мне, что этот маленький Сяньшань - это место, где проходит “Драконья вена”. Это важнейший ключ к безопасности Сянчжоу.</speak>
+            <speak chara="fuhuaNoNameNoFace">Согласно легенде, там была похоронена одна из первых прародительниц Сянчжоу, Фуси ― своим собственным телом она бдительно охраняет “Жилу дракона”, чтобы защитить эту землю.</speak>
+            <show chara="fuhuaSeriousFar" position="right" opacity="0.7"/>
+            <show chara="einNormalWinterFar" position="back"/>
+            <speak chara="einNoFace"> ...Вельт, ты можешь перевести что она говорит?</speak>
+            <show chara="einNormalWinterFar" position="back" opacity="0.7"/>
+            <show chara="weltSurpriseWinterFar" position="left"/>
+            <speak chara="weltNoFace">Мм... Она хочет подарить мне этот сборник стихов... потом она рассказала мне о легенде с востока...</speak>
+            <show chara="weltSurpriseWinterFar" position="left" opacity="0.7"/>
+            <show chara="fuhuaNormalCloseEyeFar" position="right"/>
+            <speak chara="fuhuaNoNameNoFace">Nein, ist es nicht. (Нет, это не так.)</speak>
+            <show chara="fuhuaNormalOpenEyeFar" position="right"/>
+            <speak chara="fuhuaNoNameNoFace">Это не какая-то легенда.</speak>
+            <speak chara="fuhuaNoNameNoFace">Так называемая “Драконья вена”, в современных терминах, представляет собой “подземную реку”, образовавшуюся из просачивающейся энергии Хонкая.</speak>
+            <show chara="fuhuaNormalCloseEyeFar" position="right"/>
+            <speak chara="fuhuaNoNameNoFace">Все легенды основаны на какой-то изначальной правде.</speak>
+            <show chara="fuhuaNormalCloseEyeFar" position="right" opacity="0.7"/>
+            <show chara="einSeriousAhWinterFar" position="back"/>
+            <speak chara="einNoFace">Ты... Кто ты такая?</speak>
+            <show chara="einSeriousEmWinterFar" position="back" opacity="0.7"/>
+            <show chara="fuhuaNormalOpenEyeFar" position="right"/>
+            <speak chara="fuhuaNoNameNoFace">Валькирия Фу Хуа.</speak>
+            <show chara="fuhuaSmileCloseEyeFar" position="right"/>
+            <speak chara="fuhuaNoFace">Можно сказать, что я коллега Реанны, с которой вы встречались раньше.</speak>
+            <show chara="fuhuaSmileOpenEyeFar" position="right"/>
+            <speak chara="fuhuaNoFace">Она очень хорошего мнения о Вас, Вы знаете?</speak>
+            <show chara="fuhuaSmileOpenEyeFar" position="right" opacity="0.7"/>
+            <show chara="weltSurpriseWinterFar" position="left"/>
+            <speak chara="weltNoFace">Эмм... Спасибо...?</speak>
+            <show chara="weltSurpriseWinterFar" position="left" opacity="0.7"/>
+            <show chara="fuhuaNormalOpenEyeFar" position="right"/>
+            <speak chara="fuhuaNoFace">Сегодня Вы можете столкнуться с опасным человеком, который может даже показаться немного раздражающим.</speak>
+            <show chara="fuhuaSmileCloseEyeFar" position="right"/>
+            <speak chara="fuhuaNoFace">Но не пугайтесь — самое меньшее, что я могу гарантировать, это то, что Ваша личная безопасность не окажется под угрозой.</speak>
+            <show chara="fuhuaSmileOpenEyeFar" position="right"/>
+            <speak chara="fuhuaNoFace">Adieu. (Прощай)</speak>
+            <hide position="back"/>
+            <show chara="fuhuaNormalOpenEyeFar" position="right"/>
+            <speak chara="fuhuaNoFace">(Мистер Вельт.)</speak>
+            <show chara="fuhuaSmileCloseEyeFar" position="right"/>
+            <speak chara="fuhuaNoFace" remark="next"> 「相濡以沫，不如相忘于江湖。」 (И всё-таки лучше им забыть друг о друге в просторах многоводных рек и озёр.)</speak>
+            <remark>
+                <p class="article-text-h">Примечание: </p>
+                <p class="article-text">Это фраза из “Чжуан-цзы: Внутренний раздел: Высший учитель”：“Когда высыхает пруд, рыбы, оказавшиеся на суше, увлажняют друг друга жабрами и смачивают друг друга слюной. И всё-таки лучше им забыть друг о друге в просторах многоводных рек и озёр.” (Примечание переводчика: Перевод взят из http://ki-moscow.narod.ru/litra/zen/chdzuan_czi/chdzuan_czi6.htm ) </p>
+                <p class="article-text">Чжуан-цзы использовал эту притчу, чтобы передать следующий смысл: вместо того, чтобы изо всех сил помогать друг другу во времена трудностей и лишений, возможно, лучше в первую очередь предотвратить катастрофу, тем самым поддерживая мир и умиротворение.</p>
+            </remark>
+            <show chara="fuhuaSmileOpenEyeFar" position="right"/>
+            <speak chara="fuhuaNoFace">Я желаю вам всем удачи и надеюсь, что вы готовы... к тому, что ждёт нас впереди.</speak>
+            <hide position="right"/>
+            <show chara="weltSurpriseWinterFar" position="left"/>
+            <speak chara="weltNoFace"> ... </speak>
+            <show chara="weltSurpriseWinterFar" position="left" opacity="0.7"/>
+            <show chara="einNormalWinterFar" position="center"/>
+            <speak chara="einNoFace"> ...Какая странная личность. </speak>
+            <show chara="einNormalWinterFar" position="center" opacity="0.7"/>
+            <show chara="weltSurpriseWinterFar" position="left"/>
+            <speak chara="weltNoFace">Это... Тон её голоса... </speak>
+            <show chara="weltNormalWinterFar" position="left"/>
+            <speak chara="weltNoFace">За нами следили? </speak>
+            <show chara="weltNormalWinterFar" position="left" opacity="0.7"/>
+            <show chara="einSmileWinterFar" position="center"/>
+            <speak chara="einNoFace"> ...Было бы неудивительно.</speak>
+            <show chara="einFoolWinterFar" position="center"/>
+            <speak chara="einNoFace">Нужно только уйти и сделать что-то по своей собственной воле, и рано или поздно они начнут за тобой наблюдать.</speak>
+            <show chara="einSmileWinterFar" position="center"/>
+            <speak chara="einNoFace">Однако это всего лишь “наблюдение”.</speak>
+            <show chara="einSmileWinterFar" position="center" opacity="0.7"/>
+            <show chara="weltSurpriseWinterFar" position="left"/>
+            <speak chara="weltNoFace">Т-ты уверена, что нам не стоит волноваться?</speak>
+            <show chara="weltSurpriseWinterFar" position="left" opacity="0.7"/>
+            <show chara="einNormalWinterFar" position="center"/>
+            <speak chara="einNoFace">...По крайней мере, была ли это Реанна или Фу Хуа только что: ни одна из них не хотела причинять нам неприятности.</speak>
+            <show chara="einSlyWinterFar" position="center"/>
+            <speak chara="einNoFace">Хотя такая ситуация не может сохраняться вечно —</speak>
+            <show chara="einSmileWinterFar" position="center"/>
+            <speak chara="einNoFace">Но, в целом, не нужно беспокоиться о сложившейся ситуации сейчас.</speak>
+            <show chara="einSlyWinterFar" position="center"/>
+            <speak chara="einNoFace">Ах... Верно. </speak>
+            <show chara="weltSurpriseWinterFar" position="left"/>
+            <speak chara="weltNoFace"> ...Хмм? </speak>
+            <show chara="weltSurpriseWinterFar" position="left" opacity="0.7"/>
+            <show chara="einSmileWinterFar" position="center"/>
+            <speak chara="einNoFace">Сегодня неплохая погода.</speak>
+            <show chara="einSmileWinterFar" position="center" opacity="0.7"/>
+            <show chara="weltSurpriseWinterFar" position="left"/>
+            <speak chara="weltNoFace"> ...А? </speak>
+            <show chara="weltSurpriseWinterFar" position="left" opacity="0.7"/>
+            <show chara="einSmileWinterFar" position="center"/>
+            <speak chara="einNoFace">Мне правда нравится этот пляж.</speak>
+            <speak chara="einNoFace">Давай придём сюда снова, когда солнце сядет.</speak>
+            <speak chara="einNoFace">Я хочу показать кое-что хорошее.</speak>
+            <goto goto="55" change="#ffffff"/>
+        </scene>
+        <scene id="55" background="westCliffSkyNorth.jpg">
+            <bgm src="11_17_memory.mp3" status="start"></bgm>
+            <text>Поздняя ночь.</text>
+            <text>Освободившись от уговариваний Теслы побаловаться выпивкой, Эйнштейн и Вельт лениво ложатся на пляж, образуя двух “песчаных ангелов”.</text>
+            <speak chara="weltNoFace"> ...Так холодно. </speak>
+            <speak chara="weltNoFace"> ...Было определённо теплее до того, как мы легли.</speak>
+            <speak chara="einNoFace">Когда человеку не хватает физической активности, вполне естественно, что он чувствует холод.</speak>
+            <speak chara="einNoFace">Просто привыкни. При таком холоде ты вряд ли заболешь.</speak>
+            <speak chara="weltNoFace"> ...Хаха. </speak>
+            <speak chara="einNoFace">Вельт, ты, должно быть, впервые видишь такое чистое звёздное небо.</speak>
+            <speak chara="weltNoFace">Ага... </speak>
+            <speak chara="weltNoFace">Эта едва заметная полоска на самом верху неба... это Млечный путь?</speak>
+            <speak chara="einNoFace">Верно.</speak>
+            <speak chara="einNoFace">Что на счёт звёзд? Узнаёшь какую-нибудь?</speak>
+            <speak chara="weltNoFace">Эм... </speak>
+            <show chara="beidou" position="back"/>
+            <speak chara="weltNoFace">Вот эта - Большая Медведица...</speak>
+            <show chara="beiji" position="back"/>
+            <speak chara="weltNoFace">...Тогда вон та - Полярная звезда. </speak>
+            <speak chara="weltNoFace">Правильно? </speak>
+            <speak chara="einNoFace">Да.</speak>
+            <speak chara="einNoFace">Большая Медведица... Это, вероятно, самая известная группа звёзд в мире.</speak>
+            <speak chara="einNoFace">Большая Медведица, Плуг... Одни только имена образуют длинный список.</speak>
+            <speak chara="weltNoFace">... Но для такого непрофессионала, как я, распознавание Полярной звезды это предел моих способностей.</speak>
+            <goto goto="60" change="0"/>
+        </scene>
+        <scene id="60" background="CG14-1.jpg">
+            <bgm src="11_17_memory.mp3" status="continue"></bgm>
+            <speak chara="einNoFace">Так... ты хочешь, чтобы я познакомила тебя ещё с какой-нибудь?</speak>
+            <speak chara="weltNoFace">А... конечно, лучше и быть не может.</speak>
+            <speak chara="weltNoFace">Честно говоря, я очень завидую тем людям, которые могут просто указать на любую звезду и назвать её имя.</speak>
+            <speak chara="einNoFace">...Это астрономы. </speak>
+            <speak chara="weltNoFace">А... Хаха, их я и имел в виду.</speak>
+            <speak chara="einNoFace">Однако, если просто показать случайные звёзды...</speak>
+            <speak chara="einNoFace">То могу рассказать тебе о них.</speak>
+            <speak chara="weltNoFace">А... тогда давай просто отнесёмся к этому как к обычному развлечению.</speak>
+            <text>Инстинкт молодого человека подсказывает ему, что в течение всего этого дня все чувствовали себя немного более напряжёнными и странными, чем обычно.</text>
+            <text>Будь то Эйнштейн и Тесла, или новые знакомые Рита и Фу Хуа...</text>
+            <text>Очевидно, что по какому-то стечению обстоятельств каждый несёт какое-то бремя.</text>
+            <text>В такое время обыденное развлечение, вероятно, является желанной необходимостью.</text>
+            <text>Даже если это просто разговор о ерунде.</text>
+            <goto goto="65" change="0"/>
+        </scene>
+        <scene id="65" background="westCliffSkyNorth.jpg">
+            <bgm src="11_17_memory.mp3" status="continue"></bgm>
+            <speak chara="einNoFace">Хочешь... посплетничать...?</speak>
+            <speak chara="einNoFace">А, вот эта - “сплетничающая звезда”.</speak>
+            <speak chara="weltNoFace">А? Разве есть такая?</speak>
+            <speak chara="einNoFace">Конечно нет, я шучу.</speak>
+            <speak chara="einNoFace">Глупый.</speak>
+            <speak chara="weltNoFace"> ... </speak>
+            <speak chara="einNoFace">Однако то, что я скажу дальше, более серьёзно.</speak>
+            <speak chara="einNoFace">Как ты только что нашёл Полярную звезду?</speak>
+            <speak chara="weltNoFace">Эм... </speak>
+            <show chara="beiji" position="back"/>
+            <speak chara="weltNoFace">Следовал за двумя звёздами на макушке Ковша, затем протянулся к центру неба... и там я нашёл.</speak>
+            <speak chara="einNoFace">Хорошо. </speak>
+            <hide position="back"/>
+            <speak chara="einNoFace">Теперь, пожалуйста, осмотри ручку Большого ковша.</speak>
+            <speak chara="einNoFace">Возьми эти три звезды и представь, что они образуют полностью вытянутый лук.</speak>
+            <speak chara="einNoFace">Тогда... возьми этот лук и пусти стрелу на запад. Прямо к Млечному пути.</speak>
+            <speak chara="weltNoFace">Ах. Здесь есть три очень яркие звезды. Я... такое ощущение, что они образуют треугольник.</speak>
+            <speak chara="einNoFace">М-гм.</speak>
+            <speak chara="einNoFace">Две звезды по обе стороны Млечного Пути - это знаменитые Ткачиха и Пастушок из восточного фольклора.</speak>
+            <speak chara="einNoFace">Одиноко на правой стороне Млечного Пути находится α Лира, Ткачиха, или Вега...</speak>
+            <speak chara="einNoFace">Слева от Млечного Пути есть две маленькие звезды, сопровождающие α Аквилы, Пастушка или Альтаир.</speak>
+            <speak chara="einNoFace">Две маленькие звёздочки рядом с Пастушком - это их два сына.</speak>
+            <speak chara="weltNoFace">Воа.</speak>
+            <speak chara="einNoFace">Что касается того, что выше, то он в самом Млечном Пути...</speak>
+            <show chara="northCross" position="back"/>
+            <speak chara="einNoFace" remark="next">Это α Лебедь, один из членов “Северного креста”.</speak>
+            <remark post="U2FsdGVkX1+0GHKRy7JXUTMSQY8Q">
+                <p class="article-text-h">Примечание:</p>
+                <p class="article-text">Слово “Лебедь” (кит.鹅鹅) по-японски пишется как “Белая птица” (白鳥). Таким образом, созвездие Сиратори (“白鳥座”), которое появляется в некоторых переводческих работах, на самом деле является созвездием Лебедя (“天鹅座"). </p>
+                <p class="article-text">В китайской системе созвездий α Лебедя обозначается как “Небесный Брод” (“中津四”. На английском языке его обычно называют “Денеб” (транслитерация оригинального арабского названия).</p>
+            </remark>
+            <speak chara="einNoFace">Он вместе с тремя звёздами под ним и ещё одной звездой немного дальше образуют форму креста.</speak>
+            <speak chara="einNoFace"> ...Кстати, сама α на самом деле является хвостом лебедя.</speak>
+            <speak chara="weltNoFace">...Значит, длинная рука креста - это шея лебедя?</speak>
+            <speak chara="weltNoFace">А две симметричные части с обеих сторон - это крылья лебедя?</speak>
+            <speak chara="einNoFace">Верно. </speak>
+            <show chara="beidou" position="back"/>
+            <speak chara="einNoFace">Это главные звёзды в этой части неба.</speak>
+            <speak chara="einNoFace">Теперь давай вернёмся к Большой Медведице —</speak>
+            <speak chara="einNoFace">— Следуй вдоль плоскости чаши ковша, двигайся в направлении, противоположном ручке ковша. Это также должно быть рядом с Млечным путем.</speak>
+            <speak chara="weltNoFace">А.</speak>
+            <speak chara="weltNoFace">Такая же яркая звезда, как и Вега! </speak>
+            <show chara="yufubei" position="back"/>
+            <speak chara="einNoFace" remark="next">Мм. Это α Ауриги. Она и окружающие её звезды образуют пятиугольник, который является основной частью созвездия Аурига.</speak>
+            <remark>
+                <p class="article-text-h">Примечание:</p>
+                <p class="article-text">α Ауриги называется “Пять колесниц 2” (“五车二”) в китайской системе созвездий. По-английски его обычно называют “Капелла”.</p>
+            </remark>
+            <speak chara="einNoFace">Две яркие звезды под этим пятиугольником - это две головы созвездия Близнецов, α Геминорум и β Геминорум.</speak>
+            <speak chara="einNoFace">Теперь... </speak>
+            <goto goto="75" change="0"/>
+        </scene>
+        <scene id="75" background="westCliffSkySouth.jpg">
+            <bgm src="11_17_memory.mp3" status="continue"></bgm>
+            <speak chara="einNoFace">Пусть наш взгляд пересечёт Млечный путь и направится на юг.</speak>
+            <speak chara="einNoFace">Видишь что-нибудь бросающееся в глаза?</speak>
+            <speak chara="weltNoFace"> ... </speak>
+            <show chara="liehu" position="back"/>
+            <speak chara="weltNoFace">...Слева есть три яркие звезды, расположенные близко друг к другу!</speak>
+            <speak chara="weltNoFace">Другие звёзды вокруг них тоже очень яркие!</speak>
+            <speak chara="einNoFace" remark="next">Мм-гмм. Средние три - это “пояс Ориона” или “Пояс охотника”: ζ Орионис, ε Орионис и δ Орионис.</speak>
+            <remark>
+                <p class="article-text-h">Примечание:</p>
+                <p class="article-text">ζ, ε и δ Ориона называются “Трёхзвёздочными особняками 1, 2 и 3” соответственно (“参宿一”、“二”、“三”) в китайской системе созвездий. На английском языке их обычно называют “Алнитак”, “Алнилам” и “Минтака” (транслитерация с арабского).</p>
+                <br />
+                <p class="article-text">P.S. Правильное произношение “参宿" - shēn xiù. (Примечание переводчика: Поскольку иероглиф “参” является архаичным термином для числа “три” и может произноситься как “sān”; но, что сбивает с толку, в данном случае он произносится как “shēn”, как в “rénshēn” или "ginseng", “中參”. Слово, обозначающее особняк, “宿”, также может произноситься как ”sù").</p>
+            </remark>
+            <speak chara="einNoFace" remark="next">Вместе с α Орионом и γ Орионом вверху и κ Орионом и β Орионом внизу они образуют основную часть созвездия Орион.</speak>
+            <remark>
+                <p class="article-text-h">Примечание:</p>
+                <p class="article-text">α, γ, κ и β Ориона называются “Трёхзвёздными особняками 4, 5, 6 и 7” соответственно (“参宿四"、”五“、”六“、”七“) в китайской системе созвездий. На английском языке их обычно называют “Бетельгейзе”, “Беллатрикс”, “Сайф” и “Ригель” (транслитерация с арабского). </p>
+            </remark>
+            <speak chara="einNoFace">...Жаль, что широта Лондона слишком высока. В противном случае в левом нижнем углу ты бы увидел ещё более ослепительный Сириус. Это самая яркая звезда на небе.</speak>
+            <speak chara="weltNoFace">М-гм... </speak>
+            <speak chara="einNoFace">Давай обратим наш взор на верхнюю правую часть Ориона.</speak>
+            <speak chara="einNoFace">Здесь есть яркая золотая звезда, которая вместе с несколькими меньшими звёздами вокруг неё образует небольшую V-образную форму.</speak>
+            <speak chara="weltNoFace">М-гм... </speak>
+            <show chara="yufunan" position="center"/>
+            <speak chara="weltNoFace">Ах, это та, что зажата между Орионом и Ауригой?</speak>
+            <speak chara="einNoFace" remark="next">Мм. Это α Тельца. Эта маленькая V-образная форма - золотая голова быка.</speak>
+            <remark>
+                <p class="article-text-h">Note</p>
+                <p class="article-text">α Тельца известна как “Чистый особняк 5” (“毕宿五") в китайской системе созвездий. На английском языке его обычно называют “Альдебаран” (транслитерация с арабского).</p>
+                <br />
+                <p class="article-text">P.S. В “Святой Сейе” Масами Курумады “Золотой святой Тельца” назван в честь этой звезды — китайская версия переводит это как “阿鲁迪巴” или “á lǔ dí bā” (транслитерация Альдебарана). (Примечание переводчика: японская версия по-прежнему называет его “タウラスの アルデバラン” или “Таурасу но Арудебаран”, “Альдебаран Тельца”, так что не похоже, что они ошиблись). </p>
+            </remark>
+            <goto goto="80" change="0"/>
+        </scene>
+        <scene id="80" background="CG14-0.jpg">
+            <bgm src="11_17_memory.mp3" status="continue"></bgm>
+            <speak chara="weltNoFace">Кстати... Я только сейчас заметил...</speak>
+            <speak chara="weltNoFace">Почему все эти звёзды называются α-то, β-сё?</speak>
+            <speak chara="einNoFace" remark="next">Потому что изначально они были названы в зависимости от яркости.</speak>
+            <remark>
+                <p class="article-text-h">Примечание:</p>
+                <p class="article-text">Обозначение Байера - это международный стандарт для обозначения звёзд, впервые описанный немецким астрономом Иоганном Байером в его звёздном атласе 1603 года “Уранометрия”.</p>
+                <p class="article-text">Вообще, эта номенклатура основана на яркости звёзд в созвездии, присваивая греческие буквы в порядке убывания яркости, так что названия формируются по принципу “буква + название созвездия”. (Однако есть исключения, такие как α Драконис, называемая по-китайски ”Правая ось“ (”右枢"), которая не является самой яркой звездой в созвездии Дракона. Она стала α, потому что первоначально была Полярной звездой пять тысяч лет назад.) (Примечание переводчика: Оригинальный китайский текст имеет систему именования наоборот, “Название созвездия + греческая буква”, и описывает его как таковое. Вероятно, это стилистический выбор, отражающий древнекитайскую номенклатуру.)</p>
+            </remark>
+            <speak chara="weltNoFace">Т-так ли это... </speak>
+            <speak chara="einNoFace">На самом деле у всех них есть свои собственные прозвища... Но большинство из них написаны на иностранном языке, что затрудняет их запоминание.</speak>
+            <speak chara="einNoFace">Альдебаран, арабский, α Таури; Капелла, латинский, α Аурига; Кастор и Поллукс, греческий, α Геминорум и β Геминорум...</speak>
+            <speak chara="einNoFace">Лично я считаю, что такого рода беспорядочная система именования ещё менее значима, чем основанная на буквах номенклатура. </speak>
+            <speak chara="einNoFace">Ах. Кстати, об α Тельце...</speak>
+            <speak chara="einNoFace">С другой стороны от него — да, на противоположной стороне Ориона...</speak>
+            <speak chara="einNoFace">Видишь кучу крошечных ярких звёзд, сгрудившихся вместе?</speak>
+            <speak chara="weltNoFace">Мм... </speak>
+            <speak chara="weltNoFace">А. Да, и правда. </speak>
+            <speak chara="weltNoFace">Плотно расположены, похоже, их шесть или семь?</speak>
+            <speak chara="einNoFace">Это Семь сестёр.</speak>
+            <speak chara="weltNoFace">Семь сестёр? </speak>
+            <speak chara="einNoFace" remark="next">Плеяды - собирательное название семи дочерей Атласа.</speak>
+            <remark>
+                <p class="article-text-h">Примечание:</p>
+                <p class="article-text">Плеяды, по-китайски “Звёздная группа с гривастой головой” (“昴本团”), - одна из ближайших к Земле туманностей (на расстоянии около 444 световых лет), обозначаемая туманностью Мессье под номером M45.</p>
+                <p class="article-text">В туманности есть ряд ярких звёзд, которые можно различить невооруженным глазом. При благоприятном освещении человек с нормальным зрением может насчитать до девяти из них.</p>
+            </remark>
+            <speak chara="einNoFace">Сам Атлас был титаном, поднявшим западное небо — он также является тёзкой “Атлантического океана”.</speak>
+            <goto goto="90" change="0"/>
+        </scene>
+        <scene id="90" background="CG14-1.jpg">
+            <bgm src="11_17_memory.mp3" status="continue"></bgm>
+            <speak chara="weltNoFace">Вау.</speak>
+            <speak chara="weltNoFace">А я думал, ты не знакома с созвездиями, мифологиями или подобными вещами...</speak>
+            <speak chara="einNoFace">Не совсем... но на самом деле они совершенно бессмысленны.</speak>
+            <speak chara="einNoFace">Всё это просто глупые истории о том, как умирают те или иные люди, а потом все они становятся звёздами.</speak>
+            <speak chara="weltNoFace"> ... </speak>
+            <speak chara="einNoFace">Но иногда бывают счастливые развязки — действительно, прямо сейчас у нас в поле зрения есть одна из них.</speak>
+            <goto goto="95" change="0"/>
+        </scene>
+        <scene id="95" background="westCliffSkySouth.jpg">
+            <bgm src="11_17_memory.mp3" status="continue"></bgm>
+            <show chara="yufunan" position="back"/>
+            <speak chara="einNoFace">Над Семью сёстрами, справа от Ауриги. Один, два, три, четыре —</speak>
+            <show chara="chain" position="back"/>
+            <speak chara="einNoFace">— Четыре яркие звезды, аккуратно выстроенные в ряд. Ты видишь их?</speak>
+            <speak chara="weltNoFace">...А. Они немного изогнуты, но на самом деле они довольно упорядочены.</speak>
+            <speak chara="einNoFace" remark="next">Слева направо это α Персея, γ Андромеды, β Андромеды, α Андромеды.</speak>
+            <remark post="U2FsdGVkX19gU8MXMOhDJndKApoQ">
+                <p class="article-text-h">Примечание:</p>
+                <p class="article-text">α Персея и γ, β, α Андромеды называются “Небесная лодка 3”, “Великий небесный генерал 1”, “Особняк девяти шагов” и “Особняк стены 2” соответственно ("船船三“、”奎宿九奎宿九将 、“壁宿二”) в Китайской системе созвездий. На английском языке они обычно известны как “Мирфак”, “Алмах”, “Мирах” и “Альферац" (транслитерация с арабского).</p>
+                <br />
+                <p class="article-text">P.S. Ничем не примечательная на вид туманность, напоминающая квадратное серое пятно над β Андромеды, - это знаменитая туманность M31 - галактика Андромеды. Примерно в 2,5 миллионах световых лет от Земли это внегалактическая галактика с массой, примерно вдвое превышающей массу Млечного Пути. Это также единственная внегалактическая галактика, которая видна невооруженным глазом из большей части Северного полушария.</p>
+            </remark>
+            <speak chara="einNoFace" remark="next">α Андромеды также называют δ Пегасы — это звезда, общая как для Андромеды, так и для Пегаса.</speak>
+            <remark>
+                <p class="article-text-h">Примечание:</p>
+                <p class="article-text">Созвездие Пегаса, по-китайски “Летающий конь” (“飞马座”), также переводится в некоторых произведениях как “Небесный конь” (“天马座”), как это было в случае с “Святой Сейей”.</p>
+            </remark>
+            <speak chara="weltNoFace">А.</speak>
+            <speak chara="weltNoFace">Так это история о некоем греческом герое, который использовал голову Медузы, чтобы превратить морское чудовище в камень, спас принцессу, которую должны были принести в жертву, а затем женился на ней?</speak>
+            <speak chara="einNoFace">М-гм. Эта колонна звёзд символизирует цепи, которые связывают принцессу.</speak>
+            <show chara="pegasus" position="center"/>
+            <speak chara="einNoFace">Кстати, основное тело Пегаса - это четырёхугольник в конце этой “цепочки”.</speak>
+            <speak chara="einNoFace">Также можно думать об этом как о самой большой ложке в небе.</speak>
+            <speak chara="einNoFace">Тогда... Если пойти дальше вправо, то увидишь Пастуха или Альтаира, которого мы наблюдали раньше.</speak>
+            <speak chara="weltNoFace">Разве оно...</speak>
+            <speak chara="weltNoFace">...Не похоже больше на енота?</speak>
+            <speak chara="weltNoFace">Видишь, этот столбец звёзд - это хвост, а дополнительная звезда в правом верхнем углу четырёхугольника - это голова.</speak>
+            <speak chara="einNoFace">Пффф... С таким длинным хвостом он больше похож на енота из комикса.</speak>
+            <speak chara="weltNoFace">В-в этом нет ничего плохого...</speak>
+            <goto goto="100" change="0"/>
+        </scene>
+        <scene id="100" background="CG14-0.jpg">
+            <bgm src="11_17_memory.mp3" status="continue"></bgm>
+            <speak chara="weltNoFace"> ...А. </speak>
+            <speak chara="weltNoFace">Что это? Самый южный, почти на уровне моря... одинокая...</speak>
+            <speak chara="einNoFace">Хмм... Имеешь в виду нижний правый угол, позицию напротив Альтаира?</speak>
+            <speak chara="weltNoFace"> ...Д-да, там, куда ты указываешь. </speak>
+            <speak chara="einNoFace" remark="next">Это α Южной рыбы... единственная яркая звезда в этом районе.</speak>
+            <remark post="U2FsdGVkX1+rF0ozx14SzE37yIBz">
+                <p class="article-text-h">Примечание:</p>
+                <p class="article-text">α Южной рыбы в китайской системе созвездий называется “Северные ворота военного лагеря” (“中落师门"). На английском языке он широко известен как “Фомальгаут” (транслитерация с арабского).</p>
+                <br />
+                <p class="article-text">P.S. Поскольку китайская система созвездий определяет расположение звёзд по отношению к Солнцу и Полярной звезде, это приводит к тому, что Северное и Южное созвездия находятся в противоположности их фактическим географическим направлениям. Поэтому α Южной Рыбы, которая расположена на небольшой высоте к югу, получила название “Северные ворота военного лагеря”.</p>
+            </remark>
+            <goto goto="110" change="0"/>
+        </scene>
+        <scene id="110" background="CG14-1.jpg">
+            <bgm src="11_17_memory.mp3" status="continue"></bgm>
+            <speak chara="weltNoFace"> ...Выглядит одинокой. </speak>
+            <speak chara="einNoFace">Все звёзды одиноки.</speak>
+            <speak chara="einNoFace">Если Земля и Солнце уменьшатся до таких размеров, что мы сможем разместить их перед тобой и мной —</speak>
+            <speak chara="einNoFace">— Тогда, чтобы масштабировать, ближайшая неподвижная звезда должна быть так же далеко отсюда, как центр Лондона.</speak>
+            <speak chara="weltNoFace">Чт- ... </speak>
+            <speak chara="einNoFace">Не удивляйся. </speak>
+            <speak chara="einNoFace">От огромной вселенной до крошечного атома большая часть этого мира - не что иное, как огромный пустой вакуум.</speak>
+            <speak chara="einNoFace">Именно в этом огромном океане вакуума... вся материя медленно сходилась вместе в отдельные очаги, среди его колеблющихся волн.</speak>
+            <speak chara="einNoFace">Вселенной потребовалось 9 миллиардов лет, чтобы окончательно создать Землю; и Земле потребовалось ещё 4 миллиарда лет, чтобы стать Райским садом, который мы видим сегодня.</speak>
+            <speak chara="einNoFace">Что ещё более удивительно, так это то, что в этом Райском саду есть ты и я.</speak>
+            <speak chara="weltNoFace"> ... </speak>
+            <speak chara="einNoFace">Извиняюсь. Это кажется слишком сентиментальным.</speak>
+            <goto goto="120" change="#ffffff"/>
+        </scene>
+        <scene id="120" background="westCliffSkySouth.jpg">
+            <bgm src="11_3_themeOtto.mp3" status="start"></bgm>
+            <text article="1">
+                <p class="article-text">Зима - не романтическое время года.</p>
+                <p class="article-text">Если можно так сказать, в тот день на пляже маленький бутон только что пророс между сердцами двух людей...</p>
+                <p class="article-text">Можно также сказать, что этот бутон так и не получил шанса укорениться и прорасти, как ему следовало бы.</p>
+            </text>
+            <goto goto="160" change="0"/>
+        </scene>
+        <scene id="160" background="studyLamp.jpg">
+            <bgm src="11_3_themeOtto.mp3" status="continue"></bgm>
+            <text>Современная эпоха не похожа на древнюю, и ванны с горячими источниками также не похожи на сауны.</text>
+            <text>Принятие горячей ванны после созерцания звёзд, конечно, раздельно для мужчин и женщин. </text>
+            <text>Просто-</text>
+            <goto goto="170" change="0"/>
+        </scene>
+        <scene id="170" background="CG14-2.jpg">
+            <bgm src="11_3_themeOtto.mp3" status="continue"></bgm>
+            <speak chara="ottoNoNameNoFace">Привет.</speak>
+            <speak chara="ottoNoNameNoFace">Как твои дела в последнее время, Ω?</speak>
+            <text>Видишь ли... Просто потому, что ты не видел ни одного мужчины в течение всего дня, это не значит, что ты должен ослаблять бдительность в общественной бане ночью.</text>
+            <text>Не так ли?</text>
+            <end post="U2FsdGVkX1+oux9WBwhQORIDDRFn"/>
+        </scene>
+    </story>
+</data>	

@@ -1,0 +1,385 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data>
+    <story>
+        <scene id="0" background="bg.jpg">
+            <bgm src="mid-lude.mp3" status="start"></bgm>
+            <cg src="newchapter.png" bg="bg.jpg"></cg>
+            <goto goto="10" change="#000000"/>
+        </scene>
+        <scene id="10" background="tankInside.jpg">
+            <bgm src="mid-lude.mp3" status="stop"></bgm>
+            <text>В тот день, около 8 часов утра.</text>
+            <bgm src="04_20_tank.mp3" status="start"></bgm>
+            <show chara="teslaSnickerGlassWinterClose-up" position="left"/>
+            <speak chara="teslaNoFace">Что ж, теперь нет необходимости постоянно пялиться в обзорное зеркало, "Временный шеф"?</speak>
+            <show chara="teslaSnickerGlassWinterClose-up" position="left" opacity="0.7"/>
+            <show chara="weltNervousNewClose-up" position="right"/>
+            <speak chara="weltNoFace">Уже... Полностью ли безопасно?</speak>
+            <show chara="weltNervousNewClose-up" position="right" opacity="0.7"/>
+            <show chara="teslaSmileGlassWinterClose-up" position="left"/>
+            <speak chara="teslaNoFace">Это не эпицентр катастрофы, здесь не нужно беспокоиться за себя.</speak>
+            <show chara="teslaShameGlassWinterClose-up" position="left"/>
+            <speak chara="teslaNoFace">По крайней мере, даже если произойдёт нападение, есть Реанна с лучшим обзором, которая справится с этим первой, не так ли?</speak>
+            <show chara="teslaErGlassWinterClose-up" position="left"/>
+            <speak chara="teslaNoFace">Мы были там, чтобы помочь ей снести крышу Роллс Ройса и, в конце концов, превратить его в спортивный автомобиль с откидным верхом.</speak>
+            <show chara="teslaErGlassWinterClose-up" position="left" opacity="0.7"/>
+            <show chara="weltSighNewClose-up" position="right"/>
+            <speak chara="weltNoFace">Хорошо... Это тоже...</speak>
+            <show chara="weltSighNewClose-up" position="right" opacity="0.7"/>
+            <show chara="teslaErGlassWinterClose-up" position="left"/>
+            <speak chara="teslaNoFace">Так почему бы тебе просто не спуститься оттуда побыстрее?</speak>
+            <show chara="teslaSnickerGlassWinterClose-up" position="left"/>
+            <speak chara="teslaNoFace">Это редкая возможность, так что давайте поторопимся и воспользуемся шансом узнать больше.</speak>
+            <show chara="teslaSnickerGlassWinterClose-up" position="left" opacity="0.7"/>
+            <show chara="weltEmbarraNewClose-up" position="right"/>
+            <speak chara="weltNoFace">Узнать больше?</speak>
+            <show chara="weltEmbarraNewClose-up" position="right" opacity="0.7"/>
+            <show chara="einSlyWinterClose-up" position="left"/>
+            <speak chara="einNoFace">Ммм. Узнать как пользоваться Божественным Ключом.</speak>
+            <show chara="einSlyWinterClose-up" position="left" opacity="0.7"/>
+            <show chara="weltAstonishNewClose-up" position="right"/>
+            <speak chara="weltNoFace">....Что?</speak>
+            <show chara="weltAstonishNewClose-up" position="right" opacity="0.7"/>
+            <show chara="einNormalWinterClose-up" position="left"/>
+            <speak chara="einNoFace">Звезда Эден.</speak>
+            <speak chara="einNoFace">Мощное оружие, созданное с использованием Ядра Херршера Земли Прошлой Эры.</speak>
+            <speak chara="einNoFace">Мы все должны знать, на что он способен и как его использовать.</speak>
+            <show chara="teslaNormalGlassWinterClose-up" position="left"/>
+            <speak chara="teslaNoFace">Ада закончила анализ инструкций для нас——</speak>
+            <show chara="teslaShameGlassWinterClose-up" position="left"/>
+            <speak chara="teslaNoFace">—— Давайте начнём, пока у нас есть этот слой барьера между нами и Валькириями в штаб-квартире.</speak>
+            <show chara="teslaShameGlassWinterClose-up" position="left" opacity="0.7"/>
+            <show chara="weltAstonishNewClose-up" position="right"/>
+            <speak chara="weltNoFace">...А?</speak>
+            <show chara="weltAstonishNewClose-up" position="right" opacity="0.7"/>
+            <show chara="teslaAngryGlassWinterClose-up" position="left"/>
+            <shake position="left" time="250"></shake>
+            <speak chara="teslaNoFace">"А", что за "а", ты что, тупица?</speak>
+            <show chara="teslaDisgustedGlassWinterClose-up" position="left"/>
+            <speak chara="teslaNoFace">Независимо от того, насколько хороша Реанна, она работает на Отто, настоятеля Шиксала, с которым ты напрямую столкнулся!</speak>
+            <show chara="teslaAstonishGlassWinterClose-up" position="left"/>
+            <speak chara="teslaNoFace">Мы сделали так много вещей, которые ему категорически ненавистны, так что логично, что мы должны быть осторожны и подготовить какие-то средства на случай любых будущих событий, не так ли?</speak>
+            <show chara="teslaBiteGlassWinterClose-up" position="left"/>
+            <speak chara="teslaNoFace">И, кроме того, если Эдисон постигнет какая-нибудь катастрофа, будь то природная или рукотворная——</speak>
+            <show chara="teslaDisgustedGlassWinterClose-up" position="left"/>
+            <speak chara="teslaNoFace">На кого ещё мы можем положиться в этом случае, кроме самих себя?</speak>
+            <shake position="left" time="250"></shake>
+            <show chara="teslaAngryGlassWinterClose-up" position="left"/>
+            <speak chara="teslaNoFace">Ты действительно думаешь, что они такие же, как ты, кучка беззаботных идиотов?</speak>
+            <show chara="teslaAngryGlassWinterClose-up" position="left" opacity="0.7"/>
+            <show chara="weltEmbarraNewClose-up" position="right"/>
+            <speak chara="weltNoFace">Эм...</speak>
+            <show chara="weltEmbarraNewClose-up" position="right" opacity="0.7"/>
+            <show chara="teslaNormalGlassWinterClose-up" position="left"/>
+            <speak chara="teslaNoFace">Послушай внимательно.</speak>
+            <show chara="teslaShameGlassWinterClose-up" position="left"/>
+            <speak chara="teslaNoFace">В любой другой момент я смирюсь с тем, что ты талисман нашей лаборатории...</speak>
+            <show chara="teslaSmileGlassWinterClose-up" position="left"/>
+            <speak chara="teslaNoFace">Мы можем отправиться путешествовать, бездельничать дома, или ты можешь запугать меня со Шваброй...</speak>
+            <shake position="left" time="250"></shake>
+            <show chara="teslaDisgustedGlassWinterClose-up" position="left"/>
+            <speak chara="teslaNoFace">Но не сегодня!</speak>
+            <show chara="teslaBoringGlassWinterClose-up" position="left"/>
+            <speak chara="teslaNoFace">Ты, Швабра, и я должны научиться пользоваться Звездой Эден!</speak>
+            <show chara="teslaBiteGlassWinterClose-up" position="left"/>
+            <speak chara="teslaNoFace">Мы должны экспериментировать с ним столько, сколько сможем!</speak>
+            <shake position="left" time="250"></shake>
+            <show chara="teslaDisgustedGlassWinterClose-up" position="left"/>
+            <speak chara="teslaNoFace">Это вопрос жизни и смерти!</speak>
+            <show chara="teslaDisgustedGlassWinterClose-up" position="left" opacity="0.7"/>
+            <show chara="weltSBDNewClose-up" position="right"/>
+            <speak chara="weltNoFace">.....</speak>
+            <show chara="mbembaClose-up" position="right"/>
+            <speak chara="mbembaNoFace">Эмм... Мне тоже нужно научиться его использовать?</speak>
+            <speak chara="mbembaNoFace">Этот... Божественный что-то там....</speak>
+            <show chara="mbembaClose-up" position="right" opacity="0.7"/>
+            <show chara="teslaErGlassWinterClose-up" position="left"/>
+            <speak chara="teslaNoFace">...Нет.</speak>
+            <speak chara="teslaNoFace">Просто продолжай вести.</speak>
+            <goto goto="20" change="#ffffff"/>
+        </scene>
+        <scene id="20" background="roadMontana3.jpg">
+            <bgm src="8_24_war.mp3" status="start"></bgm>
+            <speak chara="reannaNoFace">...Это всё, что мне известно.</speak>
+            <speak chara="reannaNoFace">......</speak>
+            <speak chara="reannaNoFace">Мой совет? Не спешите посылать войска без боевого опыта, как вы это сделали три года назад.</speak>
+            <speak chara="reannaNoFace">Эта....дорога.... изначально.... никак.... не может... иметь... какое-либо.... значение.... праведности....</speak>
+            <speak chara="reannaNoFace">...Местные организации в Северной Америке, похоже, способны хорошо провести разведку.</speak>
+            <speak chara="reannaNoFace">...Более того, они прекрасно осознают свою слабость в отношении боевой эффективности, поэтому они не пойдут на ненужные жертвы из-за поспешного продвижения.</speak>
+            <speak chara="reannaNoFace">......</speak>
+            <speak chara="reannaNoFace">Нет... Как такое может быть...</speak>
+            <speak chara="reannaNoFace">Но, если эта малышка Эдисон действительно стояла за этим...</speak>
+            <speak chara="reannaNoFace">...Я отрублю ей голову.</speak>
+            <speak chara="reannaNoFace">Буквально.</speak>
+            <speak chara="reannaNoFace">.....</speak>
+            <speak chara="reannaNoFace">Да, я буду держать с вами связь, Великий Настоятель.</speak>
+            <goto goto="30" change="#ffffff"/>
+        </scene>
+        <scene id="30" background="roadMontana1.jpg">
+            <bgm src="10_25_ada.mp3" status="start"></bgm>
+            <text>Реанна чувствовала холод смерти от многих мужчин старше её.</text>
+            <text>Возможно, для сильных потеря человеческой жизни - это всего лишь цифра——</text>
+            <text>На самом деле, чтобы стать успешным генералом, нужно рассматривать человеческую жизнь и смерть как числа.</text>
+            <text>Жить вместе со своими товарищами и видеть в них не отдельного человека, а группу - это безжалостный путь.</text>
+            <text>Кто-то может назвать это искусством, но это никогда не являлось спасением.</text>
+            <text>Война это война.</text>
+            <text>Война приносит лишь разрушения.</text>
+            <text>Это то, что никогда не изменится.</text>
+            <text>Даже если на это есть хорошая причина, человек должен идти на жертвы.</text>
+            <text>И чаще всего эти жертвы невозможно контролировать.</text>
+            <text remark="next">[Тот, кто применяет силу беспощадно, не считаясь с кровопролитием, должен получить превосходство, если его противник использует меньше энергии при её применении.]</text>
+            <remark>
+                <p class="article-text-h">Примечание:</p>
+                <p class="article-text">Это предложение взято из книги Клаузевица "О войне", глава 1, раздел 3. Мы не должны быть пристрастны к его значению; на самом деле, в той же главе Клаузевиц писал: “Если цивилизованные нации не убивают пленных или не разрушают города и деревни, это не означает, что они не прибегали к насилию. Это потому, что они все более умело использовали мудрость на войне и научились применять методы насилия, которые более эффективны, чем этот примитивный и грубый инстинкт самосохранения”.</p>
+            </remark>
+            <text>Хонкай прямо здесь.</text>
+            <text>С Хонкаем нельзя договориться.</text>
+            <text>Логика Хонкая отличается от нашей.</text>
+            <text>Хонкай не боится наших жертв, и не пожалеет нас... Ему всё равно что случится с этим миром.</text>
+            <text>Он не прекратит свою враждебность——</text>
+            <text>—— Пока мы не исчезнем с этой планеты, полностью и основательно.</text>
+            <text>С самого начала мы все были брошены в эту последнюю битву.</text>
+            <text>...Но даже так мы стремимся к "роскоши".</text>
+            <text>Посреди этой вечной войны мы хотим увидеть красоту, возрождение и спасение человечества.</text>
+            <text>Потому что они не являются атрибутами, неотъемлемо связанными с войной,</text>
+            <text>И потому что эта война отказывается заканчиваться——</text>
+            <text>Мы продолжаем желать большего.</text>
+            <text>А ещё...</text>
+            <text>Я думаю, что это хорошо - желать большего.</text>
+            <text>Это разумная зависть.</text>
+            <text>И то, что делает человека человеком.</text>
+            <text>Роскошь сама по себе тоже не так уж плоха——</text>
+            <text>До тех пор, пока мы признаём, что это не основная потребность, которая должна существовать всегда.</text>
+            <text>До тех пор, пока мы понимаем, что это может нам принести.</text>
+            <text>.....</text>
+            <text>Тесла.</text>
+            <text>Эйнштейн.</text>
+            <text>Вельт.</text>
+            <text>Прошло много лет с тех пор, как я видела таких добрых людей, как они, в Шиксале.</text>
+            <text>...Возможно, последним был тот человек, которому нравилось, когда к нему обращались "Г.А.".</text>
+            <text>Я не была поклонником её скептического тона... но её присутствие приносило радость всем.</text>
+            <goto goto="40" change="0"/>
+        </scene>
+        <scene id="40" background="cloudSky.jpg">
+            <bgm src="10_25_ada.mp3" status="continue"></bgm>
+            <text>Последний раз я видела её сотни лет назад.</text>
+            <text>В то время железная дорога едва доходила до Чикаго——</text>
+            <text>А теперь это город, в котором проживает более миллиона человек.</text>
+            <text>На самом деле, за последние сто лет изменилась не только Америка.</text>
+            <text remark="next">"Германия" больше не является этническим названием. Обе империи, которые они пытались создать, потерпели неудачу.</text>
+            <remark>
+                <p class="article-text-h">Примечание:</p>
+                <p class="article-text">Речь о Германской империи (1871-1918), которая выиграла прусско-французскую войну и объединила маленькую Германию. Третий рейх (1933-1945) был создан путём насильственного объединения немецкоязычной Австрии с Судетами, Клайпедой (Меймель), Гданьском (Данциг), Южной Ютландией (Северный Шлезвиг), Люксембургом и Альзес-Лотарингией, все из которых имели немецкое население.</p>
+            </remark>
+            <text remark="next">Лидер Франции превратился из президента в императора, затем снова стал президентом.</text>
+            <remark>
+                <p class="article-text-h">Примечание:</p>
+                <p class="article-text">Речь о Второй Французской республике (1848-1852), Второй Французской империи (1852-1870) при Луи Бонапарте (Наполеоне III) и Третьей Французской республике (1870-1940) между двумя неудачными войнами против Германии.</p>
+                <p class="article-text">P.S.: Знаменитая книга Маркса "18 Брюмера Луи Бонапарта" ярко объясняет странные аспекты французского общества в этот период.</p>
+            </remark>
+            <text remark="next">Габсбург ушёл из истории, и монархия была уничтожена.</text>
+            <remark>
+                <p class="article-text-h">Примечание:</p>
+                <p class="article-text">Речь об "Австрийской империи" (1804 ~ 1867) и "Австро-Венгерской империи" (1867 ~ 1918) с семьёй Габсбургов в качестве монарха. После окончания Первой мировой войны в 1918 году Австро-Венгерская империя распалась, Австрия, Венгрия и Чехословакия стали независимыми республиками, а остальная часть региона была объединена в Югославию, Польшу, Румынию и Италию.</p>
+            </remark>
+            <text remark="next">Вакуум власти, образовавшийся после падения Османской империи, позволил осуществиться мечте евреев о возрождении своей родины.</text>
+            <remark>
+                <p class="article-text-h">Примечание:</p>
+                <p class="article-text">После поражения в Первой мировой войне Османская империя отказалась от большей части своей территории на Аравийском полуострове, в Ираке, Сирии и Палестинской автономии, которая была передана под британский мандат, и туда переехало большое количество европейских евреев. После Второй мировой войны трагический опыт евреев в войне сделал их идею "еврейского восстановления Палестины" поддержанной Соединенными Штатами, Советским Союзом и другими державами, Государство Израиль провозгласило независимость 14 мая 1948 года.</p>
+            </remark>
+            <text remark="next">Италия и Греция больше не были просто географическими понятиями. Турция была освобождена от тех "непонятных знаков, которые веками держали наши умы в железной клетке".</text>
+            <remark post="U2FsdGVkX19yQNaEeMBKin4QUNdj">
+                <p class="article-text-h">Примечание:</p>
+                <p class="article-text">Относится к объединению Италии (1815 - 1871), греческой войне за независимость (1821 - 1829), Балканской войне (1912 - 1913) и турецкой войне за независимость (1919 - 1923).</p>
+                <p class="article-text">P.S.: Мустафа Кемаль, основатель Турции (Ататюрк), описал арабский алфавит как "непостижимые символы, которые веками сковывали наши умы подобно железным оковам".</p>
+            </remark>
+            <text>А недавно в нашем "обычном" мире произошли две крупные войны...</text>
+            <text>На фоне всех этих изменений организация, известная как Шиксал, оставалась в застое и не проявляла никаких признаков желания меняться.</text>
+            <text>Как Валькирие или, возможно, как "Военной машине", эта неудовлетворённость может быть несколько необычной——</text>
+            <text>Или, возможно, этот назойливый Настоятель отобрал у всех клетки, управляющие воображением...</text>
+            <text>И превратил всех в копию "Китайского мудреца", который не может понять шутку или повеселиться...</text>
+            <text>Все они такие же неинтересные, удушающие бессердечные взрослые.</text>
+            <text>...И всё же мы хвастаемся тем, что мы бессердечные взрослые, как признаком нашей старости.</text>
+            <text>В этот самый момент эти "мальчики" в кабине танка, возможно, идут против воли Настоятеля.</text>
+            <text>...Но что с этим не так?</text>
+            <text>Может быть, вести себя так - это их собственный стиль——</text>
+            <text>—— И эта "машина", которой я являюсь сегодня, хочет защитить их.</text>
+            <text>Потому что у "машины" тоже есть эмоции.</text>
+            <text>Даже "машина" хочет попробовать на вкус чувство, называемое "завистью".</text>
+            <text>"Понимаешь, я себе представил, как маленькие ребятишки играют вечером в огромном поле, во ржи."</text>
+            <text>"Тысячи малышей, и кругом – ни души, ни одного взрослого, кроме меня."</text>
+            <text>"А я стою на самом краю скалы, над пропастью, понимаешь? И моё дело – ловить ребятишек, чтобы они не сорвались в пропасть."</text>
+            <text>"Понимаешь, они играют и не видят, куда бегут, а тут я подбегаю и ловлю их, чтобы они не сорвались."</text>
+            <text remark="next">"Вот и вся моя работа. Стеречь ребят над пропастью во ржи. Знаю, это глупости, но это единственное, чего мне хочется по-настоящему."</text>
+            <remark>
+                <p class="article-text-h">Примечание:</p>
+                <p class="article-text">Цитата из "Над пропастью во ржи" за авторством Дж. Д. Сэлинджера.</p>
+            </remark>
+            <goto goto="50" change="0"/>
+        </scene>
+        <scene id="50" background="connecticutRoad.jpg">
+            <bgm src="10_25_ada.mp3" status="continue"></bgm>
+            <text>Путаница возникла после того, как большое количество людей пробудилось ото сна и заметило электронную аномалию, вызванную энергетическим импульсом.</text>
+            <text>Однако, в отличие от сцен паники, часто наблюдаемых в фильмах, во время этого хаоса поддерживался порядок.</text>
+            <text remark="next">Выезжая из Провиденса по шоссе 6, мы не попали ни в какую крупную пробку и не столкнулись с грабителями, пытавшимися воспользоваться хаосом.</text>
+            <remark>
+                <p class="article-text-h">Примечание:</p>
+                <p class="article-text">Трасса 6 США - это национальная автомагистраль в направлении восток-запад. Шоссе начинается в Провинстауне, штат Массачусетс, и заканчивается в Бишопе, штат Калифорния. Она известена как "самый живописный автомобильный маршрут в Соединённых Штатах".</p>
+            </remark>
+            <text>Напротив, мы даже не сталкивались с людьми, пытающимися отбиться от зверей Хонкая обычным оружием.</text>
+            <text>Излишне говорить, что этот временный покой был вызван отсутствием связи...</text>
+            <text>Я не могу не восхвалять автономию народа этой страны.</text>
+            <text>Из наших 3 помощников из Бюро, 1 пилотировал танк вместе с сотрудниками Лаборатории 42, а остальные 2 вернулись к своей официальной работе.</text>
+            <text>Даже в ситуациях, когда технологическая связь невозможна, информация всё равно может передаваться вручную.</text>
+            <text>От одного человека к десятерым.</text>
+            <text>От десятырых к сотне.</text>
+            <text>От сотни к тысяче.</text>
+            <text>Оборудование, которое им дала Эдисон, было не очень сложным, но если они смогут охватить более 10 000 человек...</text>
+            <text>Даже если Нью-Йорк станет инцидентом берлинского уровня, люди смогут выстоять и остановить распространение опасности.</text>
+            <text>Даже если мы сможем связаться только с 10% из них.</text>
+            <text>А что до эпицентра...</text>
+            <text>...Они могут оставить его на меня.</text>
+            <text>3 года назад они назвали меня своей "последней козырной картой" и отказались позволить мне покинуть штаб-квартиру...</text>
+            <text>Я ничего не могла поделать. Я была вынуждена смотреть как Марта и эти бедные неопытные дети умирают.</text>
+            <text>Это вовсе не было боевым испытанием.</text>
+            <text>Это было так, как будто я наблюдала, как они падают со скалы живыми.</text>
+            <text>Я не позволю этому случиться вновь.</text>
+            <text>В этот раз, я полностью стану "военной машиной"——</text>
+            <text>——И уничтожу всё, что встанет на моём пути.</text>
+            <text>.....</text>
+            <text>В этот раз, эта машина станет——</text>
+            <text>——"Ловцом над пропастью во ржи".</text>
+            <goto goto="60" change="#ffffff"/>
+        </scene>
+        <scene id="60" background="tankInside.jpg">
+            <bgm src="10_25_ada.mp3" status="stop"></bgm>
+            <sound src="04_20_brake.mp3"/>
+            <show chara="teslaAngryGlassWinterClose-up" position="right"/>
+            <shake position="all" time="250"></shake>
+            <speak chara="teslaNoFace">Ох ты ж! Почему ты внезапно затормозил?</speak>
+            <show chara="weltAstonishNewGloveClose-up" position="right"/>
+            <speak chara="weltNoFace">...Что случилось?</speak>
+            <show chara="weltAstonishNewGloveClose-up" position="right" opacity="0.7"/>
+            <show chara="mbembaClose-up" position="left"/>
+            <speak chara="mbembaNoFace">На обочину дороги... вышел хромающий человек...</speak>
+            <goto goto="70" change="#ffffff"/>
+        </scene>
+        <scene id="70" background="connecticutFarm.jpg">
+            <bgm src="street.mp3" status="start"></bgm>
+            <show chara="elaineStruggleFar" position="left"/>
+            <speak chara="elaineNoNameNoFace">Добро пожаловать в Хартфорд, штат Коннектикут!</speak>
+            <show chara="elaineHematemesisFar" position="left"/>
+            <speak chara="elaineNoNameNoFace">Кашель——</speak>
+            <show chara="elaineHematemesisFar" position="left" opacity="0.7"/>
+            <show chara="teslaShoutGlassWinterFar" position="right"/>
+            <speak chara="teslaNoFace">Ты- Ты в порядке?</speak>
+            <show chara="teslaShoutGlassWinterFar" position="right" opacity="0.7"/>
+            <show chara="elaineStruggleFar" position="left"/>
+            <speak chara="elaineNoNameNoFace">Нет, это не важно.</speak>
+            <show chara="elaineHematemesisFar" position="left"/>
+            <speak chara="elaineNoNameNoFace">Кашель——</speak>
+            <bgm src="street.mp3" status="stop"></bgm>
+            <hide position="left"/>
+            <sound src="04_20_fell.mp3"/>
+            <text>Безымянная женщина упала на землю.</text>
+            <bgm src="8_24_war.mp3" status="start"></bgm>
+            <show chara="teslaAstonishGlassWinterFar" position="right"/>
+            <speak chara="teslaNoFace">Эй! Подожди!</speak>
+            <show chara="teslaAstonishGlassWinterFar" position="right" opacity="0.7"/>
+            <show chara="einSeriousEmWinterFar" position="left"/>
+            <speak chara="einNoFace">Бледная... Гипотермия...</speak>
+            <show chara="einSeriousAhWinterFar" position="left"/>
+            <speak chara="einNoFace">...У неё очень нестабильное кровяное давление, её нужно как можно скорее доставить в больницу!</speak>
+            <show chara="einSeriousAhWinterFar" position="left" opacity="0.7"/>
+            <show chara="reaNormalArmedFar" position="right"/>
+            <speak chara="reannaNoNameNoFace">В этом нет нужды.</speak>
+            <show chara="reaSmileArmedFar" position="right"/>
+            <speak chara="reannaNoFace">Предоставь её мне.</speak>
+            <show chara="reaSmileArmedFar" position="right" opacity="0.7"/>
+            <show chara="weltAstonishNewFar" position="left"/>
+            <speak chara="weltNoFace">Мисс Реанна?</speak>
+            <show chara="weltAstonishNewFar" position="left" opacity="0.7"/>
+            <show chara="reaLaughArmedFar" position="right"/>
+            <speak chara="reannaNoFace">Что, уже забыл?</speak>
+            <show chara="reaSmileArmedFar" position="right"/>
+            <speak chara="reannaNoFace">Чёрная Бездна Белый Цветок——</speak>
+            <speak chara="reannaNoFace">——Ничто иное как Божественный Ключ разложения и созидания!</speak>
+            <goto goto="80" change="0"/>
+        </scene>
+        <scene id="80" background="CG20-1.jpg">
+            <bgm src="04_20_Brigantia.mp3" status="start"></bgm>
+            <speak chara="reannaNoFace">Я - чернота, поднимающаяся из бездны.</speak>
+            <speak chara="reannaNoFace">Я - белизна, спускающаяся с небес.</speak>
+            <speak chara="reannaNoFace">Я существую до сотворения.</speak>
+            <speak chara="reannaNoFace">Я существую до разложения.</speak>
+            <speak chara="reannaNoFace">Жаждущим я даю даром,</speak>
+            <speak chara="reannaNoFace" remark="next">Из источника фонтана жизни.</speak>
+            <remark>
+                <p class="article-text-h">Примечание:</p>
+                <p class="article-text">Откровение (21:6) - Затем он сказал мне: "Свершилось! Я - Альфа, я - Омега; я - начало, я - конец. Я дам тому, кто жаждет, воду из источника жизни бесплатно”.</p>
+            </remark>
+            <speak chara="reannaNoFace">Божественный Ключ Цветок Бездны, 0 уровень мощности——</speak>
+            <speak chara="reannaNoFace" remark="next">Heilige Lanze, die Welwitschie!</speak>
+            <remark post="U2FsdGVkX18O7USd7byF8+J6GxvE">
+                <p class="article-text-h">Примечание:</p>
+                <p class="article-text">Это немецкий, родной язык надзирателя Отто. "Heilige Lanze" означает "Священное копьё", а "Welwitschie" - "Столетняя орхидея".</p>
+                <p class="article-text">P.S.: Вельвичия - единственный вид из "семейства вельвичиевых" и "Welwitschia". Также известен как "Чудесный мир". В 1859 году он был обнаружен в пустыне Анголы австрийским исследователем Фридрихом Вельвичем. Двудомный. Стебель короткий, и за всю жизнь у него вырастает только два листа (напротив, два листа будут расти бесконечно; дистальный конец постепенно высыхает на полоски и собирается в кучки, из-за чего невозможно увидеть, что изначально это два листа). Корни чрезвычайно длинные, от 3 до 10 метров, чтобы поглощать грунтовые воды. Средняя продолжительность жизни может достигать сотен лет, а некоторые особи могут даже достигать более двух тысяч лет. Это национальный цветок Намибии, соседней с Анголой.</p>
+            </remark>
+            <goto goto="90" change="#ffffff"/>
+        </scene>
+        <scene id="90" background="connecticutFarm.jpg">
+            <bgm src="10_20_PeerGynt.mp3" status="start"></bgm>
+            <show chara="elaineSmileFar" position="left"/>
+            <speak chara="elaineNoNameNoFace">Привет! Вы, ребята, команда медиков откуда-то ещё?</speak>
+            <speak chara="elaineNoNameNoFace">Доктор Морган не способна ни на что подобное!</speak>
+            <show chara="elaineSmileFar" position="left" opacity="0.7"/>
+            <show chara="reaHahArmedFar" position="right"/>
+            <speak chara="reannaNoFace">Нет... Просто так получилось, что у нас есть, скажем так... "военная аптечка".</speak>
+            <show chara="reaHahArmedFar" position="right" opacity="0.7"/>
+            <show chara="elaineSmileFar" position="left"/>
+            <speak chara="elaineNoNameNoFace">Это потрясающе, я должна показать это доктору Морган!</speak>
+            <show chara="elaineNormalFar" position="left"/>
+            <speak chara="elaineNoNameNoFace">Ах, забыла представиться - я Элейн Гластон, бывший рейнджер.</speak>
+            <show chara="elaineSmileFar" position="left"/>
+            <speak chara="elaineNoFace" remark="next">"Рейнджеры идут вперёд!" - Хахаха, да, этот "Рейнджер".</speak>
+            <remark>
+                <p class="article-text-h">Примечание:</p>
+                <p class="article-text">"Рейнджеры идут вперёд!"("Вперёд, рейнджеры!" - это девиз американских рейнджеров, эквивалента сил специального назначения в других странах.)</p>
+                <p class="article-text">6 июня 1944 года на пляже Омаха в Нормандии, когда армия США высадилась в зоне обороны "Белая собака", встретились заместитель командира 29-й пехотной дивизии США бригадный генерал Норман Кота и командование Пятого батальона рейнджеров Офицер майор Макс Шнайдер. Бригадный генерал спросил: "Что это за снаряжение?" Майор ответил: "Пятый батальон рейнджеров, сэр!" Бригадный генерал ответил: "Ну, чёрт возьми, если вы рейнджеры, идите вперёд!"</p>
+            </remark>
+            <speak chara="elaineNoFace">Человека, о котором я говорила, доктор Морган, зовут Михаэль Морган, она моя знакомая и довольно хороший врач.</speak>
+            <show chara="elaineNormalFar" position="left"/>
+            <speak chara="elaineNoFace">Мы тоже изучаем это бедствие, которое вы, ребята, также называете "Хонкай".</speak>
+            <show chara="elaineNormalFar" position="left" opacity="0.7"/>
+            <show chara="reaSmileArmedFar" position="right"/>
+            <speak chara="reannaNoFace">Самостоятельно? Это впечатляет.</speak>
+            <show chara="teslaErGlassWinterFar" position="right"/>
+            <speak chara="teslaNoFace">Подожди секунду... Элейн... Морган... Только не говори мне, что есть ещё Вивьен или Нимуэ.</speak>
+            <show chara="teslaErGlassWinterFar" position="right" opacity="0.7"/>
+            <show chara="elaineSmileFar" position="left"/>
+            <speak chara="elaineNoFace">Э? О чём речь?</speak>
+            <show chara="elaineSmileFar" position="left" opacity="0.7"/>
+            <show chara="teslaErGlassWinterFar" position="right"/>
+            <speak chara="teslaNoFace" remark="next">Эм... о Короле Артуре?</speak>
+            <remark post="U2FsdGVkX18sNx6bP5ZCa35+JjZ3">
+                <p class="article-text-h">Примечание:</p>
+                <p class="article-text">Элейн, Морган, Вивьен и Нимуэ - всё это роли в "Легенде о короле Артуре". Среди них Элейн, Вивьен и Нимиао являются членами так называемых "Леди озера" (Ladies of the Lake); в то время как Морган ле Фэй - сестра короля Артура, известная как "Злая ведьма".</p>
+                <p class="article-text">P.S.: Отношения между Коннектикутом, Хартфордом и королём Артуром проистекают из шедевра Марка Твена "Янки из Коннектикута при дворе короля Артура" (A Connecticut Yankee in King Arthur's Court) - создателя современных кросс-фантастических романов.</p>
+            </remark>
+            <show chara="teslaErGlassWinterFar" position="right" opacity="0.7"/>
+            <show chara="elaineStruggleFar" position="left"/>
+            <speak chara="elaineNoFace">...Король Артур? О, я помню, как учительница читала нам это в начальной школе——</speak>
+            <show chara="elaineNormalFar" position="left"/>
+            <speak chara="elaineNoFace">—— Подождите, я серьёзно. Так, ребята, вас послало Бюро по борьбе со стихийными бедствиями?</speak>
+            <show chara="elaineNormalFar" position="left" opacity="0.7"/>
+            <show chara="teslaSnickerGlassWinterFar" position="right"/>
+            <speak chara="teslaNoFace">Э... Ага, что-то типа того.</speak>
+            <show chara="teslaSnickerGlassWinterFar" position="right" opacity="0.7"/>
+            <show chara="elaineSmileFar" position="left"/>
+            <speak chara="elaineNoFace">Прекрасно. Вы как раз те, кто нужны нашей команде——</speak>
+            <show chara="elaineStruggleFar" position="left"/>
+            <speak chara="elaineNoFace">——Как вы могли заметить, сражаться с этими монстрами с помощью этих браунингов довольно сложно.</speak>
+            <end post="U2FsdGVkX18lD14m4x7Hih5YT4tS"/>
+        </scene>
+    </story>
+</data>			

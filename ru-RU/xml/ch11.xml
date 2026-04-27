@@ -1,0 +1,420 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data>
+    <story>
+        <scene id="0" background="bg.jpg">
+            <bgm src="mid-lude.mp3" status="start"></bgm>
+            <cg src="newchapter.png" bg="bg.jpg"></cg>
+            <goto goto="10" change="#000000"/>
+        </scene>
+        <scene id="10" background="studyLamp.jpg">
+            <bgm src="lab.mp3" status="start"></bgm>
+            <show chara="teslaShameEyeClose-up" position="left"/>
+            <speak chara="teslaNoFace">Блондинка! Тащи мой пылающий клинок!</speak>
+            <show chara="teslaShameEyeClose-up" position="left" opacity="0.7"/>
+            <show chara="reaEmbarraOpenEyeWinterClose-up" position="right"/>
+            <speak chara="reannaNoFace">Блондинка... Ты это мне? </speak>
+            <show chara="reaEmbarraCloseEyeWinterClose-up" position="right"/>
+            <speak chara="reannaNoFace"> ...Что за «пылающий клинок»? </speak>
+            <show chara="reaEmbarraCloseEyeWinterClose-up" position="right" opacity="0.7"/>
+            <show chara="joaSmileWinterClose-up" position="left"/>
+            <speak chara="joaNoNameNoFace">Сестрица Валькирия... Она, вероятно, хочет, чтобы ты передала ей сварочный пистолет...</speak>
+            <show chara="joaSmileWinterClose-up" position="left" opacity="0.7"/>
+            <show chara="reaEmbarraCloseEyeWinterClose-up" position="right"/>
+            <speak chara="reannaNoFace">А-а, сварочный пистолет значит...</speak>
+            <show chara="reaEmbarraOpenEyeWinterClose-up" position="right"/>
+            <speak chara="reannaNoFace">Сварочный пистолет... Сварочный пистолет...</speak>
+            <show chara="reaEmbarraCloseEyeWinterClose-up" position="right"/>
+            <speak chara="reannaNoFace">Держи, сварочный пистолет.</speak>
+            <show chara="reaEmbarraCloseEyeWinterClose-up" position="right" opacity="0.7"/>
+            <show chara="teslaBoringEyeClose-up" position="left"/>
+            <speak chara="teslaNoFace">А... Он самый. Спасибо</speak>
+            <show chara="teslaBoringEyeClose-up" position="left" opacity="0.7"/>
+            <show chara="einFoolWhiteClose-up" position="right"/>
+            <speak chara="einNoFace">Извини за неудобства, но эта наша идиотка, как только начинает бесится, перестаёт говорить на человеческом языке.</speak>
+            <show chara="einFoolWhiteClose-up" position="right" opacity="0.7"/>
+            <show chara="teslaAngryEyeClose-up" position="left"/>
+            <speak chara="teslaNoFace">ЭЙ! ШВАБРА! ТЫ КОГО ИДИОТКОЙ НАЗВАЛА?!</speak>
+            <show chara="teslaAngryEyeClose-up" position="left" opacity="0.7"/>
+            <show chara="einSlyWhiteClose-up" position="right"/>
+            <speak chara="einNoFace">А кто же ещё, кроме самой уважаемой и выдающейся леди Теслы?</speak>
+            <show chara="einSlyWhiteClose-up" position="right" opacity="0.7"/>
+            <show chara="teslaAngryEyeClose-up" position="left"/>
+            <speak chara="teslaNoFace">...ОТВЕДАЙ МОЕГО ПЫЛАЮЩЕГО КЛИНКА!</speak>
+            <show chara="teslaAngryEyeClose-up" position="left" opacity="0.7"/>
+            <show chara="weltScaredSweaterClose-up" position="right"/>
+            <speak chara="weltNoFace">...Берегись!</speak>
+            <show chara="weltShameSweaterClose-up" position="right"/>
+            <speak chara="weltNoFace">...И почему ты размахиваешь им перед моим лицом!?</speak>
+            <goto goto="30" change="#ffffff"/>
+        </scene>
+        <scene id="30" background="studyLamp.jpg">
+            <bgm src="lab.mp3" status="continue"></bgm>
+            <text article="1">
+                <p class="article-text">Как до этого всё докатилось... Вельт не может удержаться от вздоха.</p>
+            </text>
+            <text article="1">
+                <p class="article-text">Два гостя, которые пришли сегодня вечером в лабораторию 42, - это Реанна Бригантия и Иоахим Нокианвиртанен. Первая - валькирия высокого ранга из штаб-квартиры, в то время как второй - сын легкомысленного Финна.</p>
+                <p class="article-text">Зачем этим двоим приходить сюда...</p>
+                <p class="article-text">Видимо это работа так называемой «судьбы».</p>
+            </text>
+            <show chara="ghostBlackFloatClose-up" position="center" opacity="0.9"/>
+            <text article="1">
+                <p class="article-text">Конечно, у нас нет возможности узнать, будучи конечной ступенькой к этой судьбе, о чём думал дистанционно управляемый робот, который был проклят гнилой удачей в течение нескольких поколений, в момент своей кончины.</p>
+                <br />
+                <p class="article-text">...Если он вообще способен думать.</p>
+            </text>
+            <goto goto="40" change="#ffffff"/>
+        </scene>
+        <scene id="40" background="schoolNight3.jpg">
+            <text article="1">
+                <p class="article-text">Иоахим уже много раз бывал на рабочем месте своего отца; каждый раз сестра-швабра и сестра с двумя хвостиками всегда давали ему поиграть с тем, с чем другие дети не могут: приготовление различных ярких химических растворов, воспроизведение музыки с помощью катушек Теслы в тёмной комнате и репетиция сценических представлений с мисс Компьютер... Истории и социальный капитал, которыми он мог бы похвастаться перед другими детьми.</p>
+            </text>
+            <show chara="joaBlackWinterClose-up" position="center" opacity="0.9"/>
+            <text article="1">
+                <p class="article-text" style="color:#ccbdac;font-style:italic;">«Больше всего я люблю своих сестриц!»</p>
+                <br />
+                <p class="article-text">— По крайней мере по мнению Вельта паренёк думает так.</p>
+            </text>
+            <hide position="center"/>
+            <text article="1">
+                <p class="article-text">Итак, несколько дней назад, когда внезапно зазвучал коммуникатор, который сестра с двумя хвостиками подарила ему во время летних каникул, мальчик инстинктивно почувствовал, что должно произойти что-то интересное.</p>
+            </text>
+            <show chara="teslaBlackGlassWinterClose-up" position="center" opacity="0.9"/>
+            <text article="1">
+                <p class="article-text" style="color:rgb(237,118,114);font-style:italic;">«Эй, малыш! Хочешь вместе поприкалываться в Хэллоуин?»</p>
+            </text>
+            <hide position="center"/>
+            <text article="1">
+                <p class="article-text">Просто сестра с двумя хвостиками не могла предсказать, что робот, которого она подготовила для кладбища, случайно будет воспринят как «Неопознанный летающий объект» и разлетится на куски сестрой валькирией, которая просто приходила, чтобы подмести могилу.</p>
+            </text>
+            <show chara="reaBlackRunWinterClose-up" position="center" opacity="0.9"/>
+            <text article="1">
+                <p class="article-text" style="color:#fff2c4;font-style:italic;">«А... Эм... Я действительно не знала! Мне ужасно жаль! Я возмещу тебе, как и просила!»</p>
+            </text>
+            <hide position="center"/>
+            <text article="1">
+                <p class="article-text">Вспомнив искренние извинения и неоднократные поклоны сестры валькирии, Иоахим смутился и почувствовал себя немного виноватым перед ней.</p>
+                <br />
+                <p class="article-text">— По крайней мере, по мнению Вельта, так оно и было.</p>
+            </text>
+            <show chara="joaBlackWinterClose-up" position="center" opacity="0.9"/>
+            <text article="1">
+                <p class="article-text">Столкнувшись с тем, что другая сторона так настойчиво требовала компенсации, у мальчика возникла идея —</p>
+                <br />
+                <p class="article-text" style="color:#ccbdac;font-style:italic;">«Мисс Реанна, я хочу Ваш автограф!»</p>
+            </text>
+            <hide position="center"/>
+            <text article="1">
+                <p class="article-text">Конечно, теперь, когда речь зашла об этом...</p>
+                <br />
+                <p class="article-text">Рыжая тиранша не могла притворяться, что «ничего не произошло».</p>
+            </text>
+            <goto goto="60" change="#ffffff"/>
+        </scene>
+        <scene id="60" background="studyLamp.jpg">
+            <bgm src="lab.mp3" status="continue"></bgm>
+            <show chara="teslaNormalEyeClose-up" position="left"/>
+            <speak chara="teslaNoFace">Серьёзно... </speak>
+            <show chara="teslaEmbarraEyeClose-up" position="left"/>
+            <speak chara="teslaNoFace">Что ещё за «Цветок Бездны»? Как тебе удалось дизинтегрировать все провода изнутри?</speak>
+            <show chara="teslaEmbarraEyeClose-up" position="left" opacity="0.7"/>
+            <show chara="reaSmileAhWinterClose-up" position="right"/>
+            <speak chara="reannaNoFace">«Цветок Бездны» это «Божественный Ключ», который объединяет силы разложения и созидания в одно целое.</speak>
+            <show chara="reaEmbarraCloseEyeWinterClose-up" position="right"/>
+            <speak chara="reannaNoFace">Когда его разрушительная сила активируется, цель автоматически деконструируется изнутри в более хаотичное и неупорядоченное состояние.</speak>
+            <show chara="reaEmbarraOpenEyeWinterClose-up" position="right"/>
+            <speak chara="reannaNoFace">Если использовать в полную силу—</speak>
+            <show chara="reaEmbarraOpenEyeWinterClose-up" position="right" opacity="0.7"/>
+            <show chara="teslaEmbarraEyeClose-up" position="left"/>
+            <speak chara="teslaNoFace">Погоди, стой.</speak>
+            <show chara="teslaShameEyeClose-up" position="left"/>
+            <speak chara="teslaNoFace">«Объединяет силы разложения и созидания в одно целое»? </speak>
+            <show chara="teslaSnickerEyeClose-up" position="left"/>
+            <speak chara="teslaNoFace">Говоря иначе, он может чинить?</speak>
+            <show chara="teslaSnickerEyeClose-up" position="left" opacity="0.7"/>
+            <show chara="reaSmileAhWinterClose-up" position="right"/>
+            <speak chara="reannaNoFace">...Да.</speak>
+            <show chara="reaSmileAhWinterClose-up" position="right" opacity="0.7"/>
+            <show chara="teslaSmileEyeClose-up" position="left"/>
+            <speak chara="teslaNoFace">Так почему ты не сказала об этом раньше?!</speak>
+            <show chara="teslaSnickerEyeClose-up" position="left"/>
+            <speak chara="teslaNoFace">Тогда давай работать вместе для починки этой груды металлолома.</speak>
+            <show chara="teslaSnickerEyeClose-up" position="left" opacity="0.7"/>
+            <show chara="reaEmbarraOpenEyeWinterClose-up" position="right"/>
+            <speak chara="reannaNoFace">...Извини, но я не могу этого сделать. В противном случае я бы уже починила его.</speak>
+            <show chara="reaEmbarraOpenEyeWinterClose-up" position="right" opacity="0.7"/>
+            <show chara="teslaShameEyeClose-up" position="left"/>
+            <speak chara="teslaNoFace">А? И почему же?</speak>
+            <show chara="teslaShameEyeClose-up" position="left" opacity="0.7"/>
+            <show chara="reaEmbarraCloseEyeWinterClose-up" position="right"/>
+            <speak chara="reannaNoFace">Хотя Цветок Бездны может разлагать всё, его «созидательные» силы пригодны только для устранения повреждений живых организмов.</speak>
+            <show chara="reaEmbarraCloseEyeWinterClose-up" position="right" opacity="0.7"/>
+            <show chara="teslaNormalEyeClose-up" position="left"/>
+            <speak chara="teslaNoFace">А, вот как.</speak>
+            <show chara="teslaEmbarraEyeClose-up" position="left"/>
+            <speak chara="teslaNoFace">Погодь... Это ж не имеет смысла. Нет абсолютной границы между органическим и неорганическим. </speak>
+            <show chara="teslaShameEyeClose-up" position="left"/>
+            <speak chara="teslaNoFace">В конце концов, с другой точки зрения, разве «человек» это не просто машина с самосознанием?</speak>
+            <show chara="teslaShameEyeClose-up" position="left" opacity="0.7"/>
+            <show chara="reaEmbarraCloseEyeWinterClose-up" position="right"/>
+            <speak chara="reannaNoFace">Ну...</speak>
+            <show chara="reaEmbarraCloseEyeWinterClose-up" position="right" opacity="0.7"/>
+            <show chara="teslaShameEyeClose-up" position="left"/>
+            <speak chara="teslaNoFace">...Первый раз слышишь подобное утверждение?</speak>
+            <show chara="teslaSmileEyeClose-up" position="left"/>
+            <speak chara="teslaNoFace">Подумай о наших органах. Подумай о наших клетках. Подумай о наших митохондриях. Подумай о наших нейромедиаторах.</speak>
+            <show chara="teslaSnickerEyeClose-up" position="left"/>
+            <speak chara="teslaNoFace">Что из них не выполняет команды механически, основываясь на внешних стимулах?</speak>
+            <show chara="teslaNormalEyeClose-up" position="left"/>
+            <speak chara="teslaNoFace">Люди мягкие, в то время как машины твёрдые — это всего лишь разница в материалах.</speak>
+            <show chara="teslaShameEyeClose-up" position="left"/>
+            <speak chara="teslaNoFace">Мы можем казаться умными, а машины - неуклюжими, но только потому, что у нас ещё нет возможности спроектировать машину, такую же хорошую, как мы сами.</speak>
+            <show chara="teslaBoringEyeClose-up" position="left"/>
+            <speak chara="teslaNoFace">Те, кто упрямо верит, что у людей есть так называемые «души», либо не желают вникать в истинную природу этого мира...</speak>
+            <show chara="teslaEmbarraEyeClose-up" position="left"/>
+            <speak chara="teslaNoFace">Либо одурманены концепцией «эго», и им приходится отчаянно искать свою собственную «новую одежду императора», чтобы доказать свою «легитимность».</speak>
+            <show chara="teslaShameEyeClose-up" position="left"/>
+            <speak chara="teslaNoFace">Понимаешь? Эти люди просто не могут поверить, что они всего лишь продукт природы, побочный продукт естественной эволюции всего сущего.</speak>
+            <show chara="teslaSnickerEyeClose-up" position="left"/>
+            <speak chara="teslaNoFace">Они предпочитают выставлять себя «великими» в собственной художественной литературе, нежели принимать приземлённое понимание самих себя.</speak>
+            <speak chara="teslaNoFace">Поскольку они так боятся умереть, что готовы смотреть на всё вокруг свысока, они ничем не отличаются от тех королей и королев, которые кричат, что у них есть «божественное право» на правление.</speak>
+            <show chara="teslaSnickerEyeClose-up" position="left" opacity="0.7"/>
+            <show chara="reaEmbarraOpenEyeWinterClose-up" position="right"/>
+            <speak chara="reannaNoFace">А-ха-ха...</speak>
+            <speak chara="reannaNoFace">Ну...</speak>
+            <show chara="reaEmbarraCloseEyeWinterClose-up" position="right"/>
+            <speak chara="reannaNoFace">Аргументы, которые ты привела, очень интересны... Но любая ремонтная работа требует чертежа.</speak>
+            <show chara="reaEmbarraCloseEyeWinterClose-up" position="right" opacity="0.7"/>
+            <show chara="teslaShameEyeClose-up" position="left"/>
+            <speak chara="teslaNoFace">Чертёж? Я могу дать его тебе. Без проблем!</speak>
+            <show chara="teslaShameEyeClose-up" position="left" opacity="0.7"/>
+            <show chara="reaEmbarraOpenEyeWinterClose-up" position="right"/>
+            <speak chara="reannaNoFace">Нет... Цветок Бездны может анализировать только чертежи, записанные в генетическом коде.</speak>
+            <show chara="reaEmbarraOpenEyeWinterClose-up" position="right" opacity="0.7"/>
+            <show chara="teslaBoringEyeClose-up" position="left"/>
+            <speak chara="teslaNoFace" remark="next">Тц... ДНК?</speak>
+            <remark>
+                <p class="article-text-h">Примечание:</p>
+                <p class="article-text">В начале 1953 года Джеймс Дьюи Уотсон и Фрэнсис Гарри Комптон Крик предложили точную модель ДНК с деконструкцией двойной спирали, основанную на рентгеновских картинах дифракции, сделанных Розалиндой Элси Франклин, и опубликовали её в «Nature» (Том 171, выпуск 4356, стр. 737, МОЛЕКУЛЯРНАЯ структура нуклеиновых кислот). КИСЛОТЫ: Структура для дезоксирибозной нуклеиновой кислоты.</p>
+                <br />
+                <p class="article-text">P.S. Эта статья занимает всего одну страницу — не считая указания авторства и ссылок, которые перечислены на странице 738.</p>
+            </remark>
+            <show chara="teslaBoringEyeClose-up" position="left" opacity="0.7"/>
+            <show chara="reaEmbarraCloseEyeWinterClose-up" position="right"/>
+            <speak chara="reannaNoFace">М-гм... Он может распознавать «чертежи» только в формате ДНК.</speak>
+            <show chara="reaEmbarraCloseEyeWinterClose-up" position="right" opacity="0.7"/>
+            <show chara="teslaEmbarraEyeClose-up" position="left"/>
+            <speak chara="teslaNoFace">...Тц, скука.</speak>
+            <show chara="teslaShameEyeClose-up" position="left"/>
+            <speak chara="teslaNoFace" remark="next">Поскольку он зовётся «Божественным ключом»... Я подумала, что он вроде «Философского каменя».</speak>
+            <remark>
+                <p class="article-text-h">Примечание:</p>
+                <p class="article-text">Обычно считается, что концепция философского камня взята из путеводителя по герметизму, «Изумрудной скрижали», написанной примерно в 1 веке нашей эры.</p>
+                <p class="article-text">«Философский камень» символизирует вершину алхимии, и арканисты верят, что он может не только превратить камень в золото, но и сделать человека бессмертным.</p>
+            </remark>
+            <show chara="teslaShameEyeClose-up" position="left" opacity="0.7"/>
+            <show chara="reaEmbarraOpenEyeWinterClose-up" position="right"/>
+            <speak chara="reannaNoFace">А-ха-ха-ха-ха... Что такое «Филосовский камень»?...</speak>
+            <show chara="reaEmbarraOpenEyeWinterClose-up" position="right" opacity="0.7"/>
+            <show chara="einSlyWhiteClose-up" position="right"/>
+            <speak chara="einNoFace">Извините, наша местная «идиотка» получила докторскую степень, но всё ещё верит в алхимию.</speak>
+            <show chara="einSlyWhiteClose-up" position="right" opacity="0.7"/>
+            <show chara="teslaAngryEyeClose-up" position="left"/>
+            <speak chara="teslaNoFace">...</speak>
+            <show chara="teslaAngryEyeClose-up" position="left" opacity="0.7"/>
+            <show chara="einSlyWhiteClose-up" position="right"/>
+            <speak chara="einNoFace">Что такое? Какие-то проблемы?</speak>
+            <show chara="einSlyWhiteClose-up" position="right" opacity="0.7"/>
+            <show chara="teslaAngryEyeClose-up" position="left"/>
+            <speak chara="teslaNoFace">......</speak>
+            <show chara="teslaAngryEyeClose-up" position="left" opacity="0.7"/>
+            <show chara="einSlyWhiteClose-up" position="right"/>
+            <speak chara="einNoFace">Если нет проблем, то давай продолжим ремонт.</speak>
+            <show chara="einSlyWhiteClose-up" position="right" opacity="0.7"/>
+            <show chara="teslaAngryEyeClose-up" position="left"/>
+            <speak chara="teslaNoFace">.........</speak>
+            <show chara="teslaNormalEyeClose-up" position="left"/>
+            <speak chara="teslaNoFace">Вельт.</speak>
+            <show chara="weltScaredSweaterClose-up" position="right"/>
+            <speak chara="weltNoFace">Ась!?</speak>
+            <show chara="weltScaredSweaterClose-up" position="right" opacity="0.7"/>
+            <show chara="teslaShameEyeClose-up" position="left"/>
+            <speak chara="teslaNoFace">Если не использовать опасное оружие... Я ж могу избить человека?</speak>
+            <show chara="teslaShameEyeClose-up" position="left" opacity="0.7"/>
+            <show chara="weltTiredSweaterClose-up" position="right"/>
+            <speak chara="weltNoFace">Ну... Только не бей меня.</speak>
+            <show chara="weltGiggleSweaterClose-up" position="right"/>
+            <speak chara="weltNoFace">Пока ты не причиняешь вреда ни в чём не повинным людям, можешь хоть дом разрушить.</speak>
+            <show chara="weltGiggleSweaterClose-up" position="right" opacity="0.7"/>
+            <show chara="teslaEmbarraEyeClose-up" position="left"/>
+            <speak chara="teslaNoFace">...</speak>
+            <goto goto="70" change="0"/>
+        </scene>
+        <scene id="70" background="">
+            <bgm src="lab.mp3" status="stop"></bgm>
+            <sound src="hit man.mp3"/>
+            <text>«А!»</text>
+            <goto goto="80" change="0"/>
+        </scene>
+        <scene id="80" background="studyLamp.jpg">
+            <bgm src="themeTesla.mp3" status="start"></bgm>
+            <show chara="weltShameSweaterClose-up" position="right"/>
+            <speak chara="weltNoFace">Больно!</speak>
+            <show chara="weltScaredSweaterClose-up" position="right"/>
+            <speak chara="weltNoFace">Почему опять я!?</speak>
+            <show chara="weltScaredSweaterClose-up" position="right" opacity="0.7"/>
+            <show chara="teslaSnickerEyeClose-up" position="left"/>
+            <speak chara="teslaNoFace">Просто тебя бить веселее.</speak>
+            <show chara="teslaSmileEyeClose-up" position="left"/>
+            <speak chara="teslaNoFace">К тому же это «не причиняет вреда ни в чём не повинному человеку».</speak>
+            <show chara="teslaSmileEyeClose-up" position="left" opacity="0.7"/>
+            <show chara="weltSurpriseSweaterClose-up" position="right"/>
+            <speak chara="weltNoFace">Погоди, погоди секунду.</speak>
+            <show chara="weltSurpriseSweaterClose-up" position="right" opacity="0.7"/>
+            <show chara="teslaShameEyeClose-up" position="left"/>
+            <speak chara="teslaNoFace">«Ну... Только не бей меня.»</speak>
+            <show chara="teslaSmileEyeClose-up" position="left"/>
+            <speak chara="teslaNoFace">Пф!</speak>
+            <show chara="teslaSnickerEyeClose-up" position="left"/>
+            <speak chara="teslaNoFace">Доктор Эйнштейн, скажите как мы должны наказать такого человека?</speak>
+            <show chara="teslaSnickerEyeClose-up" position="left" opacity="0.7"/>
+            <show chara="einSlyWhiteClose-up" position="left"/>
+            <speak chara="einNoFace">Смертной казни должно быть достаточно.</speak>
+            <show chara="einSlyWhiteClose-up" position="left" opacity="0.7"/>
+            <show chara="weltScaredSweaterClose-up" position="right"/>
+            <speak chara="weltNoFace">...П-п-погодите!</speak>
+            <show chara="weltScaredSweaterClose-up" position="right" opacity="0.7"/>
+            <show chara="reaEmbarraCloseEyeWinterClose-up" position="left"/>
+            <speak chara="reannaNoFace">...Ха-ха-ха-ха.</speak>
+            <show chara="reaSmileAhWinterClose-up" position="left"/>
+            <speak chara="reannaNoFace">...Ты и правда «грешен».</speak>
+            <show chara="reaEmbarraCloseEyeWinterClose-up" position="left"/>
+            <speak chara="reannaNoFace">Просто прими это, смирись.</speak>
+            <show chara="reaEmbarraCloseEyeWinterClose-up" position="left" opacity="0.7"/>
+            <show chara="weltScaredSweaterClose-up" position="right"/>
+            <speak chara="weltNoFace">...П-п-погодите!</speak>
+            <show chara="weltScaredSweaterClose-up" position="right" opacity="0.7"/>
+            <show chara="joaNormalAhWinterClose-up" position="left"/>
+            <speak chara="joaNoFace">Эм...</speak>
+            <show chara="joaNormalEmWinterClose-up" position="left" opacity="0.7"/>
+            <show chara="weltTiredSweaterClose-up" position="right"/>
+            <speak chara="weltNoFace">Б-братишка... Т-ты должен мне помочь! Мы ведь оба парни!</speak>
+            <show chara="weltTiredSweaterClose-up" position="right" opacity="0.7"/>
+            <show chara="joaNormalEmWinterClose-up" position="left"/>
+            <speak chara="joaNoFace">...</speak>
+            <show chara="joaSmileWinterClose-up" position="left"/>
+            <speak chara="joaNoFace">Мои соболезнования?</speak>
+            <show chara="joaSmileWinterClose-up" position="left" opacity="0.7"/>
+            <show chara="weltScaredSweaterClose-up" position="right"/>
+            <speak chara="weltNoFace">С-соболезования?!</speak>
+            <show chara="weltShameSweaterClose-up" position="right"/>
+            <speak chara="weltNoFace" remark="next">Дитя, ты случайно не «Брут»!?</speak>
+            <remark post="U2FsdGVkX19IYJuwZsYSwhJzkZ5S">
+                <p class="article-text-h">Примечание:</p>
+                <p class="article-text">В исторической пьесе Шекспира «Юлий Цезарь», «Et tu, Brute??» (И ты, Брут??) это последняя фраза, которую Цезарь говорит своему приёмному сыну Бруту перед смертью.</p>
+            </remark>
+            <show chara="weltShameSweaterClose-up" position="right" opacity="0.7"/>
+            <show chara="teslaSnickerEyeClose-up" position="left"/>
+            <speak chara="teslaNoFace">Ты ему не крёстный отец, как он может быть твоим «Брутом»?</speak>
+            <show chara="teslaSnickerEyeClose-up" position="left" opacity="0.7"/>
+            <show chara="einSlyWhiteClose-up" position="left"/>
+            <speak chara="einNoFace">Что ж, возможно, мы могли бы воспользоваться этой возможностью, чтобы покончить с формальностями?</speak>
+            <show chara="einSlyWhiteClose-up" position="left" opacity="0.7"/>
+            <show chara="teslaSnickerEyeClose-up" position="left"/>
+            <speak chara="teslaNoFace">Хотя никто не захотел бы стать его наследником. Ха-ха-ха-ха.</speak>
+            <show chara="teslaSnickerEyeClose-up" position="left" opacity="0.7"/>
+            <show chara="weltScaredSweaterClose-up" position="right"/>
+            <speak chara="weltNoFace">...Достаточно!</speak>
+            <goto goto="100" change="#ffffff"/>
+        </scene>
+        <scene id="100" background="">
+            <bgm src="lab.mp3" status="stop"></bgm>
+            <speak chara="schroNoFace">Прекратите!</speak>
+            <goto goto="110" change="0"/>
+        </scene>
+        <scene id="110" background="CG11-1.jpg">
+            <bgm src="horror.mp3" status="start"></bgm>
+            <text>Нью-Йорк. Объединённая компания Эдисона в Нью-Йорке. Подземная лаборатория.</text>
+            <speak chara="schroNoFace" remark="next">Гарри, пока не добавляй модуль отражения!</speak>
+            <speak chara="schroNoFace">...Да, видишь, потенциальный масштаб реакции уже очень опасен.</speak>
+            <text>Шрёдингер инстинктивно делает движение, чтобы вытереть пот с головы, но поскольку на ней тяжёлая защитная одежда это бесполезно.</text>
+            <speak chara="schroNoFace" remark="next">...Луис, держи отвёртку крепче! Эти металлические части так же нестабильны, как и Дженга.</speak>
+            <remark>
+                <p class="article-text-h">Примечание:</p>
+                <p class="article-text">В нашем мире Гарри К. Даглиан-младший (1921.4-1945.9) и Луис Александр Злотин (1910.12-1946.5) были сотрудниками Лос-Аламосской национальной лаборатории в Соединённых Штатах. Два несчастных учёных 21 августа 1945 года и 21 мая 1946 года соответственно получили смертельные дозы ядерного излучения из-за непреднамеренного неправильного обращения с одним и тем же плутониевым ядром и в результате скончались. </p>
+                <p class="article-text">Среди них Луис Александр Злотин прославился своим великим поступком «обезвреживания атомной бомбы обеими руками».</p>
+            </remark>
+            <speak chara="schroNoFace">...Да. Убирай медленно.</speak>
+            <speak chara="schroNoFace">Медленно...</speak>
+            <speak chara="schroNoFace">...Хорошо.</speak>
+            <speak chara="schroNoFace">Теперь устройство будет находиться в докритическом стационарном состоянии...</speak>
+            <speak chara="schroNoFace">Если всё пройдёт хорошо...</speak>
+            <speak chara="schroNoFace">...Гарри, какова текущая температура ядра?</speak>
+            <speak chara="harryNoFace">...45.7℃! </speak>
+            <speak chara="harryNoFace">...Она быстро поднялась на 20.7 градусов! Эффективность преобразования в обычную внутреннюю энергию очень высока!</speak>
+            <goto goto="120" change="#ffffff"/>
+        </scene>
+        <scene id="120" background="adaRoom.jpg">
+            <bgm src="11_17_tatakau.mp3" status="start"></bgm>
+            <show chara="nokiaSeriousEmWinterFar" position="right" opacity="0.7"/>
+            <show chara="edisonSmileWinterFar" position="left"/>
+            <speak chara="edisonNoFace">...Превосходно.</speak>
+            <show chara="edisonLaughWinterFar" position="left"/>
+            <speak chara="edisonNoFace">Это станет величайшим «цивильным» изобретением, когда-либо известным в истории человечества!</speak>
+            <speak chara="edisonNoFace">Мы должны дать этому проекту громкое и звучное название!</speak>
+            <show chara="edisonSighWinterFar" position="left"/>
+            <speak chara="edisonNoFace">В противном случае эта Планк определённо будет смеяться над нами за то, что мы некультурны.</speak>
+            <show chara="edisonSighWinterFar" position="left" opacity="0.7"/>
+            <show chara="nokiaSeriousAhWinterFar" position="right"/>
+            <speak chara="nokiaNoFace">...Цивильное изобретение? Ты о выработке электроэнергии?</speak>
+            <show chara="nokiaSeriousAhWinterFar" position="right" opacity="0.7"/>
+            <show chara="edisonLaughWinterFar" position="left"/>
+            <speak chara="edisonNoFace">Пф, ха-ха-ха-ха! О чём ты?</speak>
+            <show chara="edisonSmileWinterFar" position="left"/>
+            <speak chara="edisonNoFace"> Как только это изобретение увенчается успехом, будь то мои собственные желания или Шиксала: мечты каждого могут быть успешно достигнуты.</speak>
+            <show chara="edisonSlyWinterFar" position="left"/>
+            <speak chara="edisonNoFace">Нет, следует сказать... К тому времени у Шиксала не будет ни ценности, ни капитала, чтобы продолжать существовать.</speak>
+            <show chara="edisonSlyWinterFar" position="left" opacity="0.7"/>
+            <show chara="nokiaSeriousAhWinterFar" position="right"/>
+            <speak chara="nokiaNoFace">Что?..</speak>
+            <speak chara="nokiaNoFace">«Ни ценности, ни капитала, чтобы продолжать существовать»?</speak>
+            <show chara="nokiaSeriousAhWinterFar" position="right" opacity="0.7"/>
+            <show chara="edisonNeckWinterFar" position="left"/>
+            <speak chara="edisonNoFace">Конечно.</speak>
+            <show chara="edisonSighWinterFar" position="left"/>
+            <speak chara="edisonNoFace">Ты ещё не понял?</speak>
+            <show chara="edisonSeriousWinterFar" position="left"/>
+            <speak chara="edisonNoFace">Теперь, когда у нас, наконец, есть шанс, в контролируемых и универсальных условиях, завершить преобразование энергии Хонкая в обычную энергию...</speak>
+            <show chara="edisonSmileWinterFar" position="left"/>
+            <speak chara="edisonNoFace">Эта технология может быть расширена для поглощения и преобразования энергии Хонкая из любого уголка земли.</speak>
+            <show chara="edisonNeckWinterFar" position="left"/>
+            <speak chara="edisonNoFace">Разве это не равносильно тому, что Хонкая не будет существовать?</speak>
+            <show chara="edisonSighWinterFar" position="left"/>
+            <speak chara="edisonNoFace">Что касается Шиксала... Это просто организация, которая борется Хонкаем с Хонкаем.</speak>
+            <show chara="edisonSlyWinterFar" position="left"/>
+            <speak chara="edisonNoFace">Как только Хонкай исчезнет, естественно, Шиксал станет бесполезным.</speak>
+            <show chara="edisonLaughWinterFar" position="left"/>
+            <speak chara="edisonNoFace">Как будто в нём вообще не было нужды!</speak>
+            <speak chara="edisonNoFace" remark="next">«Восстань, прекрасная Луна!»</speak>
+            <speak chara="edisonNoFace" remark="next">«Убей завистливое солнце, которая уже больна и бледна от горя, что ты, её служанка, гораздо красивее её!»</speak>
+            <remark>
+                <p class="article-text-h">Примечание:</p>
+                <p class="article-text">«Восстань, прекрасное солнце, и убей завистливую луну, которая уже больна и бледна от горя, что ты, её служанка, гораздо красивее её». — «Ромео и Джульетта», Шекспир.</p>
+            </remark>
+            <show chara="edisonSeriousWinterFar" position="left"/>
+            <speak chara="edisonNoFace">А.</speak>
+            <show chara="edisonNeckWinterFar" position="left"/>
+            <speak chara="edisonNoFace">Луна... Лунный...</speak>
+            <show chara="edisonSlyWinterFar" position="left"/>
+            <speak chara="edisonNoFace" remark="next">...«Лунный Трон»?</speak>
+            <show chara="edisonLaughWinterFar" position="left"/>
+            <speak chara="edisonNoFace" remark="next">«Проект Лунный Трон»! Что на счёт этого названия?</speak>
+            <remark>
+                 <p class="article-text-h">Примечание переводчика:</p>
+                 <p class="arcticle-text">«Проект Лунный Трон» также известен как «Селена» из-за английской локализации. В оригинале он не менял своего названия и по прежнему зовётся «月光王座», где «月光» переводится как «лунное сияние», а «王座» как «трон».</p>
+                 <p class="article-text">Это не единственный случай, когда английские локализаторы выдумывают названия, а порой и целые аббревиатуры. Иногда у них это выходит хорошо, как, например, в случае с Херршерами. А иногда в этом попросту нет смысла, как, например, в случае с ICHOR, когда miHoYo уже перевели это, как «фактор метаморфозы» (Манга «Секреты Божественных Ключей», глава 4).</p>
+            </remark>
+            <end post="U2FsdGVkX18acvktWFkCKCirIU76"/>
+        </scene>
+    </story>
+</data>	

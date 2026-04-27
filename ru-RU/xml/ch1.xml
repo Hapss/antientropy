@@ -1,0 +1,658 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data>
+    <story title="1">
+        <scene id="0" background="black" bgm="no">
+            <bgm src="horror.mp3" status="start"></bgm>
+            <text>Машина наконец остановилась.</text>
+            <sound src="car door open.mp3"/>
+            <text>Дверь машины открылась.</text>
+            <text>Холодный воздух врывается внутрь, неся с собой едкий запах табака.</text>
+            <speak chara="5">Апчи!</speak>
+            <speak chara="0">...</speak>
+            <speak chara="0">Выбирайся из машины.</speak>
+            <speak chara="5">...</speak>
+            <speak chara="5">Оу.</speak>
+            <text>Я подсознательно тянусь к правой двери, но обнаруживаю, что она закрыта.</text>
+            <speak chara="0">Тц. Да слева! Слева!</speak>
+            <text>Мужчина нетерпеливо ворчит.</text>
+            <text>Я послушно пробираюсь к другой стороне машины, согнувшись подобно креветке.</text>
+            <text>Опасаясь того, что головой ударюсь о дверную раму, я не торопился выпрямлять спину, пока не отошёл от машины на два-три шага.</text>
+            <text>Не то что бы у меня был выбор. Что за человек надевает кому-то мешок на голову?..</text>
+            <speak chara="0">Шевелись.</speak>
+            <text>Владелец голоса хватает меня за руку и без предупреждения дёргает меня вперёд. Он довольно сильный. Видимо очень крепкий парень.</text>
+            <text>Глухой стук.</text>
+            <sound src="door close car away.mp3"/>
+            <text>Звук захлопывающейся за мной двери машины, звук запускающегося двигателя.</text>
+            <shake position="all" time="250"></shake>
+            <speak chara="5">Аа!</speak>
+            <text>Лишь секундная потеря концентрации, как я поскальзываюсь и падаю на землю как идиот.</text>
+            <speak chara="0">Дурак, смотри куда идёшь!</speak>
+            <speak chara="5">...</speak>
+            <text>Да если б я действительно мог видеть, куда иду.</text>
+            <goto goto="5" change="0"/>
+        </scene>
+        <scene id="5" background="forrestDark.jpg" bgm="no">
+            <bgm src="horror.mp3" status="continue"></bgm>
+            <sound src="walk on grass.mp3"/>
+            <text>Земля ощущается как дёрн, а воздух, навевающий от холодной земли, истощает то лёгкое тепло, что осталось внутри штанов.</text>
+            <text>И так я иду уже не знаю сколько.</text>
+            <text>Моё окружение становилось всё тише и тише. Смутно слышно унылое уханье сов.</text>
+            <text>Кажется...</text>
+            <text>...Нет, они же не собираются «утилизировать» меня, да?</text>
+            <text>Я же всё-таки важный «образец», они же не посмеют...</text>
+            <text>Стойте.</text>
+            <sound src="write.mp3"/>
+            <text>Передо мной такой звук, будто бы кто-то пишет или на чём-то чиркает.</text>
+            <speak chara="einNoFaceNoName">...А ты можешь возвращаться.</speak>
+            <text>Женский голос. До безразличья спокойный. Она не звучит старой. Возможно, какой-то секретарь.</text>
+            <speak chara="0">Да, мисс.</speak>
+            <text>Крупная ладонь, вцепившаяся в мою руку, разжимает хватку.</text>
+            <text>Я слышу хлопанье ветровки, а затем звук медленно удаляющихся шагов.</text>
+            <goto goto="10" />
+        </scene>
+        <scene id="10" background="schoolNight1.jpg" bgm="no">
+            <bgm src="horror.mp3" status="continue"></bgm>
+            <show chara="einNormalCloseNoName" position="center"/>
+            <sound src="cloth.mp3"/>
+            <shake position="all" time="250"></shake>
+            <speak chara="einNormalCloseNoName">20 октября. Время: 22:57 по Гринвичу. — Благодарю за терпение, лабораторная крыска.</speak>
+            <speak chara="5">Аа!</speak>
+            <text>Не успел я подготовиться, как капюшон со «вжухом» слетел с моей головы.</text>
+            <text>Резинка от шнурка возле горловины капюшона с силой ударила меня по носу. Теперь он жжётся.</text>
+            <speak chara="einNormalCloseNoName">Тихо.</speak>
+            <text>Девушка с неряшливой причёской спокойно командует мне.</text>
+            <speak chara="einNormalCloseNoName">Следуй за мной.</speak>
+            <show chara="einNormalCloseNoName" position="center" opacity="0.7"/>
+            <text>Она даже не даёт мне возможности рассмотреть её лицо.</text>
+            <text>Она тоже знает, что мне некуда бежать.</text>
+            <goto goto="20" change="0"/>
+        </scene>
+        <scene id="20" background="schoolNight1.jpg" bgm="no">
+            <bgm src="horror.mp3" status="continue"></bgm>
+            <sound src="walk slow.mp3"/>
+            <text remark="next">Кампус университета. Грубый свет от уличных фонарей рассеивается по битуму, отбрасывая жуткие тени. Я вижу бледный свет из здания впереди, и он напоминает мне о тех ужасных экспериментах.</text>
+            <remark>
+            <p class="article-text-h">Примечание:</p>
+            <p class="article-text">Битумы - продукт выветривания нефти. Твёрдые или смолоподобные продукты, представляющие собой смесь углеводородов и их азотистых, кислородистых, сернистых и металлосодержащих производных.</p>
+            </remark>
+            <text>Пока я иду, не имея возможности остановиться, я начинаю представлять себя отчаянной, жалкой фигурой, спасающейся от смерти.</text>
+            <text>Пальцы, обглоданные до сырости.</text>
+            <text>Разорванная в клочья одежда.</text>
+            <text>Истерический вопль.</text>
+            <text>Размахивая руками в бреду -</text>
+            <text>Чтобы в конце концов быть застреленным с помощью транквилизатора.</text>
+            <text>Или что похуже.</text>
+            <text remark="next">«И ты услышишь вопли исступленья»</text>
+            <text remark="next">«И древних духов, бедствующих там,»</text>
+            <text remark="next">«О новой смерти тщетные моленья;»</text>
+            <remark post="U2FsdGVkX19kizjVUiE6CvKADa98">
+                <p class="article-text-h">Примечание:</p>
+                <p class="article-text">Протагонист цитирует отрывок из «Божественной Комедии» Данте.</p>
+            </remark>
+            <goto goto="30" change="0"/>
+        </scene>
+        <scene id="30" background="schoolNight3.jpg" bgm="no">
+            <show chara="einNormalCloseNoName" position="center"/>
+            <bgm src="lab.mp3" status="start"></bgm>
+            <speak chara="einSmileCloseNoName">Не бойся. Это место не такое, как другие лаборатории.</speak>
+            <text>!</text>
+            <text>...Она видит меня насквозь, заметила тревогу в моём сердце.</text>
+            <show chara="einSmileCloseNoName" position="center"/>
+            <speak chara="einSmileCloseNoName">Имперский институт, лаборатория 42.</speak>
+            <text>Она проговорила, будто бы сама себе -</text>
+            <show chara="einSmileCloseNoName" position="center"/>
+            <speak chara="einSmileCloseNoName">Добро пожаловать домой.</speak>
+            <text>Домой?</text>
+            <goto goto="40"/>
+        </scene>
+        <scene id="40" background="studyNight.jpg" bgm="no">
+            <bgm src="lab.mp3" status="continue"></bgm>
+            <show chara="einNormalCloseNoName" position="center"/>
+            <speak chara="einNormalCloseNoName">Садись.</speak>
+            <text>Девушка указывает на диван в прихожей.</text>
+            <speak chara="einNormalCloseNoName">Чай? Или может кофе?</speak>
+            <speak chara="5">...</speak>
+            <speak chara="einNormalCloseNoName">Советую чай. Воздух в Лондоне ужасен.</speak>
+            <speak chara="5">...</speak>
+            <speak chara="einNormalCloseNoName">...</speak>
+            <speak chara="5">...</speak>
+            <show chara="einSeriousAhCloseNoName" position="center"/>
+            <speak chara="einSeriousAhCloseNoName">Эйн-Штейн</speak>
+            <text>Она внезапно и торжественно заговорила на немецком. Ein... Stein... «Один камень?»</text>
+            <show chara="einNormalClose" position="center"/>
+            <speak chara="einNormalClose">Доктор Эйнштейн — Лизерль Альберт Эйнштейн</speak>
+            <text>Она указывает на себя, затем на меня.</text>
+            <speak chara="einNormalClose">А твоё имя?</speak>
+            <speak chara="5">...Омега 1. Оно указано в документах. </speak>
+            <speak chara="einNormalClose">Ω1 не человеческое имя.</speak>
+            <speak chara="5">...Значит никак меня и не зовут.</speak>
+            <speak chara="einNormalClose">Как обременительно.</speak>
+            <text>Она качает головой.</text>
+            <speak chara="5">...</speak>
+            <text>Даже если так, я ничего с этим не могу поделать. Всё-таки —</text>
+            <show chara="einSmileClose" position="center"/>
+            <speak chara="einSmileClose">...Вельт. В.Е.Л.Ь.Т.</speak>
+            <speak chara="5">Э?</speak>
+            <speak chara="einSmileClose">Мне кажется, что это имя тебе подходит.</speak>
+            <speak chara="5">...Да любое сойдёт.</speak>
+            <text>«Ω» = «В». «Вельт» = «Мир». В самом деле, как изгою мира, иметь такое имя было бы очень забавно.</text>
+            <show chara="einNormalClose" position="center"/>
+            <speak chara="einNormalClose">Итак, Вельт, давай проведём медосмотр.</speak>
+            <speak chara="5">...Хорошо</speak>
+            <text>В очередной раз, мне нужно будет надеть множество электродов — возможно, забор крови или даже биопсию костного мозга. Ну, я к этому уже привык.</text>
+            <show chara="einSeriousAhCloseNoName" position="center"/>
+            <speak chara="einSeriousAhClose">Нет, не нужно вставать. Оставайся на месте.</speak>
+            <speak chara="einSeriousAhClose">Давай пройдём по стопам.</speak>
+            <speak chara="5">Оу...</speak>
+            <bgm src="lab.mp3" status="stop"></bgm>
+            <shake position="all" time="250"></shake>
+            <speak chara="5">...Чего? Куда пройдём??</speak>
+            <show chara="einSeriousAhCloseNoName" position="center"/>
+            <speak chara="einSeriousAhClose">Снимай ботинки и носки. Мне нужно изучить твою стопу.</speak>
+            <bgm src="lab.mp3" status="start"></bgm>
+            <speak chara="5">—Зачем?!</speak>
+            <show chara="einNormalClose" position="center"/>
+            <speak chara="einNormalClose">Уже позднеет, нам нужно скорее закончить и отправляться на отдых.</speak>
+            <speak chara="5">...Чего?!</speak>
+            <speak chara="einNormalClose">Можно точно и интуитивно определить состояние здоровья человека, взглянув на его стопу. Кроме того, процесс осмотра довольно быстрый —</speak>
+            <show chara="einSmileClose" position="center"/>
+            <speak chara="einSmileClose">— Нужно просто взять зубочистку и поскрести, на этом всё</speak>
+            <speak chara="5">Погоди...</speak>
+            <speak chara="5">...Ты имеешь в виду, что мы можем после всего этого просто отправиться спать??!</speak>
+            <speak chara="einSmileClose">Всё верно. Твои мыслительные способности похвальны. </speak>
+            <speak chara="5">...Это какая-то бессмыслица!</speak>
+            <show chara="einNormalClose" position="center"/>
+            <speak chara="einNormalClose">И то верно.</speak>
+            <speak chara="5">...Что?</speak>
+            <show chara="einSmileClose" position="center"/>
+            <speak chara="einSmileClose">Видя подавленность Вельта, доктор Эйнштейн решила рассказать ему анекдот, чтобы поднять настроение.</speak>
+            <speak chara="5">...</speak>
+            <text>Да что с этим «доктором» не так?</text>
+            <show chara="einNormalClose" position="center"/>
+            <speak chara="einNormalClose">Ты будешь спать в комнате 105, она вон там.</speak>
+            <text>Девушка указывает в сторону коридора. </text>
+            <speak chara="einNormalClose">Я располагаюсь этажом выше.</speak>
+            <speak chara="5">...Оу.</speak>
+            <speak chara="einNormalClose">Спокойной ночи. Ты можешь забыть о своей жизни в качестве лабораторной крыски.</speak>
+            <hide position="center"></hide>
+            <bgm src="themeWelt.mp3" status="start"></bgm>
+            <text>Она ушла, даже не оглянувшись назад.</text>
+            <text>Оставив «лабораторную крыску» ошарашенной и прикованной к земле.</text>
+            <speak chara="5">...</speak>
+            <goto goto="50"/>
+        </scene>
+        <scene id="50" background="hospital.jpg" bgm="no">
+            <bgm src="themeWelt.mp3" status="continue"></bgm>
+            <text article="1">
+                <p class="article-text">...</p>
+            </text>
+            <text article="1">
+                <p class="article-text">Мужчина, которого теперь зовут «Вельт», не мог осознать произошедшее. С того дня, как он вновь начал формировать воспоминания, никто не давал ему такую ошеломляющую степень свободы — хотя «день, когда он начал помнить» был не так давно.</p>
+                <p class="article-text">В то же время года три года назад он впервые открыл глаза и застал сцену хаоса. Незнакомые мужчины и женщины изучали его, задавая ему различного рода вопросы. Вопросы, что задавались бы только потерявшемуся ребёнку.</p>
+            </text>
+            <text article="1">
+                <p class="article-text">«Как тебя зовут?»</p>
+                <br />
+                <p class="article-text">«Где ты живёшь?»</p>
+                <br />
+                <p class="article-text">«Из какой ты страны?»</p>
+            </text>
+            <text article="1">
+                <p class="article-text">«...»</p>
+                <br />
+                <p class="article-text">Это было странное чувство — ты несомненно знаешь все ответы, но у тебя не получается «сгустить» или закрепить эти ответы в мозгу. Будто все нейроны, переплетённые в море твоей памяти были прожарены.</p>
+            </text>
+            <text article="1">
+                <p class="article-text">«Я не знаю.»</p>
+                <p class="article-text">Это был единственный ответ, который молодой мужчина мог дать.</p>
+                <p class="article-text">Он ещё помнил как говорить — но не понимал, должен ли быть за это благодарен. Немецкий, английский, русский, латынь... Даже японский и китайский. Он не понимал откуда у него знания об этих языках.</p>
+            </text>
+            <text article="1">
+                <p class="article-text">«Кто я?»</p>
+                <br />
+                <p class="article-text">Он вполне естественно задал такой вопрос.</p>
+            </text>
+            <text article="1">
+                <p class="article-text">«Мы и сами не знаем.»</p>
+                <br />
+                <p class="article-text">Остальные ответили. Затем пустились в поток разговоров между собой.</p>
+            </text>
+            <text article="1">
+                <p class="article-text">«Шиксал». Секретная организация с длинной историей. Настоящие хозяева мира, спасители человечества.</p>
+                <p class="article-text">«Хонкай». Бедствие, что науке только предстоит объяснить полностью. С рассвета цивилизации, оно оскверняло человеческий мир, превращая мирных существ в ужасающих демонов. Эти монстры или «Звери Хонкая», в своей чуждой пластиковой плоти, вгоняли всех нас в страх.</p>
+                <p class="article-text">«Я». Я, потерявший память, был единственным выжившим после Хонкай инцидента. Это произошло в Берлине, где всё возникло в каком-то многоэтажном здании.</p>
+                <p class="article-text">«Моё тело». В моём необычном теле была спрятана великая тайна - ради спасения многих людей, я должен был дать согласие на их планы по экспериментам над моим телом: это мой единственный вариант. </p>
+            </text>
+            <text article="1">
+                <p class="article-text">Месяц. Другой месяц. Месяц за месяцем.</p>
+                <br />
+                <p class="article-text">Год. Другой год. Год за годом.</p>
+                <br />
+                <p class="article-text">Молодой человек с кодовым именем «Ω1» перемещался из одной лаборатории в другую, повторяя то же самое, снова и снова.</p>
+            </text>
+            <text article="1">
+                <p class="article-text">Чтобы выносить невыносимое, страдать от несносного.</p>
+            </text>
+            <text article="1">
+                <p class="article-text">«Пожалуйста, сотрудничайте с нами.»</p>
+                <br />
+                <p class="article-text">«Пожалуйста, подумайте об этом ради человечества.»</p>
+                <br />
+                <p class="article-text">«Это неизбежные побочные эффекты.»</p>
+            </text>
+            <text article="1">
+                <p class="article-text">Кучка учёных лунатиков. Спасение человечества и прочее — это всё полная чушь. </p>
+                <p class="article-text">Разве вы не говорили, что я счастливый выживший? Так от чего же мне нужно проходить через подобного рода несчастье?</p>
+                <p class="article-text">Что за «человечество», которому вы так импонируете?</p>
+            </text>
+            <text article="1">
+                <p class="article-text">Были моменты, когда я хотел просто умереть, чтобы покончить с этим.</p>
+                <br />
+                <p class="article-text">...</p>
+                <br />
+                <p class="article-text">Да только один болтун продолжал отправлять мне письма.</p>
+            </text>
+            <goto goto="60" change="0"/>
+        </scene>
+        <scene id="60" background="letter.jpg" bgm="no">
+            <bgm src="themeWelt.mp3" status="continue"></bgm>
+            <text article="1">
+                <p class="article-text-h">Для Ω:</p>
+                <p class="article-text">Хорошего тебе октября. Время летит: это уже моё 22-ое письмо тебе — последний раз я окончил на том, что рассказывал тебе историю о Леди Святой. Пред тем как я вновь начну осыпать тебя новыми историями, давай же мы сначала обсудим всё то, что происходит вокруг нас.</p>
+                <p class="article-text">Я уже наслышан об ужасном инциденте, произошедшем в сентябре, и я бы хотел принести извинения от их лица. Что же, так выходит, что есть одна новая лаборатория: я ожидаю, что ты сможешь перебраться туда вскоре. Будут ли условия более благоприятными, чем в твоей предыдущей лаборатории я сказать наверняка не смогу — потому как я слышал о том, что новым руководителем является леди с достаточно «искренним» характером.</p>
+                <p class="article-text">Однако, мне следует предупредить тебя о точке зрения Шиксала: все эксперименты, через которые тебе пришлось пройти, были необходимы для выживания одного вида на этой планете, так называемых «Homo Sapiens» — из чего и следуют твои продолжительные и необходимые страдания. Мир всегда будет обращаться с некоторыми людьми несправедливо, и это то, что никто из нас не в силах изменить.</p>
+                <p class="article-text">Прошло уже три года с катастрофы в Берлине. Город уже начал отстраиваться. Вскоре, люди начнут постепенно забывать об ужасах той ночи.</p>
+                <p class="article-text">Однако, всем нам известно, что в настоящий момент тёмная сила продолжает расти и гноиться в разломе пространства-времени. Она пощадила тебя ранее, но не пощадила остальных. Если бы мы смогли постичь логику за этим феноменов, то мы, «Homo sapiens», сможем соответствовать нашему имени, использовать наш разум для покорения естественного мира — тогда никому не нужно будет проводить очередной день в страхе лжи, обманывая себя и других.</p>
+                <p class="article-text">Да, это наиболее бесчестно по отношению к тебе; в самом деле недавние события были наиболее несправедливыми к тебе. Но если хотя бы ради меня, я надеюсь, что ты сможешь понять и простить. Судьба всего человечества, в каком-то смысле, лежит на твоих плечах.</p>
+                <br />
+                <p class="article-text-h">P.S.</p>
+                <p class="article-text">Касательно твоего прошлого до потери памяти: насколько мне известно, соответствующий департамент всё ещё изучает этот вопрос — но как ты, возможно, уже понял, прошло уже более трёх лет с инцидента и вероятность получить какие-либо результаты сужается со временем. Но я не верю в так-называемую теорию «Дитя Хонкая». Ты ведь не можешь быть Херршером, не так ли?</p>
+                <p class="article-text">Возможно, поступление новых технологий принесёт неожиданный поворот всей этой ситуации, кто знает? Новая лаборатория действительно не так плоха; на самом деле, я верю, что когда ты прибудешь туда, ты будешь охотно с ними сотрудничать — доверься мне.</p>
+                <br />
+                <p class="article-text-s">Твой старый друг，</p>
+                <p class="article-text-s">Клоун Альфа</p>
+                <p class="article-text-s">1955.10.2.</p>
+            </text>
+            <goto goto="70"/>
+        </scene>
+        <scene id="70" background="weltRoomNight1.jpg" bgm="no">
+            <bgm src="themeWelt.mp3" status="continue"></bgm>
+            <speak chara="5">Ха... Этот парень, он звучал так непринуждённо...</speak>
+            <speak chara="5">Хотя... Я уверен, что у каждого есть свои собственные проблемы.</speak>
+            <speak chara="5">В конце концов, он просто анонимный приятель по переписке, приставленный ко мне какой-нибудь анонимной важной шишкой.</speak>
+            <speak chara="5">Но его история о некоей «Святой Каллен» меня тронула. Я определённо не планировал уделять так много внимания такого рода пропаганде—</speak>
+            <speak chara="5">С каких пор я стал ждать его ежемесячных продолжений истории?</speak>
+            <speak chara="5">Вздох...</speak>
+            <text>«105». Затхло пахнущая дверь небрежно оставлена открытой.</text>
+            <text>Это должно быть комната, где странная девушка разрешила мне провести ночь. Безжизненные льняные шторы, стены, напоминающие стены морга. В самом деле, этот декор соответствует лаборатории —</text>
+            <goto goto="72" change="0"/>
+        </scene>
+        <scene id="72" background="weltRoomNight3.jpg" bgm="no">
+            <bgm src="themeWelt.mp3" status="continue"></bgm>
+            <text>Мм? На этом столе лежат закуски и хлеб. Они для меня?</text>
+            <text>...</text>
+            <text>Хрум-хрум.</text>
+            <speak chara="5">...</speak>
+            <speak chara="5">О Боже! Что внутри этого кусочка хлеба?</speak>
+            <speak chara="5">Как это может быть настолько вкусным?!</speak>
+            <speak chara="5">Этот неописуемый грибной аромат!</speak>
+            <speak chara="5">И этот бекон на вкус идеален!</speak>
+            <speak chara="5">Нет таких слов, которыми можно описать это богатое и сочное послевкусие!</speak>
+            <shake position="all" time="250"></shake>
+            <speak chara="5">Почему это так вкусно!</speak>
+            <shake position="all" time="250"></shake>
+            <speak chara="5">Как же прекрасно быть живым!</speak>
+            <goto goto="75" change="0"/>
+        </scene>
+        <scene id="75" background="black" bgm="no">
+            <bgm src="themeWelt.mp3" status="continue"></bgm>
+            <text>Хрум-хрум.</text>
+            <text>Хрум-хрум-хрум-хрум.</text>
+            <text>Хрум-хрум-хрум-хрум-хрум-хрум.</text>
+            <text>... ... ... ...</text>
+            <bgm src="themeWelt.mp3" status="stop"></bgm>
+            <sound src="mid-lude.mp3"/>
+            <text>И вот, полностью удовлетворённый, насладившись непревзойдённого качества деликатесом, Вельт погружается в глубокую дрёму.</text>
+            <text>На следующий день —</text>
+            <goto goto="80"/>
+        </scene>
+        <scene id="80" background="weltRoomDay1.jpg" bgm="no">
+            <bgm src="morning.mp3" status="start"></bgm>
+            <text>Посреди ночи лил сильный дождь — открывая окно, можно было почувствовать свежесть и чистоту воздуха, что могло привести к сомнению о том, что это место когда-то было местом рождения Индустриальной Революции.</text>
+            <text>Недалеко отсюда на дереве сидели несколько синиц, постоянно щебеча, ведя оживлённую дискуссию о восходящем из-за горизонта солнце.</text>
+            <text>При первых проблесках рассвета, из какой-то тёмной расщелины появилась бабочка и вяло ползала по оконной раме.</text>
+            <speak chara="teslaNoFaceNoName">Эй.</speak>
+            <text>Бабочка дважды пробила своими крыльями, затем испарилась в лазурном небе.</text>
+            <text>Пока солнечный свет пронзал заросли и листву деревьев, проливаясь на его тело, юноша чувствовал, как твёрдый комок в его сердце таял и растворялся.</text>
+            <speak chara="teslaNoFaceNoName">Эй!</speak>
+            <text>Что за невероятный вечер. Что за невероятное утро.</text>
+            <text>Как давно я не испытывал такое умиротворение?</text>
+            <text>Будь то ветер или дождь, или песни птиц, или жужжание летающих насекомых —</text>
+            <text>В этот момент, будь то даже громкий переполох, это не имело бы большого значения...</text>
+            <goto goto="84" change="0"/>
+        </scene>
+        <scene id="84" background="black" bgm="no">
+            <bgm src="morning.mp3" status="stop"></bgm>
+            <sound src="hit man.mp3"/>
+            <shake position="all" time="250"></shake>
+            <speak chara="teslaNoFaceNoName">Эй!! Я с тобой разговариваю!!!</speak>
+            <text>Молодой человек почувствовал сильный удар по затылку.</text>
+            <text>Всё так потемнело...</text>
+            <text>Чего? Почему синицы подлетели к моей голове и начали описывать круги вокруг неё?</text>
+            <goto goto="85" change="0"/>
+        </scene>
+        <scene id="85" background="weltRoomDay2.jpg" bgm="no">
+            <bgm src="themeTesla.mp3" status="start"></bgm>
+            <show chara="teslaAngryCloseNoName" position="right"/>
+            <shake position="all" time="250"></shake>
+            <speak chara="teslaAngryCloseNoName">Ты глухой что ли? Я тебя окликнула уже несколько раз! Тебе повезло, что у меня хватило доброй воли открыть дверь и войти.</speak>
+            <text>Нападавшая, красноволосая девушка с двумя хвостиками, яростно ругала юношу, лежавшего на полу и смотревшего на птиц над головой. А ещё она носила белый халат.</text>
+            <show chara="teslaAngryCloseNoName" position="right" opacity="0.7"/>
+            <show chara="weltSurpriseClose" position="left"/>
+            <speak chara="weltSurpriseClose">...А ты?</speak>
+            <show chara="weltSurpriseClose" position="left" opacity="0.7"/>
+            <show chara="teslaEmbarraCloseNoName" position="right"/>
+            <speak chara="teslaEmbarraCloseNoName">А? Никто не представил ме—</speak>
+            <text>На полуслове, глаза девушки с хвостиками упали на пустую тарелку.</text>
+            <text>Она тихонько стояла на единственном столе в комнате.</text>
+            <hide position="right"></hide>
+            <text>Красноволосая закрывает свои глаза. Предельно сосредоточившись, она подносит нос и нюхает.</text>
+            <show chara="teslaAngryCloseNoName" position="right"/>
+            <shake position="right" time="250"></shake>
+            <speak chara="teslaAngryCloseNoName">Эй! Ты... Т-т-ты же не съедал что-то из трюфелей, ведь так?</speak>
+            <show chara="teslaAngryCloseNoName" position="right" opacity="0.7"/>
+            <show chara="weltSurpriseClose" position="left"/>
+            <speak chara="weltSurpriseClose">Трюфели?</speak>
+            <speak chara="weltSurpriseClose">Ну... На тарелке раньше лежали кусочки хлеба... смешанные с какими-то грибами... Эти «трюфели», о которых ты говоришь, какие-то грибы?</speak>
+            <show chara="weltSurpriseClose" position="left" opacity="0.7"/>
+            <show chara="teslaAngryCloseNoName" position="right"/>
+            <speak chara="teslaAngryCloseNoName">...</speak>
+            <hide position="right"></hide>
+            <text>Красноволосая закатила глаза и почти упала в обморок.</text>
+            <show chara="teslaAngryCloseNoName" position="right"/>
+            <shake position="right" time="250"></shake>
+            <speak chara="teslaAngryCloseNoName">Какие-то грибы? Ты говоришь мне, что трюфели это просто «какие-то грибы»? Чёрт возьми, неужели та лохматая идиотка думает также?!</speak>
+            <show chara="teslaEmbarraCloseNoName" position="right"/>
+            <speak chara="teslaEmbarraCloseNoName">...Хм?</speak>
+            <text>Она только что обратила внимание на то, что, помимо тарелки, на столе находились ещё несколько безделушек «подозрительного характера».</text>
+            <show chara="teslaEmbarraCloseNoName" position="right"/>
+            <speak chara="teslaEmbarraCloseNoName">Так так так так... Грильяж... Рафаэлки.. Тёмный шоколад...</speak>
+            <show chara="teslaAngryCloseNoName" position="right"/>
+            <speak chara="teslaAngryCloseNoName">Как вообще можно мешать трюффели с этими дешёвыми некачественными закусками?!</speak>
+            <show chara="teslaEmbarraCloseNoName" position="right"/>
+            <text>Рассматривая сладости, она разворачивает и бросает их в рот — до тех пор, пока не обращает внимание на что-то в углу комнаты.</text>
+            <bgm src="lab.mp3" status="start"></bgm>
+            <show chara="teslaSnickerCloseNoName" position="right"/>
+            <speak chara="teslaSnickerCloseNoName">О? Что это? Приветственная открытка?</speak>
+            <text>Выходит, что приветственные открытки действительно не съедобны.</text>
+            <show chara="weltShameClose" position="left"/>
+            <speak chara="weltShameClose">Ааарргхх!</speak>
+            <text>Молодой человек у окна начинает кричать в бреду.</text>
+            <show chara="weltShameClose" position="left" opacity="0.7"/>
+            <show chara="teslaEmbarraCloseNoName" position="right"/>
+            <speak chara="teslaEmbarraCloseNoName">...Хмм? И что теперь ты учудишь?</speak>
+            <text>Юноша кричит так беспорядочно, будто бы потерял всякое чувство собственного достоинства.</text>
+            <hide position="left"></hide>
+            <text>Вскоре, он зажимает голову в знак капитуляции, вытягиваясь шаром.</text>
+            <show chara="teslaSnickerCloseNoName" position="right"/>
+            <speak chara="teslaSnickerCloseNoName">Хе-хе...</speak>
+            <text>Девушка, кажется, что-то поняла.</text>
+            <speak chara="teslaSnickerCloseNoName">Могу ~ ли ~ я ~ открыть ~ и ~ взглянуть?</speak>
+            <text>Красноволосая напавшая поменялась в тоне, разговаривая так, будто она была актёром в радио драме.</text>
+            <text>Находясь в трансе, юноша видит иллюзию свечи и хлыста появившихся перед ним.</text>
+            <show chara="teslaSnickerCloseNoName" position="right"/>
+            <speak chara="teslaSnickerCloseNoName">«Для глубокоуважаемого Мистера Ω1: приветствую.»</speak>
+            <speak chara="teslaSnickerCloseNoName">«Так как я не знаю твоего имени, то буду таким образом к тебе обращаться, и за это я глубоко каюсь.»</speak>
+            <show chara="teslaEmbarraCloseNoName" position="right"/>
+            <speak chara="teslaEmbarraCloseNoName">Эмм, а почему ты никогда не была так вежлива со мной?</speak>
+            <text>Манера её комментария напоминает ревнивого свёкра.</text>
+            <show chara="teslaSnickerCloseNoName" position="right"/>
+            <speak chara="teslaSnickerCloseNoName">«С этого дня ты являешься членом Лаборатории 42 Имперского Института. Конечно же, наша лаборатория не имеет никакого отношения к Британскому Правительству, но вместо этого является независимой организацией под прямым руководством Штаб-Квартиры Шиксала.»</speak>
+            <speak chara="teslaSnickerCloseNoName">«В отличие от других лабораторий, снаряженных тяжёлыми физико-химическими установками, мы являемся исследовательским институтом, основанным на анализе Теории Галуа и симуляции Машины Тьюринга, так что это не окажет особого влияния на твою жизнь и самочувствие.»</speak>
+            <show chara="teslaEmbarraCloseNoName" position="right"/>
+            <speak chara="teslaEmbarraCloseNoName">Хмф... Ω1, ты хоть понял, что она тут написала?</speak>
+            <show chara="teslaSnickerCloseNoName" position="right"/>
+            <speak chara="teslaSnickerCloseNoName">«Ты мог об этом не знать, но ты был мне глубоко интересен ещё с момента того бедствия три года назад.»</speak>
+            <speak chara="teslaSnickerCloseNoName">«Ты, как экземпляр. Ты, как жизнь. Ты, как человеческое существо. В каком-то роде, твоё существование оставило несмываемый след на моей жизни.»</speak>
+            <bgm src="themeTesla.mp3" status="start"></bgm>
+            <show chara="teslaAngryCloseNoName" position="right"/>
+            <shake position="right" time="250"></shake>
+            <speak chara="teslaAngryCloseNoName">— АААРРГХХХ!</speak>
+            <text>Красноволосая нападавшая внезапно теряет самообладание, дико размахивая сжатым кулаком в воздухе.</text>
+            <speak chara="teslaAngryCloseNoName">...Чёрт возьми! Мерзость! Просто мерзость! ...Это явно намеренное домогательство! ...Держу пари, она абсолютно точно рассчитывала на то, что я это прочту!</speak>
+            <speak chara="teslaAngryCloseNoName">Ты!</speak>
+            <text>Она указывает двумя пальцами и презрительно смотрит на молодого человека, скорчившегося на полу.</text>
+            <show chara="weltShameClose" position="left"/>
+            <speak chara="weltShameClose">Да???</speak>
+            <show chara="weltShameClose" position="left" opacity="0.7"/>
+            <show chara="teslaAngryCloseNoName" position="right"/>
+            <speak chara="teslaAngryCloseNoName">Are you also familiar with this kind of saucy word play — h-h-here!?  Here, besides a “research lifestyle”, there can be no other hidden motives, okay? ... Hmm?!</speak>
+            <show chara="teslaAngryCloseNoName" position="right" opacity="0.7"/>
+            <show chara="weltShameClose" position="left"/>
+            <speak chara="weltShameClose">К... Конечно! К-как бы это не звучало, вчера я впервые встретился с ней!</speak>
+            <text>The poor young man, now with his face completely flushed, seems even less persuasive.</text>
+            <show chara="weltShameClose" position="left" opacity="0.7"/>
+            <show chara="teslaAngryCloseNoName" position="right"/>
+            <speak chara="teslaAngryCloseNoName">...</speak>
+            <text>The glare of the twin-tailed girl is so terrifying, it is as though her eyes could fire death lasers at any moment.</text>
+            <shake position="left" time="250"></shake>
+            <show chara="teslaAngryCloseNoName" position="right" opacity="0.7"/>
+            <show chara="weltShameClose" position="left"/>
+            <speak chara="weltShameClose">... The way you read it out, I too felt very humiliated!</speak>
+            <text>The young man dares not make eye contact with her, hugging his head as he pours more fuel on the fire with his poor choice of words.</text>
+            <show chara="weltShameClose" position="left" opacity="0.7"/>
+            <show chara="teslaAngryCloseNoName" position="right"/>
+            <speak chara="teslaAngryCloseNoName">...</speak>
+            <text>The girl takes a moment to glare at the young man, with a look of one gazing upon garbage, before closing her eyes.</text>
+            <show chara="teslaEmbarraCloseNoName" position="right"/>
+            <bgm src="lab.mp3" status="start"></bgm>
+            <speak chara="teslaEmbarraCloseNoName">Forget it, I'll let this slide for now. But if I ever find you harbouring any impure intentions, this lady here will be the first to castrate you!</speak>
+            <show chara="teslaEmbarraCloseNoName" position="right" opacity="0.7"/>
+            <shake position="left" time="250"></shake>
+            <show chara="weltShameClose" position="left"/>
+            <speak chara="weltShameClose">Eek!</speak>
+            <show chara="weltShameClose" position="left" opacity="0.7"/>
+            <show chara="teslaEmbarraCloseNoName" position="right"/>
+            <text article="1">
+                <p class="article-text">（continued）</p>
+                <p class="article-text">... I know the people you have just met may not be particularly convincing. But please believe in this — it is here that you will build a brand new life for yourself.</p>
+                <br />
+                <p class="article-text-s">In Gourmet Dining We Trust, </p>
+                <p class="article-text-s">Dr Lieserl Albert Einstein</p>
+                <p class="article-text-s">1955.10.20</p>
+            </text>
+            <text>After grudgingly reading through the final details of the card, the disgruntled twin-tailed girl finally remembers something —</text>
+            <show chara="teslaBoringCloseNoName" position="right"/>
+            <speak chara="teslaBoringCloseNoName">By the way, you don't recognise who I am, do you?</speak>
+            <show chara="teslaBoringCloseNoName" position="right" opacity="0.7"/>
+            <show chara="weltSurpriseClose" position="left"/>
+            <text>With hesitation and fear, the young man nodded.</text>
+            <show chara="weltSurpriseClose" position="left" opacity="0.7"/>
+            <show chara="teslaBoringClose" position="right"/>
+            <speak chara="teslaBoringClose">Let me introduce myself ... Nikola Tesla. You can just call me Tesla.</speak>
+            <show chara="teslaEmbarraClose" position="right"/>
+            <speak chara="teslaEmbarraClose">Simply put, all you need to know is that I am also one of the directors of this lab.</speak>
+            <speak chara="teslaEmbarraClose">Those “mushrooms” you ate, they were my private property, and they were very dear to me. Do you understand?</speak>
+            <text>She angrily seizes the young man's shirt.</text>
+            <show chara="teslaBoringClose" position="right"/>
+            <speak chara="teslaBoringClose">Let's go,  there are already people in the living room.</speak>
+            <show chara="teslaBoringClose" position="right" opacity="0.7"/>
+            <show chara="weltSurpriseClose" position="left"/>
+            <speak chara="weltSurpriseClose">... People?</speak>
+            <show chara="weltSurpriseClose" position="left" opacity="0.7"/>
+            <show chara="teslaAngryClose" position="right"/>
+            <shake position="right" time="250"></shake>
+            <speak chara="teslaAngryClose">I mean that gourmet food thief! Who else?!</speak>
+            <goto goto="90"/>
+        </scene>
+        <scene id="90" background="CG1.jpg" bgm="no">
+            <bgm src="lab.mp3" status="continue"></bgm>
+            <speak chara="einNoFace">Good morning, Dr Tesla — how was today's breakfast?</speak>
+            <speak chara="teslaNoFace">Good morning, Eins — Hmph.</speak>
+            <text>Tugging at Welt's collar, Twintails pouts and tuts disapprovingly.</text>
+            <speak chara="teslaNoFace">... You vile bitch, how can you pretend everything is fine?</speak>
+            <speak chara="einNoFace">It seems the sausage quiche suits your appetite. That is most wonderful indeed.</speak>
+            <text>Despite being rudely berated, the girl with the mop-shaped hair continues to recline peacefully on the sofa, and with an air of indifference bites into a pastry sandwich.</text>
+            <speak chara="teslaNoFace"> Well, after all, it's filled with grease and packed with energy — hey, no, don't you change the subject!</speak>
+            <speak chara="einNoFace"> Pfff. You are rather lively today, Dr Tesla.</speak>
+            <speak chara="teslaNoFace">... If it wasn't for you, you treacherous thief! Hmph!</speak>
+            <speak chara="einNoFace">Thief?</speak>
+            <speak chara="einNoFace">Dr Einstein doesn't quite understand what Dr Tesla is talking about.</speak>
+            <speak chara="teslaNoFace">Don't you play dumb! That bag of truffles, it was you who took it from my room without my permission, wasn't it?</speak>
+            <speak chara="einNoFace">...</speak>
+            <text>Mophead immediately begins wagging her index finger back and forth, as though she had already anticipated her response. </text>
+            <speak chara="einNoFace">Dr Einstein would like to give a friendly reminder —</speak>
+            <speak chara="einNoFace" remark="next">— Even if Dr Tesla enjoys travelling to Trieste for vacation, it does not mean that the bag of mushrooms is Dr Tesla's personal property.</speak>
+            <remark post="U2FsdGVkX19jgf4aT8mx5i123cv3">
+                <p class="article-text-h">Note:</p>
+                <p class="article-text">Trieste is a port city on the border between Italy and Slovenia. It was once prosperous as a major port of the Austro-Hungarian Empire. The Friuli region, to which it belongs, is one of the major producers of truffles. The city is also home to the International Centre for Theoretical Physics.</p>
+                <p class="article-text">Tesla is Croatian-American, and Trieste has a similar climate to her homeland.</p>
+            </remark>
+            <speak chara="teslaNoFace">Y-y-y-y-you say what? I got those truffles after much blood, sweat and tears. Are you mistaken?!</speak>
+            <speak chara="teslaNoFace">Also, truffles are not mushrooms! You calling them that is a slight on their honour!</speak>
+            <speak chara="einNoFace">Hah ...</speak>
+            <text>Begrudgingly, Mophead lets out a long sigh.</text>
+            <speak chara="einNoFace">The truffles were purchased with laboratory funds. Naturally, they become public property. Any other questions?</speak>
+            <speak chara="teslaNoFace">... I-it's called a loan! I'll pay back next time when I have the money! Make no mistake!</speak>
+            <speak chara="einNoFace">If Dr Tesla continues to persist with her false claims, Dr Einstein will have no choice but to report this embezzlement of public funds to Headquarters.</speak>
+            <speak chara="teslaNoFace">...</speak>
+            <text>The corner of Tesla's mouth twitches a few times, before she finally chooses to change the subject.</text>
+            <goto goto="100" change="0"/>
+        </scene>
+        <scene id="100" background="studyDay.jpg" bgm="no">
+            <bgm src="lab.mp3" status="continue"></bgm>
+            <show chara="teslaEmbarraClose" position="center"/>
+            <show chara="weltNormalClose" position="left" opacity="0.7"/>
+            <speak chara="teslaNoFace">This guy locked himself in the bedroom and just sat there, in a daze. Made me think he was going to commit suicide.</speak>
+            <show chara="teslaEmbarraClose" position="center" opacity="0.7"/>
+            <show chara="weltShameClose" position="left"/>
+            <speak chara="weltNoFace">Uh ... Who's thinking of committing suicide?!</speak>
+            <show chara="weltShameClose" position="left" opacity="0.7"/>
+            <show chara="teslaAngryClose" position="center"/>
+            <speak chara="teslaNoFace">Who? Do you know how many times I knocked on that door? Huh?? </speak>
+            <speak chara="teslaNoFace">Not to mention you have a history of depression?!</speak>
+            <show chara="teslaAngryClose" position="center" opacity="0.7"/>
+            <show chara="weltSurpriseClose" position="left"/>
+            <speak chara="weltNoFace">Sorry ... for a moment I was just daydreaming ...</speak>
+            <show chara="weltSurpriseClose" position="left" opacity="0.7"/>
+            <show chara="einNormalClose" position="right"/>
+            <speak chara="einNoFace">Forgive him, Dr Tesla. You're being too anxious.</speak>
+            <text>Einstein licks the salt granules from her fingertips.</text>
+            <show chara="einNormalClose" position="right" opacity="0.7"/>
+            <show chara="teslaEmbarraClose" position="center"/>
+            <speak chara="teslaNoFace">Tsk. You two have this call-and-response thing going on ... Don't tell me you're long-lost lovers?</speak>
+            <text>Twintail's brow furrows into the shape of a mountain.</text>
+            <show chara="teslaEmbarraClose" position="center" opacity="0.7"/>
+            <show chara="einSeriousAhClose" position="right"/>
+            <speak chara="einNoFace">Dr Einstein would never find such a pathetic boyfriend.</speak>
+            <show chara="einSeriousAhClose" position="right" opacity="0.7"/>
+            <show chara="weltShameClose" position="left"/>
+            <speak chara="weltShameClose">Uh, uh that is — incorrect! How am I pathetic?!</speak>
+            <show chara="weltShameClose" position="left" opacity="0.7"/>
+            <show chara="einNormalClose" position="right"/>
+            <speak chara="einNoFace">You surrendered yourself to despair.</speak>
+            <show chara="einNormalClose" position="right" opacity="0.7"/>
+            <show chara="weltNormalClose" position="left"/>
+            <speak chara="weltNoFace">...</speak>
+            <show chara="weltNormalClose" position="left" opacity="0.7"/>
+            <show chara="einNormalClose" position="right"/>
+            <speak chara="einNoFace">The unemployed are inclined to abandon themselves to despair.</speak>
+            <text>With a “puff”, Mophead stands up from her sofa “nest”.</text>
+            <speak chara="einNoFace">So we have decided to give you a job.</speak>
+            <show chara="einNormalClose" position="right" opacity="0.7"/>
+            <show chara="weltSurpriseClose" position="left"/>
+            <speak chara="weltNoFace">... Job?</speak>
+            <show chara="weltSurpriseClose" position="left" opacity="0.7"/>
+            <show chara="einNormalClose" position="right"/>
+            <speak chara="einNoFace">Lab assistant.</speak>
+            <show chara="einNormalClose" position="right" opacity="0.7"/>
+            <show chara="weltNormalClose" position="left"/>
+            <speak chara="weltNoFace">... Assistant? I —</speak>
+            <show chara="weltNormalClose" position="left" opacity="0.7"/>
+            <show chara="teslaNormalClose" position="center"/>
+            <show chara="teslaNormalClose" position="center"/>
+            <speak chara="teslaNoFace"> Basically, you're no longer a little lab rat. You are now our companion. Let us rejoice.</speak>
+            <text>Twintails speaks with the solemn monotone of one reciting scripture.</text>
+            <show chara="teslaNormalClose" position="center" opacity="0.7"/>
+            <show chara="einNormalClose" position="right"/>
+            <speak chara="einNoFace">Dr Tesla, we need to tell him exactly what he is doing, his specific responsibilities.</speak>
+            <show chara="einNormalClose" position="right" opacity="0.7"/>
+            <show chara="teslaSnickerClose" position="center"/>
+            <speak chara="teslaNoFace">Hmm ... to put it simply: to serve us and keep us happy?</speak>
+            <show chara="teslaSnickerClose" position="center" opacity="0.7"/>
+            <show chara="weltNormalClose" position="left"/>
+            <speak chara="weltNoFace">...?</speak>
+            <show chara="weltNormalClose" position="left" opacity="0.7"/>
+            <show chara="teslaNormalClose" position="center"/>
+            <speak chara="teslaNoFace">
+			For example, serve us tea and water, cook our meals, do our laundry, and if there is nothing left to do, scrub the floors and brush the toilets ...</speak>
+            <show chara="teslaNormalClose" position="center" opacity="0.7"/>
+            <show chara="weltNormalClose" position="left"/>
+            <speak chara="weltNoFace">...</speak>
+            <show chara="weltNormalClose" position="left" opacity="0.7"/>
+            <show chara="einSeriousEmClose" position="right"/>
+            <shake position="right" time="250"></shake>
+            <speak chara="einNoFace">Ahem.</speak>
+            <text>Mophead clears her throat in a deliberate manner.</text>
+            <show chara="einSeriousEmClose" position="right" opacity="0.7"/>
+            <show chara="teslaAngryClose" position="center"/>
+            <speak chara="teslaNoFace">I'm just joking! With a dull, simple, pretty toy-boy like you, even if you had wanted to be our servant, we would never accept ...</speak> <!-- 小白脸 = "little white face", a derogatory term for a gigolo.-->
+            <show chara="teslaAngryClose" position="center" opacity="0.7"/>
+            <show chara="weltNormalClose" position="left"/>
+            <speak chara="weltNoFace">...</speak>
+            <show chara="weltNormalClose" position="left" opacity="0.7"/>
+            <show chara="einSeriousAhClose" position="right"/>
+            <shake position="right" time="250"></shake>
+            <speak chara="einNoFace">Ahem.</speak>
+            <text>Mophead clears her throat, this time more loudly.</text>
+            <show chara="einSeriousAhClose" position="right" opacity="0.7"/>
+            <show chara="teslaEmbarraGlassClose" position="center"/>
+            <speak chara="teslaNoFace"> Okay okay I'll explain it properly! Obviously, I'm normally not this long-winded...</speak>
+            <hide position="left"/>
+            <hide position="right"/>
+            <text>Out of nowhere, Twintails whisks out a pair of red-framed glasses, and reluctantly puts them on.</text>
+            <show chara="teslaSnickerGlassClose" position="center"/>
+            <speak chara="teslaNoFace">Uh-huh ... Listen well, toy-boy. Generally speaking, the role of a lab assistant is to assist in experiments, obviously. Unfortunately, you are clearly lacking in this capability, aren't you?</speak>
+            <text>The young man nods.</text>
+            <speak chara="teslaNoFace">However, we believe you can improve our work efficiency. Not only that, but you will also do yourself some good.</speak>
+            <text>The young man tilts his head, looking somewhat lost and vacant.</text>
+            <speak chara="teslaNoFace">Your job is to plan our days off work. Arrange our leisure and entertainment. Saves us from working so hard for our vacation, only to have to waste more brainpower deciding our own entertainment.</speak>
+            <speak chara="teslaNoFace">Of course, you may also participate in said activities. Doesn't sound too bad, does it?</speak>
+            <speak chara="weltNoFace">...</speak>
+            <show chara="teslaEmbarraGlassClose" position="center"/>
+            <speak chara="teslaNoFace">Is there anything I haven't explained clearly? Again, to put it in simple terms, your job is to take us out to have fun.</speak>
+            <speak chara="teslaNoFace">But don't disturb us during work hours. Go idle by yourself in the library, or just go for a casual stroll around the place —</speak>
+            <speak chara="teslaNoFace">— But don't go strolling so far as to make this organisation think you're going to escape. We don't want to have to deal with the plainclothed coppers.</speak> <!-- 便衣 = "Plain-clothed" (policemen) -->
+            <speak chara="weltNoFace">...</speak>
+            <show chara="teslaAngryClose" position="center"/>
+            <speak chara="teslaNoFace">Oi! Is it okay or not? If you don't agree, we can always send you back, all right?!</speak>
+            <speak chara="weltNoFace">...</speak>
+            <show chara="teslaEmbarraGlassClose" position="center"/>
+            <speak chara="teslaNoFace">Hey! You stupid?</speak>
+            <text>Begrudgingly, the girl with the red-rimmed spectacles waves her hands in front of the young man's eyes.</text>
+            <show chara="teslaEmbarraGlassClose" position="center" opacity="0.7"/>
+            <show chara="einSmileClose" position="right"/>
+            <speak chara="einNoFace">Dr Einstein believes that Welt is simply going through a state of shock and astonishment at the news.</speak>
+            <show chara="einSmileClose" position="right" opacity="0.7"/>
+            <show chara="teslaAngryClose" position="center"/>
+            <speak chara="teslaNoFace" remark="next">... Lieserl! Are you some troll from “The Lord of the Rings”? Stop using “Doctor this” or “Doctor that” to address us. It's getting very annoying!</speak> <!-- The VN uses 兽人 = "orc", not "troll" -->
+            <show chara="teslaAngryClose" position="center" opacity="0.7"/>
+            <remark post="U2FsdGVkX192eVQJxmFnhxbdYPSj">
+                <p class="article-text-h">Note:</p>
+                <p class="article-text"> JRR Tolkien's “The Lord of the Rings” was first published in the United Kingdom on July 29, 1954, in the form of its first volume “The Fellowship of the Ring”.</p>
+                <p class="article-text">Tolkien had planned to compile “The Lord of the Rings” into a single volume for publication, but the idea could not be realised because of postwar shortages in material and paper.</p>
+            </remark>
+            <show chara="teslaEmbarraGlassClose" position="center"/>
+            <speak chara="teslaNoFace">... Wait.</speak>
+            <speak chara="teslaNoFace">... Who's “Welt”?</speak>
+            <speak chara="teslaNoFace">... Is it this little boy-toy?</speak>
+            <show chara="teslaAngryClose" position="center"/>
+            <speak chara="teslaNoFace">... Lieserl! Don't tell me that's the name you gave him?</speak>
+            <show chara="teslaEmbarraGlassClose" position="center" opacity="0.7"/>
+            <show chara="weltShameClose" position="left"/>
+            <speak chara="weltNoFace">Wait, was it me you were referring to as “little boy-toy”?!</speak>
+            <bgm src="lab.mp3" status="stop"></bgm>
+            <end post="U2FsdGVkX18SorRINadIetIkimT9"/>
+        </scene>
+    </story>
+</data>

@@ -1,0 +1,507 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data>
+    <story title="1">
+        <scene id="0" background="bg.jpg">
+            <bgm src="mid-lude.mp3" status="start"></bgm>
+            <cg src="newChapter.png" bg="bg.jpg"></cg>
+            <goto goto="10"/>
+        </scene>
+        <scene id="10" background="carMorning.jpg">
+            <bgm src="morning.mp3" status="start"></bgm>
+            <show chara="planckSmileCoatClose-upSymme" position="center"/>
+            <speak chara="planckNoFace">Цель: озеро Йеллоустоун — вперёд!</speak>
+            <sound src="9_11_car away.mp3"/>
+            <text article="1">
+                <p class="article-text">На следующее утро, как только Планк нажала на педаль газа, округлый кемпер Volkswagen Type 2 выпустил клубы густого горячего пара и помчался на запад от Биллингса, унося всех с собой.</p>
+                <p class="article-text">Должно быть, из-за слишком раннего подъёма, вскоре после посадки в машину трое пассажиров на заднем сиденье развалились и крепко заснули.</p>
+            </text>
+            <goto goto="12" change="0"/>
+        </scene>
+        <scene id="12" background="roadMontana1.jpg">
+            <bgm src="street.mp3" status="start"></bgm>
+            <text>Лорел.</text>
+            <text>Паркерсберг.</text>
+            <text>Колумбус.</text>
+            <text>Рид-Пойнт.</text>
+            <text>Грейклифф.</text>
+            <text>Дейтон.</text>
+            <text article="1">
+                <p class="article-text">Маленькие, уютные колониальные городки, разбросанные вдоль извилистой реки Йеллоустоун среди диких просторов Монтаны, вносили крупицу человеческой жизни в эти бескрайние земли.</p>
+                <p class="article-text">Несмотря на то что этот маршрут они проезжали уже много раз, Шрёдингер с интересом разглядывала суровые пейзажи за окном.</p>
+            </text>
+            <show chara="planckSlyCoatClose-upSymme" position="left"/>
+            <speak chara="planckNoFace">Монтана такая чудесная...</speak>
+            <speak chara="planckNoFace">В такой безмолвной глуши лучше всего получается полностью разгрузить и голову, и душу!</speak>
+            <show chara="planckSlyCoatClose-upSymme" position="left" opacity="0.7"/>
+            <show chara="schroNormalAhClose-upSymme" position="right"/>
+            <speak chara="schroNoFace">М-м. Было бы ещё лучше, будь людей было поменьше. </speak>
+            <show chara="schroNormalEmClose-upSymme" position="right" opacity="0.7"/>
+            <show chara="planckSmileCoatClose-upSymme" position="left"/>
+            <speak chara="planckNoFace">Ой, а тебе что, нравится Аляска?</speak>
+            <show chara="planckSmileCoatClose-upSymme" position="left" opacity="0.7"/>
+            <show chara="schroNormalAhClose-upSymme" position="right"/>
+            <speak chara="schroNoFace">Нет... пожалуй, не стоит...</speak>
+            <speak chara="schroNoFace" remark="next">В каком бы смысле это ни рассматривалось, в окрестностях Анкориджа слишком много гор.</speak>
+            <remark>
+                <p class="article-text-h">Примечание:</p>
+                <p class="article-text">Анкоридж — крупнейший город штата Аляска, его столица, расположенный в южной части штата у восточного подножия гор Чугач.</p>
+            </remark>
+            <show chara="schroNormalAhClose-upSymme" position="right"/>
+            <speak chara="schroNoFace">А.</speak>
+            <speak chara="schroNoFace">Сибирь, должно быть, подошла бы.</speak>
+            <speak chara="schroNoFace">Но у русских слишком резкий запах, боюсь, я этого не вынесу.</speak>
+            <show chara="schroNormalEmClose-upSymme" position="right" opacity="0.7"/>
+            <show chara="planckNormalCoatClose-upSymme" position="left"/>
+            <speak chara="planckNoFace">Канада же совсем рядом, а ты всё ищешь далёкие пути.</speak>
+            <show chara="planckNormalCoatClose-upSymme" position="left" opacity="0.7"/>
+            <show chara="schroNormalAhClose-upSymme" position="right"/>
+            <speak chara="schroNoFace" remark="next">Канада — включая и Юкон на Аляске — во время последнего ледникового периода была полностью покрыта арктическим ледяным щитом...</speak>
+            <remark post="U2FsdGVkX18Fdl7WdyWDLF5FgdGs">
+                <p class="article-text-h">Примечание:</p>
+                <p class="article-text">Последний ледниковый максимум — это ближайший к современности период экстремального холода, пик которого пришёлся примерно на 25 000 лет до н. э.</p>
+                <p class="article-text">В то время около 24% суши планеты было покрыто льдом, уровень моря был примерно на 120 метров ниже современного, а средняя температура на полюсах была на 10–20°C ниже нынешней.</p>
+                <p class="article-text">В этот период Земля была гораздо холоднее и суше, с сильной степенью опустынивания.</p>
+            </remark>
+            <speak chara="schroNoFace">Учитель, как думаешь, много ли у нас шансов там работать?</speak>
+            <show chara="schroNormalEmClose-upSymme" position="right" opacity="0.7"/>
+            <show chara="planckSeriousCoatClose-upSymme" position="left"/>
+            <speak chara="planckNoFace">Как бы то ни было...</speak>
+            <show chara="planckNormalCoatClose-upSymme" position="left"/>
+            <speak chara="planckNoFace">Но Сибирь вообще не входит в нашу юрисдикцию, разве нет?</speak>
+            <show chara="planckNormalCoatClose-upSymme" position="left" opacity="0.7"/>
+            <show chara="schroNormalAhClose-upSymme" position="right"/>
+            <speak chara="schroNoFace">Да, но там же есть лаборатория Вавилон. Разве не говорят, что всех, кто ослушался епископа, отправляют туда на эксперименты над людьми?</speak>
+            <show chara="schroNormalEmClose-upSymme" position="right" opacity="0.7"/>
+            <show chara="planckBoringCoatClose-upSymme" position="left"/>
+            <speak chara="planckNoFace">...Ну и шуточка. Холодная, как ледник.</speak>
+            <show chara="planckNormalCoatClose-upSymme" position="left"/>
+            <speak chara="planckNoFace">...И совсем не смешная.</speak>
+            <show chara="planckNormalCoatClose-upSymme" position="left" opacity="0.7"/>
+            <show chara="schroNormalAhClose-upSymme" position="right"/>
+            <speak chara="schroNoFace">Учитель, ты вечно отказываешься рассматривать негативные возможности.</speak>
+            <show chara="schroNormalEmClose-upSymme" position="right"/>
+            <text>Словно это её не касалось, Шрёдингер лениво накручивала свой локон.</text>
+            <show chara="schroNormalAhClose-upSymme" position="right"/>
+            <speak chara="schroNoFace" remark="next">Принцип неопределённости.</speak>
+            <speak chara="schroNoFace" remark="next">Мир меняется из-за наблюдения человека — если зацикливаться только на прекрасном и милом, то мир превратится в хрупкую фарфоровую куклу.</speak>
+            <remark post="U2FsdGVkX18cdcmDUJFVy06pVsT6">
+                <p class="article-text-h">Примечание:</p>
+                <p class="article-text">Принцип неопределённости гласит, что положение и импульс частицы не могут быть определены одновременно; их неопределённость подчиняется неравенству —</p>
+                <p class="article-text">ΔxΔp ≥ h/4π</p>
+                <p class="article-text">— где h — постоянная Планка.</p>
+                <p class="article-text">Этот принцип показывает, что наблюдатель не может дать точный прогноз для всех физических величин микрочастицы: чем выше точность определения одной величины, тем выше неопределённость другой.</p>
+            </remark>
+            <show chara="schroNormalEmClose-upSymme" position="right" opacity="0.7"/>
+            <show chara="planckBoringCoatClose-upSymme" position="left"/>
+            <speak chara="planckNoFace">...</speak>
+            <speak chara="planckNoFace">Оставим метафору с фарфоровой куклой в стороне —</speak>
+            <show chara="planckSmileCoatClose-upSymme" position="left"/>
+            <speak chara="planckNoFace">— Эйнштейн изначально куда милее тебя, доктор Шрёдингер.</speak>
+            <show chara="planckSmileCoatClose-upSymme" position="left" opacity="0.7"/>
+            <show chara="schroNormalEmClose-upSymme" position="right"/>
+            <speak chara="schroNoFace">...</speak>
+            <text>Вероятно, из-за слишком неожиданного скачка темы, указательный палец Шрёдингер, игравший с локоном, замер в воздухе.</text>
+            <show chara="schroNormalEmClose-upSymme" position="right" opacity="0.7"/>
+            <show chara="planckSlyCoatClose-upSymme" position="left"/>
+            <speak chara="planckNoFace">Хм-м-м...</speak>
+            <speak chara="planckNoFace" remark="next">— Чтобы превзойти нашу Баварию в юморе, вам, австрийцам, нужно ещё лет сто попрактиковаться!</speak>
+            <remark>
+                <p class="article-text-h">Примечание:</p>
+                <p class="article-text">Бавария расположена на юго-востоке Германии и является крупнейшей по площади федеральной землёй.</p>
+                <p class="article-text">Её обычаи и культура заметно отличаются от других регионов Германии; исторически это одно из последних немецких государств, объединённых Пруссией.</p>
+                <p class="article-text">P.S.</p>
+                <p class="article-text">Планк — баварка, а Шрёдингер — австрийка.</p>
+            </remark>
+            <show chara="planckSlyCoatClose-upSymme" position="left" opacity="0.7"/>
+            <show chara="schroNormalAhClose-upSymme" position="right"/>
+            <speak chara="schroNoFace">...</speak>
+            <speak chara="schroNoFace">Учитель, региональная дискриминация — это очень плохо.</speak>
+            <show chara="schroNormalEmClose-upSymme" position="right" opacity="0.7"/>
+            <show chara="planckBoringCoatClose-upSymme" position="left"/>
+            <speak chara="planckNoFace">Ага, именно поэтому я и говорю, что тебе ещё нужно тренироваться.</speak>
+            <show chara="planckSeriousCoatClose-upSymme" position="left"/>
+            <speak chara="planckNoFace">Мало того, что ты вся из себя мрачная, так ты ещё и совершенно оторвана от реальности —</speak>
+            <show chara="planckSadCoatClose-upSymme" position="left"/>
+            <speak chara="planckNoFace">Как же ты собираешься найти себе парня при таком раскладе?</speak>
+            <show chara="planckSadCoatClose-upSymme" position="left" opacity="0.7"/>
+            <show chara="schroNormalEmClose-upSymme" position="right"/>
+            <speak chara="schroNoFace">...</speak>
+            <show chara="schroNormalEmClose-upSymme" position="right" opacity="0.7"/>
+            <show chara="planckSmileCoatClose-upSymme" position="left"/>
+            <speak chara="planckNoFace">Что такое...</speak>
+            <show chara="planckSlyCoatClose-upSymme" position="left"/>
+            <speak chara="planckNoFace">Разве этого недостаточно в качестве причины для перемен?</speak>
+            <show chara="planckSlyCoatClose-upSymme" position="left" opacity="0.7"/>
+            <show chara="schroNormalEmClose-upSymme" position="right"/>
+            <speak chara="schroNoFace">...</speak>
+            <text>Шрёдингер беспомощно вздохнула.</text>
+            <speak chara="schroNoFace">Если уж на то пошло...</speak>
+            <show chara="schroNormalAhClose-upSymme" position="right"/>
+            <speak chara="schroNoFace">Учитель, может, это у тебя просто слишком сильная тревога из-за одиночества?</speak>
+            <show chara="schroNormalEmClose-upSymme" position="right" opacity="0.7"/>
+            <show chara="planckSeriousCoatClose-upSymme" position="left"/>
+            <speak chara="planckNoFace">...</speak>
+            <show chara="planckSadCoatClose-upSymme" position="left"/>
+            <speak chara="planckNoFace">Ах ты... Ты совсем не милашка!</speak>
+            <speak chara="planckNoFace">Хм!</speak>
+            <goto goto="20"/>
+        </scene>
+        <scene id="20" background="CG5.jpg">
+            <bgm src="street.mp3" status="continue"></bgm>
+            <text>...</text>
+            <text article="1">
+                <p class="article-text">Когда Вельт снова открыл свои заспанные глаза, водителем кемпера Volkswagen Type 2 уже стал какой-то меланхоличный локон.</p>
+                <p class="article-text">На пассажирском сиденье длинные ноги упирались в лобовое стекло, подол юбки крайне неэлегантно сполз в сторону, а распущенные волосы водопадом спадали на спинку кресла — манера дремать у этого профессора была весьма эксцентричной.</p>
+            </text>
+            <speak chara="schroNoFace">Мы только что проехали Ливингстон, сейчас едем на юг по 89-й трассе.</speak>
+            <text>Заметив в зеркале заднего вида, что кто-то проснулся, Шрёдингер вкратце обрисовала ситуацию.</text>
+            <speak chara="einNoFace">Тогда давай сначала сверимся по ситуации в Йеллоустоуне.</speak>
+            <text>Эйнштейн неведомо когда уже открыла свои всё ещё сонные глаза.</text>
+            <speak chara="planckNoFace">Не оставишь этих двоих поспать ещё немного?</speak>
+            <text>Говорила Планк с закрытыми глазами. Похоже, она тоже не спала по-настоящему.</text>
+            <speak chara="einNoFace">Эта пьяница и так уже достаточно наспалась.</speak>
+            <shake position="all" time="250"></shake>
+            <text>Светловолосая кудряшка без лишних слов ударила кулаком по голове обладательницы красных хвостиков.</text>
+            <goto goto="25" change="0"/>
+        </scene>
+        <scene id="25" background="roadMontana2.jpg">
+            <bgm src="lab.mp3" status="start"></bgm>
+            <show chara="teslaEmbarraGlassWinterClose-up" position="right"/>
+            <speak chara="teslaNoFace">Ай— больно, больно, больно...</speak>
+            <sound src="Hah.mp3"/>
+            <speak chara="teslaNoFace">Могла бы быть и помягче.</speak>
+            <text>Тесла с трудом разлепила глаза и вяло пожаловалась. Сегодня она проснулась уже в очках. Это ведь не просто очки для зрения?</text>
+            <show chara="teslaEmbarraGlassWinterClose-up" position="right" opacity="0.7"/>
+            <show chara="einSeriousEmWinterClose-up" position="left"/>
+            <speak chara="einNoFace">У людей с похмелья нет права голоса.</speak>
+            <text>Эйнштейн недовольно на неё взглянула.</text>
+            <show chara="einNormalWinterClose-up" position="left"/>
+            <speak chara="einNoFace">Финн тоже проснулся?</speak>
+            <hide position="left"/>
+            <hide position="right"/>
+            <show chara="nokiaSmileEmWinterClose-up" position="center"/>
+            <speak chara="nokiaNoFace">Да-да!</speak>
+            <text>Знакомый легкомысленный голос донёсся с заднего сиденья. Этот парень, кажется, был полон энергии.</text>
+            <goto goto="30"/>
+        </scene>
+        <scene id="30" background="roadMontana2.jpg">
+            <bgm src="lab.mp3" status="continue"></bgm>
+            <show chara="planckSmileCoatClose-up" position="right"/>
+            <speak chara="planckNoFace">Раз уж все проснулись —</speak>
+            <speak chara="planckNoFace">— начнём с основ географии.</speak>
+            <show chara="planckSmileCoatClose-up" position="right" opacity="0.7"/>
+            <show chara="schroNormalAhClose-up" position="left"/>
+            <speak chara="schroNoFace">Хорошо.</speak>
+            <show chara="schroNormalEmClose-up" position="left"/>
+            <text>Шрёдингер привычно переключила передачу, немного сбросив скорость.</text>
+            <show chara="schroNormalEmClose-up" position="left" opacity="0.7"/>
+            <show chara="planckNormalCoatClose-up" position="right"/>
+            <speak chara="planckNoFace">Как вы знаете, национальный парк Йеллоустоун — это первый заповедник в истории человечества.</speak>
+            <speak chara="planckNoFace">Сердце парка, озеро Йеллоустоун, является главным жерлом супервулкана Йеллоустоун. Энергия этого действующего вулкана колоссальна —</speak>
+            <speak chara="planckNoFace">В случае извержения выброшенный пепел приведет к падению средней глобальной температуры примерно на 10 градусов.</speak>
+            <show chara="planckNormalCoatClose-up" position="right" opacity="0.7"/>
+            <show chara="weltNormalWinterClose-up" position="left"/>
+            <speak chara="weltNoFace">На 10 градусов?</speak>
+            <text>Вельт не совсем понимал масштаб этого понятия.</text>
+            <show chara="weltNormalWinterClose-up" position="left" opacity="0.7"/>
+            <show chara="planckSeriousCoatClose-up" position="right"/>
+            <speak chara="planckNoFace">Это означает, что в год катастрофы большинство тропических или субтропических культур окажутся под угрозой полного неурожая.</speak>
+            <speak chara="planckNoFace">Если не принять меры...</speak>
+            <speak chara="planckNoFace">Без преувеличения, голод и эпидемии охватят множество стран.</speak>
+            <show chara="planckSeriousCoatClose-up" position="right" opacity="0.7"/>
+            <show chara="weltSurpriseWinterClose-up" position="left"/>
+            <speak chara="weltNoFace">Что...</speak>
+            <show chara="weltSurpriseWinterClose-up" position="left" opacity="0.7"/>
+            <show chara="schroNormalAhClose-up" position="left"/>
+            <speak chara="schroNoFace">Расслабься, нам не о чём беспокоиться при нашей жизни.</speak>
+            <text>Шрёдингер покосилась в зеркало заднего вида.</text>
+            <speak chara="schroNoFace">Более того, если мы проиграем Хонкаю, все подобные опасения просто потеряют всякий смысл.</speak>
+            <show chara="schroNormalEmClose-up" position="left" opacity="0.7"/>
+            <show chara="teslaSnickerGlassWinterClose-up" position="right"/>
+            <speak chara="teslaNoFace">Конечно, если быть скептиком, можно подумать, что вулкан Йеллоустоун — это лишь часть «роскошного комбо-набора Хонкая».</speak>
+            <show chara="teslaSnickerGlassWinterClose-up" position="right" opacity="0.7"/>
+            <show chara="weltNormalWinterClose-up" position="left"/>
+            <speak chara="weltNoFace">...Комбо-набора?</speak>
+            <hide position="left"/>
+            <hide position="right"/>
+            <show chara="teslaSnickerGlassWinterClose-up" position="center"/>
+            <speak chara="teslaNoFace">Способы разрушения у Хонкая самые разные.</speak>
+            <text>Девушка с красными хвостиками приняла позу лектора —</text>
+            <show chara="teslaNormalGlassWinterClose-up" position="center"/>
+            <speak chara="teslaNoFace">Чёрная смерть, ледниковый период, мировые войны — во всём этом прослеживается тень Хонкая.</speak>
+            <speak chara="teslaNoFace">Даже анализ тех военных преступников показывает, что они все подверглись воздействию малых доз энергии Хонкая —</speak>
+            <show chara="teslaBoringGlassWinterClose-up" position="center"/>
+            <speak chara="teslaNoFace">А у одного-двух образцов плотность энергии Хонкая превышала смертельную дозу в несколько раз.</speak>
+            <show chara="weltSurpriseWinterClose-up" position="center"/>
+            <speak chara="weltNoFace">Что—</speak>
+            <show chara="teslaNormalGlassWinterClose-up" position="center"/>
+            <speak chara="teslaNoFace">Как правило, метаболическая среда млекопитающих проявляет сильную аллергическую реакцию на заражение Хонкаем —</speak>
+            <speak chara="teslaNoFace">Иными словами, адаптивность мужчин к энергии Хонкая зачастую крайне низка —</speak>
+            <show chara="teslaSnickerGlassWinterClose-up" position="center"/>
+            <speak chara="teslaNoFace">Хотя бывают и исключения.</speak>
+            <bgm src="themeEin.mp3" status="start"></bgm>
+            <speak chara="teslaNoFace">Те преступники или ты — скорее всего, вы из таких же.</speak>
+            <show chara="weltSurpriseWinterClose-up" position="center"/>
+            <speak chara="weltNoFace">Э-э... я?</speak>
+            <text>Вельт и представить не мог, что его имя будет связано с подобными монстрами.</text>
+            <show chara="teslaSnickerGlassWinterClose-up" position="center"/>
+            <speak chara="teslaNoFace">Да. У тебя наверняка есть какая-то странная особенность, о которой мы ещё не знаем.</speak>
+            <show chara="teslaBoringGlassWinterClose-up" position="center"/>
+            <speak chara="teslaNoFace">Организация провела над тобой столько экспериментов, что ты и сам должен это понимать.</speak>
+            <show chara="weltDarkWinterClose-up" position="center"/>
+            <speak chara="weltNoFace">Нет, я имею в виду...</speak>
+            <hide position="center"/>
+            <show chara="weltDarkWinterClose-up" position="left" opacity="0.7"/>
+            <show chara="einNormalWinterClose-up" position="right"/>
+            <speak chara="einNoFace">Не волнуйся.</speak>
+            <text>Кудрявая девушка на переднем сиденье развернулась и погладила юношу по голове.</text>
+            <speak chara="einNoFace">Твоя душа не испортится.</speak>
+            <show chara="einNormalWinterClose-up" position="right" opacity="0.7"/>
+            <show chara="weltShyWinterClose-up" position="left"/>
+            <speak chara="weltNoFace">...</speak>
+            <show chara="weltShyWinterClose-up" position="left" opacity="0.7"/>
+            <show chara="einNormalWinterClose-up" position="right"/>
+            <speak chara="einNoFace">Возможно, ты и сам уже забыл, насколько ты добрый человек.</speak>
+            <show chara="einNormalWinterClose-up" position="right" opacity="0.7"/>
+            <show chara="weltShyWinterClose-up" position="left"/>
+            <speak chara="weltNoFace">А-ха-ха...</speak>
+            <speak chara="weltNoFace">Это... у тебя есть доказательства?</speak>
+            <show chara="weltShyWinterClose-up" position="left" opacity="0.7"/>
+            <show chara="einSmileWinterClose-up" position="right"/>
+            <speak chara="einNoFace">Поверь мне.</speak>
+            <speak chara="einNoFace">Хотя никаких доказательств, конечно, нет...</speak>
+            <speak chara="einNoFace">...но всё же, просто поверь мне.</speak>
+            <hide position="left"/>
+            <hide position="right"/>
+            <show chara="einSmileWinterClose-up" position="center"/>
+            <text>Эйнштейн посмотрела на него тёплым и решительным взглядом.</text>
+            <bgm src="lab.mp3" status="start"></bgm>
+            <show chara="planckSlyCoatClose-up" position="center"/>
+            <shake position="center" time="250"></shake>
+            <speak chara="planckNoFace">Кхм-кхм.</speak>
+            <show chara="planckSmileCoatClose-up" position="center"/>
+            <speak chara="planckNoFace">Ладно-ладно.</speak>
+            <speak chara="planckNoFace">Вернёмся к делу. Давайте обсудим наши основные задачи. Это будет очень интересно.</speak>
+            <goto goto="40"/>
+        </scene>
+        <scene id="40" background="roadMontana3.jpg">
+            <bgm src="lab.mp3" status="continue"></bgm>
+            <show chara="planckSeriousCoatClose-up" position="right"/>
+            <speak chara="planckNoFace" remark="next">...И последнее: в образцах не обнаружено углерода-14.</speak>
+            <remark>
+                <p class="article-text-h">Примечание:</p>
+                <p class="article-text">Углерод-14 — это радиоактивный изотоп углерода с периодом полураспада около 5730 лет.</p>
+                <p class="article-text">Это означает, что в образцах, утративших биологическую активность, содержание углерода-14 уменьшается вдвое каждые 5730 лет — и так до тех пор, пока даже самые точные приборы не перестанут его обнаруживать.</p>
+            </remark>
+            <speak chara="planckNoFace">На основании этого можно сделать вывод, что последняя человеческая деятельность в руинах датируется примерно 50 000 лет до н. э., погрешность не превышает 1000 лет.</speak>
+            <show chara="planckSmileCoatClose-up" position="right"/>
+            <speak chara="planckNoFace">На этом всё.</speak>
+            <show chara="planckSmileCoatClose-up" position="right" opacity="0.7"/>
+            <show chara="nokiaSmileAhWinterClose-upSymme" position="left"/>
+            <speak chara="nokiaNoFace">Всё ещё не верится...</speak>
+            <text>Финн соединил кончики пальцев, погрузившись в раздумья.</text>
+            <show chara="nokiaSmileEmWinterClose-upSymme" position="left"/>
+            <speak chara="nokiaNoFace">...Не думал, что в эпоху до существования нынешней цивилизации в Северной Америке уже была человеческая деятельность.</speak>
+            <show chara="nokiaSmileEmWinterClose-upSymme" position="left" opacity="0.7"/>
+            <show chara="planckSmileCoatClose-up" position="right"/>
+            <speak chara="planckNoFace">Это похоже на наши исследовательские станции в Антарктиде.</speak>
+            <show chara="planckSlyCoatClose-up" position="right"/>
+            <speak chara="planckNoFace">Это не противоречит нашим представлениям о прежней цивилизации.</speak>
+            <text>Планк рассеянно накручивала свои длинные волосы, словно подражая Шрёдингер.</text>
+            <show chara="planckSlyCoatClose-up" position="right" opacity="0.7"/>
+            <show chara="nokiaSeriousEmWinterClose-upSymme" position="left"/>
+            <speak chara="nokiaNoFace">Нет...</speak>
+            <show chara="nokiaSmileAhWinterClose-upSymme" position="left"/>
+            <speak chara="nokiaNoFace">Масштаб, сопоставимый с руинами Старого Света... всё не так просто, как ты говоришь.</speak>
+            <text>Финн по-прежнему подпирал подбородок сложенными руками.</text>
+            <text>Он что, фанат Шерлока Холмса?</text>
+            <show chara="weltSurpriseWinterClose-up" position="left"/>
+            <speak chara="weltNoFace">Эм...</speak>
+            <text>Вельт, окончательно запутавшийся, поднял руку.</text>
+            <speak chara="weltNoFace">Эта «прежняя цивилизация», о которой вы всё время спорите —</speak>
+            <speak chara="weltNoFace">— что это вообще такое?</speak>
+            <show chara="weltSurpriseWinterClose-up" position="left" opacity="0.7"/>
+            <show chara="planckNormalCoatClose-up" position="right"/>
+            <speak chara="planckNoFace">Хм... сейчас мы в...</speak>
+            <show chara="planckSlyCoatClose-up" position="right"/>
+            <speak chara="planckNoFace">А, мы ещё не доехали до Гардена.</speak>
+            <text>Профессор с длинными волосами изучила дорожные указатели.</text>
+            <show chara="planckSmileCoatClose-up" position="right"/>
+            <speak chara="planckNoFace">Ничего, времени ещё много. Считайте это развлечением, пусть кто-нибудь выйдет и объяснит ему.</speak>
+            <show chara="nokiaSmileEmWinterClose-up" position="right"/>
+            <speak chara="nokiaNoFace">Тогда я возьму это на себя.</speak>
+            <text>Как эксперт по древним письменам, Финн не упустил возможности.</text>
+            <show chara="nokiaSmileAhWinterClose-up" position="right"/>
+            <speak chara="nokiaNoFace">Прежняя цивилизация, как следует из названия, — это технологическая цивилизация, процветавшая на Земле до начала нашей нынешней истории.</speak>
+            <speak chara="nokiaNoFace" remark="next">Её истоки можно проследить примерно до стоянки Астрахань-3 около 53 000 лет до н. э.,</speak>
+            <remark>
+                <p class="article-text-h">Примечание:</p>
+                <p class="article-text">Астрахань расположена на берегу Каспийского моря, это крупнейший город на Волге, состоящий из множества островов, соединённых мостами. Город был основан в XIII веке в период Золотой Орды, в 1460–1556 гг. являлся независимым Астраханским ханством, после чего был присоединён Московским княжеством.</p>
+                <p class="article-text">Местный специалитет — арбузы.</p>
+            </remark>
+            <speak chara="nokiaNoFace">Она характеризовалась единой культурой и охватывала регионы от Японского моря до Средиземного, от Балтийского до Персидского залива.</speak>
+            <show chara="nokiaSmileEmWinterClose-up" position="right" opacity="0.7"/>
+            <show chara="weltNormalWinterClose-up" position="left"/>
+            <speak chara="weltNoFace">Они тоже были людьми?</speak>
+            <show chara="weltNormalWinterClose-up" position="left" opacity="0.7"/>
+            <show chara="nokiaSmileAhWinterClose-up" position="right"/>
+            <speak chara="nokiaNoFace">Ха-ха, конечно. Они, должно быть, были первой волной Homo sapiens, вышедших из Африки —</speak>
+            <speak chara="nokiaNoFace">Тем не менее, их культурная модель существенно отличалась от нашей.</speak>
+            <show chara="nokiaSmileEmWinterClose-up" position="right" opacity="0.7"/>
+            <show chara="weltNormalWinterClose-up" position="left"/>
+            <speak chara="weltNoFace">...Это касается бытовых привычек или художественного стиля?</speak>
+            <show chara="weltNormalWinterClose-up" position="left" opacity="0.7"/>
+            <show chara="nokiaSmileAhWinterClose-up" position="right"/>
+            <speak chara="nokiaNoFace">Ха-ха-ха, нет. Напротив, в этих аспектах мы удивительно похожи.</speak>
+            <speak chara="nokiaNoFace">Под «моделью» я имел в виду прежде всего историческую протяжённость цивилизации и богатство культурного разнообразия.</speak>
+            <speak chara="nokiaNoFace">К примеру, наша нынешняя цивилизация восходит к отдельным регионам около 4000 года до н. э.;</speak>
+            <speak chara="nokiaNoFace">И только спустя почти 6000 лет распространения и развития она наконец сформировалась в глобальный мир.</speak>
+            <speak chara="nokiaNoFace">У нас бесчисленное множество народов, письменностей и культур — это система с очень высокой степенью разнообразия.</speak>
+            <show chara="nokiaSmileEmWinterClose-up" position="right" opacity="0.7"/>
+            <show chara="weltNormalWinterClose-up" position="left"/>
+            <speak chara="weltNoFace">А прежняя цивилизация была другой?</speak>
+            <show chara="weltNormalWinterClose-up" position="left" opacity="0.7"/>
+            <show chara="nokiaSmileAhWinterClose-up" position="right"/>
+            <speak chara="nokiaNoFace">Есть отличия. У них весь мир имел единую официальную письменность и единый технологический стиль.</speak>
+            <speak chara="nokiaNoFace">В нашем мире, хотя греко-римская и британская культуры очень сильны, они ещё далеко не достигли такого уровня.</speak>
+            <show chara="nokiaSmileEmWinterClose-up" position="right"/>
+            <speak chara="nokiaNoFace">Если сравнивать, то они больше напоминают древнюю Восточную Азию — ну, знаете, ощущение, будто все используют иероглифы.</speak>
+            <show chara="nokiaSmileEmWinterClose-up" position="right" opacity="0.7"/>
+            <show chara="weltNormalWinterClose-up" position="left"/>
+            <speak chara="weltNoFace">То есть ты хочешь сказать... у них было очень низкое разнообразие?</speak>
+            <show chara="weltNormalWinterClose-up" position="left" opacity="0.7"/>
+            <show chara="nokiaSeriousAhWinterClose-up" position="right"/>
+            <speak chara="nokiaNoFace">Да. И, похоже, они, подобно тому как мы сейчас охраняем Антарктиду, сохранили весь континент Америк в первозданном, незаселённом состоянии.</speak>
+            <speak chara="nokiaNoFace">Это наводит на мысль, что земля не была их основным экономическим ресурсом.</speak>
+            <show chara="teslaNormalGlassWinterClose-up" position="right"/>
+            <speak chara="teslaNoFace">Возможно, они очень рано начали массово использовать энергию Хонкая.</speak>
+            <show chara="teslaBoringGlassWinterClose-up" position="right"/>
+            <speak chara="teslaNoFace">Если так, то селиться в районах, где нет энергии Хонкая, просто бессмысленно.</speak>
+            <speak chara="teslaNoFace">Так же, как наши современные мегаполисы часто привязаны к морским портам, речным пристаням или железнодорожным узлам.</speak>
+            <show chara="teslaBoringGlassWinterClose-up" position="right" opacity="0.7"/>
+            <show chara="weltNormalWinterClose-up" position="left"/>
+            <speak chara="weltNoFace">Разве энергия Хонкая — это не что-то вроде радиации?</speak>
+            <show chara="weltNormalWinterClose-up" position="left" opacity="0.7"/>
+            <show chara="teslaSnickerGlassWinterClose-up" position="right"/>
+            <speak chara="teslaNoFace">Ха-ха-ха, молнией можно и человека ударить, и свет зажечь!</speak>
+            <show chara="teslaNormalGlassWinterClose-up" position="right"/>
+            <speak chara="teslaNoFace">С энергией Хонкая то же самое.</speak>
+            <show chara="teslaBoringGlassWinterClose-up" position="right"/>
+            <speak chara="teslaNoFace">С точки зрения физики, энергия Хонкая — или, вернее, мнимая внутренняя энергия —</speak>
+            <show chara="teslaEmbarraGlassWinterClose-up" position="right"/>
+            <speak chara="teslaNoFace">Тц, даже если я так скажу, ты всё равно не поймёшь. Какая головная боль.</speak>
+            <show chara="einSmileWinterClose-up" position="right"/>
+            <speak chara="einNoFace">Мнимая внутренняя энергия — это гипотеза, касающаяся феномена Хонкая и Большого взрыва.</speak>
+            <text>Эйнштейн с довольным видом подхватила нить разговора —</text>
+            <hide position="left"/>
+            <hide position="right"/>
+            <bgm src="themeTesla.mp3" status="start"></bgm>
+            <show chara="einBlackWinterClose-up" position="center" opacity="0.7"/>
+            <text article="1">
+                <p class="article-text" style="color:rgb(181,233,247);">Второе начало термодинамики гласит: если энтропия одной системы уменьшается, это неизбежно вызывает ещё более значительное увеличение энтропии другой системы. С точки зрения информации, это означает существование огромной информационной асимметрии между обычной средой с высокой хаотичностью и средой с отрицательной энтропией, обладающей высокой упорядоченностью. Исторические исследования показывают тесную связь между энергией Хонкая и этой информационной асимметрией. Математически мнимая внутренняя энергия, принадлежащая коллапсирующему измерению, и реальная внутренняя энергия, являющаяся термодинамическим представлением расширяющегося измерения — то есть привычного нам четырёхмерного пространства-времени — могут быть объединены через комплексные функции высших порядков. Результат позволяет прогнозировать колебания Хонкая на микроскопическом уровне. Поэтому современные исследователи предполагают, что эта «мнимая внутренняя энергия» и есть энергия Хонкая или, по крайней мере, её важнейшая составляющая.</p>
+            </text>
+            <show chara="einSmileWinterClose-up" position="center"/>
+            <speak chara="einNoFace">Ну как, теперь стало хоть немного понятнее, Вельт?</speak>
+            <show chara="weltDarkWinterClose-up" position="center"/>
+            <speak chara="weltNoFace">...</speak>
+            <show chara="weltShameWinterClose-up" position="center"/>
+            <shake position="center" time="250"></shake>
+            <speak chara="weltNoFace">Ни черта не понятно!</speak>
+            <goto goto="50"/>
+        </scene>
+        <scene id="50" background="hotSpring.jpg">
+            <bgm src="street.mp3" status="start"></bgm>
+            <text article="1">
+                <p class="article-text">Проехав через скалистые ворота Рузвельта с надписью «Ради блага и радости народа», кемпер Volkswagen Type 2 въехал в штат Вайоминг по 89-й трассе. Учёные бурно обсуждали различные технические детали. Вельту, не понимавшему даже основ, оставалось лишь сосредоточиться на созерцании пейзажей национального парка.</p>
+            </text>
+            <text>Мамонтовы горячие источники...</text>
+            <text>Лебединое озеро...</text>
+            <text>Горы Ревущие...</text>
+            <text>Река Огненная дыра...</text>
+            <text>Эстетика названий достопримечательностей у администрации парка просто не поддаётся описанию.</text>
+            <show chara="planckSmileCoatClose-upSymme" position="left"/>
+            <speak chara="planckNoFace">Вельт, который сейчас час?</speak>
+            <text>Планк, вернувшаяся на водительское место, словно внезапно что-то вспомнив, спросила о времени.</text>
+            <show chara="planckSmileCoatClose-upSymme" position="left" opacity="0.7"/>
+            <show chara="weltNormalWinterClose-up" position="right"/>
+            <speak chara="weltNoFace">Подожди секунду...</speak>
+            <show chara="teslaEmbarraGlassWinterClose-up" position="center"/>
+            <bgm src="themeTesla.mp3" status="start"></bgm>
+            <text>Не имея часов, юноша в нелепой позе схватил девушку за запястье.</text>
+            <show chara="weltNormalWinterClose-up" position="right" opacity="0.7"/>
+            <show chara="teslaAngryGlassWinterClose-up" position="center"/>
+            <speak chara="teslaNoFace">Эй, эй, эй! Ты что, смерти ищешь?!</speak>
+            <show chara="teslaAngryGlassWinterClose-up" position="center" opacity="0.7"/>
+            <show chara="weltNormalWinterClose-up" position="right"/>
+            <text>Игнорируя протесты Теслы, Вельт изо всех сил пытался сосредоточить взгляд на маленьком круглом циферблате —</text>
+            <speak chara="weltNoFace">Докладываю, профессор: сейчас десять часов сорок четыре минуты сорок три секунды —</speak>
+            <hide position="left"/>
+            <hide position="right"/>
+            <show chara="teslaAngryGlassWinterClose-up" position="center"/>
+            <shake position="center" time="250"></shake>
+            <speak chara="teslaNoFace">Отвали!</speak>
+            <goto goto="52" change="0"/>
+        </scene>
+        <scene id="52" background="black">
+            <bgm src="themeTesla.mp3" status="continue"></bgm>
+            <sound src="hit man.mp3"/>
+            <speak chara="weltNoFace">А-а-а-а-а-а-а-а-а-а-а-а-а-а-а-а-а-а-а-а!!!!</speak>
+            <text>Тесла без лишних церемоний нанесла удар локтем, настолько мощный, что её собственные очки отлетели в сторону.</text>
+            <text>Ужасающий вопль мгновенно разнёсся по всему салону.</text>
+            <goto goto="53" change="0"/>
+        </scene>
+        <scene id="53" background="hotSpring.jpg">
+            <bgm src="street.mp3" status="start"></bgm>
+            <show chara="planckSmileCoatClose-upSymme" position="left"/>
+            <speak chara="planckNoFace">Ха-ха-ха-ха...</speak>
+            <speak chara="planckNoFace">Как бы там ни было, кажется, мы успеваем!</speak>
+            <text>Длинноволосая старшая сестра грубо переключила передачу и вдавила педаль газа в пол —</text>
+            <goto goto="54" change="0"/>
+        </scene>
+        <scene id="54" background="hotSpring2.jpg">
+            <show chara="planckSlyCoatClose-upSymme" position="left"/>
+            <speak chara="planckNoFace">Те, кто здесь впервые, смотрите внимательно налево!</speak>
+            <hide position="left"/>
+            <text>Кемпер резко ускорился, миновав несколько разноцветных источников, похожих на сапфиры, и проехал под мостом —</text>
+            <text>Затем он внезапно съехал с дороги прямо на пологий склон холма —</text>
+            <text>И тут же затормозил, совершив дрифт на девяносто градусов.</text>
+            <show chara="weltShameWinterClose-up" position="center"/>
+            <speak chara="weltNoFace">А-а-а-а-а, сейчас будет авария!! Спасите!!</speak>
+            <text>Пока Вельт пребывал в шоке —</text>
+            <goto goto="55" change="0"/>
+        </scene>
+        <scene id="55" background="white">
+            <bgm src="lab.mp3" status="stop"></bgm>
+            <sound src="9_11_spring.mp3"/>
+            <text article="1">
+                <p class="article-text">Всплеск!</p>
+            </text>
+            <text article="1">
+                <p class="article-text">Огромный столб воды высотой около тридцати-сорока метров взметнулся из котловины за холмом, выбрасывая в небо тучи белого пара, подобно извержению вулкана.</p>
+            </text>
+            <goto goto="60"/>
+        </scene>
+        <scene id="60" background="CG5_2.jpg">
+            <bgm src="lab.mp3" status="start"></bgm>
+            <speak chara="teslaNoFace" remark="next">Старый добрый гейзер!</speak>
+            <remark post="U2FsdGVkX18n4C50htMsi6EoUNdz">
+                <p class="article-text-h">Примечание:</p>
+                <p class="article-text">Гейзер «Старый служака» (Old Faithful) — один из самых популярных гейзеров в мире. Каждый его выброс составляет от 3700 до 8400 галлонов воды при температуре около 95°C.</p>
+                <p class="article-text">«Иногда "Старого служаку" использовали как прачечную. Одежду клали у жерла, и во время извержения она промывалась. Солдаты генерала Шеридана в 1882 году обнаружили, что льняные и хлопковые ткани не повреждаются потоком воды, а вот шерстяные вещи разрываются в клочья».</p>
+            </remark>
+            <speak chara="teslaNoFace">И мы как раз вовремя!</speak>
+            <speak chara="nokiaNoFace">Ого-го, ну и везёт же нам.</speak>
+            <speak chara="einNoFace">...Зимой всё-таки куда эффектнее, чем летом.</speak>
+            <speak chara="planckNoFace">Хотя его назвали «Старым служакой» за пунктуальность, у него на самом деле есть два интервала извержения!</speak>
+            <speak chara="planckNoFace">65 и 91 минута — говорят, точный промежуток зависит от объёма каждого выброса.</speak>
+            <speak chara="weltNoFace">М-м... тогда мы —</speak>
+            <speak chara="planckNoFace">Ну что, разве не удача?</speak>
+            <speak chara="schroNoFace">...Профессор, хватит паясничать. Какая же это удача.</speak>
+            <speak chara="schroNoFace">Парк ведь каждый день публикует прогноз времени извержений.</speak>
+            <speak chara="planckNoFace">...</speak>
+            <speak chara="planckNoFace">Шрёдингер... стоит тебе что-то сказать, как вся тайна момента тут же испаряется...</speak>
+            <speak chara="schroNoFace">Спасибо. Это моё достоинство.</speak>
+            <end post="U2FsdGVkX18hpl2iS7jGFPVPBmAW"/>
+        </scene>
+    </story>
+</data>

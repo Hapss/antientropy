@@ -1,0 +1,417 @@
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<data>
+    <story title="1">
+        <scene id="0" background="bg.jpg">
+            <bgm src="mid-lude.mp3" status="start"></bgm>
+            <cg src="newchapter.png" bg="bg.jpg"></cg>
+            <goto goto="10" change="#000000"/>
+        </scene>
+        <scene id="10" background="studyLamp.jpg">
+            <bgm src="themeWelt.mp3" status="start"></bgm>
+            <speak chara="weltNoFace">...</speak>
+            <text article="1">
+                <p class="article-text">В течение следующих четырёх недель на плечи ассистента лаборатории по имени Вельт ляжет огромная ответственность. Лаборатория 42 уходит в «предварительный отпуск» на четыре недели, так как суперкомпьютер Ада полностью занята одной вычислительной задачей, а это значит, что официально начинается его работа по планированию досуга для двух докторов. Хотя одна из них утверждает, что «в отпуске тоже не каждый день не работают»; но, учитывая манеры другой, сказать трудно...</p>
+            </text>
+            <text>Особенно учитывая, что всего несколько часов назад его безрассудное желание покрасоваться привело её в ярость.</text>
+            <text>Настенные часы молча перешагнули за одиннадцать. Несмотря на знание того, что безопасность в этом районе — лучшая во всей Великобритании, Вельт всё же не мог спокойно уснуть и решил дождаться её в холле.</text>
+            <text>А вот Эйнштейн, похоже, привыкла к поздним возвращениям соседки по комнате и ушла наверх «отдыхать» ещё час назад.</text>
+            <sound src="8_24_mess.mp3"/>
+            <text>— Лишь время от времени из мусоропровода доносился грохот падающих вещей, что звучало так, будто кто-то постоянно убирается в доме.</text>
+            <text remark="next">Допив седьмую чашку чёрного чая, он перелистнул последнюю страницу «Над пропастью во ржи».</text>
+            <remark>
+                <p class="article-text-h">Примечание:</p>
+                <p class="article-text">«Над пропастью во ржи» — роман американского писателя Дж. Д. Сэлинджера, опубликованный в 1951 году.</p>
+                <p class="article-text">При выходе многие школы и библиотеки заносили книгу в списки запрещённых; но сейчас она является обязательным чтением во многих американских школах. Некоторые критики говорят, что она «оказала огромное влияние на несколько поколений американской молодёжи».</p>
+            </remark>
+            <text>Глуповатый главный герой книги обладал неким очарованием, что невольно заставило вспомнить прочитанного в прошлом году «Дон Кихота».</text>
+            <text>А.</text>
+            <text>Если подумать...</text>
+            <text>То то письмо, которое он получил только что, тоже было довольно странным...</text>
+            <goto goto="15" change="#ffffff"/>
+        </scene>
+        <scene id="15" background="CG9-1.jpg">
+            <bgm src="11_3_themeOtto.mp3" status="start"></bgm>
+            <cg src="CG9-1.jpg"></cg>
+            <text article="1">
+                <p class="article-text-h">Ω:</p>
+                <br />
+                <p class="article-text">Когда ты получишь это письмо, должно быть, будет уже около 31-го числа.</p>
+                <br />
+                <p class="article-text">С Хэллоуином.</p>
+            </text>
+            <text article="1">
+                <p class="article-text">Говорят, из-за того, что некий господин епископ придаёт этому празднику особое значение, штаб-квартира каждый год пышно украшается... Да, приложенная фотография — это то, как всё украшено у меня в этом году.</p>
+                <p class="article-text">К слову, с этого месяца из всех сотрудников лаборатории, к «великой радости», наконец-то остались лишь я, так что, как видишь, даже фотографироваться приходится только самому себе.</p>
+            </text>
+            <text article="1">
+                <p class="article-text">Ты не отвечал на письма в последнее время. Должно быть, новые возможности вновь разожгли в тебе интерес к жизни? Я слышал, ты мотаешься туда-сюда через Атлантику и довольно весело проводите время. Впрочем, о североамериканском филиале в штаб-квартире всегда отзывались не лучшим образом; если они начнут между собой грызться, ты только не лезь в это дело... Говорят, там всё довольно мутно.</p>
+            </text>
+            <text article="1">
+                <p class="article-text">...И я тоже дурак. Битва богов — какое нам до этого дело? Не будем об этом. Не знаю, какая погода в Лондоне, но сегодня в Вене на редкость прекрасная лунная ночь; так что, пользуясь алкоголем, давай просто поболтаем о том, о чём обычно не говорят. Я просто скажу, а ты просто послушай, не принимай это слишком близко к сердцу.</p>
+            </text>
+            <text article="1">
+                <p class="article-text">Я знаю, ты любишь читать. Но... задумывался ли ты когда-нибудь, почему в борьбе с Хонкаем человечество раз за разом терпит неудачи и несёт огромные потери? В конечном счёте, в чём именно заключается наше слабое место, из-за которого Хонкай каждый раз захватывает инициативу, а мы лишь пытаемся за ним угнаться?</p>
+                <p class="article-text">Иными словами... почему мы постоянно, постоянно, постоянно повторяем одни и те же ошибки?</p>
+            </text>
+            <text article="1">
+                <p class="article-text">Глядя на историю человечества, действительно, мы постоянно прогрессируем, и этот поток прогресса не остановить какими-то разовыми событиями; но я вижу больше тех первопроходцев, что стоят на гребне волны — они одиноки, изранены и порой терпят сокрушительное поражение даже из-за собственных людей. Они — духовные гиганты, но порой материальные слабаки; их дух часто требует долгого наследования, прежде чем станет признанной бесценной сокровищницей.</p>
+            </text>
+            <text article="1">
+                <p class="article-text">Раньше я рассказывал тебе историю о святой Каллен. Но сегодня я хочу сказать другое... В сравнении с её великой личностью, природа наделила её телом обычной девушки (хотя родословная Каслана определённо нельзя назвать обычной... но это не имеет решающего значения) — оно было настолько хрупким, настолько крошечным, что простые смертные могли вынести ей смертный приговор, и даже обычный зверь Хонкая мог с лёгкостью отнять её жизнь.</p>
+            </text>
+            <text article="1">
+                <p class="article-text">Это ведь лишено всякого смысла, верно же?</p>
+                <br />
+                <p class="article-text">Мир, в котором мы живём, совершенно нелогичен и ни капли не уважает принцип равноценного обмена!</p>
+            </text>
+            <text article="1">
+                <p class="article-text">Я никогда не забуду то, через что прошла Каллен за свою короткую жизнь.</p>
+                <br />
+                <p class="article-text">Я глубоко убеждён, что величайший враг для нас, людей, — вовсе не Хонкай, а мы сами.</p>
+            </text>
+            <text article="1">
+                <p class="article-text">— Мы сами слишком хрупки, поэтому наши герои всегда бессильны спасти всех; мы сами слишком хрупки, поэтому некоторые из нас начинают сомневаться в мотивах героев; мы сами слишком хрупки, поэтому ради сиюминутной выгоды мы пренебрегаем истинной справедливостью; мы сами слишком хрупки, поэтому вынуждены обменивать мимолётный мир на взаимные угрозы, прикрывая низменные мотивы такими высокопарными словами, как «порядок» или «этика».</p>
+            </text>
+            <text article="1">
+                <p class="article-text">Святая... она стала святой именно потому, что, будучи по сути такой же хрупкой, как и мы — она, только она одна, отличалась от нас тем, что не боялась своей хрупкости. Эта искренняя храбрость для обычного человека подобна солнцу: на него можно смотреть, но его не достичь.</p>
+                <p class="article-text">По крайней мере, по сравнению с ней... я сам — законченный трус.</p>
+            </text>
+            <text article="1">
+                <p class="article-text">Каждый из нас несёт в себе первородный грех под названием «страх», трепеща в поисках ответов на жизненные вопросы.</p>
+                <br />
+                <p class="article-text">Святая не стала бы над нами смеяться. Но каждый раз, когда я осознаю, что мы живём именно так, мне хочется ударить себя, чтобы умереть.</p>
+            </text>
+            <text article="1">
+                <p class="article-text">Но представь, если бы... если бы у каждого из нас действительно был шанс избавиться от этой хрупкости; если бы страх «я слишком слаб», укоренившийся в глубине человеческого сердца, был вырван с корнем... тогда новая культура, которую мы создали бы, была бы какой же терпимой, уверенной и полной жизни! И разве так называемый Хонкай не показался бы ничтожным перед нами?</p>
+            </text>
+            <text article="1">
+                <p class="article-text">Такой мир смог бы защитить свою святую.</p>
+                <br />
+                <p class="article-text">И такой мир больше заслуживал бы защиты со стороны святой.</p>
+            </text>
+            <text article="1">
+                <p class="article-text">Если бы, если бы, если бы у Каллен был шанс снова сиять на мировой арене, то в этот раз ей не пришлось бы пробиваться с таким трудом из-за нашей собственной ничтожности.</p>
+            </text>
+            <text article="1">
+                <p class="article-text">Я давно не пил вина, так что сегодня, должно быть, действительно перебрал. Тебе это письмо может показаться полной бессмыслицей и бредом... но это не важно. Раньше я всегда говорил с тобой как член организации; сегодня позволь мне побыть обычным исследователем и просто выплеснуть свои самодовольные жалобы.</p>
+            </text>
+            <text article="1">
+                <p class="article-text">Я не думаю, что тот мир, о котором я только что мечтал, достижим... но это тоже не важно. У нас всё ещё есть много дел, которые мы можем сделать, да?</p>
+                <br />
+                <p class="article-text-s">Твой немного странный старый друг,</p>
+                <p class="article-text-s">Клоун Альфа</p>
+                <p class="article-text-s">28.10.1955.</p>
+            </text>
+            <goto goto="30" change="#ffffff"/>
+        </scene>
+        <scene id="30" background="studyLamp.jpg">
+            <bgm src="themeWelt.mp3" status="start"></bgm>
+            <text>Стрелка часов прошла отметку в 60°, наступил уже рассвет следующего дня.</text>
+            <text>Вельт молча налил себе восьмую чашку чая.</text>
+            <sound src="11_3_mess lock.mp3"/>
+            <text>Щёлк.</text>
+            <sound src="11_3_mess lock.mp3"/>
+            <text>Щёлк-щёлк.</text>
+            <sound src="11_3_mess lock.mp3"/>
+            <text>Щёлк-щёлк-щёлк.</text>
+            <text>За дверью наконец раздался характерный для пьяниц звук — попытки нащупать замочную скважину, когда никак не получается попасть в неё ключом.</text>
+            <goto goto="40" change="#ffffff"/>
+        </scene>
+        <scene id="40" background="studyNight.jpg">
+            <bgm src="lab.mp3" status="start"></bgm>
+            <show chara="teslaNormalDrunkWinterClose" position="center"/>
+            <speak chara="teslaNoFace">А... ну ты... не спишь, что ли.</speak>
+            <text>Шатающаяся походка, тяжёлое амбре алкоголя — без сомнения, эта особа изрядно перебрала.</text>
+            <speak chara="weltNoFace">...Да. Пойдёшь наверх?</speak>
+            <text>Вспомнив наставления кудрявой, юноша решил встретить эту ситуацию со спокойствием.</text>
+            <show chara="teslaAstonishDrunkWinterClose" position="center"/>
+            <speak chara="teslaNoFace">Наверх? ...Нет, нет, не хочу.</speak>
+            <text>Рыжеволосая женщина с полураспущенными хвостиками грубо замахала руками.</text>
+            <show chara="teslaFoolDrunkWinterClose" position="center"/>
+            <speak chara="teslaNoFace">Ты... посиди со мной.</speak>
+            <speak chara="weltNoFace">...Я, я?</speak>
+            <show chara="teslaBiteDrunkWinterClose" position="center"/>
+            <speak chara="teslaNoFace">Хватит... хватит болтать лишнего!</speak>
+            <show chara="teslaFoolDrunkWinterClose" position="center"/>
+            <speak chara="teslaNoFace">Кроме тебя... кто ещё... а?</speak>
+            <goto goto="50" change="0"/>
+        </scene>
+        <scene id="50" background="CG9-2.jpg">
+            <bgm src="lab.mp3" status="continue"></bgm>
+            <text>Не знавшая меры в алкоголе «взрослая особа» повалилась на бок и растянулась на маленьком диванчике рядом.</text>
+            <speak chara="teslaNoFace">...Всё равно ты ведь не слышал, верно?</speak>
+            <speak chara="weltNoFace">Не слышал?</speak>
+            <speak chara="weltNoFace">Э-э... чего именно не слышал?</speak>
+            <speak chara="teslaNoFace">...Какой же ты нудный. Ты что, депутат нижней палаты? «Не слышал» значит «не слышал»!</speak>
+            <speak chara="teslaNoFace">...Раз уж я, так и быть, соизволила тебе всё объяснить, просто помолчи и слушай внимательно, идёт?</speak>
+            <text>Пьяная рыжая ворчала на бессмыслицу, с раздражением отшвыривая свой пиджак на спинку дивана.</text>
+            <speak chara="teslaNoFace">...Ты же знаешь, моё имя — Никола.</speak>
+            <speak chara="teslaNoFace">Здесь это считается женским именем, так что я его и использую.</speak>
+            <speak chara="teslaNoFace">Но вот в паспорте там...</speak>
+            <speak chara="teslaNoFace">Ха-ха-ха-ха! Если честно, даже немного стыдно.</speak>
+            <speak chara="weltNoFace">Э-э... ты хочешь сказать...</speak>
+            <speak chara="weltNoFace">...что Никола — это псевдоним?</speak>
+            <speak chara="teslaNoFace">Ну... не то чтобы псевдоним.</speak>
+            <speak chara="teslaNoFace">Фредерика Никола Тесла... вот моё полное имя.</speak>
+            <speak chara="teslaNoFace" remark="next">Боже, звучит как имя какой-то немецкой свиноматки.</speak>
+            <remark post="U2FsdGVkX19IgpxWjGoRkLC6kAMe">
+                <p class="article-text-h">Примечание:</p>
+                <p class="article-text">Тесла — серб, родившийся в Хорватии и имеющий австрийское гражданство. В Центральной и Восточной Европе по историческим причинам такое случается нередко.</p>
+            </remark>
+            <speak chara="weltNoFace">Эх... разве это не... очень милое имя?</speak>
+            <speak chara="teslaNoFace">...Тц.</speak>
+            <text>Пьяница недовольно сменила позу, закинув ногу на ногу —</text>
+            <speak chara="teslaNoFace">Я так и знала, что ты, мужчина, только это и скажешь.</speak>
+            <speak chara="teslaNoFace">Имя Никола подходит и мужчинам, и женщинам, и вам сразу становится «неинтересно», да?</speak>
+            <speak chara="weltNoFace">Э-э... ну... может быть...</speak>
+            <speak chara="teslaNoFace">С меня хватит этой жизни, где меня считают какой-то там «женщиной»!</speak>
+            <text>Темп речи пьяницы резко ускорился —</text>
+            <speak chara="teslaNoFace">Это же просто глупо! Разве человеческая личность определяется такими скучными вещами, как пол или раса?</speak>
+            <speak chara="teslaNoFace" remark="next">У тебя мозги в формалине плавают?</speak>
+            <remark>
+                <p class="article-text-h">Примечание:</p>
+                <p class="article-text">Формалин — это водно-спиртовой раствор с содержанием формальдегида около 40% и метанола около 15%, обычно используемый в качестве консерванта для создания биологических образцов.</p>
+                <p class="article-text">В нашем мире, спустя 7 часов после смерти физика Альберта Эйнштейна 18 апреля 1955 года, его мозг был предварительно зафиксирован в 10–11,4% растворе формалина, а затем сохранён в виде срезов.</p>
+            </remark>
+            <speak chara="teslaNoFace">...Но правда, к сожалению, большинство людей в мире действительно сами загоняют себя в ловушку, планируя жизнь с помощью этих нелепых ярлыков.</speak>
+            <speak chara="teslaNoFace">Как только кто-то выходит за рамки этих явных или скрытых «правил», они приходят в ярость, словно этот человек собирается разрушить их жизни.</p>
+            <speak chara="teslaNoFace">Эти люди, должно быть, забыли, что все наши статусы — лишь выдуманные роли, созданные человечеством для организации подобия общества.</speak>
+            <speak chara="teslaNoFace">Всё, чего изначально не существует в природе — это лишь человеческая фантазия, всего лишь условность.</speak>
+            <speak chara="teslaNoFace">Фан-та-зи-я!</speak>
+            <speak chara="teslaNoFace">Шиксал — это выдумка, Британия — выдумка, левостороннее движение — выдумка, даже разделение туалетов на мужские и женские — это тоже выдумка!</speak>
+            <speak chara="weltNoFace">Э-э...</speak>
+            <goto goto="100" change="0"/>
+        </scene>
+        <scene id="100" background="studyNight.jpg">
+            <bgm src="lab.mp3" status="continue"></bgm>
+            <show chara="teslaNormalDrunkWinterClose" position="left"/>
+            <show chara="weltTiredWinterClose" position="right" opacity="0.7"/>
+            <speak chara="teslaNoFace" remark="next">А... прости-прости, вывалила на тебя всё разом, прямо как при откорме гусей.</speak>
+            <remark>
+                <p class="article-text-h">Примечание:</p>
+                <p class="article-text">Фуа-гра (фр. foie gras) — известное французское блюдо, которое часто называют «гусиной печенью», хотя в качестве сырья может использоваться и утиная печень.</p>
+                <p class="article-text">На фермах для производства фуа-гра используют метод принудительного кормления, вводя корм напрямую в желудок птицы, чтобы вызвать ожирение печени. Процедура длится от 2 до 4 недель, по 2–3 раза в день, через трубку подаётся специально приготовленная пастообразная смесь. Это приводит к накоплению избыточных питательных веществ в печени, в результате чего она становится крупной и нежной.</p>
+            </remark>
+            <show chara="teslaFoolDrunkWinterClose" position="left"/>
+            <speak chara="teslaNoFace">Никола Тесла, доктор, известный как «профессионал по превращению в болтуна после глотка алкоголя»!</speak>
+            <text>Рыжеволосая женщина резко подалась вперёд, выхватила чай из рук юноши и принялась пить без лишних слов.</text>
+            <show chara="teslaNormalDrunkWinterClose" position="left"/>
+            <speak chara="teslaNoFace">Вы все называете меня доктором, но я ведь на самом деле ещё не выпустилась!</speak>
+            <show chara="teslaNormalDrunkWinterClose" position="left" opacity="0.7"/>
+            <show chara="weltSurpriseWinterClose" position="right"/>
+            <speak chara="weltNoFace">...А?</speak>
+            <show chara="weltSurpriseWinterClose" position="right" opacity="0.7"/>
+            <show chara="teslaFoolDrunkWinterClose" position="left"/>
+            <speak chara="teslaNoFace">Что ты так удивился...</speak>
+            <show chara="teslaNormalDrunkWinterClose" position="left"/>
+            <speak chara="teslaNoFace">Немало людей берут академический отпуск или вовсе бросают учёбу по разным причинам.</speak>
+            <show chara="teslaNormalDrunkWinterClose" position="left" opacity="0.7"/>
+            <show chara="weltTiredWinterClose" position="right"/>
+            <speak chara="weltNoFace">Но... разве ты не занимаешься здесь исследованиями?</speak>
+            <show chara="weltTiredWinterClose" position="right" opacity="0.7"/>
+            <show chara="teslaNormalDrunkWinterClose" position="left"/>
+            <speak chara="teslaNoFace">А, это совсем другое.</speak>
+            <text>Тесла беспомощно пожала плечами.</text>
+            <speak chara="teslaNoFace">Профессор Планк занимается чистой теорией, с моими нынешними исследованиями я у неё никогда не выпущусь.</speak>
+            <show chara="teslaBiteDrunkWinterClose" position="left"/>
+            <speak chara="teslaNoFace">Особенно эта мерзавка Эйнштейн... в последнее время она разрешает мне проводить виртуальные тесты только на Аде!</speak>
+            <speak chara="teslaNoFace">Ну взорвала я спальню разок-другой... неужели это так важно?</speak>
+            <show chara="teslaNormalDrunkWinterClose" position="left"/>
+            <speak chara="teslaNoFace">А.</speak>
+            <speak chara="teslaNoFace">Ты ведь ещё не знаешь, кто такая Ада?</speak>
+            <show chara="teslaNormalDrunkWinterClose" position="left" opacity="0.7"/>
+            <show chara="weltTiredWinterClose" position="right"/>
+            <speak chara="weltNoFace">...С Адой я познакомился только сегодня.</speak>
+            <show chara="weltTiredWinterClose" position="right" opacity="0.7"/>
+            <show chara="teslaFoolDrunkWinterClose" position="left"/>
+            <speak chara="teslaNoFace">О-о! Значит, вы уже закончили анализ этой штуки?</speak>
+            <show chara="teslaFoolDrunkWinterClose" position="left" opacity="0.7"/>
+            <show chara="weltTiredWinterClose" position="right"/>
+            <speak chara="weltNoFace">Нет... похоже, результаты будут только через четыре недели.</speak>
+            <show chara="weltTiredWinterClose" position="right" opacity="0.7"/>
+            <show chara="teslaAstonishDrunkWinterClose" position="left"/>
+            <speak chara="teslaNoFace">Эх...</speak>
+            <show chara="teslaFoolDrunkWinterClose" position="left"/>
+            <speak chara="teslaNoFace">Значит, сегодня ночью мы можем затусить на всю катушку! Ха-ха-ха-ха!</speak>
+            <show chara="teslaFoolDrunkWinterClose" position="left" opacity="0.7"/>
+            <show chara="weltScaredWinterClose" position="right"/>
+            <speak chara="weltNoFace">Всю... всю ночь?</speak>
+            <show chara="weltScaredWinterClose" position="right" opacity="0.7"/>
+            <show chara="teslaLveDrunkWinterClose" position="left"/>
+            <speak chara="teslaNoFace">А как же иначе... дурак ты!</speak>
+            <show chara="teslaNormalDrunkWinterClose" position="left"/>
+            <speak chara="teslaNoFace">Четыре недели!</speak>
+            <show chara="teslaLveDrunkWinterClose" position="left"/>
+            <speak chara="teslaNoFace">Целый месяц! Ты понимаешь?!</speak>
+            <show chara="teslaFoolDrunkWinterClose" position="left"/>
+            <speak chara="teslaNoFace">Раз Ада будет занята так долго, значит ли это, что у меня... грандиозный отпуск?</speak>
+            <speak chara="teslaNoFace">Ха-ха-ха-ха! Отпуск! Жизнь в роскоши и разврате! Я иду!</speak>
+            <show chara="teslaFoolDrunkWinterClose" position="left" opacity="0.7"/>
+            <show chara="weltTiredWinterClose" position="right"/>
+            <speak chara="weltNoFace">...</speak>
+            <show chara="weltTiredWinterClose" position="right" opacity="0.7"/>
+            <show chara="teslaAstonishDrunkWinterClose" position="left"/>
+            <speak chara="teslaNoFace">Чего застыл, тащи мне выпивку, старшая сестрёнка приказывает!</speak>
+            <show chara="teslaAstonishDrunkWinterClose" position="left" opacity="0.7"/>
+            <show chara="weltShameWinterClose" position="right"/>
+            <speak chara="weltNoFace">Эй-эй... ты же... ты ведь больше не можешь пить, верно?</speak>
+            <show chara="weltScaredWinterClose" position="right"/>
+            <speak chara="weltNoFace">Ты уже в таком состоянии... и всё равно хочешь ещё?!</speak>
+            <show chara="weltScaredWinterClose" position="right" opacity="0.7"/>
+            <show chara="teslaNormalDrunkWinterClose" position="left"/>
+            <speak chara="teslaNoFace">Эх.</speak>
+            <show chara="teslaFoolDrunkWinterClose" position="left"/>
+            <speak chara="teslaNoFace">Что за глупости... По-моему, это ты перебрал... Ха-ха-ха!</speak>
+            <show chara="teslaLveDrunkWinterClose" position="left"/>
+            <speak chara="teslaNoFace">Я же вполне связно с тобой разговариваю! С чего бы мне не пить!</speak>
+            <show chara="teslaNormalDrunkWinterClose" position="left"/>
+            <speak chara="teslaNoFace">Раз уж ты не хочешь помогать...</speak>
+            <hide position="left"/>
+            <show chara="teslaFoolDrunkWinterClose" position="center"/>
+            <speak chara="teslaNoFace">...тогда я сама пойду и возьму!</speak>
+            <goto goto="120" change="0"/>
+        </scene>
+        <scene id="120" background="corridorMessy.jpg">
+            <bgm src="lab.mp3" status="continue"></bgm>
+            <text>С этими словами она пошатываясь направилась наверх.</text>
+            <text>Цель была ясна — яркий округлый холодильник в конце коридора второго этажа.</text>
+            <show chara="teslaFoolDrunkWinterClose" position="center" opacity="0.7"/>
+            <show chara="weltShameWinterClose" position="right"/>
+            <speak chara="weltNoFace">А... нет, нельзя!</speak>
+            <text>Видя, что Теслу не остановить, Вельт набрался смелости и бросился вперёд, крепко схватив её.</text>
+            <show chara="weltShameWinterClose" position="right" opacity="0.7"/>
+            <show chara="teslaBiteDrunkWinterClose" position="center"/>
+            <speak chara="teslaNoFace">...Эй! Ты что творишь!</speak>
+            <speak chara="teslaNoFace">Отпусти мои руки!</speak>
+            <show chara="teslaBiteDrunkWinterClose" position="center" opacity="0.7"/>
+            <show chara="weltNormalWinterClose" position="right"/>
+            <speak chara="weltNoFace">Если ты собираешься и дальше пить, я тебя не отпущу.</speak>
+            <text>Юноша сделал ещё шаг и перехватил её вторую руку.</text>
+            <show chara="weltNormalWinterClose" position="right" opacity="0.7"/>
+            <show chara="teslaAstonishDrunkWinterClose" position="center"/>
+            <speak chara="teslaNoFace">Ха? Я наконец-то в отпуске, разве я не вольна развлекаться как хочу?</speak>
+            <show chara="teslaLveDrunkWinterClose" position="center"/>
+            <speak chara="teslaNoFace">Даже из-за пары бокалов ты хочешь меня контролировать? Жмот!</speak>
+            <text>Пьяница явно не была довольна таким грубым вмешательством: она начала размахивать руками, словно мастер лапши, пытаясь вырваться из хватки Вельта.</text>
+            <show chara="teslaBiteDrunkWinterClose" position="center"/>
+            <shake position="center" time="250"></shake>
+            <speak chara="teslaNoFace">Эй!</speak>
+            <shake position="center" time="250"></shake>
+            <speak chara="teslaNoFace">Извращенец! Извращенец!</speak>
+            <shake position="center" time="250"></shake>
+            <speak chara="teslaNoFace">Отпусти сейчас же!</speak>
+            <show chara="teslaBiteDrunkWinterClose" position="center" opacity="0.7"/>
+            <show chara="weltTiredWinterClose" position="right"/>
+            <speak chara="weltNoFace">...</speak>
+            <show chara="weltTiredWinterClose" position="right" opacity="0.7"/>
+            <show chara="teslaBiteDrunkWinterClose" position="center"/>
+            <shake position="center" time="250"></shake>
+            <speak chara="teslaNoFace">Да отпусти ты меня, отпусти, отпусти!</speak>
+            <show chara="teslaBiteDrunkWinterClose" position="center" opacity="0.7"/>
+            <show chara="weltTiredWinterClose" position="right"/>
+            <speak chara="weltNoFace">...А сможешь ли ты потом нести ответственность за своё здоровье?</speak>
+            <text>На лице юноши читалось смешанное чувство недоумения и иронии — рыжеволосая девушка, которую он держал за обе руки, была похожа на капризного ребёнка, которому не дали игрушку, готового вот-вот повалиться на пол с истерикой.</text>
+            <show chara="weltTiredWinterClose" position="right" opacity="0.7"/>
+            <show chara="teslaBiteDrunkWinterClose" position="center"/>
+            <speak chara="teslaNoFace">...Ты не отпустишь, да?</speak>
+            <show chara="teslaBiteDrunkWinterClose" position="center" opacity="0.7"/>
+            <show chara="weltShameWinterClose" position="right"/>
+            <speak chara="weltNoFace">Пока ты не сдашься... я... я не отпущу!</speak>
+            <show chara="weltShameWinterClose" position="right" opacity="0.7"/>
+            <show chara="teslaNormalDrunkWinterClose" position="center"/>
+            <speak chara="teslaNoFace">...</speak>
+            <show chara="teslaNormalDrunkWinterClose" position="center" opacity="0.7"/>
+            <show chara="weltTiredWinterClose" position="right"/>
+            <speak chara="weltNoFace">Ты уже пьяна, иди в комнату и отдохни.</speak>
+            <show chara="weltTiredWinterClose" position="right" opacity="0.7"/>
+            <show chara="teslaFoolDrunkWinterClose" position="center"/>
+            <speak chara="teslaNoFace">Нет! Я не пьяна! Я чувствую себя бодрой!</speak>
+            <show chara="teslaFoolDrunkWinterClose" position="center" opacity="0.7"/>
+            <show chara="weltShameWinterClose" position="right"/>
+            <speak chara="weltNoFace">...Только пьяницы так и говорят!</speak>
+            <show chara="weltShameWinterClose" position="right" opacity="0.7"/>
+            <show chara="teslaNormalDrunkWinterClose" position="center"/>
+            <speak chara="teslaNoFace">Не пьяна, не пьяна, значит не пьяна!</speak>
+            <text>Тесла сердито присела на корточки, но вдруг, словно что-то вспомнив, резко вскочила.</text>
+            <show chara="teslaAstonishDrunkWinterClose" position="center"/>
+            <speak chara="teslaNoFace">Я поняла. Я не буду пить.</speak>
+            <show chara="teslaAstonishDrunkWinterClose" position="center" opacity="0.7"/>
+            <show chara="weltSurpriseWinterClose" position="right"/>
+            <speak chara="weltNoFace">...Не обманывай меня.</speak>
+            <show chara="weltSurpriseWinterClose" position="right" opacity="0.7"/>
+            <show chara="teslaFoolDrunkWinterClose" position="center"/>
+            <speak chara="teslaNoFace">Не обманываю, не обманываю!</speak>
+            <text>Эта рыжая макушка, источающая запах алкоголя, расплылась в демонической улыбке.</text>
+            <speak chara="teslaNoFace">Но взамен...</speak>
+            <speak chara="teslaNoFace">...ты будешь играть со мной!</speak>
+            <show chara="teslaFoolDrunkWinterClose" position="center" opacity="0.7"/>
+            <show chara="weltTiredWinterClose" position="right"/>
+            <speak chara="weltNoFace">...</speak>
+            <show chara="weltTiredWinterClose" position="right" opacity="0.7"/>
+            <show chara="teslaFoolDrunkWinterClose" position="center"/>
+            <speak chara="teslaNoFace">Поиграй со мной, и я не буду пить!</speak>
+            <show chara="teslaFoolDrunkWinterClose" position="center" opacity="0.7"/>
+            <show chara="weltTiredWinterClose" position="right"/>
+            <speak chara="weltNoFace">...</speak>
+            <show chara="weltTiredWinterClose" position="right" opacity="0.7"/>
+            <show chara="teslaAstonishDrunkWinterClose" position="center"/>
+            <speak chara="teslaNoFace">Правда-правда! Я не обманываю!</speak>
+            <show chara="teslaAstonishDrunkWinterClose" position="center" opacity="0.7"/>
+            <show chara="weltTiredWinterClose" position="right"/>
+            <speak chara="weltNoFace">...</speak>
+            <show chara="weltNormalWinterClose" position="right"/>
+            <speak chara="weltNoFace">...Ладно.</speak>
+            <text>Юноша кивнул с видом человека, идущего на верную смерть —</text>
+            <show chara="weltTiredWinterClose" position="right"/>
+            <speak chara="weltNoFace">Так во что ты хочешь играть? Сейчас ведь глубокая ночь?</speak>
+            <show chara="weltTiredWinterClose" position="right" opacity="0.7"/>
+            <show chara="teslaFoolDrunkWinterClose" position="center"/>
+            <speak chara="teslaNoFace">Ха-ха-ха, именно ночью и веселее всего!</speak>
+            <show chara="teslaFoolDrunkWinterClose" position="center" opacity="0.7"/>
+            <show chara="weltSurpriseWinterClose" position="right"/>
+            <speak chara="weltNoFace">А?</speak>
+            <show chara="weltScaredWinterClose" position="right"/>
+            <speak chara="weltNoFace">Не... не говори таких опасных вещей!</speak>
+            <show chara="weltTiredWinterClose" position="right"/>
+            <speak chara="weltNoFace">Ты звучишь как какой-то преступник, ясно?!</speak>
+            <show chara="weltTiredWinterClose" position="right" opacity="0.7"/>
+            <show chara="teslaFoolDrunkWinterClose" position="center"/>
+            <speak chara="teslaNoFace">Ой. Смутился, смутился.</speak>
+            <show chara="teslaFoolDrunkWinterClose" position="center" opacity="0.7"/>
+            <show chara="weltShameWinterClose" position="right"/>
+            <speak chara="weltNoFace">Не смутился, не говори чепухи!</speak>
+            <shake position="right" time="250"></shake>
+            <speak chara="weltNoFace">Я вовсе не смущаюсь!</speak>
+            <show chara="weltShameWinterClose" position="right" opacity="0.7"/>
+            <show chara="teslaFoolDrunkWinterClose" position="center"/>
+            <speak chara="teslaNoFace">Хе-хе-хе, а я буду говорить!</speak>
+            <show chara="teslaLveDrunkWinterClose" position="center"/>
+            <speak chara="teslaNoFace">Вельт! Ах ты, противный мужчина! Ну же, рискни —</speak>
+            <goto goto="130" change="0"/>
+        </scene>
+        <scene id="130" background="">
+            <bgm src="themeTesla.mp3" status="stop"></bgm>
+            <text>Шлёп.</text>
+            <goto goto="140" change="0"/>
+        </scene>
+        <scene id="140" background="corridorMessy.jpg">
+            <bgm src="themeTesla.mp3" status="start"></bgm>
+            <text>Словарь, вылетевший из тени, точно угодил в голову этой шумной особе.</text>
+            <show chara="0einSeriousAhVestClose-up" position="center"/>
+            <shake position="center" time="250"></shake>
+            <speak chara="einNoFace">Да замолчите вы уже, сейчас ночь!</speak>
+            <shake position="center" time="250"></shake>
+            <speak chara="einNoFace">А ну все спать! Сейчас же! Немедленно!</speak>
+            <show chara="0einNormalVestClose-up" position="center"/>
+            <speak chara="einNoFace">...</speak>
+            <speak chara="einNoFace">............</speak>
+            <show chara="0einFoolVestClose-up" position="center"/>
+            <speak chara="einNoFace">..................</speak>
+            <show chara="einBagaVestClose-up" position="center"/>
+            <speak chara="einNoFace">Вельт, скажи... почему она вдруг затихла?</speak>
+            <end post="U2FsdGVkX19e4WHxF4Pk4HxRATs2"/>
+        </scene>
+    </story>
+</data>
+```

@@ -1,0 +1,393 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data>
+    <story>
+        <scene id="0" background="bg.jpg">
+            <bgm src="mid-lude.mp3" status="start"></bgm>
+            <cg src="newchapter.png" bg="bg.jpg"></cg>
+            <goto goto="10" change="#000000"/>
+        </scene>
+        <scene id="10" background="beachNorfolk.jpg">
+            <bgm src="10_25_noise.mp3" status="start"></bgm>
+            <sound src="8_24_launch.mp3"/>
+            <text remark="next">Из-за внезапного электромагнитного импульса самолёту пришлось приземлиться на военно-морской станции Норфолк.</text>
+            <remark>
+                <p class="article-text-h">Примечание:</p>
+                <p class="article-text">Военно-морская станция Норфолк (Naval Station Norfolk) - военно-морской порт ВМС США в Норфолке, штат Вирджиния. Это порт приписки "Атлантического флота" США и крупнейшая военно-морская база в мире.</p>
+            </remark>
+            <text>Согласно отчётам, центром импульса является Нью-Йорк, и указанный импульс очень похож на энергетический импульс Хонкая.</text>
+            <text>Однако времени удивляться или беспокоиться не было. Согласно "Списку неотложных запросов", она была назначена главным командиром и должна руководить всеми спасательными операциями.</text>
+            <text>Первоначально она решила действовать с опережением графика и отозвать всех потенциальных целей, которые могли бы рассматриваться как заложники Отто, чтобы наиболее эффективно обманывать людей.</text>
+            <text>——Даже для того, чтобы сбить с толку потенциальных врагов, специально используются поддельные базовые станции. Связалась со своими учениками так, как будто план только начинается.</text>
+            <text>Однако, при сложившихся обстоятельствах, в рамках своей известности, она стала временным управляющим державой номер один в мире.</text>
+            <text>На данный момент все небоеспособные, работающие на базе, должны эвакуироваться. Самые "важные гости" должны скоро приехать сюда.</text>
+            <text>Глядя только на результаты, кажется, что ей очень повезло - в конце концов, это очень большая страна.</text>
+            <text>Независимо от стихийного бедствия, люди смогут найти место, которое не пострадает от него.</text>
+            <goto goto="20" change="#ffffff"/>
+        </scene>
+        <scene id="20" background="aircraftCockpit.jpg">
+            <bgm src="04_20_tank.mp3" status="start"></bgm>
+            <speak chara="ritaFullNameNoFace">Профессор, мы, кажется, пролетели над заливом Раритан.</speak>
+            <speak chara="ritaFullNameNoFace">Следует ли войти в режим разведки?</speak>
+            <text>После двухразовой дозаправки и полёта на большие расстояния продолжительностью более четырёх часов, под руководством агента-аса, вертолёт в качестве авангарда вскоре прибудет в центр бедствия.</text>
+            <text>Никаких повреждений обнаружено не было. За исключением пробок на некоторых дорогах, других очевидных аномалий с большой высоты не было видно.</text>
+            <speak chara="planckYourNameNoFace">Войдите в режим разведки.</speak>
+            <speak chara="planckYourNameNoFace">Эта ситуация слишком странная. Повысьте уровень оповещения до максимального и скажите всем, чтобы они ничего не игнорировали, каким бы незначительным это ни было.</speak>
+            <speak chara="ritaFullNameNoFace">Так точно, профессор.</speak>
+            <speak chara="planckYourNameNoFace">Просто продолжайте быть начеку. Я пойду сварю немного кофе.</speak>
+            <hide position="center"></hide>
+            <speak chara="crewNoNameNoFace">...Метеорит? У нас метеорит на 2 часа в небе!</speak>
+            <speak chara="planckYourNameNoFace">...!?</speak>
+            <goto goto="30" change="0"/>
+        </scene>
+        <scene id="30" background="CG25-1.jpg">
+            <bgm src="04_20_tank.mp3" status="continue"></bgm>
+            <text>Внезапно появившийся метеорит, безусловно, был интересен.</text>
+            <text>Но что меня больше всего удивило, так это парень, который проделал весь этот путь сюда, не издав ни звука, спрятанный в коробке.</text>
+            <goto goto="40" change="#ffffff"/>
+        </scene>
+        <scene id="40" background="darkEnergy.jpg">
+            <bgm src="04_20_tank.mp3" status="stop"></bgm>
+            <text>.....</text>
+            <bgm src="03_03_bostonNight.mp3" status="start"></bgm>
+            <text>Я знаю, что я должна сделать. Любой ценой я должна привлечь внимание этого злобного Настоятеля.</text>
+            <text>Будь это обычный раненый человек, я могла бы квантовать их, чтобы вытащить из беды.</text>
+            <text>Но в данном случае... это ничего не даст.</text>
+            <text>Раны, нанесённые Чёрной орхидеей, не могут быть залечены обычными средствами.</text>
+            <text>И что ещё хуже, достаточный эффект создания может быть достигнут только при использовании Чёрной орхидеи вместе с Белой лилией.</text>
+            <text>Но эти Божественные Ключи-близнецы не признают меня своим хозяином...</text>
+            <text>Что же мне делать——</text>
+            <text>.....</text>
+            <text>Нет, возможно, у нас всё ещё есть шанс.</text>
+            <text>.....</text>
+            <text>Эйнштейн.</text>
+            <text>Тесла.</text>
+            <text>Вельт.</text>
+            <text>Их свет так легко не погаснет.</text>
+            <text>Как единственный человек, оставшийся в живых, я несу ответственность за продолжение борьбы.</text>
+            <goto goto="50" change="#ffffff"/>
+        </scene>
+        <scene id="50" background="CG25-2.jpg">
+            <bgm src="8_24_war.mp3" status="start"></bgm>
+            <speak chara="ottoNoFace">...Как глупо.</speak>
+            <speak chara="ottoNoFace">...Твоя прямая атака провалилась, так что теперь ты пытаешься обмануть меня с помощью клонов?</speak>
+            <speak chara="ottoNoFace">Хорошо, тогда давай посоревнуемся, чтобы увидеть, кто действительно является существом с бесконечными возможностями.</speak>
+            <goto goto="60" change="0"/>
+        </scene>
+        <scene id="60" background="CG25-3.jpg">
+            <bgm src="8_24_war.mp3" status="continue"></bgm>
+            <speak chara="ottoNoFace">В этом мире нет необходимости в вечности.</speak>
+            <speak chara="ottoNoFace">Мечта превращается в пузыри и лопается в мгновение ока. Всё это правда.</speak>
+            <speak chara="ottoNoFace">1-й Божественный ключ: воспроизведение 7-го Божественного ключа——</speak>
+            <goto goto="70" change="0"/>
+        </scene>
+        <scene id="70" background="CG25-3.jpg">
+            <bgm src="8_24_war.mp3" status="continue"></bgm>
+            <cg src="xuKongWanZang.png" bg="CG25-3.jpg" fadeIn="0" fadeOut="0"></cg>
+            <bgm src="8_24_war.mp3" status="stop"></bgm>
+            <sound src="05_18_gun.mp3"/>
+            <cg src="yuZhongTianHua.png" bg="CG25-4.jpg" fadeIn="0"></cg>
+            <goto goto="90" change="#000000"/>
+        </scene>
+        <scene id="90" background="brightonBeach.jpg">
+            <bgm src="04_20_tank.mp3" status="start"></bgm>
+            <show chara="ottoScornfulGunFar" position="center"/>
+            <speak chara="ottoNoFace">...И это всё, что ты можешь?</speak>
+            <goto goto="100" change="0"/>
+        </scene>
+        <scene id="100" background="CG25-5.jpg">
+            <bgm src="04_20_tank.mp3" status="stop"></bgm>
+            <sound src="05_18_claw.mp3"/>
+            <cg src="CG25-5.jpg" bg="CG25-5.jpg" fadeIn="0" fadeOut="1"></cg>
+            <goto goto="110" change="0"/>
+        </scene>
+        <scene id="110" background="brightonBeach.jpg">
+            <bgm src="morning.mp3" status="start"></bgm>
+            <speak chara="ritaNoNameNoFace">...Тц. Так это не сработало.</speak>
+            <goto goto="120" change="0"/>
+        </scene>
+        <scene id="120" background="brightonBeach.jpg">
+            <bgm src="morning.mp3" status="continue"></bgm>
+            <show chara="ottoChangeGunFar" position="center"/>
+            <speak chara="ottoNoFace">...Хмпф.</speak>
+            <bgm src="04_20_tank.mp3" status="start"></bgm>
+            <show chara="ottoScornfulGunFar" position="center"/>
+            <speak chara="ottoNoFace">Выходи, маленькая крыса.</speak>
+            <show chara="ottoHaughtyGunFar" position="center"/>
+            <speak chara="ottoNoFace">Не думай, что ты сможешь уйти после того, как прервала моё веселье.</speak>
+            <hide position="center"></hide>
+            <speak chara="ritaNoNameNoFace">...Хехе. Уважаемый Настоятель, Вы когда-нибудь слышали об этом раньше?</speak>
+            <show chara="ritaSmileGunFar" position="center"/>
+            <speak chara="ritaFullNameNoFace">Величайший философ в истории однажды сказал:</speak>
+            <show chara="ritaNormalGunFar" position="center"/>
+            <speak chara="ritaFullNameNoFace" remark="next">"Все великие мировые события случаются дважды..."</speak>
+            <speak chara="ritaFullNameNoFace" remark="next">"Сначала как трагедия, а затем как фарс."</speak>
+            <remark>
+                <p class="article-text-h">Примечание:</p>
+                <p class="article-text">Это вступительные слова "Восемнадцатого Брюмера" Маркса о Луи Бонапарте.</p>
+            </remark>
+            <show chara="ottoConfidentGunFar" position="center"/>
+            <speak chara="ottoNoFace">...О?</speak>
+            <show chara="ritaTalkGunFar" position="center"/>
+            <speak chara="ritaFullNameNoFace">И в Декларации независимости нашей страны есть отрывок, в котором говорится следующее——</speak>
+            <show chara="ritaNormalGunFar" position="center"/>
+            <speak chara="ritaFullNameNoFace">"История нынешнего короля Великобритании - это история повторяющихся оскорблений и узурпаций, и все они имеют прямой целью установление абсолютной тирании над этими государствами."</speak>
+            <show chara="ritaSmileGunFar" position="center"/>
+            <speak chara="ritaFullNameNoFace">Если Вы пытаетесь быть похожим на Георга III——</speak>
+            <show chara="ritaNodGunFar" position="center"/>
+            <speak chara="ritaFullNameNoFace">——Вы превратитесь в "клоуна" по-настоящему.</speak>
+            <show chara="ottoLaughGunFar" position="center"/>
+            <speak chara="ottoNoFace">Хех. Простая владелица отеля, появляющаяся из ниоткуда, думает, что может читать мне лекции о первопроходцах.</speak>
+            <show chara="ottoHaughtyGunFar" position="center"/>
+            <speak chara="ottoNoFace">Тогда мой ответ таков——</speak>
+            <show chara="ottoConfidentGunFar" position="center"/>
+            <speak chara="ottoNoFace">Все формы правления - тирания. Только те, кто не несёт ответственности, пытаются обмануть других, приукрашивая это сладкими словами.</speak>
+            <show chara="ottoHaughtyGunFar" position="center"/>
+            <speak chara="ottoNoFace">Так что тебе не нужно впадать во все эти философствования——</speak>
+            <show chara="ottoScornfulGunFar" position="center"/>
+            <speak chara="ottoNoFace">——Всё, что я пытаюсь сделать сегодня, это избавиться от препятствия.</speak>
+            <goto goto="150" change="#ffffff"/>
+        </scene>
+        <scene id="150" background="darkEnergy.jpg">
+            <bgm src="11_17_tatakau.mp3" status="start"></bgm>
+            <text>Хорошо... Нам удалось выиграть достаточно времени.</text>
+            <text>Я не думала, что получу помощь от такого неожиданного помощника...</text>
+            <text>Я искренне благодарю тебя.</text>
+            <text>Конечно, я также должна поблагодарить Аду за то, что она позволила нам общаться под носом у врага.</text>
+            <text>Во всяком случае, теперь я могу...</text>
+            <text>...Передать ему эстафету.</text>
+            <goto goto="160" change="#ffffff"/>
+        </scene>
+        <scene id="160" background="CG25-6.jpg">
+            <bgm src="11_17_tatakau.mp3" status="continue"></bgm>
+            <speak chara="ottoNoFace">...Хм?</speak>
+            <goto goto="170" change="0"/>
+        </scene>
+        <scene id="170" background="CG25-7.jpg">
+            <bgm src="11_17_tatakau.mp3" status="continue"></bgm>
+            <speak chara="schroPlasmaNoFace">Реконструкция сознания завершена. Проявление энергии Хонкая.</speak>
+            <speak chara="schroPlasmaNoFace">Определение распределения Максвелла и отделение всех частиц.</speak>
+            <speak chara="schroPlasmaNoFace">Базовое измерение успешно отменено.</speak>
+            <goto goto="180" change="0"/>
+        </scene>
+        <scene id="180" background="CG25-8.jpg">
+            <bgm src="11_17_tatakau.mp3" status="continue"></bgm>
+            <cg src="heiYuanBaiHuaDiLingGongLv.png" bg="CG25-8.jpg" fadeIn="0" fadeOut="0"></cg>
+            <bgm src="11_17_tatakau.mp3" status="stop"></bgm>
+            <sound src="05_18_smash.mp3"/>
+            <cg src="jieXianTuPoQiangZhiZhanKai.png" bg="CG25-8-2.jpg" fadeIn="0" fadeOut="1"></cg>
+            <goto goto="900" change="#ffffff"/>
+        </scene>
+        <scene id="900" background="cloudSky.jpg">
+            <bgm src="themeWelt.mp3" status="start"></bgm>
+            <text>Ты пробуждаешься ото сна.</text>
+            <text>Ты чувствуешь знакомое дыхание в себе. Нет, это энергия. Она исчезает так же быстро, как и появилась.</text>
+            <text>Это отличается от остатков душ в твоём теле——</text>
+            <text>Она не мертва, но я не могу точно сказать, что она жива.</text>
+            <text>...Но я знал, что было что-то более важное, чем беспокойство о ней, что я должен был сделать.</text>
+            <text>Благодаря Плазменному щиту, который она нам оставила, Настоятель какое-то время не сможет к нам приблизиться.</text>
+            <text>Теперь я уверен——</text>
+            <text>Жизни Эйнштейн и Теслы не закончатся обычным образом.</text>
+            <text>Как будто они не были ранены.</text>
+            <text>Как будто они были бессмертны.</text>
+            <text>...Теперь у меня есть знания, необходимые для создания жизни.</text>
+            <text>Даже если я не знаю, откуда взялось это знание——</text>
+            <text>Слова произнесены правильно, энергия отрегулирована, гены перезагружены... всё проходит гладко.</text>
+            <text>Мне ни разу не приходилось думать о цене, которую мне придётся заплатить...</text>
+            <text>Потому что...</text>
+            <text>Всё, что произошло за последний месяц, стало для меня незаменимым сокровищем.</text>
+            <goto goto="1000" change="#ffffff"/>
+        </scene>
+        <scene id="1000" background="studyNight.jpg">
+            <bgm src="10_20_londonderry_p.mp3" status="start"></bgm>
+            <show chara="memoryLoading" position="center"/>
+            <show chara="einSmileClose" position="back"/>
+            <speak chara="einSmileClose">...Вельт. В.Е.Л.Ь.Т. </speak>
+            <speak chara="einSmileClose">Я думаю тебе подходит это имя. </speak>
+            <goto goto="1010" change="#ffffff"/>
+        </scene>
+        <scene id="1010" background="weltRoomDay2.jpg">
+            <bgm src="10_20_londonderry_p.mp3" status="continue"></bgm>
+            <show chara="memoryLoading" position="center"/>
+            <show chara="teslaAngryCloseNoName" position="back"/>
+            <speak chara="teslaAngryCloseNoName">В самом деле, ты что, оглох?! Я звонила тебе несколько раз! К счастью, я была достаточно любезна, чтобы вломиться внутрь.</speak>
+            <goto goto="1015" change="#ffffff"/>
+        </scene>
+        <scene id="1015" background="italianRestaurant.jpg">
+            <bgm src="10_20_londonderry_p.mp3" status="continue"></bgm>
+            <show chara="memoryLoading" position="center"/>
+            <show chara="0einSlyVestClose-up" position="back"/>
+            <speak chara="einNoFace">Ты, наверное, не знаешь, но в последнее время я контролирую себя, чтобы говорить меньше бессмысленных вещей.</speak>
+            <speak chara="einNoFace">Как сказал мой дедушка, "Успех равен гениальности плюс пот и меньше глупостей".</speak>
+            <goto goto="1020" change="#ffffff"/>
+        </scene>
+        <scene id="1020" background="barBillings.jpg">
+            <bgm src="10_20_londonderry_p.mp3" status="continue"></bgm>
+            <show chara="memoryLoading" position="center"/>
+            <show chara="planckSlyClose-up" position="back"/>
+            <speak chara="planckNoFace">Устрицы из Скалистых гор.</speak>
+            <show chara="schroNormalAhClose-up" position="back"/>
+            <speak chara="schroNoFace">Профессор, она предпочитает есть такое. Я не знаю, сможешь ли ты привыкнуть к этому.</speak>
+            <goto goto="1030" change="#ffffff"/>
+        </scene>
+        <scene id="1030" background="CG6-1.jpg">
+            <bgm src="10_20_londonderry_p.mp3" status="continue"></bgm>
+            <show chara="memoryLoading" position="back"/>
+            <speak chara="teslaNoFace">Боже. Что ты делаешь!</speak>
+            <speak chara="teslaNoFace">Эй! Это домогательство!</speak>
+            <speak chara="teslaNoFace">Эйнштейн! Шрёдингер! Планк! Вы ничего не собираетесь с ней сделать?!</speak>
+            <goto goto="1040" change="#ffffff"/>
+        </scene>
+        <scene id="1040" background="CG6-2.jpg">
+            <bgm src="10_20_londonderry_p.mp3" status="continue"></bgm>
+            <show chara="memoryLoading" position="back"/>
+            <speak chara="einNoFace">Юнцам, которые пришли сюда,</speak>
+            <speak chara="einNoFace">Я оставляю последний Соулиум вам.</speak>
+            <goto goto="1050" change="#ffffff"/>
+        </scene>
+        <scene id="1050" background="adaRoom.jpg">
+            <bgm src="10_20_londonderry_p.mp3" status="continue"></bgm>
+            <show chara="memoryLoading" position="center"/>
+            <show chara="adaSmileFar" position="back"/>
+            <speak chara="adaNoFace">Здравствуйте, я пробная работа по интерфейсу терминала № 0042, и моё человеческое имя Ада.</speak>
+            <speak chara="adaNoFace">А ~ Д ~ А ~ </speak>
+            <speak chara="adaNoFace">艾——妲。</speak>
+            <goto goto="1060" change="#ffffff"/>
+        </scene>
+        <scene id="1060" background="corridorMessy.jpg">
+            <bgm src="10_20_londonderry_p.mp3" status="continue"></bgm>
+            <show chara="memoryLoading" position="center"/>
+            <show chara="teslaFoolDrunkWinterClose" position="back"/>
+            <speak chara="teslaNoFace">Что. Ты вдруг застеснялся?</speak>
+            <goto goto="1070" change="#ffffff"/>
+        </scene>
+        <scene id="1070" background="graveDayLate.jpg">
+            <bgm src="10_20_londonderry_p.mp3" status="continue"></bgm>
+            <show chara="memoryLoading" position="center"/>
+            <show chara="reaSmileEmWinterFar" position="back"/>
+            <speak chara="reannaNoNameNoFace">Меня зовут Реанна Бригантия.</speak>
+            <show chara="reaSmileAhWinterFar" position="back"/>
+            <speak chara="reannaNoFace">Хотя я Валькирия непосредственно при штабе - но сегодня такая же, как ты, обычный человек, пришедший подмести могилу.</speak>
+            <goto goto="1080" change="#ffffff"/>
+        </scene>
+        <scene id="1080" background="studyLamp.jpg">
+            <bgm src="10_20_londonderry_p.mp3" status="continue"></bgm>
+            <show chara="memoryLoading" position="center"/>
+            <show chara="teslaBoringEyeClose-up" position="back"/>
+            <speak chara="teslaNoFace">Те, кто упрямо верит, что у людей есть так называемая "душа", либо не желают вникать в истинную природу этого мира——</speak>
+            <show chara="teslaEmbarraEyeClose-up" position="back"/>
+            <speak chara="teslaNoFace">Либо потому, что они были сбиты с толку концепцией “я” или “эго”, и им приходится отчаянно искать свою собственную “новую одежду императора”, чтобы доказать свою “легитимность”.</speak>
+            <show chara="teslaShameEyeClose-up" position="back"/>
+            <speak chara="teslaNoFace">Понимаешь? Это люди, которые не могут поверить, что они всего лишь продукт природы, побочный продукт естественной эволюции всего сущего.</speak>
+            <show chara="teslaSnickerEyeClose-up" position="back"/>
+            <speak chara="teslaNoFace">Они предпочли бы, чтобы мы были "великими" в вымышленном смысле, чем узнавали самих себя реалистичным, приземлённым образом.</speak>
+            <speak chara="teslaNoFace">Именно потому, что они так боятся смерти, они предпочитают смотреть на всё вокруг себя — ничем не отличаясь от тех королей и королев, которые верят в "Божественное право королей".</speak>
+            <goto goto="1090" change="#ffffff"/>
+        </scene>
+        <scene id="1090" background="CG12-1.jpg">
+            <bgm src="10_20_londonderry_p.mp3" status="continue"></bgm>
+            <show chara="memoryLoading" position="back"/>
+            <speak chara="einNoFace">Но верю я — вернёшься ты, мой милый,</speak>
+            <speak chara="einNoFace">В пороше зимней, или в летний зной.</speak>
+            <speak chara="einNoFace">Я буду ждать, и под звездой счастливой</speak>
+            <speak chara="einNoFace">Пускай хранит тебя в пути моя любовь.</speak>
+            <goto goto="1100" change="#ffffff"/>
+        </scene>
+        <scene id="1100" background="cloudSky.jpg">
+            <bgm src="10_20_londonderry_p.mp3" status="continue"></bgm>
+            <speak chara="weltNoFace">"Жаждущему я дам даром"</speak>
+            <speak chara="weltNoFace">"Из источника воды жизни".</speak>
+            <speak chara="weltNoFace">...Этого не достаточно.</speak>
+            <goto goto="1120" change="0"/>
+        </scene>
+        <scene id="1120" background="cloudSky.jpg">
+            <bgm src="04_20_Brigantia.mp3" status="start"></bgm>
+            <text article="1">
+                <p class="article-text">Вот день, избранник времени счастливый!</p>
+                <br />
+                <p class="article-text">Его заклятьем вызвал Сын Земли,</p>
+            </text>
+            <text article="1">
+                <p class="article-text">Чтоб люди видеть счастие могли;</p>
+                <br />
+                <p class="article-text">Любовь с престола власти терпеливой,</p>
+            </text>
+            <text article="1">
+                <p class="article-text">Победоносная, сошла</p>
+                <br />
+                <p class="article-text">И собрала свои усилья.</p>
+            </text>
+            <text article="1">
+                <p class="article-text">Из крайней пытки создала</p>
+                <br />
+                <p class="article-text">Благословенье изобилья.</p>
+            </text>
+            <text article="1">
+                <p class="article-text">Простёрла надо всем врачующие крылья.</p>
+                <br />
+                <p class="article-text">Терпенье, Мудрость, Нежность, Доброта -</p>
+            </text>
+            <text article="1">
+                <p class="article-text">Печать над тем, в чём скрыто Разрушенье;</p>
+                <br />
+                <p class="article-text">И если Вечность, мать Уничтоженья,</p>
+            </text>
+            <text article="1">
+                <p class="article-text">Растворит дверь, где дремлет темнота,</p>
+                <br />
+                <p class="article-text">Освободит змею измены</p>
+            </text>
+            <text article="1">
+                <p class="article-text">И кинет в мир чуму, как бич,</p>
+                <br />
+                <p class="article-text">Желайте лучшей перемены,</p>
+            </text>
+            <goto goto="1160" change="#ffffff"/>
+        </scene>
+        <scene id="1160" background="darkEnergy.jpg">
+            <bgm src="04_20_Brigantia.mp3" status="continue"></bgm>
+            <text article="1">
+                <p class="article-text">Пошлите в воздух звучный клич;</p>
+                <br />
+                <p class="article-text">Вот чары, чтоб опять гармонии достичь, -</p>
+            </text>
+            <text article="1">
+                <p class="article-text">Не верить в торжество несовершенства;</p>
+                <br />
+                <p class="article-text">Прощать обиды, чёрные, как ночь;</p>
+            </text>
+            <text article="1">
+                <p class="article-text">Упорством невозможность превозмочь;</p>
+                <br />
+                <p class="article-text">Терпеть, любить;</p>
+            </text>
+            <text article="1">
+                <p class="article-text">и так желать блаженства,</p>
+                <br />
+                <p class="article-text">Что Солнце вспыхнет сквозь туман</p>
+            </text>
+            <text article="1">
+                <p class="article-text">И обессилеет отрава, -</p>
+                <br />
+                <p class="article-text">Над этим образ твой, Титан,</p>
+            </text>
+            <text article="1">
+                <p class="article-text">Лишь в этом Жизнь, Свобода, Слава,</p>
+                <br />
+                <p class="article-text">Победа Красоты, лучистая Держава!</p>
+            </text>
+            <goto goto="1200" change="0"/>
+        </scene>
+        <scene id="1200" background="CG25-9.jpg">
+            <bgm src="04_20_Brigantia.mp3" status="continue"></bgm>
+            <speak chara="weltNoFace" remark="next">——Это день, когда заклинание рождённого на Земле пожирает Тирана Ложных Небес.</speak>
+            <remark post="U2FsdGVkX18o9ZihHoexEPzjpmN9">
+                <p class="article-text-h">Примечание:</p>
+                <p class="article-text">Это текст из конца трагедии П.Б. Шелли "Прометей освобождённый".</p>
+            </remark>
+            <speak chara="weltNoFace">Отто Апокалипсис...</speak>
+            <speak chara="weltNoFace">Нет, Клоун Альфа——</speak>
+            <speak chara="weltNoFace">Узри падение звёзд!</speak>
+            <end post="U2FsdGVkX18FjFK3VUd0XhOzu9el"/>
+        </scene>
+    </story>
+</data>

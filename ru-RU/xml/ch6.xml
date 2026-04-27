@@ -1,0 +1,971 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data>
+    <story title="1">
+        <scene id="0" background="bg.jpg">
+            <bgm src="mid-lude.mp3" status="start"></bgm>
+            <cg src="newChapter.png" bg="bg.jpg"></cg>
+            <goto goto="10" change="#000000"/>
+        </scene>
+        <scene id="10" background="duckLake.jpg">
+            <bgm src="lab.mp3" status="start"></bgm>
+            <show chara="schroNormalAhClose-up" position="center"/>
+            <speak chara="schroNoFace">Горный часовой  пояс, 11:38 — прибытие к озеру Йеллоустоун.</speak>
+            <show chara="schroNormalEmClose-up" position="center"/>
+            <speak chara="schroNoFace">Обед будет тем, что мы подготовили утром, так что будем есть на ходу.</speak>
+            <hide position="center"/>
+            <text>Дорожный кемпер модели «Масс-2» после долгого путешествия наконец получил возможность заглушить двигатель и отдохнуть на парковке Уэст-Тамб.</text>
+            <text>Пока все по очереди выходили из машин, Шрёдингер своим привычным сухим тоном объявляла информацию, которую все и так уже знали.</text>
+            <text>К северной части парковки, в зоне с указателем «Утиное озеро», внезапно вырос ряд временных ограждений с табличками «Зона ограниченного доступа».</text>
+            <text>Местная полиция установила неподалёку пост. Эмма Планк, приветливо поздоровавшись с ними, как будто знала их лично, повела группу за ограждение.</text>
+            <goto goto="20"/>
+        </scene>
+        <scene id="20" background="quarry.jpg">
+            <bgm src="9_28_cave.mp3" status="start"></bgm>
+            <text>Стоило пересечь ограждение, как перед глазами предстало дно Утиного озера, которое уже давно было осушено.</text>
+            <text>Вельт как раз гадал, почему это место так похоже на карьер —</text>
+            <show chara="weltNormalWinterFar" position="left" opacity="0.7"/>
+            <show chara="teslaEmbarraGlassWinterFar" position="right"/>
+            <speak chara="teslaNoFace">Тц!</speak>
+            <hide position="right"/>
+            <show chara="weltTes normal" position="left"/>
+            <text>Неизвестно, что именно она увидела, но Тесла нахмурилась и тут же спряталась в тени за спиной Вельта.</text>
+            <speak chara="weltNoFace">Что случилось?</speak>
+            <speak chara="teslaNoFace">Какое невезение... Ну почему именно сейчас, нужно было столкнуться именно с ней...</speak>
+            <show chara="weltTes surprise" position="left"/>
+            <speak chara="weltNoFace">А?</speak>
+            <text>Озадаченный Вельт огляделся и увидел группу людей в строгих костюмах, которые поднимались со дна озера на открытом лифте —</text>
+            <text>— во главе с женщиной в мужском стиле одежды с собранными в хвост волосами; выглядела она весьма высокопоставленной особой.</text>
+            <text>В то же время он почувствовал, как Тесла начала яростно чертить круги на его спине.</text>
+            <show chara="weltTes tired" position="left"/>
+            <speak chara="weltNoFace">Э-э... Что происходит, доктор Тесла?</speak>
+            <show chara="weltTes tired" position="left" opacity="0.7"/>
+            <bgm src="lab.mp3" status="start"></bgm>
+            <show chara="planckSmileCoatFar" position="center"/>
+            <speak chara="planckNoFace">Привет, Нэнси!</speak>
+            <show chara="planckSlyCoatFar" position="center"/>
+            <speak chara="planckNoFace">Уже закончили прогулку?</speak>
+            <text>Игнорируя бормочущих что-то Вельта и Теслу, Планк совершенно непринуждённо поприветствовала прибывших.</text>
+            <show chara="planckSlyCoatFar" position="center" opacity="0.7"/>
+            <show chara="edisonSeriousWinterFar" position="right"/>
+            <speak chara="edisonNoFace">Угу.</speak>
+            <text>Взгляд Нэнси скользнул мимо Планк и Шрёдингер, остановившись на Эйнштейн и остальных.</text>
+            <show chara="edisonNeckWinterFar" position="right"/>
+            <speak chara="edisonNoFace">Они все твои студенты?</speak>
+            <show chara="edisonNeckWinterFar" position="right" opacity="0.7"/>
+            <show chara="planckSmileCoatFar" position="center"/>
+            <speak chara="planckNoFace">Вроде того.</speak>
+            <text>Длинноволосая красавица подмигнула Вельту.</text>
+            <show chara="planckSmileCoatFar" position="center" opacity="0.7"/>
+            <show chara="weltTes normal" position="left"/>
+            <speak chara="weltNoFace">М-м... э-э... мы члены 42-й лаборатории Имперского научно-исследовательского института...</speak>
+            <show chara="weltTes normal" position="left" opacity="0.7"/>
+            <show chara="edisonSeriousWinterFar" position="right"/>
+            <speak chara="edisonNoFace">Имперский институт?</speak>
+            <text>Девушка в мужской одежде замерла на пару секунд.</text>
+            <show chara="edisonNeckWinterFar" position="right"/>
+            <speak chara="edisonNoFace">Из Лондона?</speak>
+            <show chara="edisonNeckWinterFar" position="right" opacity="0.7"/>
+            <show chara="weltTes normal" position="left"/>
+            <speak chara="weltNoFace">Да...</speak>
+            <show chara="weltTes normal" position="left" opacity="0.7"/>
+            <show chara="edisonSmileWinterFar" position="right"/>
+            <speak chara="edisonNoFace">О.</speak>
+            <hide position="center"/>
+            <sound src="9_28_walk on concrete.mp3"/>
+            <show chara="edisonSmileWinterClose" position="right"/>
+            <show chara="weltTes normal close" position="left"/>
+            <text>Она с натянутой улыбкой подошла к Вельту, пристально глядя куда-то за его спину.</text>
+            <show chara="weltTes normal close" position="left"/>
+            <speak chara="weltNoFace">...</speak>
+            <text>Рука, чертившая круги на спине, вовремя остановилась.</text>
+            <sound src="9_28_walk on concrete.mp3"/>
+            <show chara="edisonSeriousWinterClose-up" position="right"/>
+            <show chara="weltTes normal close-up" position="left"/>
+            <text>Она сделала ещё шаг вперёд.</text>
+            <text>Вельту показалось, что их носы вот-вот соприкоснутся.</text>
+            <speak chara="weltNoFace">...</speak>
+            <text>Несмотря на то, что Вельт чувствовал, будто ему нечем дышать —</text>
+            <text>— её взгляд был направлен вовсе не на него, а на какую-то точку за его головой. Словно он сам был лишь воздухом.</text>
+            <speak chara="teslaNoFace">...</speak>
+            <speak chara="weltNoFace">Эм... мне стоит... отойти?</speak>
+            <show chara="edisonNeckWinteClose-up" position="right"/>
+            <speak chara="edisonNoFace">Конечно. Ступай.</speak>
+            <text>Она даже не удостоила бедного юношу взглядом.</text>
+            <goto goto="25" change="0"/>
+        </scene>
+        <scene id="25" background="CG6-1.jpg">
+            <bgm src="themeTesla.mp3" status="start"></bgm>
+            <speak chara="teslaNoFace">...</speak>
+            <text>Нюх-нюх.</text>
+            <text>Девушка в мужской одежде вытянула шею и начала обнюхивать Теслу.</text>
+            <speak chara="teslaNoFace">Тц! Ты что творишь!</speak>
+            <text>Нюх-нюх.</text>
+            <speak chara="teslaNoFace">Эй! Это сексуальное домогательство!</speak>
+            <text>Нюх-нюх.</text>
+            <speak chara="teslaNoFace">Эйнштейн! Шрёдингер! Планк! Вы почему её не остановите?!</speak>
+            <text>Нюх-нюх.</text>
+            <speak chara="teslaNoFace">Хватит! Что тебе нужно?! Я сейчас правда разозлюсь!</speak>
+            <speak chara="edisonNoFace">О?</speak>
+            <goto goto="30"/>
+        </scene>
+        <scene id="30" background="quarry.jpg">
+            <bgm src="horror.mp3" status="start"></bgm>
+            <show chara="teslaAngryGlassWinterFar" position="left" opacity="0.7"/>
+            <show chara="edisonSmileWinterFar" position="right"/>
+            <text>Девушка в мужской одежде резко выпрямилась.</text>
+            <show chara="edisonSlyWinterFar" position="right"/>
+            <speak chara="edisonNoFace">Как~ же~ это~ стра~шно.</speak>
+            <speak chara="edisonNoFace">Я~ пом~ню,</speak>
+            <speak chara="edisonNoFace">как~ то~ раз,</speak>
+            <speak chara="edisonNoFace">ты~ лишь~ немного~ разозлилась,</speak>
+            <speak chara="edisonNoFace">и~ чуть~ не~ спалила~ мой~ офис,</speak>
+            <speak chara="edisonNoFace">до~тла—</speak>
+            <speak chara="edisonNoFace">Ведь~ так?</speak>
+            <text>Она улыбалась, чеканя каждое слово и произнося нечто весьма угрожающе.</text>
+            <show chara="edisonSlyWinterFar" position="right" opacity="0.7"/>
+            <show chara="teslaBoringGlassWinterFar" position="left"/>
+            <speak chara="teslaNoFace">Хм, хотя в тот раз ты не была права —</speak>
+            <show chara="teslaAngryGlassWinterFar" position="left"/>
+            <speak chara="teslaNoFace">— но, жадная ты курица, я бы только порадовалась, рухни твой небоскрёб!</speak>
+            <text>С другой стороны Тесла тоже не собиралась сдаваться и с презрением парировала.</text>
+            <show chara="teslaAngryGlassWinterFar" position="left" opacity="0.7"/>
+            <show chara="edisonSeriousWinterFar" position="right"/>
+            <speak chara="edisonNoFace">...С такими людьми, как ты, совершенно невозможно говорить о финансах.</speak>
+            <show chara="edisonSeriousWinterFar" position="right" opacity="0.7"/>
+            <show chara="teslaEmbarraGlassWinterFar" position="left"/>
+            <speak chara="teslaNoFace">...С такими нуворишами, как ты, невозможно говорить о чем-либо ещё!</speak>
+            <show chara="teslaEmbarraGlassWinterFar" position="left" opacity="0.7"/>
+            <show chara="edisonSighWinterFar" position="right"/>
+            <speak chara="edisonNoFace">...</speak>
+            <speak chara="edisonNoFace">Знаешь, какой тип людей меня бесит больше всего?</speak>
+            <speak chara="edisonNoFace">Те, кто на каждом шагу твердит о свободе, демократии и морали, но при этом разрабатывает проекты массового поражения, служащие лишь мирскому господству.</speak>
+            <show chara="edisonSlyWinterFar" position="right"/>
+            <speak chara="edisonNoFace">Тебе не кажется, что это противоречиво, мисс Тесла?</speak>
+            <show chara="edisonSlyWinterFar" position="right" opacity="0.7"/>
+            <show chara="teslaAngryGlassWinterFar" position="left"/>
+            <speak chara="teslaNoFace">Да, ты ведь почти не изобретаешь оружие!</speak>
+            <speak chara="teslaNoFace">Но неужели ты думаешь, что если ты не создаёшь новое оружие, то людей будет меньше умирать на войнах?</speak>
+            <show chara="teslaBoringGlassWinterFar" position="left"/>
+            <speak chara="teslaNoFace">Наступит день, когда обе стороны войны не смогут позволить себе её стоимость — вот в чём ответственность нас, изобретателей!</speak>
+            <speak chara="teslaNoFace">Это единственный способ заставить войны исчезнуть с лица Земли!</speak>
+            <show chara="teslaEmbarraGlassWinterFar" position="left"/>
+            <speak chara="teslaNoFace">А всё, что делает твоя семейка — это набивает свои карманы и даёт повод для смеха тем, кто живёт в роскоши. В чём смысл?</speak>
+            <show chara="teslaAngryGlassWinterFar" position="left"/>
+            <speak chara="teslaNoFace">Что там у вас... Обычная компания? Или компания инфляции?</speak>
+            <show chara="teslaAngryGlassWinterFar" position="left" opacity="0.7"/>
+            <show chara="edisonSighWinterFar" position="right"/>
+            <speak chara="edisonNoFace">...А ты смелая.</speak>
+            <show chara="teslaEmbarraGlassWinterFar" position="left"/>
+            <show chara="edisonSighWinterFar" position="right" opacity="0.7"/>
+            <speak chara="teslaNoFace">Конечно смелая, это же элементарная свобода слова!</speak>
+            <show chara="teslaEmbarraGlassWinterFar" position="left" opacity="0.7"/>
+            <show chara="edisonSighWinterFar" position="right"/>
+            <speak chara="edisonNoFace">...</speak>
+            <show chara="edisonSlyWinterFar" position="right"/>
+            <speak chara="edisonNoFace">Ладно.</speak>
+            <speak chara="edisonNoFace">«Свобода слова».</speak>
+            <speak chara="edisonNoFace">Для проигравшей, которая не желает вести конструктивный диалог —</speak>
+            <show chara="edisonSmileWinterFar" position="right"/>
+            <speak chara="edisonNoFace">— небольшое наказание будет даже кстати, верно?</speak>
+            <text>Девушка в мужской одежде скривила губы и сделала приглашающий жест.</text>
+            <show chara="edisonSmileWinterFar" position="right" opacity="0.7"/>
+            <show chara="teslaNormalGlassWinterFar" position="left"/>
+            <speak chara="teslaNoFace">Ты... ты что... что ты задумала?!</speak>
+            <show chara="teslaNormalGlassWinterFar" position="left" opacity="0.7"/>
+            <show chara="edisonNeckWinterFar" position="right"/>
+            <speak chara="edisonNoFace">Как ты думаешь... что я задумала?</speak>
+            <text>Она невинно склонила голову набок.</text>
+            <show chara="edisonNeckWinterFar" position="right" opacity="0.7"/>
+            <show chara="teslaNormalGlassWinterFar" position="left"/>
+            <speak chara="teslaNoFace">Эй... это же... это же средь бела дня!</speak>
+            <text>Видя её притворную невинность, бедная девушка с хвостиками разволновалась ещё сильнее.</text>
+            <show chara="teslaNormalGlassWinterFar" position="left" opacity="0.7"/>
+            <show chara="edisonSmileWinterFar" position="right"/>
+            <bgm src="themeTesla.mp3" status="start"></bgm>
+            <speak chara="edisonNoFace">Пфф.</speak>
+            <show chara="edisonSmileWinterFar" position="right" opacity="0.7"/>
+            <show chara="teslaNormalGlassWinterFar" position="left"/>
+            <speak chara="teslaNoFace">...А?</speak>
+            <show chara="teslaNormalGlassWinterFar" position="left" opacity="0.7"/>
+            <show chara="edisonLaughWinterFar" position="right"/>
+            <shake position="right" time="250"></shake>
+            <speak chara="edisonNoFace">Пха-ха-ха-ха-ха-ха-ха-ха-ха-ха-ха-ха-ха-ха-ха-ха-ха-ха!</speak>
+            <text>Девушка в мужской одежде больше не могла сдерживаться; она запрокинула голову и расхохоталась, забыв о всякой сдержанности.</text>
+            <show chara="edisonLaughWinterFar" position="right" opacity="0.7"/>
+            <show chara="teslaEmbarraGlassWinterFar" position="left"/>
+            <speak chara="teslaNoFace">Ты... ты... мерзавка! Чего ты вдруг ржёшь?!</speak>
+            <show chara="teslaEmbarraGlassWinterFar" position="left" opacity="0.7"/>
+            <show chara="edisonSmileWinterFar" position="right"/>
+            <speak chara="edisonNoFace">Пха-ха...</speak>
+            <speak chara="edisonNoFace">Ничего...</speak>
+            <text>Она изо всех сил пыталась сдержать смех —</text>
+            <show chara="edisonSlyWinterFar" position="right"/>
+            <speak chara="edisonNoFace">Просто очень хотелось повторить то, что я сказала минуту назад...</speak>
+            <show chara="edisonSmileWinterFar" position="right"/>
+            <speak chara="edisonNoFace">И твоя реакция действительно забавная...</speak>
+            <show chara="edisonLaughWinterFar" position="right"/>
+            <speak chara="edisonNoFace">Ха-ха-ха... Ну как можно быть такой милашкой!!!</speak>
+            <show chara="edisonSmileWinterFar" position="right" opacity="0.7"/>
+            <show chara="teslaEmbarraGlassWinterFar" position="left"/>
+            <speak chara="teslaNoFace">Ты... ты... ты...</speak>
+            <show chara="teslaAngryGlassWinterFar" position="left"/>
+            <shake position="left" time="250"></shake>
+            <speak chara="teslaNoFace">...Извращенка!!!</speak>
+            <goto goto="35"/>
+        </scene>
+        <scene id="35" background="quarry.jpg">
+            <bgm src="lab.mp3" status="start"></bgm>
+            <text>Несколько минут спустя.</text>
+            <show chara="edisonSeriousWinterFar" position="right"/>
+            <speak chara="edisonNoFace">...М-м. Я понимаю ситуацию.</speak>
+            <text>Девушка в мужской одежде, уже вернувшая себе невозмутимый вид, холодно кивнула.</text>
+            <show chara="edisonNeckWinterFar" position="right"/>
+            <speak chara="edisonNoFace">Расследование оставляю вам.</speak>
+            <show chara="edisonNeckWinterFar" position="right" opacity="0.7"/>
+            <show chara="planckSmileCoatFar" position="left"/>
+            <speak chara="planckNoFace">Хе-хе, мои студенты очень способные!</speak>
+            <text>Длинноволосая красавица преувеличенно изобразила стрельбу из автомата.</text>
+            <show chara="planckSmileCoatFar" position="left" opacity="0.7"/>
+            <show chara="edisonSlyWinterFar" position="right"/>
+            <speak chara="edisonNoFace">Это точно... особенно та рыжая, она сейчас выглядит в полной боевой готовности.</speak>
+            <show chara="edisonSlyWinterFar" position="right" opacity="0.7"/>
+            <show chara="teslaBoringGlassWinterFar" position="left"/>
+            <speak chara="teslaNoFace">...</speak>
+            <show chara="edisonSlyWinterFar" position="right"/>
+            <speak chara="edisonNoFace">Ха-ха, взгляд неплохой. Продолжай в том же духе.</speak>
+            <text>Девушка внезапно протянула руку и погладила Теслу по голове, после чего развернулась и ушла.</text>
+            <hide position="right"/>
+            <show chara="teslaBoringGlassWinterFar" position="left"/>
+            <speak chara="teslaNoFace">...</speak>
+            <show chara="teslaEmbarraGlassWinterFar" position="left"/>
+            <speak chara="teslaNoFace">Проклятье... эта женщина...!!!</speak>
+            <show chara="teslaAngryGlassWinterFar" position="left"/>
+            <shake position="left" time="250"></shake>
+            <speak chara="teslaNoFace">Ну погоди у меня! Я тебе это припомню в двойном размере!</speak>
+            <show chara="teslaAngryGlassWinterFar" position="left" opacity="0.7"/>
+            <show chara="weltNormalWinterFar" position="center"/>
+            <speak chara="weltNoFace">...Та женщина... она довольно пугающая.</speak>
+            <text>Вельт, совершенно не понимая происходящего, почесал затылок.</text>
+            <show chara="weltNormalWinterFar" position="center" opacity="0.7"/>
+            <show chara="einNormalWinterFar" position="right"/>
+            <speak chara="einNoFace">Нэнси Томас Альва Эдисон, спонсор североамериканского филиала и, по сути, его фактический руководитель —</speak>
+            <speak chara="einNoFace">многие в частных разговорах называют её «принцессой Нэнси».</speak>
+            <show chara="einNormalWinterFar" position="right" opacity="0.7"/>
+            <show chara="weltTiredWinterFar" position="center"/>
+            <speak chara="weltNoFace">Э-э... из-за того, что она такая высокомерная и капризная?</speak>
+            <show chara="weltTiredWinterFar" position="center" opacity="0.7"/>
+            <show chara="teslaNormalGlassWinterFar" position="left"/>
+            <speak chara="teslaNoFace">Не только. Благодаря её семейке эта особа —</speak>
+            <speak chara="teslaNoFace">очень,</speak>
+            <speak chara="teslaNoFace">очень,</speak>
+            <show chara="teslaBoringGlassWinterFar" position="left"/>
+            <speak chara="teslaNoFace">очень,</speak>
+            <speak chara="teslaNoFace">очень,</speak>
+            <speak chara="teslaNoFace">очень богатая.</speak>
+            <show chara="teslaEmbarraGlassWinterFar" position="left"/>
+            <text>Тесла яростно выплюнула пять «очень» подряд —</text>
+            <show chara="teslaNormalGlassWinterFar" position="left"/>
+            <speak chara="teslaNoFace">Она могла бы просто купить весь североамериканский филиал.</speak>
+            <show chara="teslaNormalGlassWinterFar" position="left" opacity="0.7"/>
+            <show chara="weltSurpriseWinterFar" position="center"/>
+            <speak chara="weltNoFace">О? Так она невероятно крутая?</speak>
+            <show chara="weltSurpriseWinterFar" position="center" opacity="0.7"/>
+            <show chara="teslaBoringGlassWinterFar" position="left"/>
+            <speak chara="teslaNoFace">Скажем так, куда круче, чем ты можешь себе представить.</speak>
+            <text>Рыжая девушка с хвостиками обиженно надула губы.</text>
+            <show chara="teslaNormalGlassWinterFar" position="left"/>
+            <speak chara="teslaNoFace">Она, без сомнения, гений — и в изобретениях, и в бизнесе.</speak>
+            <speak chara="teslaNoFace">Если не брать в расчёт некоторые аспекты... она действительно выдающаяся личность.</speak>
+            <show chara="teslaNormalGlassWinterFar" position="left" opacity="0.7"/>
+            <show chara="weltNormalWinterFar" position="center"/>
+            <speak chara="weltNoFace">Тогда...</speak>
+            <show chara="weltNormalWinterFar" position="center" opacity="0.7"/>
+            <show chara="teslaAngryGlassWinterFar" position="left"/>
+            <shake position="left" time="250"></shake>
+            <speak chara="teslaNoFace">Это вопрос идеологии! Плюс личные счёты! В общем, не лезь не в своё дело! Твои расспросы ужасно раздражают!!</speak>
+            <show chara="teslaAngryGlassWinterFar" position="left" opacity="0.7"/>
+            <show chara="weltTiredWinterFar" position="center"/>
+            <speak chara="weltNoFace">Э-э...</speak>
+            <show chara="weltTiredWinterFar" position="center" opacity="0.7"/>
+            <show chara="teslaAngryGlassWinterFar" position="left" opacity="0.7"/>
+            <show chara="planckSlyCoatFar" position="right"/>
+            <speak chara="planckNoFace">Когда Тесла стажировалась у Эдисон, ей пришлось немало натерпеться.</speak>
+            <show chara="planckSmileCoatFar" position="right"/>
+            <speak chara="planckNoFace">Считайте, что между ними была... непростая судьба... ха-ха-ха.</speak>
+            <hide position="right"/>
+            <show chara="planckSmileCoatFar" position="center"/>
+            <show chara="teslaNormalGlassWinterFar" position="left" opacity="0.7"/>
+            <text>Профессор Планк, объясняя ситуацию, погладила Теслу по голове. На этот раз та не стала сопротивляться.</text>
+            <show chara="planckSmileCoatFar" position="center" opacity="0.7"/>
+            <show chara="schroNormalEmFar" position="right"/>
+            <speak chara="schroNoFace">...</speak>
+            <show chara="schroNormalAhFar" position="right"/>
+            <speak chara="schroNoFace">В любом случае, тему пора закрыть.</speak>
+            <show chara="schroNormalEmFar" position="right"/>
+            <text>Шрёдингер обречённо взглянула на Теслу, достала карту доступа и активировала механизм лифта.</text>
+            <show chara="schroNormalAhFar" position="right"/>
+            <speak chara="schroNoFace">Нам пора поспешить к руинам —</speak>
+            <goto goto="40"/>
+        </scene>
+        <scene id="40" background="quarryDrop.jpg">
+            <bgm src="8_30_wind.mp3" status="start"></bgm>
+            <text remark="next">«Мы движемся к центру...»</text>
+            <text remark="next">«Где сосредоточена вся тяжесть...»</text>
+            <text remark="next">«И в этот миг, среди вечных льдов и снегов, я невольно содрогаюсь всем телом».</text>
+            <remark>
+                <p class="article-text-h">Примечание:</p>
+                <p class="article-text">Эти строки из «Божественной комедии» Данте приходят на ум Вельту.</p>
+            </remark>
+            <show chara="weltSurpriseWinterClose" position="center"/>
+            <speak chara="weltNoFace">Как же холодно, просто ужасно холодно.</speak>
+            <show chara="weltSurpriseWinterClose" position="center" opacity="0.7"/>
+            <show chara="planckSlyCoatClose" position="right"/>
+            <speak chara="planckNoFace">Таков уж открытый лифт. Потерпи.</speak>
+            <show chara="planckSlyCoatClose" position="right" opacity="0.7"/>
+            <show chara="teslaSnickerGlassWinterClose" position="left"/>
+            <speak chara="teslaNoFace">Ой-ой, наш комнатный цветочек Вельт уже не выносит пяти градусов ниже нуля —</speak>
+            <speak chara="teslaNoFace">— мне даже интересно, что ты будешь делать в январе при минус двадцати, хе-хе-хе.</speak>
+            <show chara="teslaSnickerGlassWinterClose" position="left" opacity="0.7"/>
+            <show chara="weltNormalWinterClose" position="center"/>
+            <speak chara="weltNoFace">...Прости, я просто очень мёрзну.</speak>
+            <show chara="weltNormalWinterClose" position="center" opacity="0.7"/>
+            <show chara="einSmileWinterClose" position="right"/>
+            <speak chara="einNoFace">Тебе стоит закаляться. Я планирую взять тебя с собой на Антарктиду.</speak>
+            <show chara="einSmileWinterClose" position="right" opacity="0.7"/>
+            <show chara="weltShameWinterClose" position="center"/>
+            <speak chara="weltNoFace">...Даже ты, Эйн?</speak>
+            <goto goto="50"/>
+        </scene>
+        <scene id="50" background="mysGate.jpg">
+            <bgm src="themeEin.mp3" status="start"></bgm>
+            <show chara="weltSurpriseWinterClose-up" position="left"/>
+            <speak chara="weltNoFace">Это же...</speak>
+            <hide position="left"/>
+            <text>Несмотря на то, что лицо онемело от холодного ветра и оно не могло выразить сильных эмоций, в глазах Вельта читался глубокий шок.</text>
+            <text>Перед ними были величественные и странные врата. На тяжёлой металлической двери, покрытой шрамами времени, всё ещё можно было разобрать строку древних и причудливых знаков.</text>
+            <show chara="weltSurpriseWinterClose-up" position="left" opacity="0.7"/>
+            <show chara="nokiaSmileAhWinterClose-up" position="right"/>
+            <speak chara="nokiaNoFace">ⵚⴳ ⴹⴷⵡⴱ ⴺⵋⴱ ⴶ ⵎⵓ (Eba Dagami Tashi Ha Nu)</speak>
+            <show chara="nokiaSmileEmWinterClose-up" position="right"/>
+            <speak chara="nokiaNoFace">За следующее поколение... бороться... мы...</speak>
+            <speak chara="nokiaNoFace">«Мы сражаемся ради будущего». Что-то вроде того.</speak>
+            <show chara="nokiaSmileEmWinterClose-up" position="right" />
+            <text>Голос финна звучал взволнованно и даже немного торжественно.</text>
+            <show chara="nokiaSmileEmWinterClose-up" position="right" opacity="0.7"/>
+            <show chara="planckSmileCoatClose-up" position="left"/>
+            <speak chara="planckNoFace">Как и ожидалось от профессионала —</speak>
+            <show chara="planckSlyCoatClose-up" position="left"/>
+            <speak chara="planckNoFace">Смог прочитать это вслух.</speak>
+            <show chara="planckSlyCoatClose-up" position="left" opacity="0.7"/>
+            <show chara="nokiaSmileAhWinterClose-up" position="right"/>
+            <speak chara="nokiaNoFace">Да что вы...</speak>
+            <text>Библиотекарь смущённо почесал затылок.</text>
+            <show chara="nokiaSmileEmWinterClose-up" position="right"/>
+            <speak chara="nokiaNoFace">Просто в моём случае исследовательские материалы куда более... первозданные?</speak>
+            <speak chara="nokiaNoFace">А если бы это была аудиозапись, мне пришлось бы обращаться к моим «студентам».</speak>
+            <show chara="nokiaSmileEmWinterClose-up" position="right" opacity="0.7"/>
+            <speak chara="weltNoFace">(Обращаться... к студентам?)</speak>
+            <show chara="planckSlyCoatClose-up" position="left"/>
+            <speak chara="planckNoFace">Да ладно, ты и так достаточно хорош.</speak>
+            <speak chara="planckNoFace">В конце концов, человека не сравнить с машиной. Ох, что-то я отвлеклась.</speak>
+            <sound src="9_28_snap.mp3"/>
+            <text>Планк щёлкнула пальцами —</text>
+            <show chara="planckSmileCoatClose-up" position="left"/>
+            <speak chara="planckNoFace">Ну что, зайдём? Господа?</speak>
+            <goto goto="60"/>
+        </scene>
+        <scene id="60" background="casterCave.jpg">
+            <bgm src="9_28_cave.mp3" status="start"></bgm>
+            <text>Пробираясь сквозь руины и поглощая сочный, увесистый бургер — для Вельта это был весьма необычный опыт.</text>
+            <text remark="next">Сама структура руин напоминала древний город Петра из географических журналов или города гномов из книг Толкина.</text>
+            <remark>
+                <p class="article-text-h">Примечание:</p>
+                <p class="article-text">Петра — это древний город в Иордании, который исторически был важным торговым узлом на путях между Востоком и Западом.</p>
+                <p class="article-text">Это уникальный город, вход в который лежит через узкий каньон длиной около 1,5 км, окружённый отвесными скалами. Все основные здания высечены прямо в красноватых песчаниковых скалах.</p>
+            </remark>
+            <text>В огромных подземных пещерах мощные прожекторы с логотипом «General» равномерно заливали светом как природные сталактиты, так и рукотворные постройки.</text>
+            <text>Остатки комнат, разбросанные повсюду, были соединены старыми металлическими переходами; индустриальный стиль дизайна внушал чувство надёжности.</text>
+            <text remark="next">Обломки стен и списанное оборудование образовывали сложный лабиринт, заставляя задуматься о том, что Помпеи под пеплом вулкана не так уж и плохи.</text>
+            <remark post="U2FsdGVkX18ZCrZsT1ihvTEdV62K">
+                <p class="article-text-h">Примечание:</p>
+                <p class="article-text">Помпеи — древнеримский город, погребённый под пеплом вулкана Везувий 24 августа 79 года н. э.</p>
+                <p class="article-text">Благодаря тому, что время в Помпеях застыло в тот день, историки и археологи смогли узнать многое о жизни римлян в I веке.</p>
+            </remark>
+            <text>Для такого историка, как Элиас Нокианвиртанен, подобные виды были настоящим откровением —</text>
+            <text>— фактически, он вёл себя как ребёнок в музее: с восторгом делал записи и, не обращая внимания на окружающих, ползал по земле, изучая детали.</text>
+            <show chara="nokiaJokerWinterClose-up" position="center"/>
+            <shake position="center" time="250"></shake>
+            <speak chara="nokiaNoFace">Ого, M.i.L.a.!</speak>
+            <text>Доктор Нокианвиртанен, с лицом, испачканным кетчупом, был вне себя от радости.</text>
+            <hide position="center"/>
+            <sound src="9_28_run.mp3"/>
+            <show chara="nokiaJokerWinterClose-up" position="right"/>
+            <shake position="right" time="250"></shake>
+            <speak chara="nokiaNoFace">О-о-о! Это же G.e.c.K.?</speak>
+            <text>Доктор Нокианвиртанен размахивал руками, рассыпая крошки хлеба.</text>
+            <sound src="9_28_run.mp3"/>
+            <hide position="right"/>
+            <show chara="nokiaJokerWinterClose-up" position="left"/>
+            <shake position="left" time="250"></shake>
+            <speak chara="nokiaNoFace">Смотрите, смотрите! На этой доске ещё остались формулы!</speak>
+            <speak chara="nokiaNoFace" remark="next">...Хотя они слишком неполные, чтобы что-то понять! Кстати, как там называлось то, что вы изучаете? «М-теория»?</speak>
+            <remark>
+                <p class="article-text-h">Примечание:</p>
+                <p class="article-text">М-теория — это теоретическая система в физике, пытающаяся объединить различные формы теории суперструн.</p>
+                <p class="article-text">Хотя полной формулировки М-теории ещё не существует, она должна описывать абстрактные объекты, называемые «бранами», и 11-мерную супергравитацию при низких энергиях.</p>
+            </remark>
+            <text>Доктор Нокианвиртанен, чьи пальцы были в креме, потянул людей к себе.</text>
+            <goto goto="61" change="0"/>
+        </scene>
+        <scene id="61" background="casterCave.jpg">
+            <bgm src="9_28_cave.mp3" status="continue"></bgm>
+            <text>Видимо, не выдержав такого бурного энтузиазма, девушки поспешили отойти от этого «неотёсанного» типа.</text>
+            <show chara="einSeriousEmWinterClose" position="right"/>
+            <speak chara="einNoFace">Шрёдингер.</speak>
+            <show chara="einSeriousEmWinterClose" position="right" opacity="0.7"/>
+            <show chara="schroNormalEmClose" position="left"/>
+            <speak chara="schroNoFace">А?</speak>
+            <show chara="schroNormalEmClose" position="left" opacity="0.7"/>
+            <show chara="einSeriousAhWinterClose" position="right"/>
+            <speak chara="einNoFace">Здесь всё довольно надёжно, да?</speak>
+            <show chara="einSeriousEmWinterClose" position="right"/>
+            <text>Убрав обёртку от обеда, кудряшка направила фонарь на укрепляющие конструкции под сводом пещеры.</text>
+            <text>Большинство этих труднозаметных опор уже вросли в сталактиты; очевидно, это не творение современных людей.</text>
+            <show chara="einSeriousEmWinterClose" position="right" opacity="0.7"/>
+            <show chara="schroNormalEmClose" position="left"/>
+            <speak chara="schroNoFace">Угу.</speak>
+            <text>Шрёдингер кивнула, быстро проглотив последний кусочек сэндвича.</text>
+            <show chara="schroNormalAhClose" position="left"/>
+            <speak chara="schroNoFace">Верно. Опорные конструкции целы. Риска камнепада нет.</speak>
+            <show chara="schroNormalAhClose" position="left" opacity="0.7"/>
+            <show chara="einSeriousAhWinterClose" position="right"/>
+            <speak chara="einNoFace">Значит, эти обломки внизу...</speak>
+            <show chara="einSeriousAhWinterClose" position="right" opacity="0.7"/>
+            <show chara="schroNormalAhClose" position="left"/>
+            <speak chara="schroNoFace">Должны быть результатом чьих-то действий?</speak>
+            <show chara="schroNormalEmClose" position="left"/>
+            <speak chara="schroNoFace">Да. Без сомнений.</speak>
+            <show chara="schroNormalEmClose" position="left" opacity="0.7"/>
+            <show chara="einSeriousEmWinterClose" position="right"/>
+            <speak chara="einNoFace">...Вторжение? Внутренний конфликт? Эпидемия?</speak>
+            <show chara="einSeriousEmWinterClose" position="right" opacity="0.7"/>
+            <show chara="schroNormalAhClose" position="left"/>
+            <speak chara="schroNoFace">Кто знает, может это тот финн —</speak>
+            <show chara="schroNormalAhClose" position="left" opacity="0.7"/>
+            <show chara="einSeriousEmWinterClose" position="right"/>
+            <sound src="9_28_sheeee.mp3"/>
+            <speak chara="einNoFace">Тсс.</speak>
+            <text>Шрёдингер не успела договорить, как Эйнштейн внезапно приложила указательный палец к губам.</text>
+            <show chara="einSeriousEmWinterClose" position="right"/>
+            <speak chara="einNoFace">Послушай... кажется, какой-то звук.</speak>
+            <show chara="einSeriousEmWinterClose" position="right" opacity="0.7"/>
+            <show chara="schroNormalEmClose" position="left"/>
+            <speak chara="schroNoFace">...</speak>
+            <text>Шрёдингер покачала головой.</text>
+            <show chara="schroNormalEmClose" position="left" opacity="0.7"/>
+            <show chara="teslaBoringGlassWinterClose" position="left"/>
+            <speak chara="teslaNoFace">...Ничего не слышно.</speak>
+            <text>Прошептала Тесла.</text>
+            <show chara="teslaBoringGlassWinterClose" position="left" opacity="0.7"/>
+            <show chara="einNormalWinterClose" position="right"/>
+            <sound src="9_28_mosquito.mp3"/>
+            <speak chara="einNoFace">Вы не слышите? Какой-то тонкий... похожий на звон в ушах звук.</speak>
+            <show chara="einSleepWinterClose" position="right"/>
+            <text>Эйнштейн закрыла глаза, вставила мизинцы в уши и энергично покрутила ими, после чего резко их вытащила.</text>
+            <speak chara="einNoFace">Звук есть. Это не галлюцинация.</speak>
+            <show chara="einSleepWinterClose" position="right" opacity="0.7"/>
+            <show chara="nokiaSmileAhWinterClose" position="left"/>
+            <speak chara="nokiaNoFace">Но мы действительно ничего не слышим, верно?</speak>
+            <text>Финн, наконец-то вытерев лицо, с недоумением посмотрел на Вельта.</text>
+            <show chara="nokiaSmileEmWinterClose" position="left" opacity="0.7"/>
+            <show chara="weltNormalWinterClose" position="right"/>
+            <speak chara="weltNoFace">...Ничего не слышу.</speak>
+            <text>Вельт тоже покачал головой.</text>
+            <show chara="weltNormalWinterClose" position="right" opacity="0.7"/>
+            <show chara="planckSeriousCoatClose" position="left"/>
+            <speak chara="planckNoFace">...</speak>
+            <show chara="planckNormalCoatClose" position="left"/>
+            <speak chara="planckNoFace">Комариный звук.</speak>
+            <text>Планк хлопнула себя по лбу.</text>
+            <speak chara="planckNoFace">И довольно высокочастотный. Даже Никола его уже не слышит.</speak>
+            <speak chara="planckNoFace">Можешь определить направление, Лизерль?</speak>
+            <show chara="planckNormalCoatClose" position="left" opacity="0.7"/>
+            <show chara="einNormalWinterClose" position="right"/>
+            <speak chara="einNoFace">Я попробую.</speak>
+            <hide position="right"/>
+            <hide position="left"/>
+            <text>Кудрявая девушка снова закрыла глаза, приставив ладони к ушам, чтобы сосредоточиться на направлении этого тонкого шума.</text>
+            <text>Тесла поспешила подойти и придержать её за руку, помогая не споткнуться.</text>
+            <show chara="weltSurpriseWinterClose" position="left"/>
+            <speak chara="weltNoFace">Что такое «комариный звук»?</speak>
+            <text>Вельт совершенно не понимал, чем сейчас заняты учёные.</text>
+            <show chara="weltSurpriseWinterClose" position="left" opacity="0.7"/>
+            <show chara="teslaNormalGlassWinterClose" position="right"/>
+            <speak chara="teslaNoFace" remark="next">Проще говоря... это ультразвук, который слышат только дети. Скорее всего, его издаёт какое-то работающее оборудование.</speak>
+            <remark>
+                <p class="article-text-h">Примечание:</p>
+                <p class="article-text">«Комариный звук» — это особый тип звуковых волн с частотой около 17,4 кГц. Слух человека после 18 лет начинает резко снижаться, и к 25 годам такие звуки обычно перестают восприниматься вовсе.</p>
+                <p class="article-text">В быту для имитации «комариного звука» используют волны частотой около 8 кГц, которые слышит большинство людей с нормальным слухом.</p>
+            </remark>
+            <text>Занятая тем, что поддерживала Эйнштейн, Тесла бросила ему пару слов через плечо.</text>
+            <goto goto="63"/>
+        </scene>
+        <scene id="63" background="casterCave.jpg">
+            <bgm src="9_28_cave.mp3" status="continue"></bgm>
+            <show chara="teslaNormalGlassWinterClose" position="center"/>
+            <speak chara="teslaNoFace">Впереди стена.</speak>
+            <goto goto="64"/>
+        </scene>
+        <scene id="64" background="casterCave.jpg">
+            <bgm src="9_28_cave.mp3" status="continue"></bgm>
+            <show chara="teslaNormalGlassWinterClose" position="center"/>
+            <speak chara="teslaNoFace">Осторожно, порог.</speak>
+            <goto goto="65"/>
+        </scene>
+        <scene id="65" background="casterCave.jpg">
+            <bgm src="9_28_cave.mp3" status="continue"></bgm>
+            <show chara="teslaEmbarraGlassWinterClose" position="center"/>
+            <speak chara="teslaNoFace">Подождите... здесь тупик. Нужно обойти.</speak>
+            <goto goto="66"/>
+        </scene>
+        <scene id="66" background="casterCave.jpg">
+            <bgm src="9_28_cave.mp3" status="continue"></bgm>
+            <sound src="9_28_walk in cave.mp3"/>
+            <text>Под руководством Эйнштейн группа постепенно продвигалась вглубь руин.</text>
+            <text>По пути, помимо странных устройств доцивилизационной эпохи, встречалось немало более поздних следов —</text>
+            <text remark="next">— ещё не истлевшие кости, винтовки начала XIX века и даже палатки, явно принадлежавшие племенам шошонов.</text>
+            <remark>
+                <p class="article-text-h">Примечание:</p>
+                <p class="article-text">Шошоны — коренной народ, некогда широко обитавший на западе США и севере Мексики.</p>
+                <p class="article-text">В стратегии «Sid Meier's Civilization V» шошоны представлены как отдельная цивилизация под предводительством вождя Покателло.</p>
+            </remark>
+            <show chara="weltNormalWinterClose" position="left"/>
+            <speak chara="weltNoFace">Что это... всё такое разное?</speak>
+            <text>Даже Вельт понимал, что винтовкам перед ними явно не больше двухсот лет.</text>
+            <show chara="weltNormalWinterClose" position="left" opacity="0.7"/>
+            <show chara="nokiaSmileAhWinterClose" position="right"/>
+            <speak chara="nokiaNoFace">Не знаю.</speak>
+            <show chara="nokiaSmileEmWinterClose" position="right"/>
+            <text>Финн покачал головой.</text>
+            <show chara="nokiaSmileAhWinterClose" position="right"/>
+            <speak chara="nokiaNoFace">Не представляю, зачем здесь следы деятельности людей из Новой эры.</speak>
+            <show chara="nokiaSmileAhWinterClose" position="right" opacity="0.7"/>
+            <show chara="weltNormalWinterClose" position="left"/>
+            <speak chara="weltNoFace">Может, это исследователи, нанятые организацией?</speak>
+            <show chara="weltNormalWinterClose" position="left" opacity="0.7"/>
+            <show chara="schroNormalAhClose" position="center"/>
+            <speak chara="schroNoFace">Вряд ли. Я не слышала, чтобы мы сотрудничали с местными племенами.</speak>
+            <show chara="schroNormalAhClose" position="center" opacity="0.7"/>
+            <show chara="weltNormalWinterClose" position="left"/>
+            <speak chara="weltNoFace">Тогда... может, это место когда-то служило им убежищем?</speak>
+            <show chara="weltNormalWinterClose" position="left" opacity="0.7"/>
+            <show chara="schroNormalEmClose" position="center"/>
+            <speak chara="schroNoFace">...Ты думаешь, у них были силы осушить озеро наверху?</speak>
+            <show chara="schroNormalEmClose" position="center" opacity="0.7"/>
+            <show chara="weltNormalWinterClose" position="left"/>
+            <speak chara="weltNoFace">Э-э... времена меняются, может, тогда этого озера и вовсе не было?</speak>
+            <show chara="schroNormalEmClose" position="center"/>
+            <speak chara="schroNoFace">...</speak>
+            <show chara="schroNormalAhClose" position="center"/>
+            <speak chara="schroNoFace">Даже если так, как они открыли бы эти врата, для которых нужны гидравлические насосы?</speak>
+            <show chara="schroNormalAhClose" position="center" opacity="0.7"/>
+            <show chara="weltSurpriseWinterClose" position="left"/>
+            <speak chara="weltNoFace">Ну...</speak>
+            <show chara="planckSeriousCoatClose" position="right"/>
+            <sound src="9_28_shee.mp3"/>
+            <speak chara="planckNoFace">Тсс.</speak>
+            <text>Планк сделала жест «тише, вы слишком громкие».</text>
+            <show chara="planckNormalCoatClose" position="right"/>
+            <speak chara="planckNoFace">(Если вам так любопытно, мне вспомнилась одна цитата из романа, которая идеально подходит к ситуации.)</speak>
+            <show chara="planckNormalCoatClose" position="right" opacity="0.7"/>
+            <show chara="weltSurpriseWinterClose" position="left"/>
+            <speak chara="weltNoFace">...?</speak>
+            <show chara="planckSmileCoatClose" position="right"/>
+            <speak chara="planckNoFace" remark="next">(В этих двух словах заключена вся мудрость человечества...)</speak>
+            <speak chara="planckNoFace" remark="next">(Ждать и надеяться!)</speak>
+            <remark post="U2FsdGVkX19jfgwG9e6iwVwkY8Re">
+                <p class="article-text-h">Примечание:</p>
+                <p class="article-text">«В этих двух словах заключена вся мудрость человечества: ждать и надеяться!» — из романа «Граф Монте-Кристо».</p>
+            </remark>
+            <goto goto="68"/>
+        </scene>
+        <scene id="68" background="mysAisle.jpg">
+            <bgm src="9_28_cave.mp3" status="continue"></bgm>
+            <sound src="9_28_walk in cave.mp3"/>
+            <show chara="einSleepWinterClose" position="right"/>
+            <speak chara="einNoFace">М-м... кажется, это здесь.</speak>
+            <text>Группа остановилась перед комнатой в глубине руин.</text>
+            <show chara="einSleepWinterClose" position="right" opacity="0.7"/>
+            <show chara="planckNormalCoatClose" position="left"/>
+            <speak chara="planckNoFace">Хорошая работа. Заткните уши и отдохните немного. Мы сами откроем дверь.</speak>
+            <hide position="right"/>
+            <text>Планк, давая указания Эйнштейн, принялась изучать механизм управления дверью.</text>
+            <sound src="door open.mp3"/>
+            <text>Скрип.</text>
+            <text>К всеобщему удивлению, дверь открылась от простого усилия.</text>
+            <show chara="planckNormalCoatClose" position="left"/>
+            <speak chara="planckNoFace">...</speak>
+            <show chara="planckSmileCoatClose" position="left"/>
+            <speak chara="planckNoFace">...Я вовсе не грубая женщина. Хм.</speak>
+            <show chara="planckSmileCoatClose" position="left" opacity="0.7"/>
+            <show chara="schroNormalAhClose" position="right"/>
+            <speak chara="schroNoFace">...Никого это не волнует, профессор.</speak>
+            <goto goto="70"/>
+        </scene>
+        <scene id="70" background="mysLab.jpg">
+            <bgm src="horror.mp3" status="start"></bgm>
+            <text>Внутри комнаты было неестественно чисто.</text>
+            <text>Материал на стенах, похожий на пластиковые обои, сильно разложился и превратился в слизь, но стол цвета слоновой кости был почти безупречно чист.</text>
+            <text>На столе стоял странный механизм с множеством трубчатых выступов — внутри него непрерывно мерцали красные и зелёные огни.</text>
+            <show chara="schroNormalAhClose" position="right"/>
+            <speak chara="schroNoFace">Теперь странных шумов быть не должно.</speak>
+            <show chara="schroNormalEmClose" position="right"/>
+            <text>Шрёдингер взяла странный прибор со стола и извлекла из его основания предмет, похожий на энергетический стержень.</text>
+            <show chara="schroNormalAhClose" position="right"/>
+            <speak chara="schroNoFace">Судя по конструкции, это ультразвуковой генератор. Не знаю, как он проработал так долго.</speak>
+            <show chara="schroNormalEmClose" position="right" opacity="0.7"/>
+            <show chara="planckSeriousCoatClose" position="left"/>
+            <speak chara="planckNoFace">Ультразвук... значит, комариный звук был побочным эффектом...</speak>
+            <text>Планк закинула фонарь на плечо и оглянулась на дверь.</text>
+            <show chara="planckNormalCoatClose" position="left"/>
+            <speak chara="planckNoFace">Лизерль? Ты всё ещё слышишь этот звук?</speak>
+            <show chara="planckNormalCoatClose" position="left" opacity="0.7"/>
+            <show chara="einNormalWinterClose" position="right"/>
+            <speak chara="einNoFace">...Нет.</speak>
+            <text>Чтобы доказать, что с ней всё в порядке, девушка вошла в комнату с высоко поднятой головой.</text>
+            <show chara="einSeriousAhWinterClose" position="right"/>
+            <speak chara="einNoFace">Подождите... это же...</speak>
+            <text>Глаза девушки внезапно расширились. При свете фонаря, который держал кто-то из присутствующих, она увидела нечто на потолке.</text>
+            <goto goto="75" change="0"/>
+        </scene>
+        <scene id="75" background="CG6-2.jpg">
+            <bgm src="8_24_war.mp3" status="start"></bgm>
+            <speak chara="nokiaNoFace">Не может быть... это... это...</speak>
+            <text>Финн, подняв голову вслед за ней, вскрикнул от изумления.</text>
+            <speak chara="nokiaNoFace">Это же английский? Современный английский!</speak>
+            <speak chara="teslaNoFace">И правда... тут написано —</speak>
+            <text>To the youngs who came here (Юношам, пришедшим сюда)</text>
+            <text>I leave the last Soulium to you (Я вверяю вам последний соулиум)</text>
+            <text>Knight of Maiden Castle (Рыцарь Девичьего Замка)</text>
+            <text>H Londinium Doire A (Г. Лондиниум Дойре А.)</text>
+            <speak chara="weltNoFace">Что... что это значит?</speak>
+            <speak chara="planckNoFace">Шрёдингер!</speak>
+            <speak chara="planckNoFace">В том механизме, который ты держишь... там ничего не пропало?</speak>
+            <speak chara="schroNoFace">М-м... сейчас посмотрю...</speak>
+            <text>Шрёдингер положила странный прибор на пол и начала его разбирать.</text>
+            <speak chara="schroNoFace">Здесь должно открываться... ага... внутри действительно есть полость... и ещё подставка...</speak>
+            <speak chara="teslaNoFace">...Ультразвуковой регистратор соулиума?</speak>
+            <text>Глаза Теслы внезапно вспыхнули восторгом.</text>
+            <speak chara="teslaNoFace">Этот некий «Г» наверняка хотел доверить нам данные из соулиума!</speak>
+            <goto goto="80" change="0"/>
+        </scene>
+        <scene id="80" background="mysLab.jpg">
+            <bgm src="8_24_war.mp3" status="continue"></bgm>
+            <show chara="schroNormalAhClose" position="right"/>
+            <speak chara="schroNoFace">Так где же... самые важные данные?</speak>
+            <show chara="schroNormalEmClose" position="right"/>
+            <text>Шрёдингер вернула прибор на стол и развела руками перед возбуждённой Теслой.</text>
+            <show chara="schroNormalEmClose" position="right" opacity="0.7"/>
+            <show chara="teslaBoringGlassWinterClose" position="left"/>
+            <speak chara="teslaNoFace">Э-э... Наверное, этот «Г» спрятал их в ещё более надёжном месте?</speak>
+            <show chara="teslaBoringGlassWinterClose" position="left" opacity="0.7"/>
+            <show chara="schroNormalAhClose" position="right"/>
+            <speak chara="schroNoFace">Но зачем ему это? Если он хотел передать их для изучения, не лучше ли было оставить всё как есть?</speak>
+            <show chara="schroNormalEmClose" position="right" opacity="0.7"/>
+            <show chara="teslaNormalGlassWinterClose" position="left"/>
+            <speak chara="teslaNoFace">...Может, у него была веская причина переместить соулиум?</speak>
+            <show chara="teslaNormalGlassWinterClose" position="left" opacity="0.7"/>
+            <show chara="schroNormalAhClose" position="right"/>
+            <speak chara="schroNoFace">Ты хочешь сказать, что кто-то из древних уже забрал соулиум и оставил здесь подсказки для нас?</speak>
+            <show chara="schroNormalEmClose" position="right"/>
+            <text>Шрёдингер неопределённо пожала плечами.</text>
+            <show chara="schroNormalAhClose" position="right"/>
+            <speak chara="schroNoFace">Если так, то должны же быть какие-то указания?</speak>
+            <speak chara="schroNoFace">— А не эти туманные фразы. Это больше похоже на шутку того, кто украл соулиум.</speak>
+            <show chara="schroNormalEmClose" position="right" opacity="0.7"/>
+            <show chara="teslaBoringGlassWinterClose" position="left"/>
+            <speak chara="teslaNoFace">М-м...</speak>
+            <show chara="teslaBoringGlassWinterClose" position="left" opacity="0.7"/>
+            <show chara="schroNormalAhClose" position="right"/>
+            <speak chara="schroNoFace">И если следовать этой логике, мы не обязательно первые —</speak>
+            <show chara="schroNormalEmClose" position="right" opacity="0.7"/>
+            <show chara="teslaNormalGlassWinterClose" position="left" opacity="0.7"/>
+            <show chara="einSeriousAhWinterClose" position="right"/>
+            <speak chara="einNoFace">Лондондерри — город в Северной Ирландии.</speak>
+            <show chara="einNormalWinterClose" position="right"/>
+            <text>Молчаливая девушка внезапно заговорила без всякого вступления.</text>
+            <show chara="einNormalWinterClose" position="right" opacity="0.7"/>
+            <show chara="teslaNormalGlassWinterClose" position="left"/>
+            <speak chara="teslaNoFace">Э-э... а! </speak>
+            <text>Тесла, только что потерявшая нить рассуждения, внезапно кое-что осознала.</text>
+            <show chara="teslaSnickerGlassWinterClose" position="left"/>
+            <speak chara="teslaNoFace" remark="next">Точно! Лондиниум — это старое название римского Лондона!</speak>
+            <remark post="U2FsdGVkX19WcBJfOavW3jLcg5FR">
+                <p class="article-text-h">Примечание:</p>
+                <p class="article-text">Лондиниум (лат. Londinium) — римский Лондон, основанный около 43 года н. э., ставший впоследствии столицей Великобритании.</p>
+                <p class="article-text">В период с 190 по 225 гг. н. э. римляне возвели вокруг Лондиниума мощные стены, что стало одним из крупнейших инженерных проектов провинции Британия, сопоставимым с валом Адриана.</p>
+            </remark>
+            <show chara="teslaBoringGlassWinterClose" position="left"/>
+            <speak chara="teslaNoFace">О? Погоди. А почему тогда Северная Ирландия?</speak>
+            <show chara="teslaBoringGlassWinterClose" position="left" opacity="0.7"/>
+            <show chara="einSeriousAhWinterClose" position="right"/>
+            <speak chara="einNoFace" remark="next">Единственное место, в названии которого есть «Лондон» и которое называют «Девичьим городом» — это Лондондерри. Потому что его никогда не брали штурмом.</speak>
+            <show chara="einNormalWinterClose" position="right"/>
+            <speak chara="einNoFace" remark="next">К слову, «Дойре» (Doire) — это и есть гэльское «Дерри». Двойное подтверждение.</speak>
+            <remark>
+                <p class="article-text-h">Примечание:</p>
+                <p class="article-text">Лондондерри (в Ирландии чаще просто Дерри) — город на северо-западе Северной Ирландии.</p>
+                <p class="article-text">Город получил прозвище «Девичий город» (Maiden City), так как его стены не были пробиты снарядами во время многочисленных войн. Это один из немногих городов Европы, чьи укрепления устояли перед штурмом.</p>
+                <p class="article-text">Для многих он известен благодаря мелодии «Londonderry Air».</p>
+            </remark>
+            <show chara="einNormalWinterClose" position="right" opacity="0.7"/>
+            <show chara="teslaStarGlassWinterClose" position="left"/>
+            <speak chara="teslaNoFace">О-о-о! Вот оно что!</speak>
+            <text>Девушка с хвостиками посмотрела на свою соседку по комнате с обожанием.</text>
+            <show chara="teslaStarGlassWinterClose" position="left" opacity="0.7"/>
+            <show chara="schroNormalAhClose" position="right"/>
+            <speak chara="schroNoFace">...А может, это просто совпадение.</speak>
+            <text>Шрёдингер всё ещё была настроена скептически.</text>
+            <show chara="schroNormalEmClose" position="right" opacity="0.7"/>
+            <show chara="teslaEmbarraGlassWinterClose" position="left"/>
+            <speak chara="teslaNoFace">Да не может быть такого совпадения в мире!</speak>
+            <show chara="teslaEmbarraGlassWinterClose" position="left" opacity="0.7"/>
+            <show chara="schroNormalAhClose" position="right"/>
+            <speak chara="schroNoFace" remark="next">С точки зрения математики, даже само рождение каждого человека — это событие с нулевой вероятностью.</speak>
+            <remark>
+                <p class="article-text-h">Примечание:</p>
+                <p class="article-text">В теории вероятностей событие с вероятностью 0 называется «почти невозможным».</p>
+                <p class="article-text">Из-за бесконечной множественности событий вероятность зависит от их меры в пространстве выборок, поэтому существуют события, которые «могут произойти», но «почти наверняка не произойдут». Например: «выбор случайного рационального числа из множества всех вещественных чисел».</p>
+            </remark>
+            <show chara="schroNormalEmClose" position="right" opacity="0.7"/>
+            <show chara="teslaAngryGlassWinterClose" position="left"/>
+            <speak chara="teslaNoFace">Не надо мне тут математику разводить! При чём здесь она!</speak>
+            <show chara="teslaAngryGlassWinterClose" position="left" opacity="0.7"/>
+            <show chara="planckNormalCoatClose" position="center"/>
+            <speak chara="planckNoFace">Кхм-кхм.</speak>
+            <text>Видя, что спор уходит в сторону, Планк намеренно откашлялась.</text>
+            <show chara="planckSmileCoatClose" position="center"/>
+            <speak chara="planckNoFace">Пока окончательного вывода нет. У меня есть одна идея, но не знаю, согласитесь ли вы...</speak>
+            <show chara="planckSlyCoatClose" position="center"/>
+            <text>Прежде чем изложить свою мысль, она лукаво взглянула на Теслу.</text>
+            <goto goto="90"/>
+        </scene>
+        <scene id="90" background="planeNight.jpg">
+            <bgm src="serenity.mp3" status="start"></bgm>
+            <sound src="8_24_launch.mp3"/>
+            <text>Поздняя ночь следующего дня.</text>
+            <text remark="next">В самолёте, летящем обратно в Лондон, скучающий Вельт убрал карты в коробку. Ему уже до смерти надоело играть в «пасьянс».</text>
+            <remark>
+                <p class="article-text-h">Примечание:</p>
+                <p class="article-text">«Пасьянс» — классическая карточная игра для одного игрока, ставшая популярной благодаря операционным системам Windows.</p>
+                <p class="article-text">Интересно, что с момента появления игры в ОС, сотрудники госучреждений по всему миру часто тайком играли в неё на работе. В 2006 году мэр Нью-Йорка Майкл Блумберг даже уволил чиновника за игру в пасьянс на рабочем компьютере.</p>
+            </remark>
+            <text>Эйнштейн всё так же прятала лицо за книгой, а Тесла спала, раскинувшись во все стороны. Что касается того финна — его на этом рейсе не было.</text>
+            <goto goto="95"/>
+        </scene>
+        <scene id="95" background="mysLab2.jpg">
+            <bgm src="themeWelt.mp3" status="start"></bgm>
+            <show chara="planckNormalCoatClose" position="center"/>
+            <speak chara="planckNoFace">После завершения сегодняшнего расследования я предлагаю разделиться на две группы.</speak>
+            <text>Накануне в подземных пещерах Йеллоустоуна профессор сделала такой вывод.</text>
+            <show chara="planckSmileCoatClose" position="center"/>
+            <speak chara="planckNoFace">Группа из 42-й лаборатории вернётся в Лондон, чтобы искать зацепки по делу «Г.A.»; наш североамериканский филиал продолжит раскопки руин —</speak>
+            <show chara="planckSlyCoatClose" position="center"/>
+            <speak chara="planckNoFace">Ах, было бы здорово, если бы доктор Нокианвиртанен остался помочь нам. Твои навыки перевода здесь будут очень кстати.</speak>
+            <show chara="planckSlyCoatClose" position="center" opacity="0.7"/>
+            <show chara="nokiaSmileAhWinterClose" position="right"/>
+            <speak chara="nokiaNoFace">Без проблем... если Эйнштейн и Тесла не против.</speak>
+            <show chara="nokiaSmileEmWinterClose" position="right" opacity="0.7"/>
+            <show chara="schroNormalAhClose" position="left"/>
+            <speak chara="schroNoFace">Хм... иметь под рукой эксперта по древним письменам — неплохая идея.</speak>
+            <text>Похоже, Шрёдингер была вполне довольна таким планом.</text>
+            <show chara="schroNormalEmClose" position="left" opacity="0.7"/>
+            <show chara="teslaSnickerGlassWinterClose" position="right"/>
+            <shake position="right" time="250"></shake>
+            <speak chara="teslaNoFace">Мы тоже не против!</speak>
+            <text>С другой стороны Тесла буквально вызвалась представлять 42-ю лабораторию.</text>
+            <show chara="teslaSnickerGlassWinterClose" position="right" opacity="0.7"/>
+            <show chara="planckSlyCoatClose" position="center"/>
+            <speak chara="planckNoFace">Кроме того, я уже переговорила с Эдисон — в ближайшее время я от имени североамериканского филиала отправлюсь в штаб-квартиру для отчёта.</speak>
+            <show chara="planckSmileCoatClose" position="center"/>
+            <speak chara="planckNoFace">Для удобства, полечу тем же рейсом, что и 42-я лаборатория.</speak>
+            <show chara="planckSmileCoatClose" position="center" opacity="0.7"/>
+            <show chara="schroNormalAhClose" position="left"/>
+            <speak chara="schroNoFace">А?</speak>
+            <text>Шрёдингер явно была не в курсе.</text>
+            <speak chara="schroNoFace">Разве отчёт не должна подавать она сама?</speak>
+            <show chara="schroNormalEmClose" position="left" opacity="0.7"/>
+            <show chara="planckSlyCoatClose" position="center"/>
+            <speak chara="planckNoFace">Отправить нашу «принцессу Нэнси» на встречу с советом...</speak>
+            <show chara="planckSmileCoatClose" position="center"/>
+            <speak chara="planckNoFace">Ха-ха, думаю, ты и сама можешь представить эту картину.</speak>
+            <text>Профессор горько усмехнулась.</text>
+            <show chara="planckSeriousCoatClose" position="center"/>
+            <speak chara="planckNoFace">В последнее время противоречий между филиалом и штабом становится всё больше... Так что, если поеду я, нам будет проще договориться.</speak>
+            <show chara="planckSeriousCoatClose" position="center" opacity="0.7"/>
+            <show chara="schroNormalAhClose" position="left"/>
+            <speak chara="schroNoFace">Звучит как какая-то тактика затягивания времени.</speak>
+            <show chara="schroNormalEmClose" position="left"/>
+            <text>Шрёдингер вздохнула.</text>
+            <show chara="schroNormalAhClose" position="left"/>
+            <speak chara="schroNoFace">С тех пор как Принцесса превратила филиал в бизнес, наши отношения с этими стариками не ладились.</speak>
+            <show chara="schroNormalEmClose" position="left" opacity="0.7"/>
+            <show chara="planckSlyCoatClose" position="center"/>
+            <speak chara="planckNoFace">Ха-ха, им больше по душе работать с советскими людьми.</speak>
+            <text>Планк пожала плечами.</text>
+            <show chara="planckBoringCoatClose" position="center"/>
+            <speak chara="planckNoFace">Но если честно, в глазах этих людей такие темы, как государство или экономика — всего лишь игрушки.</speak>
+            <show chara="planckBoringCoatClose" position="center" opacity="0.7"/>
+            <show chara="schroNormalAhClose" position="left"/>
+            <speak chara="schroNoFace">...В конце концов, они считают, что только Валькирии могут по-настоящему решать проблемы.</speak>
+            <show chara="schroNormalEmClose" position="left" opacity="0.7"/>
+            <show chara="planckSadCoatClose" position="center"/>
+            <speak chara="planckNoFace">Если бы эффективность прототипов мехов была в два-три раза выше, было бы куда лучше.</speak>
+            <show chara="planckSmileCoatClose" position="center"/>
+            <text>Планк утешающе погладила Шрёдингер по голове.</text>
+            <show chara="planckSmileCoatClose" position="center"/>
+            <speak chara="planckNoFace">Если мы будем развиваться сами, то и тактика затягивания времени принесёт свои плоды.</speak>
+            <goto goto="100"/>
+        </scene>
+        <scene id="100" background="planeNight.jpg">
+            <bgm src="serenity.mp3" status="start"></bgm>
+            <show chara="planckSadCoatClose-up" position="right"/>
+            <speak chara="planckNoFace">Ах... как скучно...</speak>
+            <show chara="planckSmileCoatClose-up" position="right"/>
+            <speak chara="planckNoFace">Эй! Не хочешь со мной во что-нибудь поиграть?</speak>
+            <text>Длинноволосая красавица неведомо когда перебралась на место юноши.</text>
+            <show chara="planckSmileCoatClose-up" position="right" opacity="0.7"/>
+            <show chara="weltNormalWinterClose-up" position="left"/>
+            <speak chara="weltNoFace">Вынужден отказаться.</speak>
+            <text>Похоже, статус юноши всё же не был самым низшим в пищевой цепочке.</text>
+            <show chara="weltNormalWinterClose-up" position="left" opacity="0.7"/>
+            <show chara="planckSlyCoatClose-up" position="right"/>
+            <speak chara="planckNoFace">Ой... как же быстро меня возненавидели...</speak>
+            <text>Она игриво накрутила прядь волос на палец и слегка надула губы.</text>
+            <show chara="planckSlyCoatClose-up" position="right" opacity="0.7"/>
+            <show chara="weltSurpriseWinterClose-up" position="left"/>
+            <speak chara="weltNoFace">...И кого мне в этом винить? Ты сама заставила меня слушать свои нелепые шутки.</speak>
+            <show chara="weltSurpriseWinterClose-up" position="left" opacity="0.7"/>
+            <show chara="planckBoringCoatClose-up" position="right"/>
+            <speak chara="planckNoFace">Тц.</speak>
+            <show chara="planckBoringCoatClose-up" position="right" opacity="0.7"/>
+            <show chara="weltShameWinterClose-up" position="left"/>
+            <speak chara="weltNoFace">...А? Ты что, хочешь продолжить?</speak>
+            <show chara="weltShameWinterClose-up" position="left" opacity="0.7"/>
+            <show chara="planckSadCoatClose-up" position="right"/>
+            <speak chara="planckNoFace">Учёные ведь бывают самыми разными...</speak>
+            <text>Планк изобразила жалобный вид.</text>
+            <show chara="planckSmileCoatClose-up" position="right"/>
+            <speak chara="planckNoFace">По сравнению с пьянством или азартными играми, мои шуточки — это просто мелочь...</speak>
+            <show chara="planckSadCoatClose-up" position="right"/>
+            <speak chara="planckNoFace">Как по мне, так ты думаешь только о моих студентах, верно?</speak>
+            <show chara="planckBoringCoatClose-up" position="right"/>
+            <speak chara="planckNoFace">Считаешь меня слишком старой, да!</speak>
+            <show chara="planckBoringCoatClose-up" position="right" opacity="0.7"/>
+            <show chara="weltTiredWinterClose-up" position="left"/>
+            <speak chara="weltNoFace">Нет... вовсе нет... почему ты так думаешь!</speak>
+            <show chara="weltTiredWinterClose-up" position="left" opacity="0.7"/>
+            <show chara="planckSmileCoatClose-up" position="right"/>
+            <speak chara="planckNoFace">Тогда поиграй со мной!</speak>
+            <show chara="planckSmileCoatClose-up" position="right" opacity="0.7"/>
+            <show chara="weltNormalWinterClose-up" position="left"/>
+            <speak chara="weltNoFace">...Может, ты хотя бы сообразишь, во что мы будем играть?</speak>
+            <show chara="weltNormalWinterClose-up" position="left" opacity="0.7"/>
+            <show chara="planckSlyCoatClose-up" position="right"/>
+            <speak chara="planckNoFace">Хм-м...</speak>
+            <show chara="planckSmileCoatClose-up" position="right"/>
+            <speak chara="planckNoFace">Что-нибудь, что заинтересует тебя, малыш...</speak>
+            <show chara="planckSlyCoatClose-up" position="right"/>
+            <speak chara="planckNoFace">Может, пока они все спят, устроим свидание?</speak>
+            <show chara="planckSlyCoatClose-up" position="right" opacity="0.7"/>
+            <show chara="weltShameWinterClose-up" position="left"/>
+            <speak chara="weltNoFace">...Ик!</speak>
+            <speak chara="weltNoFace">Что ты такое внезапно несёшь!</speak>
+            <show chara="weltShameWinterClose-up" position="left" opacity="0.7"/>
+            <show chara="planckSmileCoatClose-up" position="right"/>
+            <speak chara="planckNoFace">А?</speak>
+            <show chara="planckSlyCoatClose-up" position="right"/>
+            <speak chara="planckNoFace">Что, я чем-то тебя не устраиваю?</speak>
+            <show chara="planckSlyCoatClose-up" position="right" opacity="0.7"/>
+            <show chara="weltTiredWinterClose-up" position="left"/>
+            <speak chara="weltNoFace">...Да дело не в том, устраиваешь или нет!</speak>
+            <show chara="weltTiredWinterClose-up" position="left" opacity="0.7"/>
+            <show chara="planckSadCoatClose-up" position="right"/>
+            <speak chara="planckNoFace">М-м... но ведь когда мы сойдём с самолёта, каждый из нас будет занят своим делом, верно?</speak>
+            <show chara="planckSadCoatClose-up" position="right" opacity="0.7"/>
+            <show chara="weltNormalWinterClose-up" position="left"/>
+            <speak chara="weltNoFace">Это так... и что дальше?</speak>
+            <show chara="weltNormalWinterClose-up" position="left" opacity="0.7"/>
+            <show chara="planckSlyCoatClose-up" position="right"/>
+            <speak chara="planckNoFace">Поэтому...</speak>
+            <text>Красавица загадочно улыбнулась и оторвала несколько листов от блокнота —</text>
+            <text>быстро-быстро принявшись писать.</text>
+            <hide position="right"/>
+            <hide position="left"/>
+            <show chara="planckBlackClose-up" position="center" opacity="0.7"/>
+            <text article="1">
+                <p class="article-text" style="color:rgb(208,223,162);font-style:italic;">— Ты ведь сможешь их защитить? </p>
+            </text>
+            <show chara="weltBlackWinterlose-up" position="center" opacity="0.7"/>
+            <text article="1">
+                <p class="article-text" style="color:#EDEDED;font-style:italic;">Если ты имеешь в виду... то, что под силу мужчине...</p>
+            </text>
+            <show chara="planckBlackClose-up" position="center" opacity="0.7"/>
+            <text article="1">
+                <p class="article-text" style="color:rgb(208,223,162);font-style:italic;">Нет. Этого недостаточно.</p>
+                <br />
+                <p class="article-text" style="color:rgb(208,223,162);font-style:italic;">Предположим, что некий древний человек — тот самый «Г.A.» — забрал соулиум из руин Йеллоустоуна и намеренно оставил подсказки. </p>
+            </text>
+            <text article="1">
+                <p class="article-text" style="color:rgb(208,223,162);font-style:italic;">Тогда можно утверждать одно — он или она понимали, что оставлять соулиум на месте небезопасно.</p>
+                <p class="article-text" style="color:rgb(208,223,162);font-style:italic;">Более того, даже переместив его в Британию и надежно спрятав, этого всё равно было мало. </p>
+                <p class="article-text" style="color:rgb(208,223,162);font-style:italic;">Нужно было оставить достаточно точные намеки для будущих поколений, чтобы они могли продолжить дело.</p>
+            </text>
+            <text article="1">
+                <p class="article-text" style="color:rgb(208,223,162);font-style:italic;">И тут возникает вопрос —</p>
+                <br />
+                <p class="article-text" style="color:rgb(208,223,162);font-style:italic;">какой конфликт интересов мог заставить человека пойти на такое?</p>
+            </text>
+            <show chara="weltBlackWinterlose-up" position="center" opacity="0.7"/>
+            <text article="1">
+                <p class="article-text" style="color:#EDEDED;font-style:italic;">Неужели...</p>
+                <br />
+                <p class="article-text" style="color:#EDEDED;font-style:italic;">У противника тоже есть свои преемники?</p>
+                <br />
+                <p class="article-text" style="color:#EDEDED;font-style:italic;">Какая-то организация, с которой невозможно противостоять в одиночку?</p>
+            </text>
+            <show chara="planckBlackClose-up" position="center" opacity="0.7"/>
+            <text article="1">
+                <p class="article-text" style="color:rgb(208,223,162);font-style:italic;">Верно мыслишь.</p>
+            </text>
+            <text article="1">
+                <p class="article-text" style="color:rgb(208,223,162);font-style:italic;">Так что, если такая организация существует и она заинтересована в соулиуме —</p>
+                <br />
+                <p class="article-text" style="color:rgb(208,223,162);font-style:italic;">кто же может быть её ответом в нашем известном мире? </p>
+            </text>
+            <show chara="weltBlackWinterlose-up" position="center" opacity="0.7"/>
+            <text article="1">
+                <p class="article-text" style="color:#EDEDED;font-style:italic;">Я знаю только одну... но...</p>
+            </text>
+            <show chara="planckBlackClose-up" position="center" opacity="0.7"/>
+            <text article="1">
+                <p class="article-text" style="color:rgb(208,223,162);font-style:italic;">Я тоже знаю только одну.</p>
+            </text>
+            <show chara="weltBlackWinterlose-up" position="center" opacity="0.7"/>
+            <text article="1">
+                <p class="article-text" style="color:#EDEDED;font-style:italic;">Ты хочешь сказать —</p>
+            </text>
+            <goto goto="110" change="0"/>
+        </scene>
+        <scene id="110" background="CG6-3.jpg">
+            <bgm src="serenity.mp3" status="continue"></bgm>
+            <text>Не успел юноша произнести ни слова, как нежный указательный палец красавицы мягко коснулся его губ. Она грациозно переместилась и уселась по другую сторону, в более укромном месте.</text>
+            <text>Её алые губы оказались совсем рядом с его лицом, а игривый шёпот заставлял нервы трепетать.</text>
+            <speak chara="planckNoFace">...Давай... поговорим о секретах?</speak>
+            <speak chara="planckNoFace">Только о нас двоих...</speak>
+            <speak chara="planckNoFace">Наш маленький...</speak>
+            <speak chara="planckNoFace">Секрет...</speak>
+            <end post="U2FsdGVkX1875aTC7Bnh6o5Wcrl8"/>
+        </scene>
+    </story>
+</data>

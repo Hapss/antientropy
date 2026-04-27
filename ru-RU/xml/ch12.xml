@@ -1,0 +1,505 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data>
+    <story>
+        <scene id="0" background="bg.jpg">
+            <bgm src="mid-lude.mp3" status="start"></bgm>
+            <cg src="newchapter.png" bg="bg.jpg"></cg>
+            <goto goto="10" change="#000000"/>
+        </scene>
+        <scene id="10" background="schoolDay3.jpg">
+            <bgm src="lab.mp3" status="start"></bgm>
+            <speak chara="teslaNoFace">...Время это самый большой враг в мире.</speak>
+            <goto goto="20" change="0"/>
+        </scene>
+        <scene id="20" background="studyDay.jpg">
+            <bgm src="lab.mp3" status="continue"></bgm>
+            <show chara="einSlyCoatClose" position="left"/>
+            <show chara="teslaNormalGlassWinterClose" position="right" opacity="0.7"/>
+            <speak chara="einNoFace">...Похоже, кто-то недостаточно насладился своим отпуском.</speak>
+            <show chara="einSlyCoatClose" position="left" opacity="0.7"/>
+            <show chara="teslaShameGlassWinterClose" position="right"/>
+            <speak chara="teslaNoFace">Конечно. Этот месяц почти закончился, а мы ещё не выезжали за город! И я только что получила новые водительские права!</speak>
+            <show chara="teslaStarGlassWinterClose" position="right"/>
+            <speak chara="teslaNoFace">Поехали! Поехали! Переодевайтесь шустрее и не мешкайте!</speak>
+            <show chara="teslaStarGlassWinterClose" position="right" opacity="0.7"/>
+            <show chara="weltSurpriseSweaterClose" position="back"/>
+            <speak chara="weltNoFace">Водительские права? Когда—</speak>
+            <show chara="weltSurpriseSweaterClose" position="back" opacity="0.7"/>
+            <show chara="einFoolCoatClose" position="left"/>
+            <speak chara="einNoFace">...Это мало чем отличается от ситуации с твоим паспортом, Вельт.</speak>
+            <speak chara="einNoFace">...После долгих уговоров и приставаний, если понимаешь о чём я.</speak>
+            <show chara="einFoolCoatClose" position="left" opacity="0.7"/>
+            <show chara="weltTiredSweaterClose" position="back"/>
+            <speak chara="weltNoFace">...</speak>
+            <show chara="weltTiredSweaterClose" position="back" opacity="0.7"/>
+            <show chara="einSlyCoatClose" position="left"/>
+            <speak chara="einNoFace" remark="next">Кстати, доктор Тесла, мы были в Королевском концертном зале, театре под открытым небом, на Оксфорд-стрит, Риджент-стрит, смотрели футбол на стадионе "Стэмфорд Бридж"... и пять раз посетили Британский музей с Иоахимом—</speak>
+            <remark>
+                <p class="article-text-h">Примечание:</p>
+                <p class="article-text">Футбольный клуб "Челси", домашней ареной которого является стадион "Стэмфорд Бридж", был чемпионом английской футбольной лиги в сезоне 1954/55. Это был единственный трофей чемпионата высшей лиги, завоёванный клубом в 20 веке — они смогли выиграть снова только 50 лет спустя, в сезоне 2004/05. </p>
+            </remark>
+            <show chara="einSlyCoatClose" position="left" opacity="0.7"/>
+            <show chara="teslaBiteGlassWinterClose" position="right"/>
+            <speak chara="teslaNoFace">А-а-а! Достаточно! Разве все эти места не в нескольких минутах ходьбы отсюда? Неужели вы хотите провести последние несколько дней, занимаясь тем же самым!?</speak>
+            <show chara="teslaErGlassWinterClose" position="right"/>
+            <speak chara="teslaNoFace">Вельт, ты настоящий мастер по составлению планов и мероприятий  в соответствии со вкусам этой Швабры...</speak>
+            <speak chara="teslaNoFace">（...хотя должна сказать, я не испытываю ненависти..）</speak>
+            <show chara="teslaErGlassWinterClose" position="right" opacity="0.7"/>
+            <show chara="weltGiggleSweaterClose" position="back"/>
+            <speak chara="weltNoFace">Тогда... Хотели бы попробовать съездить на морской курорт?</speak>
+            <text>В вялой атмосфере лаборатории 42 Вельт говорит, указывая на газету, и наслаждается стаканом тёплого молока.</text>
+            <show chara="weltGiggleSweaterClose" position="back" opacity="0.7"/>
+            <show chara="teslaDisgustedGlassWinterClose" position="right"/>
+            <speak chara="teslaNoFace">А? Отправиться на пляж зимой... Всё нормально с головой?</speak>
+            <show chara="teslaDisgustedGlassWinterClose" position="right" opacity="0.7"/>
+            <show chara="weltTiredSweaterClose" position="back"/>
+            <speak chara="weltNoFace">...Но я видел объявление. В нём говорится, что, поскольку сейчас межсезонье, можно получить скидку 30% на все бронирования—</speak>
+            <show chara="weltTiredSweaterClose" position="back" opacity="0.7"/>
+            <show chara="teslaShameGlassWinterClose" position="right"/>
+            <speak chara="teslaNoFace">...Даже если скидка 30%, нельзя загореть при такой температуре, верно?</speak>
+            <show chara="teslaShameGlassWinterClose" position="right" opacity="0.7"/>
+            <show chara="weltSurpriseSweaterClose" position="back"/>
+            <speak chara="weltNoFace">В объявлении говорится, что скидка в размере 30% также включает купоны на боулинг, абонементы на горячие источники и прокат барбекю с самообслуживанием...</speak>
+            <show chara="weltSurpriseSweaterClose" position="back" opacity="0.7"/>
+            <show chara="teslaSurpriseGlassWinterClose" position="right"/>
+            <speak chara="teslaNoFace">Прошу прощения? Всё это по скидке?</speak>
+            <show chara="teslaSurpriseGlassWinterClose" position="right" opacity="0.7"/>
+            <show chara="einSmileCoatClose" position="left"/>
+            <speak chara="einNoFace">Даже если участок не используется, всё равно происходит потеря амортизации из-за общего износа. Кроме того, его цена до скидки равна летней цене с некоторыми «дополнениями».</speak>
+            <show chara="einSlyCoatClose" position="left"/>
+            <speak chara="einNoFace">Как бы то ни было... Ты ведь заинтересована?</speak>
+            <show chara="einSlyCoatClose" position="left" opacity="0.7"/>
+            <show chara="teslaStarGlassWinterClose" position="right"/>
+            <speak chara="teslaNoFace">Конечно хочу! Это осень могучего аппетита; если я не ем полноценно, то с таким же успехом могу не есть вообще!</speak>
+            <show chara="teslaStarGlassWinterClose" position="right" opacity="0.7"/>
+            <show chara="einSmileCoatClose" position="left"/>
+            <speak chara="einNoFace">Не нужно есть слишком много, чтобы не оказаться в больнице.</speak>
+            <show chara="einSmileCoatClose" position="left" opacity="0.7"/>
+            <show chara="teslaShameGlassWinterClose" position="right"/>
+            <speak chara="teslaNoFace">Кто... Кто может быть настолько глуп?! К-конечно не стану!</speak>
+            <show chara="teslaShameGlassWinterClose" position="right" opacity="0.7"/>
+            <show chara="einSlyCoatClose" position="left"/>
+            <speak chara="einNoFace">О, и кто же?</speak>
+            <text>Швабра с улыбкой допивает последний глоток чая с молоком.</text>
+            <show chara="einSlyCoatClose" position="left" opacity="0.7"/>
+            <goto goto="30" change="#ffffff"/>
+        </scene>
+        <scene id="30" background="westCliff.jpg">
+            <bgm src="street.mp3" status="start"></bgm>
+            <text>Саутенд-он-Си.</text>
+            <text>Этот городок, названный в честь своего географического положения, был самым популярным пригородным курортом для лондонцев со времён масштабной урбанизации во время промышленной революции 18 века...</text>
+            <text>...Но только летом.</text>
+            <text>На самом деле, когда группа прибыла к месту назначения, на большой парковке можно было увидеть только три машины... Что заставило их всех задуматься, не прибыли ли они внезапно в Исландию или какую-то другую страну с очень низкой плотностью населения.</text>
+            <show chara="teslaBoringGlassWinterFar" position="left"/>
+            <speak chara="teslaNoFace">...Здесь действительно пустынно.</speak>
+            <show chara="teslaSnickerGlassWinterFar" position="left"/>
+            <speak chara="teslaNoFace">Но воздух довольно хорош, а!</speak>
+            <show chara="teslaSnickerGlassWinterFar" position="left" opacity="0.7"/>
+            <show chara="weltTiredWinterFar" position="right"/>
+            <speak chara="weltNoFace">До обеда ещё есть время...</speak>
+            <speak chara="weltNoFace">После завершения регистрации, куда планируете отправиться в первую очередь?</speak>
+            <show chara="weltTiredWinterFar" position="right" opacity="0.7"/>
+            <show chara="einSleepWinterFar" position="center"/>
+            <speak chara="einNoFace">Я хочу пойти прогуляться...</speak>
+            <show chara="einFoolWinterFar" position="center"/>
+            <speak chara="einNoFace">Тесла, ты... Последний раз ты садилась за руль полгода назад... И всё же ты водишь ещё более дико, чем раньше...</speak>
+            <show chara="einFoolWinterFar" position="center" opacity="0.7"/>
+            <show chara="teslaAstonishGlassWinterFar" position="left"/>
+            <speak chara="teslaNoFace">А?</speak>
+            <show chara="teslaAstonishGlassNoiseWinterFar" position="left"/>
+            <speak chara="teslaNoFace">Нет, быть не может... У тебя морская болезнь? Тебе нужно, чтобы я прокатила тебя на спине?</speak>
+            <show chara="teslaAstonishGlassNoiseWinterFar" position="left" opacity="0.7"/>
+            <show chara="einSleepWinterFar" position="center"/>
+            <speak chara="einNoFace">Не совсем... Меня просто немного подташнивает.</speak>
+            <show chara="einSleepWinterFar" position="center" opacity="0.7"/>
+            <show chara="weltTiredWinterFar" position="right"/>
+            <speak chara="weltNoFace">Эм... Меня тоже немного...</speak>
+            <show chara="weltTiredWinterFar" position="right" opacity="0.7"/>
+            <show chara="teslaBiteGlassWinterFar" position="left"/>
+            <speak chara="teslaNoFace">Да кого ты волнуешь?! Бобовый росток!</speak>
+            <show chara="teslaBiteGlassWinterFar" position="left" opacity="0.7"/>
+            <show chara="weltScaredWinterFar" position="right"/>
+            <speak chara="weltNoFace">Б-бобовый росток?!</speak>
+            <goto goto="40" change="#ffffff"/>
+        </scene>
+        <scene id="40" background="westCliff.jpg">
+            <bgm src="street.mp3" status="continue"></bgm>
+            <show chara="ritaNormalAhFar" position="left"/>
+            <speak chara="ritaNoNameNoFace">Здравствуйте!.. Это мистер Вельт Джойс и его компания?</speak>
+            <show chara="ritaNormalFar" position="left" opacity="0.7"/>
+            <show chara="weltShyWinterFar" position="right"/>
+            <speak chara="weltNoFace">А... Да! Имперский институт, группа из трёх человек.</speak>
+            <show chara="weltTiredWinterFar" position="right"/>
+            <speak chara="weltNoFace">Извините, что отвлекаю Вас нашими проделками.</speak>
+            <show chara="weltTiredWinterFar" position="right" opacity="0.7"/>
+            <show chara="ritaSmileLeftFar" position="left"/>
+            <speak chara="ritaNoNameNoFace">Что же Вы... Вы, гости, явно неплохо ладите друг с другом...</speak>
+            <text>Женщина вежливо берёт чемодан из рук Вельта.</text>
+            <show chara="ritaSmileFar" position="left"/>
+            <speak chara="ritaNoNameNoFace">Меня зовут Маргарита Айет, но вы можете называть меня Ритой.</speak>
+            <show chara="ritaSmileLeftFar" position="left"/>
+            <speak chara="ritaNoFace">Добро пожаловать в «Вэст-Клифф Риту»!</speak>
+            <show chara="ritaSmileLeftFar" position="left" opacity="0.7"/>
+            <show chara="weltGiggleWinterFar" position="right"/>
+            <speak chara="weltNoFace">А?.. Подождите, Вы управляющая?</speak>
+            <show chara="weltGiggleWinterFar" position="right" opacity="0.7"/>
+            <show chara="ritaSmileFar" position="left"/>
+            <speak chara="ritaNoFace">Хаха, в межсезонье здесь не так много персонала. Надеюсь это вас не смущает.</speak>
+            <show chara="ritaSmileLeftFar" position="left"/>
+            <speak chara="ritaNoFace">Но... С другой стороны, это поможет Вам сэкономить на чаевых, не так ли? </speak>
+            <goto goto="50" change="#ffffff"/>
+        </scene>
+        <scene id="50" background="westCliffWindow.jpg">
+            <bgm src="themeWelt.mp3" status="start"></bgm>
+            <text article="1">
+                <p class="article-text">Жильё, предоставляемое «Вэст-Клифф Ритой», представляет собой небольшую виллу с видом на море. Со второго этажа можно увидеть непрерывный поток торговых судов, проходящих через устье Темзы. Мебель в вилле сочетает в себе элементы викторианского и колониального стилей. На светлых обоях висят художественные портреты, происхождение которых вызывает сомнения. Многие из них выглядят как третьесортные работы, заказанные за небольшую сумму.</p>
+            </text>
+            <text article="1">
+                <p class="article-text">Стоя в одиночестве и глядя на морской берег у окна, сердце Вельта переполняют сильные смешанные эмоции.</p>
+                <br />
+                <p class="article-text">В последнее время он познакомился со многими интересными людьми. Хотя никто не мог помочь ему докопаться до сути происходящего — нет никаких сомнений в том, что все они искренние люди. </p>
+            </text>
+            <text article="1">
+                <p class="article-text">Вельт понимает, что у них разные позиции. Эдисон является ядром североамериканского филиала; Планк, по-видимому, связующее звеном между ней и штаб-квартирой, хотя и явно предвзятое; а Реанна - солдат, чей «долг - подчиняться приказам». </p>
+            </text>
+            <text article="1">
+                <p class="article-text">В будущем, когда скрытые противоречия между североамериканским филиалом и штаб-квартирой в конечном итоге выльются в полномасштабный конфликт, тогда, в отличие от тех, у кого уже есть чёткая позиция... тем, кто оказался посередине, таким как я или обычным исследователям вроде Эйнштейн и Теслы, чью сторону нам следует принять?</p>
+            </text>
+            <text article="1">
+                <p class="article-text">Из ранее собранных данных соулиума следует, что таинственный персонаж, который называет себя «Г. А.», относится к Шиксалу как к своему врагу. Что именно она обнаружила и испытала? Когда Ада в конечном итоге расшифрует информацию, как мы должны отреагировать? Эйнштейн и Тесла верили, что «нельзя принимать решение без надлежащего расследования», но внешняя ситуация может быстро измениться в любой момент множеством способов. Будет ли у них достаточно времени?</p>
+            </text>
+            <goto goto="55" change="#ffffff"/>
+        </scene>
+        <scene id="55" background="planeNightRem.jpg">
+            <bgm src="themeWelt.mp3" status="continue"></bgm>
+            <text>Месяц назад на борту одного самолёта.</text>
+            <goto goto="60" change="0"/>
+        </scene>
+        <scene id="60" background="CG6-3_Rem.jpg">
+            <bgm src="themeWelt.mp3" status="continue"></bgm>
+            <speak chara="weltNoFace">Эм... Что Вы имеете в виду под так называемым «разговором шёпотом»...</speak>
+            <text>Неловко спросил молодой человек по имени Вельт, всё это время тщательно избегая прямого зрительного контакта с парой сочных красных губ.</text>
+            <speak chara="planckNoFace">Пфф... Это тоже неплохая реакция.</speak>
+            <speak chara="planckNoFace">Я расскажу тебе, о чём и обещала.</speak>
+            <text>Профессор по имени Планк озорливо захлопала глазами. </text>
+            <goto goto="70" change="0"/>
+        </scene>
+        <scene id="70" background="planeNightRem.jpg">
+            <bgm src="themeWelt.mp3" status="continue"></bgm>
+            <show chara="weltNormalWinterClose-up" position="right" opacity="0.7"/>
+            <show chara="planckSmileCoatClose-upSymme" position="left"/>
+            <speak chara="planckNoFace">...Давай начнём с сотрудничества между «Принцессой Нэнси» и организацией.</speak>
+            <show chara="planckSlyCoatClose-upSymme" position="left"/>
+            <speak chara="planckNoFace">Как ты, возможно, знаешь, она является председателем компании Всеобщей Электрической компании или сокращённо «ВЭК» с 17 лет.</speak>
+            <show chara="planckSlyCoatClose-upSymme" position="left" opacity="0.7"/>
+            <show chara="weltScaredWinterClose-up" position="right"/>
+            <speak chara="weltNoFace">...17?</speak>
+            <show chara="weltScaredWinterClose-up" position="right" opacity="0.7"/>
+            <show chara="planckSeriousCoatClose-upSymme" position="left"/>
+            <speak chara="planckNoFace">Ага. В тот год её родители были убиты в событии с Хонкаем.</speak>
+            <show chara="planckSeriousCoatClose-upSymme" position="left" opacity="0.7"/>
+            <show chara="weltSurpriseWinterClose-up" position="right"/>
+            <speak chara="weltNoFace">...</speak>
+            <show chara="weltSurpriseWinterClose-up" position="right" opacity="0.7"/>
+            <show chara="planckNormalCoatClose-upSymme" position="left"/>
+            <speak chara="planckNoFace">Хотя в то время она ничего не знала о Хонкае, и ей было недвусмысленно сказано «не проводить дальнейшего расследования»...</speak>
+            <speak chara="planckNoFace">Однако она умело управляет имеющимися ресурсами.</speak>
+            <speak chara="planckNoFace">Тогда Мировая Война только закончилась, и экономика в большинстве частей мира была разрушена войной.</speak>
+            <speak chara="planckNoFace">Поэтому она напрямую использовала предложения о высокой зарплате и экспериментальных фондах в качестве приманки и начала пытаться переманить персонал из организации.</speak>
+            <show chara="planckNormalCoatClose-upSymme" position="left" opacity="0.7"/>
+            <show chara="weltScaredWinterClose-up" position="right"/>
+            <speak chara="weltNoFace">...Это вообще возможно?</speak>
+            <show chara="weltScaredWinterClose-up" position="right" opacity="0.7"/>
+            <show chara="planckSlyCoatClose-upSymme" position="left"/>
+            <speak chara="planckNoFace">Конечно, не всё прошло гладко.</speak>
+            <show chara="planckSmileCoatClose-upSymme" position="left"/>
+            <speak chara="planckNoFace">Но чего от неё никто не ожидал, так это того, что, когда её переманивание не увенчалось успехом, она нанесла личный визит в штаб-квартиру и предложила помочь организации создать североамериканский филиал.</speak>
+            <show chara="planckSmileCoatClose-upSymme" position="left" opacity="0.7"/>
+            <show chara="weltSurpriseWinterClose-up" position="right"/>
+            <speak chara="weltNoFace">Я мало что знаю об организации... Но могли ли они вообще согласиться на такое? </speak>
+            <show chara="weltSurpriseWinterClose-up" position="right" opacity="0.7"/>
+            <show chara="planckSmileCoatClose-upSymme" position="left"/>
+            <speak chara="planckNoFace">Не было никакого спора. </speak>
+            <show chara="planckSlyCoatClose-upSymme" position="left"/>
+            <speak chara="planckNoFace">Другая сторона предложила в общей сложности 13 миллиардов долларов спонсорских средств в качестве поэтапных платежей.</speak>
+            <show chara="planckSlyCoatClose-upSymme" position="left" opacity="0.7"/>
+            <show chara="weltScaredWinterClose-up" position="right"/>
+            <speak chara="weltNoFace">Трин... Тринадцать миллиардов?! </speak>
+            <show chara="weltScaredWinterClose-up" position="right" opacity="0.7"/>
+            <show chara="planckSmileCoatClose-upSymme" position="left"/>
+            <speak chara="planckNoFace" remark="next">В номинальном выражении — «Европейская программа восстановления». </speak>
+            <remark>
+                <p class="article-text-h">Примечание: </p>
+                <p class="article-text">Европейская программа восстановления (ERP), также известная как План Маршалла, была планом Соединённых Штатов по оказанию экономической помощи и содействия восстановлению в странах Западной Европы (НАТО), пострадавших в результате Второй Мировой Войны. За этот период различные формы помощи, полученные западноевропейскими странами, составили примерно 13 миллиардов долларов (с учётом инфляции стоимость этой помощи сегодня эквивалентна более чем в десять раз её номинальной стоимости).</p>
+            </remark>
+            <show chara="planckSmileCoatClose-upSymme" position="left" opacity="0.7"/>
+            <show chara="weltSurpriseWinterClose-up" position="right"/>
+            <speak chara="weltNoFace">Это...</speak>
+            <show chara="weltSurpriseWinterClose-up" position="right" opacity="0.7"/>
+            <show chara="planckSlyCoatClose-upSymme" position="left"/>
+            <speak chara="planckNoFace">Так что дело не в том, что некоторые вещи нельзя купить за деньги — просто их нельзя купить, если их недостаточно.</speak>
+            <show chara="planckSlyCoatClose-upSymme" position="left" opacity="0.7"/>
+            <show chara="weltNormalWinterClose-up" position="right"/>
+            <speak chara="weltNoFace">Но почему в прошлом не было североамериканского филиала? — </speak>
+            <show chara="weltSurpriseWinterClose-up" position="right"/>
+            <speak chara="weltNoFace">А. </speak>
+            <text>Вельт внезапно вспомнил объяснение Финна: в Северной Америке в то время не было много признаков деятельности, относящейся к Прошлой Эре.</text>
+            <show chara="weltSurpriseWinterClose-up" position="right" opacity="0.7"/>
+            <show chara="planckSlyCoatClose-upSymme" position="left"/>
+            <speak chara="planckNoFace">Похоже, ты и сам понял.</speak>
+            <show chara="planckSmileCoatClose-upSymme" position="left"/>
+            <speak chara="planckNoFace">Верно, по мнению тогдашнего совета, это был просто пирог, упавший с неба.</speak>
+            <speak chara="planckNoFace">В регионе не было никаких известных остатков Прошлой Эры, и поэтому североамериканская ветвь в их глазах была ничем. Это никак не могло представлять угрозы для их штаб-квартиры.</speak>
+            <show chara="planckSmileCoatClose-upSymme" position="left" opacity="0.7"/>
+            <show chara="weltSurpriseWinterClose-up" position="right"/>
+            <speak chara="weltNoFace">Но на деле...</speak>
+            <show chara="weltSurpriseWinterClose-up" position="right" opacity="0.7"/>
+            <show chara="planckSlyCoatClose-upSymme" position="left"/>
+            <speak chara="planckNoFace">Верно. Мы, современные люди, не менее способны, чем древние люди Прошлой Эры. Мы и сами можем добиться успеха.</speak>
+            <show chara="planckSlyCoatClose-upSymme" position="left"/>
+            <speak chara="planckNoFace">Более того, как только штаб-квартире станут известны масштабы Йеллоустоунских руин, между двумя сторонами, вероятно, снова возникнут трения.</speak>
+            <show chara="planckSmileCoatClose-upSymme" position="left"/>
+            <speak chara="planckNoFace">Или... возможно, штаб-квартира уже располагает большим количеством информации, чем у нас, и работает тайно?</speak>
+            <show chara="planckSmileCoatClose-upSymme" position="left" opacity="0.7"/>
+            <show chara="weltScaredWinterClose-up" position="right"/>
+            <speak chara="weltNoFace">...Если это так, то не является ли нынешняя ситуация действительно опасной?</speak>
+            <show chara="weltScaredWinterClose-up" position="right" opacity="0.7"/>
+            <show chara="planckSlyCoatClose-upSymme" position="left"/>
+            <speak chara="planckNoFace">Хехе, если вам всем удастся найти так называемый «последний соулиум», то у вас будут места в первом ряду на хорошем шоу.</speak>
+            <show chara="planckSlyCoatClose-upSymme" position="left" opacity="0.7"/>
+            <show chara="weltScaredWinterClose-up" position="right"/>
+            <speak chara="weltNoFace">Х-хорошем шоу?</speak>
+            <show chara="weltScaredWinterClose-up" position="right" opacity="0.7"/>
+            <show chara="planckSmileCoatClose-upSymme" position="left"/>
+            <speak chara="planckNoFace">...Тебе не кажется, что если мы в конце концов что-то найдём, это определённо должно быть какое-то взрывное откровение?</speak>
+            <show chara="planckSeriousCoatClose-upSymme" position="left"/>
+            <speak chara="planckNoFace">В худшем случае, если до этого всё-таки дойдет, нам, возможно, придётся сделать какой-то выбор.</speak>
+            <show chara="planckSeriousCoatClose-upSymme" position="left" opacity="0.7"/>
+            <show chara="weltDarkWinterClose-up" position="right"/>
+            <speak chara="weltNoFace">...</speak>
+            <show chara="weltNormalWinterClose-up" position="right"/>
+            <speak chara="weltNoFace">Я давно хотел задать этот вопрос...</speak>
+            <speak chara="weltNoFace">Какова истинная цель Организации?</speak>
+            <speak chara="weltNoFace">Это действительно просто борьба с Хонкаем?</speak>
+            <show chara="weltNormalWinterClose-up" position="right" opacity="0.7"/>
+            <show chara="planckSeriousCoatClose-upSymme" position="left"/>
+            <speak chara="planckNoFace">...</speak>
+            <show chara="planckSlyCoatClose-upSymme" position="left"/>
+            <speak chara="planckNoFace">У меня нет возможности ответить на этот конкретный вопрос.</speak>
+            <show chara="planckSlyCoatClose-upSymme" position="left" opacity="0.7"/>
+            <show chara="weltNormalWinterClose-up" position="right"/>
+            <speak chara="weltNoFace">...</speak>
+            <show chara="weltNormalWinterClose-up" position="right" opacity="0.7"/>
+            <show chara="planckSmileCoatClose-upSymme" position="left"/>
+            <speak chara="planckNoFace">Не волнуйся, это не значит, что я отношусь к тебе как к постороннему.</speak>
+            <show chara="planckSeriousCoatClose-upSymme" position="left"/>
+            <speak chara="planckNoFace">Организация огромна. Между любыми двумя участниками воспринимаемый смысл, лежащий в основе их существования, может быть таким же разным, как ночь и день.</speak>
+            <show chara="planckSlyCoatClose-upSymme" position="left"/>
+            <speak chara="planckNoFace">Обычные клерки, Валькирии, исследователи, меценаты, члены совета... То, что видит каждая сторона, - это всего лишь один аспект организации.</speak>
+            <show chara="planckSmileCoatClose-upSymme" position="left"/>
+            <speak chara="planckNoFace">Вопреки подозрениям скептика, для этой всемирной организации нет иного стимула, кроме её «поверхностной цели»— </speak>
+            <speak chara="planckNoFace">—её сложность обусловлена живыми людьми, которые её составляют.</speak>
+            <show chara="planckSlyCoatClose-upSymme" position="left"/>
+            <speak chara="planckNoFace">Например... Иногда я ненавижу эту упрямую и самоуверенную «принцессу».</speak>
+            <show chara="planckSeriousCoatClose-upSymme" position="left"/>
+            <speak chara="planckNoFace">Знаешь, таланты Теслы были почти растрачены впустую в её руках — хотя её мотивы были хорошими.</speak>
+            <show chara="planckNormalCoatClose-upSymme" position="left"/>
+            <speak chara="planckNoFace">Однако, если дело дойдёт до рассмотрения её кандидатуры против совета... Мне жаль, но я приложу все усилия, чтобы поддержать её.</speak>
+            <show chara="planckSeriousCoatClose-upSymme" position="left"/>
+            <speak chara="planckNoFace">Она, по крайней мере, уважает объективные законы научного исследования.</speak>
+            <show chara="planckSeriousCoatClose-upSymme" position="left" opacity="0.7"/>
+            <show chara="weltScaredWinterClose-up" position="right"/>
+            <speak chara="weltNoFace">А? Я думал совет - это учреждение, основанное на технологическом и научном понимании...</speak>
+            <show chara="weltScaredWinterClose-up" position="right" opacity="0.7"/>
+            <show chara="planckNormalCoatClose-upSymme" position="left"/>
+            <speak chara="planckNoFace">Но их милитаристские устремления ещё более обоснованы.</speak>
+            <show chara="planckSeriousCoatClose-upSymme" position="left"/>
+            <speak chara="planckNoFace">Приоритетом совета никогда не является то, является ли та или иная вещь научно достоверной... но может ли она контролироваться ими.</speak>
+            <show chara="planckSlyCoatClose-upSymme" position="left"/>
+            <speak chara="planckNoFace">Технологические и научные возможности совета на самом деле очень велики... Но когда они пытаются всё контролировать, их влияние на научные исследования оказывается очень негативным.</speak>
+            <show chara="planckSmileCoatClose-upSymme" position="left"/>
+            <speak chara="planckNoFace">Самый очевидный пример - соулиум.</speak>
+            <show chara="planckSmileCoatClose-upSymme" position="left" opacity="0.7"/>
+            <show chara="weltSurpriseWinterClose-up" position="right"/>
+            <speak chara="weltNoFace">Соулиум? Тот, что мы ищем?</speak>
+            <show chara="weltSurpriseWinterClose-up" position="right" opacity="0.7"/>
+            <show chara="planckNormalCoatClose-upSymme" position="left"/>
+            <speak chara="planckNoFace">Верно. Некоторый соулиум хранит информацию из Прошлой Эры.</speak>
+            <show chara="planckSeriousCoatClose-upSymme" position="left"/>
+            <speak chara="planckNoFace">Совет проявляет необычный интерес к этому типу соулиума и в принципе не позволяет филиалам разрабатывать технологии и интерпретировать их самостоятельно.</speak>
+            <show chara="planckSlyCoatClose-upSymme" position="left"/>
+            <speak chara="planckNoFace">Как думаешь, почему?</speak>
+            <show chara="planckSlyCoatClose-upSymme" position="left" opacity="0.7"/>
+            <show chara="weltSurpriseWinterClose-up" position="right"/>
+            <speak chara="weltNoFace">Потому что... Они боятся неправильного использования оружейной технологии, содержащейся в них?</speak>
+            <show chara="weltSurpriseWinterClose-up" position="right" opacity="0.7"/>
+            <show chara="planckNormalCoatClose-upSymme" position="left"/>
+            <speak chara="planckNoFace">Это действительно одна из причин... Но на самом деле у них есть более насущные проблемы.</speak>
+            <show chara="planckSeriousCoatClose-upSymme" position="left"/>
+            <speak chara="planckNoFace">Оружейная технология Прошлой Эры предъявляет чрезвычайно высокие требования к адаптации к Хонкаю для пользователя оружия.</speak>
+            <show chara="planckSlyCoatClose-upSymme" position="left"/>
+            <speak chara="planckNoFace">Другими словами, если хотите использовать эти технологии, сначала нужно заиметь Валькирию на своей стороне.</speak>
+            <show chara="planckSlyCoatClose-upSymme" position="left" opacity="0.7"/>
+            <show chara="weltScaredWinterClose-up" position="right"/>
+            <speak chara="weltNoFace">Хотите сказать...</speak>
+            <show chara="weltScaredWinterClose-up" position="right" opacity="0.7"/>
+            <show chara="planckSeriousCoatClose-upSymme" position="left"/>
+            <speak chara="planckNoFace">Да. Валькирии тоже люди, и поэтому они, естественно, могут предать организацию.</speak>
+            <speak chara="planckNoFace">Более того, на протяжении всей истории действительно не было недостатка в записях о предательстве Шиксала со стороны Валькирий. В этих записях...</speak>
+            <show chara="planckNormalCoatClose-upSymme" position="left"/>
+            <speak chara="planckNoFace">В дополнение к «личным обидам» ещё одним общим фактором была «информация из прошлого».</speak>
+            <show chara="planckSeriousCoatClose-upSymme" position="left"/>
+            <speak chara="planckNoFace">Эти идеи исходили от поколения, которому не удалось победить Хонкай. Много идей. И, естественно, некоторые из этих идей могут отклоняться от основных убеждений Шиксала.</speak>
+            <show chara="planckSlyCoatClose-upSymme" position="left"/>
+            <speak chara="planckNoFace">Что ещё более проблематично, так это то, что эти идеи «тех, кто был до нас», могут быть легко приняты за истину детьми, которые слишком чутки.</speak>
+            <show chara="planckSlyCoatClose-upSymme" position="left" opacity="0.7"/>
+            <show chara="weltSurpriseWinterClose-up" position="right"/>
+            <speak chara="weltNoFace">...</speak>
+            <show chara="weltSurpriseWinterClose-up" position="right" opacity="0.7"/>
+            <show chara="planckNormalCoatClose-upSymme" position="left"/>
+            <speak chara="planckNoFace">В двух словах, логически трудно судить, насколько многие из идей этих древних людей заслуживают доверия или даже применимы.</speak>
+            <show chara="planckSlyCoatClose-upSymme" position="left"/>
+            <speak chara="planckNoFace">Технология может быть проверена с помощью экспериментов, а проблемы могут быть решены с помощью математики; но идеи, которые не сфальсифицируешь... с ними трудно справиться.</speak>
+            <speak chara="planckNoFace">Они могут иметь смысл в глазах одного человека, но не в глазах другого — это так называемый феномен «тысячи читателей, имеющих тысячу Гамлетов».</speak>
+            <show chara="planckSlyCoatClose-upSymme" position="left" opacity="0.7"/>
+            <show chara="weltSurpriseWinterClose-up" position="right"/>
+            <speak chara="weltNoFace">...</speak>
+            <show chara="weltSurpriseWinterClose-up" position="right" opacity="0.7"/>
+            <show chara="planckNormalCoatClose-upSymme" position="left"/>
+            <speak chara="planckNoFace">Из-за этого, как только начинаешь относиться к этим несогласным людям снисходительно, легко почувствовать, что ими «легко манипулировать» и «они невозможно глупы».</speak>
+            <speak chara="planckNoFace">В этом случае наиболее удобным средством для лидера, чтобы справиться с ситуацией, является ограничение их «прав» и «привилегий».</speak>
+            <show chara="planckNormalCoatClose-upSymme" position="left" opacity="0.7"/>
+            <show chara="weltSurpriseWinterClose-up" position="right"/>
+            <speak chara="weltNoFace">...</speak>
+            <show chara="weltSurpriseWinterClose-up" position="right" opacity="0.7"/>
+            <show chara="planckSlyCoatClose-upSymme" position="left"/>
+            <speak chara="planckNoFace">Но, в свою очередь, результатом такой лени является то, что с тобой, в качестве руководителя, ситуации, связанные с тайными операциями, неизбежно будут происходить...</speak>
+            <speak chara="planckNoFace">...Вся организация стала зависимой от милитаризованного управления для поддержания единства. Поддерживать эффективность становится возможным только за счёт дальнейшего «сокращения привилегий».</speak>
+            <show chara="planckSlyCoatClose-upSymme" position="left" opacity="0.7"/>
+            <show chara="weltSurpriseWinterClose-up" position="right"/>
+            <speak chara="weltNoFace">...</speak>
+            <show chara="weltSurpriseWinterClose-up" position="right" opacity="0.7"/>
+            <show chara="planckSmileCoatClose-upSymme" position="left"/>
+            <speak chara="planckNoFace">Когда дело доходит до общей армии, это ничто.</speak>
+            <show chara="planckSlyCoatClose-upSymme" position="left"/>
+            <speak chara="planckNoFace">В конце концов, все согласны с тем, что «долг солдата - подчиняться приказам».</speak>
+            <show chara="planckSeriousCoatClose-upSymme" position="left"/>
+            <speak chara="planckNoFace">Проблема в том, что Шиксал это не просто армия.</speak>
+            <speak chara="planckNoFace">С точки зрения воспитания научно-исследовательского персонала, «сокращение привилегий» очень плохо сказывается на росте талантов.</speak>
+            <show chara="planckSmileCoatClose-upSymme" position="left"/>
+            <speak chara="planckNoFace">Ты был во множестве лабораторий нашей организации.</speak>
+            <show chara="planckSlyCoatClose-upSymme" position="left"/>
+            <speak chara="planckNoFace">Так что ты должен понимать насколько особенна лаборатория 42.</speak>
+            <show chara="planckSeriousCoatClose-upSymme" position="left"/>
+            <speak chara="planckNoFace">Если в мире есть только одна лаборатория 42, которая может обеспечить ту степень свободы, которая действительно необходима научным талантам для роста —</speak>
+            <speak chara="planckNoFace">— тогда я думаю, что у нас нет абсолютно никаких шансов победить Хонкай.</speak>
+            <show chara="planckSlyCoatClose-upSymme" position="left"/>
+            <speak chara="planckNoFace">Что скажешь?</speak>
+            <show chara="planckSlyCoatClose-upSymme" position="left" opacity="0.7"/>
+            <bgm src="11_17_tatakau.mp3" status="start"></bgm>
+            <show chara="weltDarkWinterClose-up" position="right"/>
+            <speak chara="weltNoFace">...</speak>
+            <speak chara="weltNoFace">Это...</speak>
+            <show chara="weltNormalWinterClose-up" position="right"/>
+            <speak chara="weltNoFace">...</speak>
+            <speak chara="weltNoFace">...В любом случае, пожалуйста, не подвергайте Эйнштейн и других опасности.</speak>
+            <show chara="weltNormalWinterClose-up" position="right" opacity="0.7"/>
+            <show chara="planckNormalCoatClose-upSymme" position="left"/>
+            <speak chara="planckNoFace">...Ммм? </speak>
+            <show chara="planckNormalCoatClose-upSymme" position="left" opacity="0.7"/>
+            <show chara="weltNormalWinterClose-up" position="right"/>
+            <speak chara="weltNoFace">Хотя я не знаю, действительно ли их действия правильны для такой огромной организации, как Шиксал...</speak>
+            <speak chara="weltNoFace">Но я чувствую, что когда-нибудь в будущем ваши пути с европейской штаб-квартирой в конце концов разойдутся.</speak>
+            <show chara="weltDarkWinterClose-up" position="right"/>
+            <speak chara="weltNoFace">Я не знаю, что это будет означать...</speak>
+            <show chara="weltNormalWinterClose-up" position="right"/>
+            <speak chara="weltNoFace">Но когда это произойдёт, как их учитель, пожалуйста, не вовлекайте в это своих учеников!</speak>
+            <speak chara="weltNoFace">...По крайней мере, само по себе это определённо неправильно, нехорошо и не должно быть сделано!</speak>
+            <show chara="weltNormalWinterClose-up" position="right" opacity="0.7"/>
+            <show chara="planckSlyCoatClose-upSymme" position="left"/>
+            <speak chara="planckNoFace">Хех... Я думала, ты собираешься сказать что-то ещё...</speak>
+            <show chara="planckSlyCoatClose-upSymme" position="left" opacity="0.7"/>
+            <show chara="weltShameWinterClose-up" position="right"/>
+            <speak chara="weltNoFace">...Что, Вы не можете этого сделать?</speak>
+            <show chara="weltShameWinterClose-up" position="right" opacity="0.7"/>
+            <show chara="planckSmileCoatClose-upSymme" position="left"/>
+            <speak chara="planckNoFace">Фуфу!</speak>
+            <show chara="planckSlyCoatClose-upSymme" position="left"/>
+            <speak chara="planckNoFace">Думаешь, я намерена убедить тебя поддержать североамериканское отделение в принципе?</speak>
+            <show chara="planckSmileCoatClose-upSymme" position="left"/>
+            <speak chara="planckNoFace">Миленький маленький глупыш!</speak>
+            <show chara="planckSmileCoatClose-upSymme" position="left" opacity="0.7"/>
+            <show chara="weltSurpriseWinterClose-up" position="right"/>
+            <speak chara="weltNoFace">...</speak>
+            <show chara="weltShameWinterClose-up" position="right"/>
+            <speak chara="weltNoFace">К-кто глупыш?!</speak>
+            <speak chara="weltNoFace">...Кроме того, «миленький» и «маленький» неуместны!</speak>
+            <show chara="weltShameWinterClose-up" position="right" opacity="0.7"/>
+            <show chara="planckSlyCoatClose-upSymme" position="left"/>
+            <speak chara="planckNoFace">Хаха, Вельт, в такие моменты ты становишься особенно забавным.</speak>
+            <show chara="planckSlyCoatClose-upSymme" position="left" opacity="0.7"/>
+            <show chara="weltTiredWinterClose-up" position="right"/>
+            <speak chara="weltNoFace">...</speak>
+            <show chara="weltTiredWinterClose-up" position="right" opacity="0.7"/>
+            <show chara="planckSeriousCoatClose-upSymme" position="left"/>
+            <speak chara="planckNoFace">Послушай меня.</speak>
+            <show chara="planckNormalCoatClose-upSymme" position="left"/>
+            <speak chara="planckNoFace">В этом мире всегда есть причины и следствия, которые мы не можем остановить.</speak>
+            <show chara="planckSeriousCoatClose-upSymme" position="left"/>
+            <speak chara="planckNoFace">В этом деле... В том случае, если соулиум, который вы ищете, - это искра, которая зажигает фитиль...</speak>
+            <show chara="planckNormalCoatClose-upSymme" position="left"/>
+            <speak chara="planckNoFace">...Когда это время придёт, вы все должны прислушаться к своему собственному внутреннему суждению.</speak>
+            <show chara="planckSeriousCoatClose-upSymme" position="left"/>
+            <speak chara="planckNoFace">Не думай о нас, не думай ни о какой организации...</speak>
+            <show chara="planckSmileCoatClose-upSymme" position="left"/>
+            <speak chara="planckNoFace">Ты должен внимательно прислушаться к этому внутреннему голосу глубоко внутри себя, голосу, который, как обычный человек, воплощает в жизнь эти самые простые и чистые идеи.</speak>
+            <show chara="planckSeriousCoatClose-upSymme" position="left"/>
+            <speak chara="planckNoFace">У всего есть свои две стороны... поэтому ключевым моментом является то, признаешь ли ты свои действия от всего сердца или нет.</speak>
+            <show chara="planckNormalCoatClose-upSymme" position="left"/>
+            <speak chara="planckNoFace">А затем...</speak>
+            <show chara="planckSmileCoatClose-upSymme" position="left"/>
+            <speak chara="planckNoFace">...Защити хорошо тех, кто действительно заслуживает твоей защиты.</speak>
+            <show chara="planckSlyCoatClose-upSymme" position="left"/>
+            <speak chara="planckNoFace">Не забывай, ты устойчив к Хонкаю... но даже американские учёные пока не могут этого объяснить.</speak>
+            <goto goto="80" change="#ffffff"/>
+        </scene>
+        <scene id="80" background="westCliffWindow.jpg">
+            <bgm src="10_20_londonderry_p.mp3" status="start"></bgm>
+            <text>Когда Вельт заканчил вспоминать, он замечает, что великолепные звуки пианино звучали у него за спиной чёрт знает как долго.</text>
+            <goto goto="90" change="0"/>
+        </scene>
+        <scene id="90" background="CG12-2.jpg">
+            <bgm src="10_20_londonderry_p.mp3" status="continue"></bgm>
+            <text>Десять пальцев Эйнштейн проворно постукивают по клавишам пианино, и характерный чёткий звук пианино, кажется, выскальзывает из-под её пальцев.</text>
+            <text>На мгновение Вельту кажется, что всё его тело покрылось мурашками.</text>
+            <text>Он не помнит, чтобы разучивал какие-либо народные песни, но мелодия музыки кажется ему странно знакомой.</text>
+            <text>Нет, не просто знакомой...</text>
+            <speak chara="weltNoFace">Ах, мальчик мой, в поход сыграли горны.</speak>
+            <speak chara="weltNoFace">Осенний ветер реки остудил — </speak>
+            <speak chara="weltNoFace">Уходишь ты, и там, в долинах горных,</speak>
+            <speak chara="weltNoFace">Ты знай, я жду тебя пока достанет сил.</speak>
+            <goto goto="95" change="0"/>
+        </scene>
+        <scene id="95" background="CG12-1.jpg">
+            <bgm src="10_20_londonderry_p.mp3" status="continue"></bgm>
+            <speak chara="einNoFace">Но верю я — вернёшься ты, мой милый,</speak>
+            <speak chara="einNoFace">В пороше зимней, или в летний зной.</speak>
+            <speak chara="einNoFace">Я буду ждать, и под звездой счастливой</speak>
+            <speak chara="einNoFace">Пускай хранит тебя в пути моя любовь. </speak>
+            <goto goto="100" change="0"/>
+        </scene>
+        <scene id="100" background="CG12-2.jpg">
+            <bgm src="10_20_londonderry_p.mp3" status="continue"></bgm>
+            <speak chara="einNoFace" remark="next">Вельт... Тебе тоже знакома эта песня?</speak>
+            <remark post="U2FsdGVkX19ZdL7hDqev2Mrxfcrrag==">
+                <p class="article-text-h">Примечание: </p>
+                <p class="article-text">«Danny Boy» (с англ. — «Мальчик Дэнни») — баллада, написанная в 1910 году английским юристом Фредериком Везерли. Существует несколько версий значения песни «Danny Boy». Предполагается, что «Danny Boy» — лирическая песня о герое, погибшем в войне за свободу Ирландии. Некоторые слушатели истолковывают «Дэнни Бой» как послание от родителей сыну, ушедшему на войну или эмигрировавшему. </p>
+            </remark>
+            <speak chara="einNoFace">Это...</speak>
+            <speak chara="einNoFace">С давних, давних времён...</speak>
+            <speak chara="einNoFace">Кое-кто...</speak>
+            <speak chara="einNoFace">Кто научил меня этой песни...</speak>
+            <end post="U2FsdGVkX1+r++fvlcKhEiAARLoGiw=="/>
+        </scene>
+    </story>
+</data>		
