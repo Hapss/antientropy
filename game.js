@@ -1388,7 +1388,6 @@ function startGame(galgameKey, loadKey) {
     }
     if (catalogListTemp[i].getAttribute('id') == galgameKey) {
       playKey = getText(catalogListTemp[i]) // Передаваемый параметр — ID
-      break
     }
   }
   if (playKey != galgameKey && Number(galgameKey) < 1) {
@@ -1597,13 +1596,13 @@ function preLoadImagesBegin(imageList) {
     .addClass('preload-image')
     .data('retryCount', 0)
     .bind('error', function () {
-      var count = $(this).data('retryCount')
-      if (count < 5) {
-        // Количество попыток
-        $(this).data('retryCount', count + 1)
-        this.src = this.src
-      }
-    })
+        var count = $(this).data('retryCount')
+        if (count < 5) {
+          // Количество попыток
+          $(this).data('retryCount', count + 1)
+          this.src = this.src
+        }
+      })
   $('.preload').append($tempImage)
 }
 
@@ -1622,42 +1621,27 @@ function preLoadImagesCheck(imageClassName) {
 
 function endGame(keyFlag) {
   autoSpeed = 'stop'
-  if (keyFlag == null) {
+  var bgm = $('#bgm')[0]
+  bgm.pause()
+  if (!isNaN(bgm.duration)) bgm.currentTime = 0
+  var sound = $('#sound')[0]
+  sound.pause()
+  if (!isNaN(sound.duration)) sound.currentTime = 0 // остановить bgm se
+
+  if (keyFlag == null || keyFlag < 0) {
     setListens()
-    var bgm = $('#bgm')[0]
-    bgm.pause()
-    if (!isNaN(bgm.duration)) bgm.currentTime = 0
-    var sound = $('#sound')[0]
-    sound.pause()
-    if (!isNaN(sound.duration)) sound.currentTime = 0 // остановить bgm se
+    $('.main').hide() // Скрываем игровой слой сразу
+    $('.cg').css('display', 'none')
+    
     $('.menuscene').fadeIn(500, function () {
-      $('.main').hide() // ИСПРАВЛЕНИЕ: Скрываем игру при выходе в меню
-      $('.cg').css('display', 'none')
-      bgm = $('#indexbgm')[0]
-      if (!isNaN(bgm.duration)) bgm.currentTime = 0
-      bgm.play() // главная bgm
+      var indexBgm = $('#indexbgm')[0]
+      if (!isNaN(indexBgm.duration)) indexBgm.currentTime = 0
+      indexBgm.play() // главная bgm
       LoadFinish()
       if (thanksWordsFlag) {
         nextChapterBox()
         thanksWordsFlag = false
       }
-    })
-  } else if (keyFlag < 0) {
-    setListens()
-    var bgm = $('#bgm')[0]
-    bgm.pause()
-    if (!isNaN(bgm.duration)) bgm.currentTime = 0
-    var sound = $('#sound')[0]
-    sound.pause()
-    if (!isNaN(sound.duration)) sound.currentTime = 0 // остановить bgm se
-    $('.menuscene').fadeIn(500, function () {
-      $('.main').hide() // ИСПРАВЛЕНИЕ: Скрываем игру при выходе в меню
-      $('.cg').css('display', 'none')
-      bgm = $('#indexbgm')[0]
-      if (!isNaN(bgm.duration)) bgm.currentTime = 0
-      bgm.play() // главная bgm
-      LoadFinish()
-      nextChapterBox()
     })
   } else {
     startGame(now_galgame + 1, { S: 0, A: 0 })
@@ -1783,8 +1767,7 @@ function browserRedirect() {
   var bIsUc7 = sUserAgent.match(/rv:1.2.3.4/i) == 'rv:1.2.3.4'
   var bIsUc = sUserAgent.match(/ucweb/i) == 'ucweb'
   var bIsAndroid = sUserAgent.match(/android/i) == 'android'
-  var bIsCE = sUserAgent.match(/windows ce/i) == 'windows ce'
-  var bIsWM = sUserAgent.match(/windows mobile/i) == 'windows mobile'
+  var bIsCE = sUserAgent.match(/windows ce/i) == 'windows mobile'
   if (
     bIsIpad ||
     bIsIphoneOs ||
@@ -1803,21 +1786,19 @@ function browserRedirect() {
 
 function check_size() {
   var winWidth
-  var winHeight
-  // Получить ширину окна
   if (window.innerWidth) {
     winWidth = window.innerWidth
   } else if (document.body && document.body.clientWidth) {
-    winWidth = document.body.clientWidth // Получить высоту окна
+    winWidth = document.body.clientWidth 
   }
   winWidth = parseInt(winWidth)
+  var winHeight
   if (window.innerHeight) {
     winHeight = window.innerHeight
   } else if (document.body && document.body.clientHeight) {
     winHeight = document.body.clientHeight
   }
   winHeight = parseInt(winHeight)
-  // Получение размера окна путем глубокой проверки тела внутри Document
   if (
     document.documentElement &&
     document.documentElement.clientHeight &&
@@ -1840,7 +1821,6 @@ function check_size() {
     $('.frame')
       .css('height', winHeight + 1 + 'px')
       .css('width', (winHeight / 9) * 16 + 'px')
-    $('.black-t').css('width', (winWidth - $('.frame').width()) / 2 + 'px')
   } else {
     $('.frame')
       .css('width', winWidth + 'px')
@@ -1853,7 +1833,7 @@ function check_size() {
   window.scrollTo(0, 1) // Скрытие панели инструментов браузера
 }
 
-// CUSTOM: запрашивает XML по настраиваемому пользователем xmlPath, в случае неудачи он вернется к основному репо VN
+// CUSTOM: запрашивает XML по настраиваемому пользователю xmlPath, в случае неудачи он вернется к основному репо VN
 function get_xml_ajax_async(
   xmlName,
   callBack,
@@ -1920,7 +1900,7 @@ function getText(e) {
   e = e.childNodes || e // Если передан элемент, то продолжаем обход его дочерних элементов; в противном случае предполагаем, что это массив
   for (var i = 0; i < e.length; i++) {
     // Если это не элемент, то возвращаем его текстовое значение;
-    // в противном случае рекурсивно проходим по всем дочерним узлам элемента;
+    // если это элемент, то рекурсивно проходим по всем дочерним узлам элемента;
     if (e[i].nodeType) {
       t += e[i].nodeType != 1 ? e[i].nodeValue : getText(e[i].childNodes)
     } else {
@@ -2026,7 +2006,7 @@ function catalogPageNew(page, flag) {
           catalogListSort[i].getAttribute('quotationOne') +
           '</p>'
       )
-      if (!catalogListSort[i].getAttribute('partThree')) {
+      if (!catalogListSort[i].getAttribute('partThree') ) {
         if (!catalogListSort[i].getAttribute('partTwo')) {
           $('#catalog-content-' + (j - page * 2)).addClass('catalog-content-1A')
           $('#catalog-label_1-' + (j - page * 2)).addClass('catalog-label_1_on')
@@ -2099,7 +2079,7 @@ function catalogPageNew(page, flag) {
                 $('.catalog-wrapper-new').css(
                   'background-image',
                   "url('" +
-                  'ru-RU/resources/background/' +
+                   'ru-RU/resources/background/' +
                     e.data.pic +
                     ".jpg')"
                 )
@@ -2151,15 +2131,15 @@ function catalogPageNew(page, flag) {
               $('.catalog-wrapper-new').css(
                 'background-image',
                 "url('" +
-                'ru-RU/resources/background/' +
-                  e.data.pic +
-                  ".jpg')"
-              )
+                   'ru-RU/resources/background/' +
+                    e.data.pic +
+                    ".jpg')"
+                )
               $('#article-frame-' + e.data.pos).html(
                 '<p style="color:#ffffff;text-align:left;">' +
                   e.data.quo +
                   '</p>'
-              )
+                )
               $('#catalog-content-' + e.data.pos)
                 .removeClass('catalog-content-3Bac')
                 .removeClass('catalog-content-3Cab')
@@ -2190,27 +2170,27 @@ function catalogPageNew(page, flag) {
               $('.catalog-wrapper-new').css(
                 'background-image',
                 "url('" +
-                'ru-RU/resources/background/' +
-                  e.data.pic +
-                  ".jpg')"
-              )
+                   'ru-RU/resources/background/' +
+                    e.data.pic +
+                    ".jpg')"
+                )
               $('#article-frame-' + e.data.pos).html(
                 '<p style="color:#ffffff;text-align:left;">' +
                   e.data.quo +
                   '</p>'
-              )
+                )
               $('#catalog-content-' + e.data.pos)
                 .removeClass('catalog-content-3Abc')
                 .removeClass('catalog-content-3Cab')
                 .addClass('catalog-content-3Bac')
               $('#catalog-label_2-' + e.data.pos)
-                .removeClass('catalog-label_2_off')
-                .addClass('catalog-label_2_on')
+                  .removeClass('catalog-label_2_off')
+                  .addClass('catalog-label_2_on')
               $('#catalog-go-' + e.data.pos)
-                .unbind()
-                .click({ str: e.data.str, sce: e.data.sc2 }, function (ee) {
-                  startGame(ee.data.str, { S: ee.data.sce, A: 0 })
-                })
+                  .unbind()
+                  .click({ str: e.data.str, sce: e.data.sc2 }, function (ee) {
+                    startGame(ee.data.str, { S: ee.data.sce, A: 0 })
+                  })
             }
           )
         $('#catalog-label_3-' + (j - page * 2))
@@ -2229,27 +2209,27 @@ function catalogPageNew(page, flag) {
               $('.catalog-wrapper-new').css(
                 'background-image',
                 "url('" +
-                'ru-RU/resources/background/' +
-                  e.data.pic +
-                  ".jpg')"
-              )
+                   'ru-RU/resources/background/' +
+                    e.data.pic +
+                    ".jpg')"
+                )
               $('#article-frame-' + e.data.pos).html(
                 '<p style="color:#ffffff;text-align:left;">' +
                   e.data.quo +
                   '</p>'
-              )
+                )
               $('#catalog-content-' + e.data.pos)
-                .removeClass('catalog-content-3Abc')
                 .removeClass('catalog-content-3Bac')
-                .addClass('catalog-content-3Cab')
+                .removeClass('catalog-content-3Cab')
+                .addClass('catalog-content-3Abc')
               $('#catalog-label_3-' + e.data.pos)
                 .removeClass('catalog-label_3_off')
                 .addClass('catalog-label_3_on')
               $('#catalog-go-' + e.data.pos)
-                .unbind()
-                .click({ str: e.data.str, sce: e.data.sc3 }, function (ee) {
-                  startGame(ee.data.str, { S: ee.data.sce, A: 0 })
-                })
+                  .unbind()
+                  .click({ str: e.data.str, sce: e.data.sc3 }, function (ee) {
+                    startGame(ee.data.str, { S: ee.data.sce, A: 0 })
+                  })
             }
           )
         $('#catalog-go-' + (j - page * 2))
@@ -2306,7 +2286,6 @@ function showCatalogFrame(page) {
   catalogPageNew(page)
 }
 //-------------------------------------------------------
-
 function setCookie(name, value) {
   localStorage.setItem(name, value)
 }
@@ -2524,16 +2503,13 @@ function hideremark() {
 
 function wrk_get_size() {
   var winWidth
-  var winHeight
-
   if (window.innerWidth) winWidth = window.innerWidth
   else if (document.body && document.body.clientWidth)
     winWidth = document.body.clientWidth
-  // Получить высоту окна
+  var winHeight
   if (window.innerHeight) winHeight = window.innerHeight
   else if (document.body && document.body.clientHeight)
     winHeight = document.body.clientHeight
-  // Получение размера окна путем глубокой проверки тела внутри Document
   if (
     document.documentElement &&
     document.documentElement.clientHeight &&
