@@ -5,17 +5,16 @@ var now_scene_tag = '_2017_anti_entropy_now_scene'
 var now_action_tag = '_2017_anti_entropy_now_action'
 var now_galgame = 1
 var sceneList = []
-var characterData = {} // ИСПРАВЛЕНО: Теперь это объект, а не массив
+var characterData = {} // Объект
 var now_scene = -1 // Текущая сцена для сохранения
 var now_action = -1
 var historyChoiceList = [] // Используется для записи истории выборов в текущей сцене
 var uiImageList = new Array()
 var showInSceneList = new Array()
-var xml_files_all_in_this = {} // ИСПРАВЛЕНО: Объект для надежного хранения кэша
-var loading_xml_files = {} // ИСПРАВЛЕНО: Объект
+var xml_files_all_in_this = {} // Объект для надежного хранения кэша
+var loading_xml_files = {} // Объект
 
 var tl_base_url = base_url + '/'
-var tl_css_lang = 'zh'
 
 uiImageList.push(
   'auto.png',
@@ -396,7 +395,7 @@ function cgPage(page, flag) {
   var preLoadImagesTimer = setInterval(function () {
     var i
     var j
-    if (preLoadImagesCheck() > 0 || countIndexTimer > 1000) {
+    if (preLoadImagesCheck() > 0 || countIndexTimer > 100) {
       // Изображения загружены, либо истекло время ожидания
       clearTimeout(preLoadImagesTimer)
       // Загрузка
@@ -1089,7 +1088,7 @@ var thanksWordsFlag = false
 function thanksWords() {
   thanksWordsFlag = true
   $('#confirm_1')
-    .html(`<div class="submit-center ${tl_css_lang}"></div>`)
+    .html(`<div class="submit-center ru"></div>`)
     .css(
       'background',
       "url('" + base_url + "ru-RU/resources/ui/thanks.png') no-repeat"
@@ -1107,7 +1106,7 @@ function thanksWords() {
 function nextChapterBox() {
   $('#confirm_1')
     .html(
-      `<div class="submit-center ${tl_css_lang}" onclick="CloseConfirmDialog()"></div>`
+      `<div class="submit-center ru" onclick="CloseConfirmDialog()"></div>`
     )
     .css(
       'background',
@@ -1308,7 +1307,7 @@ function ToggleWindow(mode) {
   } else if (mode == 'backToMenu') {
     $('.transition').fadeIn(450)
     endGame()
-    setTimeout('$(".transition").fadeOut(450);', 500)
+    setTimeout(function() { $(".transition").fadeOut(450); }, 500)
   }
 }
 /////////////////////////////////
@@ -1336,7 +1335,7 @@ function systemAutoLoadStart(galgameKey) {
   if (autoLoadGal != null && autoLoadSce != null && autoLoadAct != null) {
     $('#confirm_1')
       .html(
-        `<div class="cancel ${tl_css_lang}"></div><div class="submit ${tl_css_lang}" onclick="systemAutoLoad()"></div>`
+        `<div class="cancel ru"></div><div class="submit ru" onclick="systemAutoLoad()"></div>`
       )
       .css('background', "url('ru-RU/resources/ui/continue.png') no-repeat")
       .css('background-size', 'auto 100%')
@@ -1373,10 +1372,10 @@ function startGame(galgameKey, loadKey) {
     return
   }
   startLoad()
-  // catalogListTemp и catalogListLength являются глобальными переменными, обратите внимание
+  
   var xmlDoc = loadExistXmlFile('catalog_list', function () {
     var doc = xml_files_all_in_this['catalog_list'];
-    if (!doc || doc === "FAILED") { LoadFinish(); return; } // ИСПРАВЛЕНО: Безопасный выход при ошибке загрузки
+    if (!doc || doc === "FAILED") { LoadFinish(); return; } // Безопасный выход при ошибке
     catalogListTemp = doc.getElementsByTagName('log')
     catalogListLength = catalogListTemp.length
     LoadFinish()
@@ -1397,7 +1396,6 @@ function startGame(galgameKey, loadKey) {
     i--
     playKey = getText(catalogListTemp[i]) // Недопустимый параметр, чтение последней главы
   } else if (i >= catalogListLength) {
-    // Входным значением может быть порядковый номер массива в списке глав, поэтому ничего не найдено в предыдущем цикле
     if (catalogListTemp[Number(galgameKey) - 1] != null) {
       playKey = getText(catalogListTemp[Number(galgameKey) - 1])
       i = Number(galgameKey) - 1
@@ -1417,32 +1415,51 @@ function startGame(galgameKey, loadKey) {
   galgame(playKey)
   now_galgame = i + 1 // от 1, а не от 0
 
-  // Проверка, завершилась ли загрузка предзагруженных изображений
-  var countIndexTimer = 0
+  // Надежный таймер загрузки
+  var countIndexTimer = 0;
   var preLoadImagesTimer = setInterval(function () {
-    if (!loadExistXmlFile(playKey, function () {})) {
-      // Загрузка декларации xml не подлежит тайм-ауту
-      countIndexTimer++
-      return
+    countIndexTimer++;
+
+    // Если прошло больше 10 секунд (100 * 100ms), принудительно прерываем бесконечное ожидание
+    var isTimeout = countIndexTimer > 100;
+    
+    // Убеждаемся, что сценарий отправлен на загрузку
+    var isPlayDocLoading = !xml_files_all_in_this.hasOwnProperty(playKey);
+    if (isPlayDocLoading) {
+        loadExistXmlFile(playKey, function () {});
+        if (!isTimeout) return;
     }
-    if (Object.keys(characterData).length === 0) { // ИСПРАВЛЕНО: Проверка наличия элементов в объекте
-      // Загрузка декларации xml не подлежит тайм-ауту
-      countIndexTimer++
-      return
+
+    // Убеждаемся, что база персонажей загрузилась
+    var isCharDataEmpty = Object.keys(characterData).length === 0;
+    var isCharDocFailed = xml_files_all_in_this['characterData'] === "FAILED";
+    
+    if (isCharDataEmpty && !isCharDocFailed) {
+        if (!isTimeout) return; // Ждём, пока не загрузится или не будет ошибка/таймаут
     }
-    if (preLoadImagesCheck() > 0 || countIndexTimer > 100) {
-      // Изображения загружены, либо истекло время ожидания
-      clearTimeout(preLoadImagesTimer)
-      $('.cg').css('display', 'none')
+
+    if (preLoadImagesCheck() > 0 || isTimeout) {
+      clearTimeout(preLoadImagesTimer);
+      $('.cg').css('display', 'none');
       $('.transition').fadeIn(300, function () {
-        $('.catalog-wrapper').hide()
-        $('.cg-wrapper').hide()
-      })
-      var bgm = $('#indexbgm')[0]
-      bgm.pause() // главная bgm
-      setTimeout('$(".menuscene").fadeOut()', 350)
-      setTimeout('$(".transition").fadeOut(450);', 450)
-      LoadFinish()
+        $('.catalog-wrapper').hide();
+        $('.catalog-wrapper-new').hide();
+        $('.cg-wrapper').hide();
+      });
+      var bgm = $('#indexbgm')[0];
+      bgm.pause(); // главная bgm
+      
+      // ИСПРАВЛЕНО: безопасный вызов без строк для eval
+      setTimeout(function() { $(".menuscene").fadeOut(); }, 350);
+      setTimeout(function() { $(".transition").fadeOut(450); }, 450);
+      LoadFinish();
+
+      // Если сценарий так и не загрузился, сообщаем об ошибке
+      if (xml_files_all_in_this[playKey] === "FAILED") {
+          alert("Не удалось загрузить файл сценария: " + playKey + ".xml\nПроверьте, существует ли файл по пути ru-RU/xml/" + playKey + ".xml");
+          return;
+      }
+
       if (loadKey == null) {
         Action(0, 0)
       } else if (loadKey.S == 0 && loadKey.A == 0) {
@@ -1454,7 +1471,6 @@ function startGame(galgameKey, loadKey) {
         Action(loadKey.S, loadKey.A)
       }
     }
-    countIndexTimer++
   }, 100)
 }
 
@@ -1726,16 +1742,16 @@ function get_record_submit() {
   var recordAction = getCookie(now_galgame + now_action_tag)
   CloseConfirmDialog()
   if (recordScene && recordAction) {
-    setTimeout('ClearCharas();', 450)
-    setTimeout('ClearDialog();', 450)
+    setTimeout(function() { ClearCharas(); }, 450)
+    setTimeout(function() { ClearDialog(); }, 450)
     $('.transition').fadeIn(450, function () {
       for (var i = 0; i < recordAction; i++) {
         Action(recordScene, i, 1, 1)
       }
       Action(recordScene, recordAction, 1)
     })
-    setTimeout('$(".menuscene").fadeOut();', 450)
-    setTimeout('$(".transition").fadeOut(450);', 500)
+    setTimeout(function() { $(".menuscene").fadeOut(); }, 450)
+    setTimeout(function() { $(".transition").fadeOut(450); }, 500)
     setListens(recordScene, recordAction)
   } else {
     alert(gameTips['empty_save_tips'])
@@ -2782,7 +2798,7 @@ function portraitPage(typeReturn) {
     // Проверка, завершилась ли загрузка предзагруженных изображений
     var countIndexTimer = 0
     var preLoadImagesTimer = setInterval(function () {
-      if (preLoadImagesCheck() > 0 || countIndexTimer > 1000) {
+      if (preLoadImagesCheck() > 0 || countIndexTimer > 100) {
         // Изображения загружены, либо истекло время ожидания
         clearTimeout(preLoadImagesTimer)
         $('#family-portrait').addClass('family-portrait')
