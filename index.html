@@ -50,26 +50,8 @@
     <meta name='theme-color' content='#ffffff' />
     
     <script>
-      var currentLang = localStorage.getItem('ae_lang');
-      if (!currentLang) {
-        var userLang = navigator.language || navigator.userLanguage;
-        if (userLang.startsWith('en')) currentLang = 'en-US';
-        else if (userLang.startsWith('zh')) currentLang = 'zh-CN';
-        else currentLang = 'ru-RU';
-      }
-      
-      var titles = {
-        'ru-RU': 'Анти-Энтропия русская бета',
-        'en-US': 'Anti-Entropy English Beta',
-        'zh-CN': '逆熵 - Anti-Entropy'
-      };
-      document.title = titles[currentLang] || titles['ru-RU'];
-      document.documentElement.lang = currentLang.split('-')[0];
-      
-      function setLanguage(l) {
-        localStorage.setItem('ae_lang', l);
-        window.location.reload();
-      }
+      document.title = 'Анти-Энтропия русская бета';
+      document.documentElement.lang = 'ru';
     </script>
   </head>
 
@@ -109,30 +91,30 @@
           <table class="grid_layout">
             <tr>
               <td class="menu_btn_frame">
-                <div class="menu_btn menu_btn_1" onclick="startGame(0)"></div>
+                <div class="menu_btn menu_btn_1" onclick="$('#credits-text').hide(); startGame(0)"></div>
               </td>
             </tr>
             <tr>
               <td class="menu_btn_frame">
                 <div
                   class="menu_btn menu_btn_3"
-                  onclick="catalogPageNew()"></div>
+                  onclick="$('#credits-text').hide(); catalogPageNew()"></div>
               </td>
             </tr>
             <tr>
               <td class="menu_btn_frame">
-                <div class="menu_btn menu_btn_2" onclick="cgPage()"></div>
+                <div class="menu_btn menu_btn_2" onclick="$('#credits-text').hide(); cgPage()"></div>
               </td>
             </tr>
             <tr>
               <td class="menu_btn_frame">
-                <div class="menu_btn menu_btn_4" onclick="portraitPage()"></div>
+                <div class="menu_btn menu_btn_4" onclick="$('#credits-text').hide(); portraitPage()"></div>
               </td>
             </tr>
           </table>
 
           <div class="cg-wrapper">
-            <div class="back" onclick="$('.cg-wrapper').fadeOut()"></div>
+            <div class="back" onclick="$('.cg-wrapper').fadeOut(); $('#credits-text').show();"></div>
             <ul class="cg-frame">
               <li>
                 <div class="cg-img" id="cg-0"></div>
@@ -160,7 +142,7 @@
             <div class="catalog-dark"></div>
             <div
               class="back"
-              onclick="$('.grid_layout').show();$('.catalog-wrapper-new').fadeOut()"
+              onclick="$('.grid_layout').show(); $('.catalog-wrapper-new').fadeOut(); $('#credits-text').show();"
             ></div>
             <div id="catalog-content-0">
               <div class="catalog-chap" id="catalog-chap-0"></div>
@@ -189,7 +171,7 @@
           </div>
           <div id="family-portrait" style="display: none">
                 <div class="portrait-wrapper" id="portrait-frame"></div>
-                <div class="achievement-back" onclick="$('#family-portrait').fadeOut()"></div>
+                <div class="achievement-back" onclick="$('#family-portrait').fadeOut(); $('#credits-text').show();"></div>
                 <div class="progress-box">
                     <div class="progress-bar">
                         <div class="progress-span">
@@ -215,10 +197,12 @@
                 </ul>
             </div>
             <div class="achievement-catalog">
-                <div class="back" onclick="$('.achievement-catalog').fadeOut()"></div>
+                <div class="back" onclick="$('.achievement-catalog').fadeOut(); $('#credits-text').show();"></div>
             </div>
         </div>
-        <div id="credits-text" style="position: fixed; bottom: 10px; left: 10px; z-index: 99999; color: white; font-family: monospace, sans-serif; font-size: 14px; text-shadow: 1px 1px 3px rgba(0,0,0,0.8); pointer-events: none; user-select: none; text-align: left; font-style: italic;"></div>
+        <div id="credits-text" style="position: absolute; bottom: 10px; left: 10px; z-index: 99; color: white; font-family: monospace, sans-serif; font-size: 14px; text-shadow: 1px 1px 3px rgba(0,0,0,0.8); pointer-events: none; user-select: none; text-align: left; font-style: italic;">
+          Переведено на русский язык Haps<br/>Все права принадлежат MiHoYo Co., Ltd.
+        </div>
       </div>
       <div id="confirm" style="display: none">
         <div id="confirm_1"></div>
@@ -314,17 +298,13 @@
       var resPath = '';
       
       var xmlPath = 'ru-RU/xml/';
-      var lang = currentLang.split('-')[0];
+      var lang = 'ru';
 
-      var credits = {
-        'ru-RU': 'Переведено на русский язык: Haps<br/>Все права принадлежат MiHoYo Co., Ltd.',
-        'en-US': 'Translated by Aiatar, zklm, listless-restless, RaytheonThunder#3567 and asterae<br/>All assets belong to miHoYo Co., Ltd.',
-        'zh-CN': '版权所有 miHoYo Co., Ltd.'
-      };
-      document.getElementById('credits-text').innerHTML = credits[currentLang] || credits['ru-RU'];
-      
-      var langSelector = document.getElementById('lang-selector');
-      if (langSelector) langSelector.value = currentLang;
+      $(document).ready(function() {
+        $(document).on('click', '.home_btn', function() {
+          $('#credits-text').show();
+        });
+      });
     </script>
     <script type="text/javascript" src="https://act-webstatic.mihoyo.com/event_bh3_com/avg-anti-entropy/static_CN/tips/game_tips.js?v=20210817"></script>
     <script type="text/javascript" src="jquery-1.11.1.min.js"></script>
