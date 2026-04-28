@@ -5,13 +5,14 @@ var now_scene_tag = '_2017_anti_entropy_now_scene'
 var now_action_tag = '_2017_anti_entropy_now_action'
 var now_galgame = 1
 var sceneList = []
-var characterData = []
+var characterData = {} // ИСПРАВЛЕНО: Теперь это объект, а не массив
 var now_scene = -1 // Текущая сцена для сохранения
 var now_action = -1
 var historyChoiceList = [] // Используется для записи истории выборов в текущей сцене
 var uiImageList = new Array()
 var showInSceneList = new Array()
-var xml_files_all_in_this = new Array()
+var xml_files_all_in_this = {} // ИСПРАВЛЕНО: Объект для надежного хранения кэша
+var loading_xml_files = {} // ИСПРАВЛЕНО: Объект
 
 var tl_base_url = base_url + '/'
 var tl_css_lang = 'zh'
@@ -328,6 +329,7 @@ function cgPage(page, flag) {
     page = cgPageIndex
   }
   var xmlDoc = loadExistXmlFile('cg_list', function () {
+    if (xml_files_all_in_this['cg_list'] === "FAILED") { LoadFinish(); return; }
     cgListTemp = xml_files_all_in_this['cg_list'].getElementsByTagName('cg')
     cgPageLength = cgListTemp.length
     cgPage(page, flag)
@@ -467,7 +469,7 @@ function generate_all_characterData(name) {
     generate_all_characterData(name)
   })
   if (!xmlDoc) return
-  if (characterData.length) {
+  if (Object.keys(characterData).length > 0) { // ИСПРАВЛЕНО: Проверка наличия элементов в объекте
     // В этот момент xml уже загружен
     var imageList = xmlDoc.getElementsByTagName('image')
     preLoadImagesBegin(imageList)
@@ -530,6 +532,7 @@ function generate_all_characterData(name) {
   }
   // В этот момент xml уже загружен
   xmlDoc = loadExistXmlFile(name)
+  if (!xmlDoc || xmlDoc === "FAILED") return; // Защита от отсутствующего файла
   var imageList = xmlDoc.getElementsByTagName('image')
   preLoadImagesBegin(imageList)
 }
@@ -1372,8 +1375,9 @@ function startGame(galgameKey, loadKey) {
   startLoad()
   // catalogListTemp и catalogListLength являются глобальными переменными, обратите внимание
   var xmlDoc = loadExistXmlFile('catalog_list', function () {
-    catalogListTemp =
-      xml_files_all_in_this['catalog_list'].getElementsByTagName('log')
+    var doc = xml_files_all_in_this['catalog_list'];
+    if (!doc || doc === "FAILED") { LoadFinish(); return; } // ИСПРАВЛЕНО: Безопасный выход при ошибке загрузки
+    catalogListTemp = doc.getElementsByTagName('log')
     catalogListLength = catalogListTemp.length
     LoadFinish()
     startGame(galgameKey, loadKey)
@@ -1421,7 +1425,7 @@ function startGame(galgameKey, loadKey) {
       countIndexTimer++
       return
     }
-    if (!characterData.length) {
+    if (Object.keys(characterData).length === 0) { // ИСПРАВЛЕНО: Проверка наличия элементов в объекте
       // Загрузка декларации xml не подлежит тайм-ауту
       countIndexTimer++
       return
@@ -1863,15 +1867,16 @@ function get_xml_ajax_async(
         )
       } else {
         console.error("Не удалось загрузить XML файл:", xmlFileURL);
+        xml_files_all_in_this[xmlName] = "FAILED"; // ИСПРАВЛЕНО: предотвращение бесконечного цикла, если файла нет
         callBack()
       }
     },
   })
 }
-var loading_xml_files = new Array()
 
 function loadExistXmlFile(xmlName, callBack, fileType) {
   if (xml_files_all_in_this.hasOwnProperty(xmlName)) {
+    if (xml_files_all_in_this[xmlName] === "FAILED") return null; // ИСПРАВЛЕНО: немедленная остановка при ошибке
     return xml_files_all_in_this[xmlName]
   } else if (loading_xml_files.hasOwnProperty(xmlName)) {
     return null // Исключить непредвиденный параллелизм
@@ -1935,8 +1940,9 @@ function catalogPageNew(page, flag) {
     page = catalogPageIndex
   }
   var xmlDoc = loadExistXmlFile('catalog_list', function () {
-    catalogListTemp =
-      xml_files_all_in_this['catalog_list'].getElementsByTagName('log')
+    var doc = xml_files_all_in_this['catalog_list'];
+    if (!doc || doc === "FAILED") { LoadFinish(); return; } // ИСПРАВЛЕНО
+    catalogListTemp = doc.getElementsByTagName('log')
     catalogListLength = catalogListTemp.length
     catalogPageNew(page, flag)
   })
@@ -2860,8 +2866,9 @@ function exhibitionPage(page) {
     exhibition_index = Number(page)
   }
   var xmlDoc = loadExistXmlFile('exhibition_list', function () {
-    exhibition_list =
-      xml_files_all_in_this['exhibition_list'].getElementsByTagName('log')
+    var doc = xml_files_all_in_this['exhibition_list'];
+    if (!doc || doc === "FAILED") { LoadFinish(); return; } // ИСПРАВЛЕНО
+    exhibition_list = doc.getElementsByTagName('log')
     exhibitionPage(page)
   })
   if (!xmlDoc) return
