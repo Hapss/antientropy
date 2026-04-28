@@ -9,75 +9,75 @@
         <scene id="10" background="beachNorfolk.jpg">
             <bgm src="10_25_noise.mp3" status="start"></bgm>
             <sound src="8_24_launch.mp3"/>
-            <text remark="next">Из-за внезапного электромагнитного импульса самолёту пришлось приземлиться на военно-морской станции Норфолк.</text>
+            <text remark="next">Из-за остаточных эффектов внезапного масштабного электромагнитного импульса спецрейс, на котором ты летела, совершил вынужденную посадку на военном аэродроме военно-морской базы Норфолк.</text>
             <remark>
                 <p class="article-text-h">Примечание:</p>
-                <p class="article-text">Военно-морская станция Норфолк (Naval Station Norfolk) - военно-морской порт ВМС США в Норфолке, штат Вирджиния. Это порт приписки "Атлантического флота" США и крупнейшая военно-морская база в мире.</p>
+                <p class="article-text">Военно-морская база Норфолк — это военно-морская база ВМС США, расположенная в Норфолке, штат Виргиния. Это порт приписки «Атлантического флота» США и крупнейшая в мире военно-морская база.</p>
             </remark>
-            <text>Согласно отчётам, центром импульса является Нью-Йорк, и указанный импульс очень похож на энергетический импульс Хонкая.</text>
-            <text>Однако времени удивляться или беспокоиться не было. Согласно "Списку неотложных запросов", она была назначена главным командиром и должна руководить всеми спасательными операциями.</text>
-            <text>Первоначально она решила действовать с опережением графика и отозвать всех потенциальных целей, которые могли бы рассматриваться как заложники Отто, чтобы наиболее эффективно обманывать людей.</text>
-            <text>——Даже для того, чтобы сбить с толку потенциальных врагов, специально используются поддельные базовые станции. Связалась со своими учениками так, как будто план только начинается.</text>
-            <text>Однако, при сложившихся обстоятельствах, в рамках своей известности, она стала временным управляющим державой номер один в мире.</text>
-            <text>На данный момент все небоеспособные, работающие на базе, должны эвакуироваться. Самые "важные гости" должны скоро приехать сюда.</text>
-            <text>Глядя только на результаты, кажется, что ей очень повезло - в конце концов, это очень большая страна.</text>
-            <text>Независимо от стихийного бедствия, люди смогут найти место, которое не пострадает от него.</text>
+            <text>Согласно данным мониторинга, центр электромагнитного импульса должен находиться недалеко от Нью-Йорка... и он сопровождался импульсом Хонкая катастрофического уровня.</text>
+            <text>У тебя не было времени на шок и тем более на скорбь. Как высший руководитель, с которым удалось связаться по «списку экстренного оповещения», ты обязана лично прибыть на место и координировать спасательные работы.</text>
+            <text>Изначально ты решила действовать до запланированного срока лишь для того, чтобы максимально эффективно отвести внимание и эвакуировать всех потенциальных заложников, которые могли попасть в руки Отто...</text>
+            <text>...и даже специально связывалась со своими учениками через поддельные базовые станции, чтобы сбить с толку возможных врагов, делая вид, будто план только-только начал осуществляться.</text>
+            <text>Однако по стечению обстоятельств, в обозримых пределах, ты неожиданно стала временным руководителем ведущей мировой державы.</text>
+            <text>Сопровождающий нестроевой персонал можно временно разместить на базе. Последующие спецрейсы с другими важными «гостями» также будут приземляться здесь один за другим.</text>
+            <text>Рассматривая ситуацию по факту, ты втайне радовалась тому, что эта страна имеет такую огромную территорию.</text>
+            <text>Перед лицом любой катастрофы люди всегда могут найти стабильный тыл.</text>
             <goto goto="20" change="#ffffff"/>
         </scene>
         <scene id="20" background="aircraftCockpit.jpg">
             <bgm src="04_20_tank.mp3" status="start"></bgm>
-            <speak chara="ritaFullNameNoFace">Профессор, мы, кажется, пролетели над заливом Раритан.</speak>
-            <speak chara="ritaFullNameNoFace">Следует ли войти в режим разведки?</speak>
-            <text>После двухразовой дозаправки и полёта на большие расстояния продолжительностью более четырёх часов, под руководством агента-аса, вертолёт в качестве авангарда вскоре прибудет в центр бедствия.</text>
-            <text>Никаких повреждений обнаружено не было. За исключением пробок на некоторых дорогах, других очевидных аномалий с большой высоты не было видно.</text>
-            <speak chara="planckYourNameNoFace">Войдите в режим разведки.</speak>
-            <speak chara="planckYourNameNoFace">Эта ситуация слишком странная. Повысьте уровень оповещения до максимального и скажите всем, чтобы они ничего не игнорировали, каким бы незначительным это ни было.</speak>
-            <speak chara="ritaFullNameNoFace">Так точно, профессор.</speak>
-            <speak chara="planckYourNameNoFace">Просто продолжайте быть начеку. Я пойду сварю немного кофе.</speak>
+            <speak chara="ritaFullNameNoFace">Профессор, мы уже летим над заливом Раритан.</speak>
+            <speak chara="ritaFullNameNoFace">Перестраиваемся в разведывательный строй?</speak>
+            <text>После двух дозаправок и более чем четырёх часов долгого полёта, передовой отряд вертолётов под руководством твоего «лучшего агента» вот-вот прибудет в самый центр зоны бедствия.</text>
+            <text>На земле не было видно никаких следов разрушений. Если не считать пробок на некоторых шоссе, с большой высоты не наблюдалось никаких очевидных аномалий.</text>
+            <speak chara="planckYourNameNoFace">Переходим в разведывательный режим.</speak>
+            <speak chara="planckYourNameNoFace">Текущая ситуация крайне необычна. Сообщи всем, чтобы они поддерживали максимальный уровень боеготовности и не упускали ни малейшей детали.</speak>
+            <speak chara="ritaFullNameNoFace">Да, профессор.</speak>
+            <speak chara="planckYourNameNoFace">Будь начеку. Я пойду налью себе чашечку кофе.</speak>
             <hide position="center"></hide>
-            <speak chara="crewNoNameNoFace">...Метеорит? У нас метеорит на 2 часа в небе!</speak>
-            <speak chara="planckYourNameNoFace">...!?</speak>
+            <speak chara="crewNoNameNoFace">...Метеорит! На два часа, в небе появился метеорит!</speak>
+            <speak chara="planckYourNameNoFace">...?!</speak>
             <goto goto="30" change="0"/>
         </scene>
         <scene id="30" background="CG25-1.jpg">
             <bgm src="04_20_tank.mp3" status="continue"></bgm>
-            <text>Внезапно появившийся метеорит, безусловно, был интересен.</text>
-            <text>Но что меня больше всего удивило, так это парень, который проделал весь этот путь сюда, не издав ни звука, спрятанный в коробке.</text>
+            <text>Внезапное появление метеорита, конечно же, оказалось неожиданным.</text>
+            <text>Однако ещё больше тебя поразил ребёнок, который всю дорогу тихо прятался в ящике для вещей.</text>
             <goto goto="40" change="#ffffff"/>
         </scene>
         <scene id="40" background="darkEnergy.jpg">
             <bgm src="04_20_tank.mp3" status="stop"></bgm>
-            <text>.....</text>
+            <text>...</text>
             <bgm src="03_03_bostonNight.mp3" status="start"></bgm>
-            <text>Я знаю, что я должна сделать. Любой ценой я должна привлечь внимание этого злобного Настоятеля.</text>
-            <text>Будь это обычный раненый человек, я могла бы квантовать их, чтобы вытащить из беды.</text>
-            <text>Но в данном случае... это ничего не даст.</text>
-            <text>Раны, нанесённые Чёрной орхидеей, не могут быть залечены обычными средствами.</text>
-            <text>И что ещё хуже, достаточный эффект создания может быть достигнут только при использовании Чёрной орхидеи вместе с Белой лилией.</text>
-            <text>Но эти Божественные Ключи-близнецы не признают меня своим хозяином...</text>
-            <text>Что же мне делать——</text>
-            <text>.....</text>
-            <text>Нет, возможно, у нас всё ещё есть шанс.</text>
-            <text>.....</text>
+            <text>Ты понимала, что во что бы то ни стало должна отвлечь внимание этого злого епископа.</text>
+            <text>Будь это обычные раненые, то с твоей нынешней способностью к квантованию вполне можно было бы под шумок перенести своих друзей в безопасное место.</text>
+            <text>Но в нынешней ситуации... это было абсолютно бесполезно.</text>
+            <text>Ты понимала, что смертельные раны, нанесённые им «Бездной», невозможно исцелить обычными медицинскими средствами.</text>
+            <text>И что ещё хуже, единственное, что могло с этим справиться — «Цветок» — должен был объединиться с «Бездной», чтобы достичь достаточного эффекта созидания.</text>
+            <text>Но ты не был признанным хозяином этого парного Божественного Ключа...</text>
+            <text>Что же делать...</text>
+            <text>...</text>
+            <text>Нет, возможно, шанс всё же представится.</text>
+            <text>...</text>
             <text>Эйнштейн.</text>
             <text>Тесла.</text>
             <text>Вельт.</text>
-            <text>Их свет так легко не погаснет.</text>
-            <text>Как единственный человек, оставшийся в живых, я несу ответственность за продолжение борьбы.</text>
+            <text>Их сияние не может просто так сгинуть во тьме.</text>
+            <text>И потому единственный человек, который сейчас мог сражаться, обязан был взять эту ответственность на себя.</text>
             <goto goto="50" change="#ffffff"/>
         </scene>
         <scene id="50" background="CG25-2.jpg">
             <bgm src="8_24_war.mp3" status="start"></bgm>
-            <speak chara="ottoNoFace">...Как глупо.</speak>
-            <speak chara="ottoNoFace">...Твоя прямая атака провалилась, так что теперь ты пытаешься обмануть меня с помощью клонов?</speak>
-            <speak chara="ottoNoFace">Хорошо, тогда давай посоревнуемся, чтобы увидеть, кто действительно является существом с бесконечными возможностями.</speak>
+            <speak chara="ottoNoFace">...Бесстыдный хвастун.</speak>
+            <speak chara="ottoNoFace">...Ближний бой не удался, так ты решил запутать меня своими клонами?</speak>
+            <speak chara="ottoNoFace">Что ж, тогда давай померяемся силами и посмотрим, кто из нас действительно обладает безграничными возможностями.</speak>
             <goto goto="60" change="0"/>
         </scene>
         <scene id="60" background="CG25-3.jpg">
             <bgm src="8_24_war.mp3" status="continue"></bgm>
-            <speak chara="ottoNoFace">В этом мире нет необходимости в вечности.</speak>
-            <speak chara="ottoNoFace">Мечта превращается в пузыри и лопается в мгновение ока. Всё это правда.</speak>
-            <speak chara="ottoNoFace">1-й Божественный ключ: воспроизведение 7-го Божественного ключа——</speak>
+            <speak chara="ottoNoFace">В этом мире нет нужды в вечном;</speak>
+            <speak chara="ottoNoFace">Иллюзии, пузыри на воде, мимолётная быстротечность — вот истинная реальность.</speak>
+            <speak chara="ottoNoFace">Первый Божественный Ключ, седьмая множественная мимикрия...</speak>
             <goto goto="70" change="0"/>
         </scene>
         <scene id="70" background="CG25-3.jpg">
@@ -91,7 +91,7 @@
         <scene id="90" background="brightonBeach.jpg">
             <bgm src="04_20_tank.mp3" status="start"></bgm>
             <show chara="ottoScornfulGunFar" position="center"/>
-            <speak chara="ottoNoFace">...И это всё, что ты можешь?</speak>
+            <speak chara="ottoNoFace">...Рассыпался от одного удара.</speak>
             <goto goto="100" change="0"/>
         </scene>
         <scene id="100" background="CG25-5.jpg">
@@ -102,59 +102,59 @@
         </scene>
         <scene id="110" background="brightonBeach.jpg">
             <bgm src="morning.mp3" status="start"></bgm>
-            <speak chara="ritaNoNameNoFace">...Тц. Так это не сработало.</speak>
+            <speak chara="ritaNoNameNoFace">...Тц. Так и знала, что от этого не будет толку.</speak>
             <goto goto="120" change="0"/>
         </scene>
         <scene id="120" background="brightonBeach.jpg">
             <bgm src="morning.mp3" status="continue"></bgm>
             <show chara="ottoChangeGunFar" position="center"/>
-            <speak chara="ottoNoFace">...Хмпф.</speak>
+            <speak chara="ottoNoFace">...Ого.</speak>
             <bgm src="04_20_tank.mp3" status="start"></bgm>
             <show chara="ottoScornfulGunFar" position="center"/>
-            <speak chara="ottoNoFace">Выходи, маленькая крыса.</speak>
+            <speak chara="ottoNoFace">Выходи, крыса.</speak>
             <show chara="ottoHaughtyGunFar" position="center"/>
-            <speak chara="ottoNoFace">Не думай, что ты сможешь уйти после того, как прервала моё веселье.</speak>
+            <speak chara="ottoNoFace">Не думай, что сможешь уйти целой и невредимой после того, как испортила мне веселье.</speak>
             <hide position="center"></hide>
-            <speak chara="ritaNoNameNoFace">...Хехе. Уважаемый Настоятель, Вы когда-нибудь слышали об этом раньше?</speak>
+            <speak chara="ritaNoNameNoFace">...Хе-хе. Разве Вы не знаете, господин Епископ?</speak>
             <show chara="ritaSmileGunFar" position="center"/>
-            <speak chara="ritaFullNameNoFace">Величайший философ в истории однажды сказал:</speak>
+            <speak chara="ritaFullNameNoFace">Некоторые величайшие философы в истории говорили так:</speak>
             <show chara="ritaNormalGunFar" position="center"/>
-            <speak chara="ritaFullNameNoFace" remark="next">"Все великие мировые события случаются дважды..."</speak>
-            <speak chara="ritaFullNameNoFace" remark="next">"Сначала как трагедия, а затем как фарс."</speak>
+            <speak chara="ritaFullNameNoFace" remark="next">«Все великие всемирно-исторические события и личности появляются, так сказать, дважды...»</speak>
+            <speak chara="ritaFullNameNoFace" remark="next">«Первый раз в виде трагедии, второй раз в виде фарса».</speak>
             <remark>
                 <p class="article-text-h">Примечание:</p>
-                <p class="article-text">Это вступительные слова "Восемнадцатого Брюмера" Маркса о Луи Бонапарте.</p>
+                <p class="article-text">Это вступительные слова Карла Маркса из работы «Восемнадцатое брюмера Луи Бонапарта» (с небольшими отклонениями от оригинала).</p>
             </remark>
             <show chara="ottoConfidentGunFar" position="center"/>
             <speak chara="ottoNoFace">...О?</speak>
             <show chara="ritaTalkGunFar" position="center"/>
-            <speak chara="ritaFullNameNoFace">И в Декларации независимости нашей страны есть отрывок, в котором говорится следующее——</speak>
+            <speak chara="ritaFullNameNoFace">Господин Отто... В «Декларации независимости» нашей страны есть такие слова:</speak>
             <show chara="ritaNormalGunFar" position="center"/>
-            <speak chara="ritaFullNameNoFace">"История нынешнего короля Великобритании - это история повторяющихся оскорблений и узурпаций, и все они имеют прямой целью установление абсолютной тирании над этими государствами."</speak>
+            <speak chara="ritaFullNameNoFace">«История нынешнего короля Великобритании — это история беспрестанных несправедливостей и узурпаций, прямою целью которых является установление абсолютной тирании над нашими штатами».</speak>
             <show chara="ritaSmileGunFar" position="center"/>
-            <speak chara="ritaFullNameNoFace">Если Вы пытаетесь быть похожим на Георга III——</speak>
+            <speak chara="ritaFullNameNoFace">Если Вы собираетесь подражать поступкам «Георга III»...</speak>
             <show chara="ritaNodGunFar" position="center"/>
-            <speak chara="ritaFullNameNoFace">——Вы превратитесь в "клоуна" по-настоящему.</speak>
+            <speak chara="ritaFullNameNoFace">...то Вы лишь превратите самого себя в настоящего «клоуна».</speak>
             <show chara="ottoLaughGunFar" position="center"/>
-            <speak chara="ottoNoFace">Хех. Простая владелица отеля, появляющаяся из ниоткуда, думает, что может читать мне лекции о первопроходцах.</speak>
+            <speak chara="ottoNoFace">...Ха. А я уж подумал, что ты внезапно появилась здесь, чтобы выдать какую-то передовую теорию, хозяйка курорта.</speak>
             <show chara="ottoHaughtyGunFar" position="center"/>
-            <speak chara="ottoNoFace">Тогда мой ответ таков——</speak>
+            <speak chara="ottoNoFace">Позволь мне ответить тебе так...</speak>
             <show chara="ottoConfidentGunFar" position="center"/>
-            <speak chara="ottoNoFace">Все формы правления - тирания. Только те, кто не несёт ответственности, пытаются обмануть других, приукрашивая это сладкими словами.</speak>
+            <speak chara="ottoNoFace">Любая власть — это своего рода тирания. Лишь те, кому не хватает духу взять на себя ответственность, прибегают к красноречию и кричат «Держи вора!».</speak>
             <show chara="ottoHaughtyGunFar" position="center"/>
-            <speak chara="ottoNoFace">Так что тебе не нужно впадать во все эти философствования——</speak>
+            <speak chara="ottoNoFace">Поэтому тебе вовсе не обязательно подниматься до философских высот...</speak>
             <show chara="ottoScornfulGunFar" position="center"/>
-            <speak chara="ottoNoFace">——Всё, что я пытаюсь сделать сегодня, это избавиться от препятствия.</speak>
+            <speak chara="ottoNoFace">...сегодня я просто планирую убрать с пути пару камней преткновения.</speak>
             <goto goto="150" change="#ffffff"/>
         </scene>
         <scene id="150" background="darkEnergy.jpg">
             <bgm src="11_17_tatakau.mp3" status="start"></bgm>
-            <text>Хорошо... Нам удалось выиграть достаточно времени.</text>
-            <text>Я не думала, что получу помощь от такого неожиданного помощника...</text>
-            <text>Я искренне благодарю тебя.</text>
-            <text>Конечно, я также должна поблагодарить Аду за то, что она позволила нам общаться под носом у врага.</text>
-            <text>Во всяком случае, теперь я могу...</text>
-            <text>...Передать ему эстафету.</text>
+            <text>Отлично... идеальное оттягивание времени.</text>
+            <text>Хотя я совершенно не ожидал, что у нас появится такая помощница, как ты...</text>
+            <text>Но всё же, спасибо.</text>
+            <text>И конечно же, спасибо Аде... которая помогла нам связаться прямо под носом у врага.</text>
+            <text>В общем, теперь...</text>
+            <text>...эстафетную палочку можно смело передать в руки этого человека.</text>
             <goto goto="160" change="#ffffff"/>
         </scene>
         <scene id="160" background="CG25-6.jpg">
@@ -164,9 +164,9 @@
         </scene>
         <scene id="170" background="CG25-7.jpg">
             <bgm src="11_17_tatakau.mp3" status="continue"></bgm>
-            <speak chara="schroPlasmaNoFace">Реконструкция сознания завершена. Проявление энергии Хонкая.</speak>
-            <speak chara="schroPlasmaNoFace">Определение распределения Максвелла и отделение всех частиц.</speak>
-            <speak chara="schroPlasmaNoFace">Базовое измерение успешно отменено.</speak>
+            <speak chara="schroPlasmaNoFace">Реконструкция сознания завершена, используется выражение через энергию Хонкая.</speak>
+            <speak chara="schroPlasmaNoFace">Все частицы, отклонение от распределения Максвелла-Больцмана.</speak>
+            <speak chara="schroPlasmaNoFace">Унитарность базового измерения отменена.</speak>
             <goto goto="180" change="0"/>
         </scene>
         <scene id="180" background="CG25-8.jpg">
@@ -179,85 +179,85 @@
         </scene>
         <scene id="900" background="cloudSky.jpg">
             <bgm src="themeWelt.mp3" status="start"></bgm>
-            <text>Ты пробуждаешься ото сна.</text>
-            <text>Ты чувствуешь знакомое дыхание в себе. Нет, это энергия. Она исчезает так же быстро, как и появилась.</text>
-            <text>Это отличается от остатков душ в твоём теле——</text>
-            <text>Она не мертва, но я не могу точно сказать, что она жива.</text>
-            <text>...Но я знал, что было что-то более важное, чем беспокойство о ней, что я должен был сделать.</text>
-            <text>Благодаря Плазменному щиту, который она нам оставила, Настоятель какое-то время не сможет к нам приблизиться.</text>
-            <text>Теперь я уверен——</text>
-            <text>Жизни Эйнштейн и Теслы не закончатся обычным образом.</text>
-            <text>Как будто они не были ранены.</text>
-            <text>Как будто они были бессмертны.</text>
-            <text>...Теперь у меня есть знания, необходимые для создания жизни.</text>
-            <text>Даже если я не знаю, откуда взялось это знание——</text>
-            <text>Слова произнесены правильно, энергия отрегулирована, гены перезагружены... всё проходит гладко.</text>
-            <text>Мне ни разу не приходилось думать о цене, которую мне придётся заплатить...</text>
+            <text>Ты очнулся в густом тумане.</text>
+            <text>Ты почувствовал, как быстро рассеивается знакомая аура... нет, энергия.</text>
+            <text>В отличие от остатков душ внутри твоего тела...</text>
+            <text>Она не умерла, но и живой её назвать было никак нельзя.</text>
+            <text>...Но сейчас, вместо того чтобы беспокоиться о её судьбе, ты понимал, что у тебя есть дела поважнее.</text>
+            <text>Плазменный щит, который она оставила тебе, на время сделал взбешённого епископа беспомощным.</text>
+            <text>В этот самый момент ты был абсолютно уверен...</text>
+            <text>Жизни доктора Эйнштейн и доктора Теслы на этом не оборвутся.</text>
+            <text>Как будто они никогда и не были ранены.</text>
+            <text>Как будто они бессмертны.</text>
+            <text>...Ты знал, что уже постиг тайну созидания жизни.</text>
+            <text>И хотя ты не знал, откуда пришли эти знания...</text>
+            <text>Но чтение заклинаний, управление энергией, сброс генов... всё это происходило так естественно и плавно.</text>
+            <text>Тебе даже не нужно было оценивать цену таких действий...</text>
             <text>Потому что...</text>
-            <text>Всё, что произошло за последний месяц, стало для меня незаменимым сокровищем.</text>
+            <text>Весь этот опыт, накопленный за прошедший месяц, стал для тебя бесценным сокровищем.</text>
             <goto goto="1000" change="#ffffff"/>
         </scene>
         <scene id="1000" background="studyNight.jpg">
             <bgm src="10_20_londonderry_p.mp3" status="start"></bgm>
             <show chara="memoryLoading" position="center"/>
             <show chara="einSmileClose" position="back"/>
-            <speak chara="einSmileClose">...Вельт. В.Е.Л.Ь.Т. </speak>
-            <speak chara="einSmileClose">Я думаю тебе подходит это имя. </speak>
+            <speak chara="einSmileClose">...Вельт. W.E.L.T. </speak>
+            <speak chara="einSmileClose">Думаю, это имя тебе вполне подходит.</speak>
             <goto goto="1010" change="#ffffff"/>
         </scene>
         <scene id="1010" background="weltRoomDay2.jpg">
             <bgm src="10_20_londonderry_p.mp3" status="continue"></bgm>
             <show chara="memoryLoading" position="center"/>
             <show chara="teslaAngryCloseNoName" position="back"/>
-            <speak chara="teslaAngryCloseNoName">В самом деле, ты что, оглох?! Я звонила тебе несколько раз! К счастью, я была достаточно любезна, чтобы вломиться внутрь.</speak>
+            <speak chara="teslaAngryCloseNoName">Боже, ты оглох? Я звала тебя несколько раз! А я ещё по доброте душевной дверь взломала.</speak>
             <goto goto="1015" change="#ffffff"/>
         </scene>
         <scene id="1015" background="italianRestaurant.jpg">
             <bgm src="10_20_londonderry_p.mp3" status="continue"></bgm>
             <show chara="memoryLoading" position="center"/>
             <show chara="0einSlyVestClose-up" position="back"/>
-            <speak chara="einNoFace">Ты, наверное, не знаешь, но в последнее время я контролирую себя, чтобы говорить меньше бессмысленных вещей.</speak>
-            <speak chara="einNoFace">Как сказал мой дедушка, "Успех равен гениальности плюс пот и меньше глупостей".</speak>
+            <speak chara="einNoFace">Ты, наверное, не знаешь, но в последнее время я стараюсь поменьше болтать впустую.</speak>
+            <speak chara="einNoFace">Мой дедушка говорил: «Успех — это талант плюс пот, плюс минимум пустых разговоров».</speak>
             <goto goto="1020" change="#ffffff"/>
         </scene>
         <scene id="1020" background="barBillings.jpg">
             <bgm src="10_20_londonderry_p.mp3" status="continue"></bgm>
             <show chara="memoryLoading" position="center"/>
             <show chara="planckSlyClose-up" position="back"/>
-            <speak chara="planckNoFace">Устрицы из Скалистых гор.</speak>
+            <speak chara="planckNoFace">Устрицы Скалистых гор.</speak>
             <show chara="schroNormalAhClose-up" position="back"/>
-            <speak chara="schroNoFace">Профессор, она предпочитает есть такое. Я не знаю, сможешь ли ты привыкнуть к этому.</speak>
+            <speak chara="schroNoFace">Профессор очень любит их есть. А вот сможете ли вы к ним привыкнуть я не знаю.</speak>
             <goto goto="1030" change="#ffffff"/>
         </scene>
         <scene id="1030" background="CG6-1.jpg">
             <bgm src="10_20_londonderry_p.mp3" status="continue"></bgm>
             <show chara="memoryLoading" position="back"/>
-            <speak chara="teslaNoFace">Боже. Что ты делаешь!</speak>
-            <speak chara="teslaNoFace">Эй! Это домогательство!</speak>
-            <speak chara="teslaNoFace">Эйнштейн! Шрёдингер! Планк! Вы ничего не собираетесь с ней сделать?!</speak>
+            <speak chara="teslaNoFace">Тц. Да что ты делаешь!</speak>
+            <speak chara="teslaNoFace">Эй! Это же сексуальное домогательство!</speak>
+            <speak chara="teslaNoFace">Эйнштейн! Шрёдингер! Планк! Вы что, не собираетесь с ней ничего делать?!</speak>
             <goto goto="1040" change="#ffffff"/>
         </scene>
         <scene id="1040" background="CG6-2.jpg">
             <bgm src="10_20_londonderry_p.mp3" status="continue"></bgm>
             <show chara="memoryLoading" position="back"/>
-            <speak chara="einNoFace">Юнцам, которые пришли сюда,</speak>
-            <speak chara="einNoFace">Я оставляю последний Соулиум вам.</speak>
+            <speak chara="einNoFace">О, юноши, пришедшие сюда.</speak>
+            <speak chara="einNoFace">Я вверяю вам последний соулиум.</speak>
             <goto goto="1050" change="#ffffff"/>
         </scene>
         <scene id="1050" background="adaRoom.jpg">
             <bgm src="10_20_londonderry_p.mp3" status="continue"></bgm>
             <show chara="memoryLoading" position="center"/>
             <show chara="adaSmileFar" position="back"/>
-            <speak chara="adaNoFace">Здравствуйте, я пробная работа по интерфейсу терминала № 0042, и моё человеческое имя Ада.</speak>
+            <speak chara="adaNoFace">Здравствуйте, я тестовый образец терминального интерфейса номер 0042, моё человеческое имя — Ада.</speak>
             <speak chara="adaNoFace">А ~ Д ~ А ~ </speak>
-            <speak chara="adaNoFace">艾——妲。</speak>
+            <speak chara="adaNoFace">А-ада.</speak>
             <goto goto="1060" change="#ffffff"/>
         </scene>
         <scene id="1060" background="corridorMessy.jpg">
             <bgm src="10_20_londonderry_p.mp3" status="continue"></bgm>
             <show chara="memoryLoading" position="center"/>
             <show chara="teslaFoolDrunkWinterClose" position="back"/>
-            <speak chara="teslaNoFace">Что. Ты вдруг застеснялся?</speak>
+            <speak chara="teslaNoFace">Ой. Засмущался, засмущался.</speak>
             <goto goto="1070" change="#ffffff"/>
         </scene>
         <scene id="1070" background="graveDayLate.jpg">
@@ -266,127 +266,144 @@
             <show chara="reaSmileEmWinterFar" position="back"/>
             <speak chara="reannaNoNameNoFace">Меня зовут Реанна Бригантия.</speak>
             <show chara="reaSmileAhWinterFar" position="back"/>
-            <speak chara="reannaNoFace">Хотя я Валькирия непосредственно при штабе - но сегодня такая же, как ты, обычный человек, пришедший подмести могилу.</speak>
+            <speak chara="reannaNoFace">Хоть я и валькирия под прямым командованием штаб-квартиры... но сегодня я такой же обычный человек, как и ты, который просто пришёл навестить могилу.</speak>
             <goto goto="1080" change="#ffffff"/>
         </scene>
         <scene id="1080" background="studyLamp.jpg">
             <bgm src="10_20_londonderry_p.mp3" status="continue"></bgm>
             <show chara="memoryLoading" position="center"/>
             <show chara="teslaBoringEyeClose-up" position="back"/>
-            <speak chara="teslaNoFace">Те, кто упрямо верит, что у людей есть так называемая "душа", либо не желают вникать в истинную природу этого мира——</speak>
+            <speak chara="teslaNoFace">Те упрямцы, которые верят, что у людей есть так называемая «душа», либо не хотят вникать в суть этого мира...</speak>
             <show chara="teslaEmbarraEyeClose-up" position="back"/>
-            <speak chara="teslaNoFace">Либо потому, что они были сбиты с толку концепцией “я” или “эго”, и им приходится отчаянно искать свою собственную “новую одежду императора”, чтобы доказать свою “легитимность”.</speak>
+            <speak chara="teslaNoFace">...либо сбиты с толку концепцией «я» и просто обязаны найти «новое платье короля», чтобы доказать свою «легитимность».</speak>
             <show chara="teslaShameEyeClose-up" position="back"/>
-            <speak chara="teslaNoFace">Понимаешь? Это люди, которые не могут поверить, что они всего лишь продукт природы, побочный продукт естественной эволюции всего сущего.</speak>
+            <speak chara="teslaNoFace">Понимаешь? Эти люди боятся поверить, что они — всего лишь случайный продукт природы, боятся признать, что они — лишь побочный результат естественной эволюции всего сущего.</speak>
             <show chara="teslaSnickerEyeClose-up" position="back"/>
-            <speak chara="teslaNoFace">Они предпочли бы, чтобы мы были "великими" в вымышленном смысле, чем узнавали самих себя реалистичным, приземлённым образом.</speak>
-            <speak chara="teslaNoFace">Именно потому, что они так боятся смерти, они предпочитают смотреть на всё вокруг себя — ничем не отличаясь от тех королей и королев, которые верят в "Божественное право королей".</speak>
+            <speak chara="teslaNoFace">Они предпочитают быть «великими» в выдуманных концепциях, нежели спуститься на землю и познать самих себя.</speak>
+            <speak chara="teslaNoFace">Именно из-за смертельного страха они предпочитают смотреть на всё свысока... и ничем не отличаются от тех королей, что кричали о «божественном праве монархов».</speak>
             <goto goto="1090" change="#ffffff"/>
         </scene>
         <scene id="1090" background="CG12-1.jpg">
             <bgm src="10_20_londonderry_p.mp3" status="continue"></bgm>
             <show chara="memoryLoading" position="back"/>
-            <speak chara="einNoFace">Но верю я — вернёшься ты, мой милый,</speak>
-            <speak chara="einNoFace">В пороше зимней, или в летний зной.</speak>
-            <speak chara="einNoFace">Я буду ждать, и под звездой счастливой</speak>
-            <speak chara="einNoFace">Пускай хранит тебя в пути моя любовь.</speak>
+            <speak chara="einNoFace">Но возвращайся, когда лето вернётся на луга.</speak>
+            <speak chara="einNoFace">Или когда долина затихнет под белым снегом.</speak>
+            <speak chara="einNoFace">Я буду здесь и в лучах солнца, и в тени.</speak>
+            <speak chara="einNoFace">О, мальчик Дэнни, о мальчик Дэнни, я так тебя люблю!</speak>
             <goto goto="1100" change="#ffffff"/>
         </scene>
         <scene id="1100" background="cloudSky.jpg">
             <bgm src="10_20_londonderry_p.mp3" status="continue"></bgm>
-            <speak chara="weltNoFace">"Жаждущему я дам даром"</speak>
-            <speak chara="weltNoFace">"Из источника воды жизни".</speak>
-            <speak chara="weltNoFace">...Этого не достаточно.</speak>
+            <speak chara="weltNoFace">«Я дам воду из источника жизни,»</speak>
+            <speak chara="weltNoFace">«даром напою того, кто жаждет.»</speak>
+            <speak chara="weltNoFace">...Нет, этого всё ещё недостаточно.</speak>
             <goto goto="1120" change="0"/>
         </scene>
         <scene id="1120" background="cloudSky.jpg">
             <bgm src="04_20_Brigantia.mp3" status="start"></bgm>
             <text article="1">
-                <p class="article-text">Вот день, избранник времени счастливый!</p>
+                <p class="article-text">This is the day, which down the void abysm</p>
                 <br />
-                <p class="article-text">Его заклятьем вызвал Сын Земли,</p>
+                <p class="article-text">Час настал, на дно бездонной бездны,</p>
             </text>
             <text article="1">
-                <p class="article-text">Чтоб люди видеть счастие могли;</p>
+                <p class="article-text">At the Earth-born's spell yawns for Heaven's despotism,</p>
                 <br />
-                <p class="article-text">Любовь с престола власти терпеливой,</p>
+                <p class="article-text">В день, когда земное чудо поглотит небесного тирана,</p>
             </text>
             <text article="1">
-                <p class="article-text">Победоносная, сошла</p>
+                <p class="article-text">And Conquest is dragged captive through the deep:</p>
                 <br />
-                <p class="article-text">И собрала свои усилья.</p>
+                <p class="article-text">Завоеватель утащен в глубины без шанса на спасение:</p>
             </text>
             <text article="1">
-                <p class="article-text">Из крайней пытки создала</p>
+                <p class="article-text">Love, from its awful throne of patient power</p>
                 <br />
-                <p class="article-text">Благословенье изобилья.</p>
+                <p class="article-text">Любовь, с её мучительного трона терпеливой власти</p>
             </text>
             <text article="1">
-                <p class="article-text">Простёрла надо всем врачующие крылья.</p>
+                <p class="article-text">In the wise heart, from the last giddy hour</p>
                 <br />
-                <p class="article-text">Терпенье, Мудрость, Нежность, Доброта -</p>
+                <p class="article-text">И мудрого сердца, из времени последнего беспамятства</p>
             </text>
             <text article="1">
-                <p class="article-text">Печать над тем, в чём скрыто Разрушенье;</p>
+                <p class="article-text">Of dread endurance, from the slippery, steep,</p>
                 <br />
-                <p class="article-text">И если Вечность, мать Уничтоженья,</p>
+                <p class="article-text">Выстраданных мук, от скользкой, крутой,</p>
             </text>
             <text article="1">
-                <p class="article-text">Растворит дверь, где дремлет темнота,</p>
+                <p class="article-text">And narrow verge of crag-like agony, springs</p>
                 <br />
-                <p class="article-text">Освободит змею измены</p>
+                <p class="article-text">Непреодолимой, подобной острым скалам боли, бьёт ключом,</p>
             </text>
             <text article="1">
-                <p class="article-text">И кинет в мир чуму, как бич,</p>
+                <p class="article-text">And folds over the world its healing wings.</p>
                 <br />
-                <p class="article-text">Желайте лучшей перемены,</p>
+                <p class="article-text">И укрывает мир своими исцеляющими крыльями.</p>
             </text>
             <goto goto="1160" change="#ffffff"/>
         </scene>
         <scene id="1160" background="darkEnergy.jpg">
             <bgm src="04_20_Brigantia.mp3" status="continue"></bgm>
             <text article="1">
-                <p class="article-text">Пошлите в воздух звучный клич;</p>
+                <p class="article-text">To suffer woes which Hope thinks infinite;</p>
                 <br />
-                <p class="article-text">Вот чары, чтоб опять гармонии достичь, -</p>
+                <p class="article-text">Терпеть страдания, конца которым даже Надежда не видит;</p>
             </text>
             <text article="1">
-                <p class="article-text">Не верить в торжество несовершенства;</p>
+                <p class="article-text">To forgive wrongs darker than death or night;</p>
                 <br />
-                <p class="article-text">Прощать обиды, чёрные, как ночь;</p>
+                <p class="article-text">Прощать обиды, что мрачнее смерти или ночи;</p>
             </text>
             <text article="1">
-                <p class="article-text">Упорством невозможность превозмочь;</p>
+                <p class="article-text">To defy Power, which seems omnipotent;</p>
                 <br />
-                <p class="article-text">Терпеть, любить;</p>
+                <p class="article-text">Бросать вызов Силе, которая кажется всемогущей;</p>
             </text>
             <text article="1">
-                <p class="article-text">и так желать блаженства,</p>
+                <p class="article-text">To love, and bear; to hope till Hope creates</p>
                 <br />
-                <p class="article-text">Что Солнце вспыхнет сквозь туман</p>
+                <p class="article-text">Любить и выносить всё; не сдаваться в годы без надежды, ожидая,</p>
             </text>
             <text article="1">
-                <p class="article-text">И обессилеет отрава, -</p>
+                <p class="article-text">From its own wreck the thing it contemplates;</p>
                 <br />
-                <p class="article-text">Над этим образ твой, Титан,</p>
+                <p class="article-text">Пока она из собственных руин не возродит былые обещания;</p>
             </text>
             <text article="1">
-                <p class="article-text">Лишь в этом Жизнь, Свобода, Слава,</p>
+                <p class="article-text">Neither to change, nor falter, nor repent;</p>
                 <br />
-                <p class="article-text">Победа Красоты, лучистая Держава!</p>
+                <p class="article-text">Не менять пути, не падать духом и не знать сожалений;</p>
+            </text>
+            <text article="1">
+                <p class="article-text">This, like thy glory, Titan, is to be</p>
+                <br />
+                <p class="article-text">Это, как и твоя слава,                    <ruby class="article-text-h">Прометей                        <rt>Титан</rt>
+                    </ruby>, и есть
+                </p>
+            </text>
+            <text article="1">
+                <p class="article-text">Good, great and joyous, beautiful and free;</p>
+                <br />
+                <p class="article-text">Символ доброты, величия и радости, тотем красоты и свободы;</p>
+            </text>
+            <text article="1">
+                <p class="article-text">This is alone Life, Joy, Empire, and Victory.</p>
+                <br />
+                <p class="article-text">Это и есть величайшая жизнь, радость, власть и победа.</p>
             </text>
             <goto goto="1200" change="0"/>
         </scene>
         <scene id="1200" background="CG25-9.jpg">
             <bgm src="04_20_Brigantia.mp3" status="continue"></bgm>
-            <speak chara="weltNoFace" remark="next">——Это день, когда заклинание рождённого на Земле пожирает Тирана Ложных Небес.</speak>
+            <speak chara="weltNoFace" remark="next">— Час настал, это день поглощения небесного тирана.</speak>
             <remark post="U2FsdGVkX18o9ZihHoexEPzjpmN9">
                 <p class="article-text-h">Примечание:</p>
-                <p class="article-text">Это текст из конца трагедии П.Б. Шелли "Прометей освобождённый".</p>
+                <p class="article-text">Цитата из заключительной части поэмы Перси Биши Шелли «Освобождённый Прометей» (Prometheus Unbound).</p>
             </remark>
             <speak chara="weltNoFace">Отто Апокалипсис...</speak>
-            <speak chara="weltNoFace">Нет, Клоун Альфа——</speak>
-            <speak chara="weltNoFace">Узри падение звёзд!</speak>
+            <speak chara="weltNoFace">Нет, Клоун Альфа...</speak>
+            <speak chara="weltNoFace">Узри же падение звёзд!</speak>
             <end post="U2FsdGVkX18FjFK3VUd0XhOzu9el"/>
         </scene>
     </story>
