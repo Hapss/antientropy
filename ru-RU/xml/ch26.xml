@@ -8,146 +8,145 @@
         </scene>
         <scene id="10" background="blackHole.jpg">
             <bgm src="03_15_ruinBerlin.mp3" status="start"></bgm>
-            <text>Мир, отражающийся в глазах Отто Апокалипсиса, изгибался.</text>
-            <text>Ему казалось, что всё мироздание распадается у него на глазах.</text>
-            <text>Ему казалось, что само время было брошено в гигантскую мешалку.</text>
-            <text>Прошлое, настоящее и будущее. Всё смешивалось воедино, приближаясь к остановке.</text>
+            <text>Мир в глазах Отто Апокалипсиса исказился.</text>
+            <text>Он осознал, что всё сущее рушится прямо у него на глазах.</text>
+            <text>Он осознал, что время словно забросили в гигантский блендер.</text>
+            <text>Прошлое, настоящее, будущее — всё сливалось воедино в бесконечном замедлении и обрывках.</text>
             <text article="1">
                 <p class="article-text">Чёрная дыра.</p>
-                <p class="article-text">Он читал о ней в одной из работ Эйнштейн по физике.</p>
-                <p class="article-text">Как правило, они являются результатом того, что массивная звезда, по крайней мере в 3 раза больше Солнца, коллапсирует в конце своего жизненного цикла.</p>
+                <p class="article-text">Он читал об этом физическом явлении в статьях доктора Эйнштейн.</p>
+                <p class="article-text">В большинстве случаев это ядра звёзд, чья масса в три раза превышает массу Солнца, коллапсирующие под действием гравитации после того, как истощается топливо для термоядерного синтеза.</p>
             </text>
             <text article="1">
-                <p class="article-text">Сила притяжения настолько велика, что ничто не может её остановить.</p>
+                <p class="article-text">Гравитация внутри этих звёзд настолько велика, что никакая микроскопическая структура не способна остановить их дальнейшее сжатие в ещё меньший объём.</p>
                 <br />
-                <p class="article-text">...И в конечном итоге всё сводится к 3 параметрам: массе, угловому моменту и электрическому заряду.</p>
+                <p class="article-text">...Поэтому конечный результат может быть только одним: этот гигант, весящий как миллионы Земель, сжимает сам себя в точку, обладающую лишь массой, электрическим зарядом и угловым моментом.</p>
             </text>
             <text article="1">
-                <p class="article-text">К этому моменту гравитационное поле становится настолько сильным, что ничто не может вырваться из неё, даже свет.</p>
+                <p class="article-text">Гравитационное поле, создаваемое вокруг этой точки, настолько сильно, что никакое излучение не может вырваться из неё;</p>
                 <br />
-                <p class="article-text">С точки зрения далёкого наблюдателя, процесс всасывания будет медленным из-за замедления времени.</p>
+                <p class="article-text">А для внешнего наблюдателя любой процесс, попадающий в ненаблюдаемую область вокруг неё, будет длиться бесконечно долго.</p>
             </text>
             <text article="1">
-                <p class="article-text">В области, известной как "горизонт событий", все конечные процессы бесконечны.</p>
+                <p class="article-text">До этой области, называемой «горизонтом событий», любой конечный процесс растягивается до бесконечности.</p>
             </text>
             <text article="1">
-                <p class="article-text">Он получил сигнал извне——</p>
+                <p class="article-text">В частности, для него, тайно получающего сигналы с терминала извне...</p>
                 <br />
-                <p class="article-text">Поскольку его сознание постепенно распадается на части.</p>
+                <p class="article-text">...сознание постепенно разрывалось на части.</p>
             </text>
             <goto goto="20" change="#000000"/>
         </scene>
         <scene id="20" background="dreamSky.jpg">
             <bgm src="11_17_memory.mp3" status="start"></bgm>
             <show chara="kallenChristMemoryFar" position="center"/>
-            <speak chara="kallenNoNameNoFace">[Что жизнь? — Всего лишь тень;]</speak>
-            <speak chara="kallenNoNameNoFace">[Актёр, что жалко тужится на сцене,]</speak>
+            <speak chara="kallenNoNameNoFace">«Жизнь — это всего лишь блуждающая тень,»</speak>
+            <speak chara="kallenNoNameNoFace">«жалкий актёр, который пыжится и хорохорится на сцене —»</speak>
             <show chara="kallenChristMercyFar" position="center"/>
-            <speak chara="kallenNoNameNoFace">[Чтобы затем навек с неё исчезнуть;]</speak>
+            <speak chara="kallenNoNameNoFace">«...и потом исчезает без следа;»</speak>
             <show chara="kallenChristDeterminedFar" position="center"/>
-            <speak chara="kallenNoNameNoFace">[Рассказ безумца, полный ярости и силы,]</speak>
-            <speak chara="kallenNoNameNoFace">[Но полностью лишённый капли]</speak>
-            <speak chara="kallenNoNameNoFace">[Смысла.]</speak>
-            <speak chara="ottoNoFace">.....</speak>
-            <speak chara="ottoNoFace">Т-ты...</speak>
-            <speak chara="ottoNoFace">М-моя...</speak>
+            <speak chara="kallenNoNameNoFace">«это история, рассказанная идиотом, полная шума и ярости,»</speak>
+            <speak chara="kallenNoNameNoFace">«не значащая ничего.»</speak>
+            <speak chara="ottoNoFace">……</speak>
+            <speak chara="ottoNoFace">Т-т-ты...</speak>
+            <speak chara="ottoNoFace">Я, я, я...</speak>
             <bgm src="horror.mp3" status="start"></bgm>
             <show chara="kallenChristMercyFar" position="center"/>
             <speak chara="kallenNoNameNoFace">Отто Апокалипсис.</speak>
             <show chara="kallenChristDeterminedFar" position="center"/>
-            <speak chara="kallenNoNameNoFace">[Он страх, судьбу и смерть презрит,]</speak>
-            <speak chara="kallenNoNameNoFace">[И гибель ждёт его, как всех,]</speak>
+            <speak chara="kallenNoNameNoFace">«Он будет презирать судьбу, плевать на смерть и жизнь,»</speak>
+            <speak chara="kallenNoNameNoFace">«отвергнет всякий смысл, отбросит все сомнения,»</speak>
             <show chara="kallenChristMercyFar" position="center"/>
-            <speak chara="kallenNoNameNoFace">[Кто слишком верит в свой успех.]</speak>
-            <speak chara="ottoNoFace">Н-нет...</speak>
+            <speak chara="kallenNoNameNoFace">«цепляясь за свою невозможную надежду.» </speak>
+            <speak chara="ottoNoFace">Нет, неправда...</speak>
             <speak chara="ottoNoFace">Ты...</speak>
-            <speak chara="ottoNoFace">Ты же...</speak>
+            <speak chara="ottoNoFace">Ты не...</speak>
             <show chara="kallenChristMemoryFar" position="center"/>
-            <speak chara="kallenNoNameNoFace">[Кто начал злом, тот и погрязнет в нём.]</speak>
+            <speak chara="kallenNoNameNoFace">«Дело, начатое неправедно, должно укрепляться грехом.»</speak>
             <show chara="kallenChristDeterminedFar" position="center"/>
-            <speak chara="kallenNoNameNoFace">С самого начала это был тщетный путь.</speak>
+            <speak chara="kallenNoNameNoFace">С самого начала это был тупик—</speak>
             <show chara="kallenChristMercyFar" position="center"/>
-            <speak chara="kallenNoNameNoFace">——Мой Отто Апокалипсис.</speak>
-            <speak chara="ottoNoFace">...Кто ты!?</speak>
+            <speak chara="kallenNoNameNoFace">...мой Отто Апокалипсис.</speak>
+            <speak chara="ottoNoFace">...Кто ты такая!</speak>
             <show chara="kallenChristDeterminedFar" position="center"/>
-            <speak chara="kallenNoNameNoFace">Ты боишься этой дискуссии, Отто Апокалипсис.</speak>
+            <speak chara="kallenNoNameNoFace">Ты боишься этой темы, Отто Апокалипсис.</speak>
             <show chara="kallenChristMemoryFar" position="center"/>
-            <speak chara="kallenNoNameNoFace">[Я в кровь так глубоко зашёл, что возвращаться мне так же тошно, как вперёд итти.]</speak>
+            <speak chara="kallenNoNameNoFace">«Я уже так глубоко увяз в крови, что если не пойду вперёд, то путь назад будет столь же утомительным.»</speak>
             <show chara="kallenChristMercyFar" position="center"/>
-            <speak chara="kallenNoNameNoFace">За всё это время ты ни в малейшей степени не изменился.</speak>
-            <speak chara="ottoNoFace">Нет! Ты ошибаешься!</speak>
-            <speak chara="ottoNoFace">Всё идёт точно по моему плану!</speak>
+            <speak chara="kallenNoNameNoFace">Но... в конце концов, ты всё равно ничего не сможешь изменить.</speak>
+            <speak chara="ottoNoFace">Нет! Неправда!</speak>
+            <speak chara="ottoNoFace">Всё идёт по моему плану!</speak>
             <show chara="kallenChristDeterminedFar" position="center"/>
             <speak chara="kallenNoNameNoFace">...Твоему плану?</speak>
             <show chara="kallenChristMercyFar" position="center"/>
-            <speak chara="kallenNoNameNoFace">Нет никакого плана.</speak>
-            <speak chara="kallenNoNameNoFace">Ты застрял в прошлом, размышляя о судьбе.</speak>
+            <speak chara="kallenNoNameNoFace">У тебя никогда не было плана.</speak>
+            <speak chara="kallenNoNameNoFace">Ты лишь застрял в прошлом и жалеешь себя;</speak>
             <show chara="kallenChristMemoryFar" position="center"/>
-            <speak chara="kallenNoNameNoFace">[Судьба, проклятой ссоре улыбаясь, казалось, уж злодею отдалась, но всё напрасно]</speak>
-            <speak chara="ottoNoFace">Моя——</speak>
+            <speak chara="kallenNoNameNoFace">«А судьба, словно шлюха, намеренно заигрывает с этим предателем, разжигая пламя его грехов.»</speak>
+            <speak chara="ottoNoFace">Я...</speak>
             <speak chara="ottoNoFace">Моя Каллен никогда бы так не сказала!</speak>
             <show chara="kallenChristDeterminedFar" position="center"/>
-            <speak chara="kallenNoNameNoFace">Но так бы ты выразился сам, Отто Апокалипсис.</speak>
+            <speak chara="kallenNoNameNoFace">Но ты бы сказал, господин Отто Апокалипсис.</speak>
             <show chara="kallenChristMercyFar" position="center"/>
-            <speak chara="kallenNoNameNoFace" remark="next">Твоя жизнь это "Макбет" без актёрского состава второго плана.</speak>
+            <speak chara="kallenNoNameNoFace" remark="next">Твоя жизнь — это всего лишь «Макбет» без второстепенных ролей;</speak>
             <remark post="U2FsdGVkX18BqSCxNHLELV1rn82a">
                 <p class="article-text-h">Примечание:</p>
-                <p class="article-text">Процитированные "Каллен" строки взяты из шедевра Шекспира "Макбет".</p>
+                <p class="article-text">Все реплики «Каллен» в кавычках — это цитаты из знаменитой пьесы Шекспира «Макбет».</p>
             </remark>
             <show chara="kallenChristSilentFar" position="center"/>
-            <speak chara="kallenNoNameNoFace">[Торг заключён. Обитель ли господня тебя ждёт?]</speak>
+            <speak chara="kallenNoNameNoFace">«Если бы твоя душа могла найти путь в рай, она должна была найти его ещё в ту ночь.»</speak>
             <speak chara="ottoNoFace">...</speak>
-            <speak chara="ottoNoFace">.....</speak>
-            <speak chara="ottoNoFace">Вот как.</speak>
-            <speak chara="ottoNoFace">Ты ничего не знаешь——</speak>
-            <speak chara="ottoNoFace">——Потому что ты всего лишь Отто Апокалипсис.</speak>
+            <speak chara="ottoNoFace">......</speak>
+            <speak chara="ottoNoFace">Наконец-то я понял.</speak>
+            <speak chara="ottoNoFace">Ты ничего не понимаешь...</speak>
+            <speak chara="ottoNoFace">...потому что ты — это лишь я сам.</speak>
             <show chara="kallenChristDeterminedFar" position="center"/>
-            <speak chara="kallenNoNameNoFace">...Ну конечно я тебя не знаю.</speak>
+            <speak chara="kallenNoNameNoFace">...Конечно, я тебя не понимаю.</speak>
             <show chara="kallenChristMemoryFar" position="center"/>
-            <speak chara="kallenNoNameNoFace">[Ведь ангелы светлы, хоть самый светлый пал; Надень всё зло личину блага, у блага тот же вид.]</speak>
+            <speak chara="kallenNoNameNoFace">«Даже самый светлый ангел может пасть, но ангел всегда остаётся светлым»;</speak>
             <show chara="kallenChristMercyFar" position="center"/>
-            <speak chara="kallenNoNameNoFace">С самого начала ты и я различались.</speak>
+            <speak chara="kallenNoNameNoFace">Мы с самого начала были разными.</speak>
             <show chara="kallenChristDeterminedFar" position="center"/>
-            <speak chara="kallenNoNameNoFace">Это было так давно, и всё же ты... Только ты не в состоянии принять мою смерть.</speak>
+            <speak chara="kallenNoNameNoFace">Прошло столько лет, а только ты... только ты всё ещё не можешь смириться с моей смертью.</speak>
             <speak chara="ottoNoFace">Да.</speak>
-            <speak chara="ottoNoFace">Верно. Я не могу принять этого.</speak>
-            <speak chara="ottoNoFace">Я был словно ребёнок, ожидающий Рождества.</speak>
-            <speak chara="ottoNoFace">Тянувшийся к подарку, именуемым Каллен Касланой...</speak>
-            <speak chara="ottoNoFace">...Или скорее ожидающий Санту Клауса в лице Каллен Касланы.</speak>
+            <speak chara="ottoNoFace">Верно, я не могу смириться.</speak>
+            <speak chara="ottoNoFace">С самого начала я был тем самым ребёнком, который с нетерпением ждал Рождества.</speak>
+            <speak chara="ottoNoFace">Жаждал получить подарок по имени Каллен Каслана...</speak>
+            <speak chara="ottoNoFace">...Нет, я жаждал Санта Клауса по имени Каллен Каслана.</speak>
             <show chara="kallenChristMercyFar" position="center"/>
-            <speak chara="kallenNoNameNoFace">...Какое глупое дитя.</speak>
+            <speak chara="kallenNoNameNoFace">...Да уж, глупый ребёнок.</speak>
             <show chara="kallenChristDeterminedFar" position="center"/>
-            <speak chara="kallenNoNameNoFace">Сколько ещё людей ты планируешь вовлечь в свой крестовый поход, пока не будешь удовлетворён?</speak>
+            <speak chara="kallenNoNameNoFace">Скольких людей ты ещё собираешься втянуть в это, прежде чем остановишься?</speak>
             <bgm src="8_24_war.mp3" status="start"></bgm>
             <speak chara="ottoNoFace">...</speak>
-            <speak chara="ottoNoFace">Не в этом дело.</speak>
-            <speak chara="ottoNoFace">Количество людей не имеет значения.</speak>
-            <speak chara="ottoNoFace">Подобно тому, как во вселенной без наблюдателей песня, восхваляющая это, никогда не родится,</speak>
-            <speak chara="ottoNoFace">В мире без Каллен нет смысла!</speak>
+            <speak chara="ottoNoFace">Ты не права.</speak>
+            <speak chara="ottoNoFace">Дело вообще не в том, скольких людей я втяну.</speak>
+            <speak chara="ottoNoFace">Как во вселенной без наблюдателя никогда не родятся воспевающие её стихи;</speak>
+            <speak chara="ottoNoFace">Так и мир без Каллен не может иметь никакого смысла!</speak>
             <show chara="kallenChristMercyFar" position="center"/>
-            <speak chara="kallenNoNameNoFace">...Какое жалкое дитя.</speak>
+            <speak chara="kallenNoNameNoFace">...Как жалко.</speak>
             <show chara="kallenChristDeterminedFar" position="center"/>
-            <speak chara="kallenNoNameNoFace">Сейчас ты не более чем безумец, полный безответных чувств.</speak>
-            <speak chara="ottoNoFace">И что с того!</speak>
-            <speak chara="ottoNoFace">Это потому, что мир не оставил мне другого выбора, и я должен устранить всё, что встает у меня на пути!</speak>
+            <speak chara="kallenNoNameNoFace">Теперь ты всего лишь конченый извращенец с безответной любовью.</speak>
+            <speak chara="ottoNoFace">Ну и что с того!</speak>
+            <speak chara="ottoNoFace">Раз уж мир оставил мне лишь один путь, не вините меня за то, что я смету все препятствия!</speak>
             <speak chara="ottoNoFace">Даже если это я сам...</speak>
-            <speak chara="ottoNoFace">...Да, даже я сам не смогу себя остановить!</speak>
+            <speak chara="ottoNoFace">...даже я сам больше не смогу всё это остановить!</speak>
             <goto goto="30" change="#ffffff"/>
         </scene>
         <scene id="30" background="blackHole.jpg">
             <bgm src="8_24_war.mp3" status="continue"></bgm>
-            <text>Тело [Отто] больше не могло сохранять свою человеческую форму.</text>
-            <text>Кожа, сделанная из жидкого металла, отслаивалась, и под ней виднелась машина.</text>
-            <text>Вельт стиснул зубы, как будто сила всего его тела вливалась в [Звезду Эден].</text>
-            <text>Я должен сделать всё, что в моих силах.</text>
-            <text>Если я сделаю всё, что в моих силах, я смогу положить конец этому хаотичному дню.</text>
-            <text>Если я сделаю всё, что в моих силах, Реанна, возможно, сможет вернуть себе контроль.</text>
-            <text>Если я сделаю всё——</text>
+            <text>Внешность «Отто» уже не могла сохранять человеческий облик.</text>
+            <text>Под постепенно отслаивающейся кожей из жидкого металла начал проступать жёсткий механический каркас.</text>
+            <text>Вельт стиснул зубы, словно пытаясь вложить все силы своего тела в «Звезду Эдема».</text>
+            <text>Ещё немного усилий.</text>
+            <text>Ещё немного, и он сможет поставить временную точку в этом хаотичном дне.</text>
+            <text>Ещё немного, и, возможно, Реанна сможет вырваться из-под контроля этого человека.</text>
+            <text>Ещё немного...</text>
             <goto goto="40" change="0"/>
         </scene>
         <scene id="40" background="black">
             <bgm src="8_24_war.mp3" status="stop"></bgm>
-            <speak chara="ritaFullNameNoFace">Вельт, берегитесь!</speak>
+            <speak chara="ritaFullNameNoFace">Вельт, берегись!</speak>
             <goto goto="50" change="0"/>
         </scene>
         <scene id="50" background="CG26-2.jpg">
@@ -159,82 +158,82 @@
         <scene id="60" background="blackCloud.jpg">
             <bgm src="11_17_tatakau.mp3" status="start"></bgm>
             <show chara="ottoLaughChainFar" position="center"/>
-            <speak chara="ottoNoFace">Создание чёрной дыры... Что за варварская способность.</speak>
+            <speak chara="ottoNoFace">Создание чёрной дыры... какая варварская способность.</speak>
             <show chara="ottoHaughtyChainFar" position="center"/>
-            <speak chara="ottoNoFace">Как только что-то попадает в неё, всё кончено, даже свет не может вырваться.</speak>
+            <speak chara="ottoNoFace">Окажешься внутри и оттуда действительно не сможет вырваться даже свет.</speak>
             <show chara="ottoConfidentChainFar" position="center"/>
-            <speak chara="ottoNoFace">Но это также означает, что до тех пор, пока не пересечена точка невозврата, можно сбежать, даже не двигаясь со скоростью света.</speak>
+            <speak chara="ottoNoFace">Но с другой стороны... пока не пересечёшь эту непреодолимую границу, скорость бега не превысит скорость света.</speak>
             <goto goto="70" change="0"/>
         </scene>
         <scene id="70" background="CG26-3-1.jpg">
             <bgm src="11_17_tatakau.mp3" status="continue"></bgm>
-            <speak chara="ottoNoFace">...Ты был неосторожен, Херршер.</speak>
-            <speak chara="ottoNoFace">С каких пор ты решил, что [Божественные Ключи] нельзя уничтожить?</speak>
-            <speak chara="ottoNoFace">Это копия [Ключа Лимитирования], доработанная по моему вкусу. Используя его, я могу полностью запечатать энергию Хонкая моей цели.</speak>
-            <speak chara="ottoNoFace">Теперь ты ничем не отличаешься от беззащитного насекомого.</speak>
+            <speak chara="ottoNoFace">...Ты был слишком беспечен, Херршер.</speak>
+            <speak chara="ottoNoFace">И с каких это пор у тебя возникла иллюзия, будто Божественный Ключ нельзя сломать?</speak>
+            <speak chara="ottoNoFace">Этот псевдо-«Ключ Ограничения» после моего целенаправленного усиления может полностью запечатать энергию Хонкая цели.</speak>
+            <speak chara="ottoNoFace">Теперь ты всего лишь беспомощный слабак.</speak>
             <speak chara="weltNoFace">...</speak>
-            <speak chara="ottoNoFace">Бесполезно обдумывать, мой безнадёжный друг.</speak>
-            <speak chara="ottoNoFace">Твой шанс вынести мне приговор ускользнул.</speak>
-            <speak chara="ottoNoFace">Ты думал, что победил, поэтому ослабил бдительность, и в результате твой [Божественный Ключ] оказался беззащитным.</speak>
-            <speak chara="ottoNoFace">В этом наша разница в боевом опыте——</speak>
+            <speak chara="ottoNoFace">Думать бесполезно, мой жалкий друг.</speak>
+            <speak chara="ottoNoFace">Ты упустил свой лучший шанс покарать меня.</speak>
+            <speak chara="ottoNoFace">Расслабился, почувствовав скорую победу, и совершенно не заметил, что в таком состоянии Божественный Ключ абсолютно беззащитен...</speak>
+            <speak chara="ottoNoFace">В этом и кроется разница в боевом опыте...</speak>
             <goto goto="80" change="0"/>
         </scene>
         <scene id="80" background="CG26-3-2.jpg">
             <bgm src="11_17_tatakau.mp3" status="continue"></bgm>
-            <speak chara="ottoNoFace">——Сожалей, что напал на меня неподготовленным!</speak>
+            <speak chara="ottoNoFace">...так что не зазнавайся, выскочка!</speak>
             <goto goto="90" change="#ffffff"/>
         </scene>
         <scene id="90" background="blackCloud.jpg">
             <bgm src="horror.mp3" status="start"></bgm>
             <text article="1">
-                <p class="article-text">Всего за мгновение,</p>
+                <p class="article-text">Всего за одно мгновение</p>
                 <br />
-                <p class="article-text">Настоятель Шиксала переломил ход того, что казалось явной победой.</p>
+                <p class="article-text">Епископ Шиксала смог обратить вспять судьбы всех присутствующих.</p>
             </text>
             <text article="1">
-                <p class="article-text">Моя рука.</p>
-                <p class="article-text">Ноги Маргарет.</p>
-                <p class="article-text">Эйнштейн и Тесла, которые были ранены и потеряли сознание, связаны.</p>
+                <p class="article-text">Его собственные руки.</p>
+                <p class="article-text">Ноги Маргариты.</p>
+                <p class="article-text">А израненные и находящиеся без сознания Эйнштейн и Тесла и вовсе были крепко-накрепко связаны с ног до головы.</p>
             </text>
             <text article="1">
-                <p class="article-text">Каждый пойман в ловушку этими цепями ненависти.</p>
+                <p class="article-text">Все оказались скованы этими проклятыми цепями.</p>
                 <br />
-                <p class="article-text">Неспособные убежать, неспособные сопротивляться.</p>
+                <p class="article-text">Без сил вырваться, не говоря уже о том, чтобы сопротивляться.</p>
             </text>
             <text article="1">
-                <p class="article-text">А? Погодите... Что это такое?</p>
+                <p class="article-text">Погодите-ка... Что это?</p>
                 <br />
-                <p class="article-text">...Вертолёт? Он разбился?</p>
+                <p class="article-text">...Вертолёт? Разбился?</p>
             </text>
             <text article="1">
-                <p class="article-text">Вас тоже взяли в плен——</p>
+                <p class="article-text">Опять притащили каких-то жертв без сознания?</p>
             </text>
             <text article="1">
                 <p class="article-text">Профессор Планк?</p>
                 <br />
-                <p class="article-text">Иоахим?</p>
+                <p class="article-text">Йоахим??</p>
             </text>
             <text article="1">
-                <p class="article-text">Что это значит?</p>
+                <p class="article-text">Что происходит???</p>
                 <br />
-                <p class="article-text">Почему они здесь!?</p>
+                <p class="article-text">Почему вы здесь?!</p>
             </text>
             <goto goto="100" change="#ffffff"/>
         </scene>
         <scene id="100" background="blackCloud.jpg">
             <bgm src="horror.mp3" status="continue"></bgm>
             <show chara="ottoLaughChainFar" position="center"/>
-            <speak chara="ottoNoFace">Есть поговорка, которая гласит: "Вы можете износить железные башмаки в бесплодных поисках, и всё же случайно вы можете найти потерянную вещь, даже не ища её".</speak>
+            <speak chara="ottoNoFace">Помню, на Востоке есть пословица: «Истоптал железные башмаки в поисках, а нашёл без всяких усилий».</speak>
             <show chara="ottoScornfulChainFar" position="center"/>
-            <speak chara="ottoNoFace">Вам так не терпится умереть? В этом случае казнить всех одновременно нехорошо.</speak>
+            <speak chara="ottoNoFace">Раз уж кто-то сам летит на пламя, словно мотылёк... казнить всех без разбора было бы неправильно с моей стороны.</speak>
             <show chara="ottoConfidentChainFar" position="center"/>
-            <speak chara="ottoNoFace">У меня есть идея. Как насчёт того, чтобы я позаботился о каждом из них у тебя на глазах?</speak>
+            <speak chara="ottoNoFace">Как насчёт того, чтобы сделать это по очереди?</speak>
             <show chara="ottoHaughtyChainFar" position="center"/>
-            <speak chara="ottoNoFace">Конечно... ты будешь последним, Вельт.</speak>
+            <speak chara="ottoNoFace">Вельта, разумеется, оставим напоследок.</speak>
             <show chara="ottoConfidentChainFar" position="center"/>
-            <speak chara="ottoNoFace">6 людей, 6 цепей, 6 смертей...</speak>
+            <speak chara="ottoNoFace">Шесть человек, шесть цепей, шесть видов смерти...</speak>
             <show chara="ottoLaughChainFar" position="center"/>
-            <speak chara="ottoNoFace">...Стоит ли мне начать с ребёнка?</speak>
+            <speak chara="ottoNoFace">...Начнём с тебя, малыш?</speak>
             <goto goto="110" change="0"/>
         </scene>
         <scene id="110" background="bloodWhite.jpg">
@@ -246,421 +245,417 @@
         <scene id="120" background="blackCloud.jpg">
             <bgm src="horror.mp3" status="start"></bgm>
             <show chara="ottoHaughtyChainFar" position="center"/>
-            <speak chara="ottoNoFace">О, так ты планируешь пожертвовать собой вместо него?</speak>
+            <speak chara="ottoNoFace">Тц, значит, ты готова приложить все силы, лишь бы закрыть собой ребёнка?</speak>
             <show chara="ottoScornfulChainFar" position="center"/>
-            <speak chara="ottoNoFace">Как скучно.</speak>
+            <speak chara="ottoNoFace">Какая скука.</speak>
             <show chara="ottoHaughtyChainFar" position="center"/>
-            <speak chara="ottoNoFace">Но, в честь твоего самопожертвования, я начну с кого-нибудь другого.</speak>
+            <speak chara="ottoNoFace">Но учитывая твоё неудержимое рвение, я, так и быть, начну с кого-то другого.</speak>
             <show chara="ottoScornfulChainFar" position="center"/>
             <speak chara="ottoNoFace">...</speak>
             <show chara="ottoHaughtyChainFar" position="center"/>
-            <speak chara="ottoNoFace">У тебя есть какие-нибудь смелые слова на этот раз, владелица?</speak>
+            <speak chara="ottoNoFace">Хозяйка, есть ещё какие-нибудь громкие слова, которые ты хочешь высказать?</speak>
             <speak chara="ritaFullNameNoFace">...</speak>
-            <speak chara="ottoNoFace">...Я тебя не слышу, твой голос слишком тих.</speak>
+            <speak chara="ottoNoFace">...Слишком тихо, я ничего не слышу.</speak>
             <show chara="ottoScornfulChainFar" position="center"/>
-            <speak chara="ottoNoFace">——Выйди вперёд и говори!</speak>
+            <speak chara="ottoNoFace">Подойди и скажи мне это в лицо!</speak>
             <goto goto="125" change="0"/>
         </scene>
         <scene id="125" background="black">
             <bgm src="horror.mp3" status="stop"></bgm>
-            <speak chara="ritaFullNameNoFace">(Хех.)</speak>
+            <speak chara="ritaFullNameNoFace">(Хм.)</speak>
             <goto goto="130" change="0"/>
         </scene>
         <scene id="130" background="CG26-4-2.jpg">
             <bgm src="11_17_tatakau.mp3" status="start"></bgm>
             <cg src="CG26-4-1.jpg" bg="CG26-4-2.jpg" fadeIn="0" fadeOut="1"></cg>
-            <speak chara="ritaFullNameNoFace">Это ты ослабил бдительность, Отто!</speak>
+            <speak chara="ritaFullNameNoFace">Это ты слишком зазнался! Отто!</speak>
             <goto goto="140" change="0"/>
         </scene>
         <scene id="140" background="errorBlack.jpg">
             <bgm src="11_17_tatakau.mp3" status="continue"></bgm>
-            <speak chara="ottoNoFace">(Ч-что это!)</speak>
-            <speak chara="ottoNoFace">(Что случилось? Был ли отключён сигнал?)</speak>
-            <speak chara="ottoNoFace">(Нет... Что-то ещё...)</speak>
-            <speak chara="ottoNoFace">(Какое-то нарушение в соулиуме...?)</speak>
+            <speak chara="ottoNoFace">(Ч-что происходит!)</speak>
+            <speak chara="ottoNoFace">(Что случилось? Сигнал прервался?)</speak>
+            <speak chara="ottoNoFace">(Нет... не то...)</speak>
+            <speak chara="ottoNoFace">(Кожа из соулиума... дала сбой?)</speak>
             <bgm src="04_20_Brigantia.mp3" status="start"></bgm>
-            <speak chara="ritaFullNameNoFace">Вельт! Быстрее!</speak>
-            <speak chara="ritaFullNameNoFace">Вы помните перцовый баллончик, который всегда находится в кармане Вашего пальто?</speak>
-            <speak chara="ritaFullNameNoFace">Это вещество, созданное для подавления соулиума! Это временно затвердеет его жидкую кожу!</speak>
-            <speak chara="ritaFullNameNoFace">Избавьтесь от этого куска мусора прямо сейчас!</speak>
+            <speak chara="ritaFullNameNoFace">Вельт! Вперёд!</speak>
+            <speak chara="ritaFullNameNoFace">Помнишь перцовый баллончик, который ты всё время носил в кармане?</speak>
+            <speak chara="ritaFullNameNoFace">Это ингибитор соулиума! Его жидкая кожа временно затвердела!</speak>
+            <speak chara="ritaFullNameNoFace">Помоги мне разнести эту кучу металлолома!</speak>
             <goto goto="150" change="#ffffff"/>
         </scene>
         <scene id="150" background="nebula.jpg">
             <bgm src="04_20_Brigantia.mp3" status="continue"></bgm>
             <show chara="weltNakedNormalFar" position="center"/>
-            <speak chara="weltNoFace">...Экстренный гемостаз моих ран завершён.</speak>
+            <speak chara="weltNoFace">...Временная остановка кровотечения из раны завершена.</speak>
             <show chara="weltNakedCoatNormalFar" position="center"/>
-            <speak chara="weltNoFace">...Переход в режим мимикрии.</speak>
+            <speak chara="weltNoFace">...Переход в режим мимикрии оригинального тела.</speak>
             <show chara="weltNakedCoatShoutFar" position="center"/>
-            <speak chara="weltNoFace">Мой кулак, стань [Клятвой Иуды], которая не уступает настоящему Ключу!</speak>
+            <speak chara="weltNoFace">Мои кулаки, станьте же истинной «Клятвой Иуды»!</speak>
             <goto goto="160" change="0"/>
         </scene>
         <scene id="160" background="CG26-5.jpg">
             <bgm src="04_20_Brigantia.mp3" status="continue"></bgm>
             <sound src="05_18_smash.mp3"/>
-            <speak chara="weltNoFace">Убирайся из тела Реанны, ты, чёртов самодовольный клоун!</speak>
+            <speak chara="weltNoFace">Убирайся из тела Реанны! Ты, жалкий фигляр!!</speak>
             <goto goto="170" change="#ffffff"/>
         </scene>
         <scene id="170" background="CG26-6-1.jpg">
             <bgm src="04_20_Brigantia.mp3" status="continue"></bgm>
-            <speak chara="ottoNoFaceRed">(...Хмпф. Идиот.)</speak>
-            <speak chara="ottoNoFaceRed">(Это всего лишь позаимствованное тело——)</speak>
-            <speak chara="ottoNoFaceRed">(——уничтожение его для убийства вас всех мне совсем не повредит.)</speak>
+            <speak chara="ottoNoFaceRed">(...Хм. Как глупо.)</speak>
+            <speak chara="ottoNoFaceRed">(Это всего лишь временное тело...)</speak>
+            <speak chara="ottoNoFaceRed">(...ну и что с того, если я погибну вместе с вами?)</speak>
             <goto goto="180" change="0"/>
         </scene>
         <scene id="180" background="errorWhite.jpg">
             <bgm src="04_20_Brigantia.mp3" status="continue"></bgm>
             <speak chara="ottoNoFaceGreen">...?</speak>
-            <speak chara="ottoNoFaceGreen">(Что это значит?)</speak>
-            <speak chara="ottoNoFaceGreen">(Программа самоуничтожения отключена?)</speak>
-            <speak chara="reannaNoNameNoFace">...Вы сделали что-то действительно потрясающее, мой дорогой господин Отто.</speak>
-            <speak chara="ottoNoFaceGreen">Н-не может быть...</speak>
-            <speak chara="ottoNoFaceGreen">Т-ты....</speak>
+            <speak chara="ottoNoFaceGreen">(Что происходит?)</speak>
+            <speak chara="ottoNoFaceGreen">(Даже программа самоуничтожения не работает?)</speak>
+            <speak chara="reannaNoNameNoFace">...Вы совершили поистине нечто выдающееся, мой господин Отто.</speak>
+            <speak chara="ottoNoFaceGreen">Н... невозможно...</speak>
+            <speak chara="ottoNoFaceGreen">Ты... ты...</speak>
             <goto goto="190" change="0"/>
         </scene>
         <scene id="190" background="CG26-6-2.jpg">
             <bgm src="04_20_Brigantia.mp3" status="continue"></bgm>
-            <speak chara="reannaNoNameNoFace">Что не так? Вы уже забыли голос тела, у которого украли контроль?</speak>
-            <speak chara="reannaNoNameNoFace">...Кстати, вы когда-нибудь представляли, что всё закончится именно так, когда вы в первый раз переделали моё тело, используя [Архивы Пустоты]? </speak>
-            <speak chara="reannaNoNameNoFace">...Концом этого 100-летнего [Корабля Тесея].</speak>
-            <speak chara="reannaNoNameNoFace">Господин Отто, несомненно, настойчивый человек.</speak>
-            <speak chara="reannaNoNameNoFace">Но... вы знали?</speak>
+            <speak chara="reannaNoNameNoFace">Что такое? До недавнего времени Вы размахивали кулаками, используя моё тело, а теперь даже не узнаёте этот голос?</speak>
+            <speak chara="reannaNoNameNoFace">...К слову, когда Вы впервые модифицировали моё тело с помощью «Архива Пустоты», Вы уже спланировали всё это, верно?</speak>
+            <speak chara="reannaNoNameNoFace">...Целых сто лет «Корабля Тесея».</speak>
+            <speak chara="reannaNoNameNoFace">У Вас поистине ангельское терпение, господин Отто.</speak>
+            <speak chara="reannaNoNameNoFace">Но... знаете ли Вы?</speak>
             <goto goto="200" change="0"/>
         </scene>
         <scene id="200" background="CG26-7.jpg">
             <bgm src="04_20_Brigantia.mp3" status="continue"></bgm>
             <sound src="05_18_claw.mp3"/>
             <cg src="CG26-7.jpg" bg="CG26-7.jpg" fadeIn="0" fadeOut="1"></cg>
-            <speak chara="reannaNoNameNoFace" remark="next">[Корабль Тесея] был назван так из-за самого Тесея!</speak>
+            <speak chara="reannaNoNameNoFace" remark="next">«Корабль Тесея» носит такое название именно из-за Тесея!</speak>
             <remark post="U2FsdGVkX19qTSI4PtT67p6CeBN5">
                 <p class="article-text-h">Примечание:</p>
-                <p class="article-text">У афин был герой по имени Тесей. Он был настолько велик, что местные жители освятили корабль, на котором он плавал, как памятник.</p>
-                <p class="article-text">Но время безжалостно, и дерево, из которого был сделан корабль, постепенно истлело. Чтобы великий корабль не был в конечном итоге сожжён в качестве жертвоприношения, им пришла в голову хорошая идея: каждые несколько лет все части корабля должны проверяться, и если какие-либо из них прогнили, их следует заменять новыми.</p>
-                <p class="article-text">Так, много лет спустя, когда философ пришёл посмотреть, все детали на корабле были заменены по меньшей мере дважды.</p>
-                <p class="article-text">Когда философ услышал об этом, он был очень расстроен. Он спросил местных жителей: "Это всё тот же корабль?”</p>
-                <p class="article-text">Местные жители беззаботно ответили: "Если вы скажете "нет", мистер философ, как вы думаете, когда он перестал им быть? Вы должны знать, что даже выходя в море, корабли время от времени нуждаются в замене деталей.”</p>
+                <p class="article-text">Был один афинский герой по имени Тесей. Он был великим человеком, поэтому местные жители сохранили его корабль как памятник.</p>
+                <p class="article-text">Но время безжалостно, и древесина, из которой был сделан корабль, постепенно сгнила. Чтобы этот великий корабль в конце концов не пришлось сжечь на растопку, люди придумали отличный способ: каждые несколько лет они осматривали все детали корабля, и если какие-то из них сгнили, то их заменяли на новые.</p>
+                <p class="article-text">В результате, много лет спустя, когда философ пришёл посмотреть на корабль, все его детали были заменены как минимум дважды.</p>
+                <p class="article-text">Услышав об этом, философ расстроился и спросил местных жителей: «Это всё ещё тот самый первоначальный корабль?»</p>
+                <p class="article-text">А местные жители беззаботно ответили: «Если вы говорите, что нет, господин философ, то, как вы думаете, когда он перестал им быть? Вы же знаете, что кораблям время от времени нужно менять детали, даже во время плавания».</p>
             </remark>
             <goto goto="210" change="0"/>
         </scene>
         <scene id="210" background="blackCloud.jpg">
             <bgm src="04_20_tank.mp3" status="start"></bgm>
             <show chara="weltNakedCoatSurpriseClose" position="center"/>
-            <speak chara="weltNoFace">Р-Реанна!?</speak>
+            <speak chara="weltNoFace">Ре... Реанна?!</speak>
             <show chara="reaChangeNormalClose" position="center"/>
-            <speak chara="reannaNoFace">Не волнуйся...</speak>
+            <speak chara="reannaNoFace">Всё в порядке...</speak>
             <show chara="reaChangeConfidentClose" position="center"/>
-            <speak chara="reannaNoFace">Для робота потеря одной или двух частей ничего не значит.</speak>
+            <speak chara="reannaNoFace">Для робота поломка пары-тройки деталей — это не конец света.</speak>
             <show chara="reaChangeSeriousClose" position="center"/>
-            <speak chara="reannaNoFace">Те, о ком я беспокоюсь, это...</speak>
+            <speak chara="reannaNoFace">Меня больше беспокоит...</speak>
             <show chara="ritaSadHeadphoneGunClose" position="center"/>
-            <speak chara="ritaFullNameNoFace">(В разговоре) ...Да, с профессором и ребёнком всё в порядке.</speak>
+            <speak chara="ritaFullNameNoFace">(Разговаривает по рации) ...Да, с профессором и тем парнем тоже всё в порядке.</speak>
             <show chara="ritaNervousHeadphoneGunClose" position="center"/>
-            <speak chara="ritaFullNameNoFace">...Что это было?</speak>
-            <speak chara="ritaFullNameNoFace">...Повторись!</speak>
+            <speak chara="ritaFullNameNoFace">...Что?</speak>
+            <speak chara="ritaFullNameNoFace">...В-вы можете повторить?</speak>
             <show chara="weltNakedCoatNervousClose" position="center"/>
             <speak chara="weltNoFace">Что случилось?</speak>
             <show chara="ritaNervousHeadphoneGunClose" position="center"/>
-            <speak chara="ritaFullNameNoFace">Я получила сообщение с Кубы. Похоже, Шиксал повысил свой уровень оповещения до [Нуля].</speak>
+            <speak chara="ritaFullNameNoFace">Пришло сообщение из Кубы по трансокеанской связи: только что Шиксал перешёл в состояние «нулевой» боевой готовности.</speak>
             <show chara="reaChangeSeriousClose" position="center"/>
             <speak chara="reannaNoFace">...!</speak>
             <show chara="reaChangeShoutClose" position="center"/>
-            <speak chara="reannaNoFace">Вельт! Ты можешь создать радар!?</speak>
+            <speak chara="reannaNoFace">Вельт! Ты умеешь создавать радары?!</speak>
             <show chara="weltNakedCoatSurpriseClose" position="center"/>
-            <speak chara="weltNoFace">Радар? Создать??</speak>
+            <speak chara="weltNoFace">Радары? Создавать??</speak>
             <show chara="reaChangeShoutClose" position="center"/>
-            <speak chara="reannaNoFace">Не прикидывайся дураком! Если Архивы Пустоты являются 1-м Ключом, то ты, как 1-й Херршер, должен быть в состоянии сделать то же самое!</speak>
+            <speak chara="reannaNoFace">Не тупи! Раз уж «Архив Пустоты» — это «Первый Божественный Ключ», то нет причин, по которым ты, «Первый Херршер», не сможешь этого сделать!</speak>
             <goto goto="215" change="0"/>
         </scene>
         <scene id="215" background="CG26-8.jpg">
             <bgm src="04_20_tank.mp3" status="continue"></bgm>
             <cg src="CG26-8.jpg" bg="CG26-8.jpg" fadeIn="0" fadeOut="1"></cg>
-            <speak chara="reannaNoFace">Если ты не понимаешь, о чём я говорю, взгляни на мои данные!</speak>
+            <speak chara="reannaNoFace">Если не знаешь как, просто считай данные с меня!</speak>
             <goto goto="220" change="0"/>
         </scene>
         <scene id="220" background="dreamSky.jpg">
             <bgm src="04_20_tank.mp3" status="continue"></bgm>
-            <text>.....</text>
-            <text>Атмосфера Земли похожа на Милль-фейль.</text>
+            <text>...</text>
+            <text>Атмосфера Земли похожа на слоёный пирог.</text>
             <text article="1">
-                <p class="article-text">Тропосфера. Самый плотный слой. Вот где можно найти облака.</p>
-                <p class="article-text">Стратосфера. Из-за повышения температуры в этом слое почти не происходит вертикального перемешивания.</p>
-                <p class="article-text">Мезосфера. Находясь за пределами озонового слоя, этот слой является наиболее разреженным.</p>
+                <p class="article-text">Тропосфера. Это плотный слой атмосферы, для которого характерны постоянно меняющиеся облака.</p>
+                <p class="article-text">Стратосфера. Воздух здесь холодный внизу и горячий вверху, поэтому вертикальная конвекция практически отсутствует.</p>
+                <p class="article-text">Мезосфера. За густо насыщенной озоном границей атмосфера становится весьма разреженной.</p>
             </text>
             <text article="1">
-                <p class="article-text">А над ними можно найти термосферу.</p>
-                <p class="article-text">На этой высоте солнечные лучи ионизируют молекулы——</p>
-                <p class="article-text">——для создания ионизированной плазмы.</p>
+                <p class="article-text">Ещё выше находится термосфера.</p>
+                <p class="article-text">На такой высоте солнечные лучи способны в полной мере ионизировать молекулы воздуха...</p>
+                <p class="article-text">...образуя тонкий слой плазмы.</p>
             </text>
             <text article="1">
-                <p class="article-text">Этот слой называется ионосферой——</p>
+                <p class="article-text">Он называется ионосферой...</p>
                 <br />
-                <p class="article-text">——Она действует как способный отражатель радиоволн, позволяя им перемещаться с одной стороны Земли на другую.</p>
+                <p class="article-text">...и подобно зеркалу, обволакивающему всю планету, он помогает радиоволнам распространяться от одного края Земли до другого.</p>
             </text>
             <text article="1">
-                <p class="article-text">Благодаря этому можно обнаружить объекты, излучающие электромагнитные волны, даже если их нельзя увидеть невооружёным глазом.</p>
+                <p class="article-text">Следовательно, даже за пределами видимости люди могут использовать принцип, похожий на эхолокацию, для улавливания далёких движущихся объектов, отражающих электромагнитные волны.</p>
             </text>
-            <text>Принцип, лежащий в основе радара, не сложен.</text>
-            <text>Количество требуемой энергии невелико.</text>
-            <text>Если Вельт является 1-м Херршером, то——</text>
-            <text>——Такое устройство можно создать даже одной рукой.</text>
+            <text>С точки зрения деконструкции дизайна, принцип работы загоризонтного радиолокационного комплекса не так уж и сложен.</text>
+            <text>Требуемое количество энергии также не является запредельным.</text>
+            <text>Как «Херршер Разума»...</text>
+            <text>...Вельт был уверен, что сможет создать подобный механизм из ничего.</text>
             <goto goto="230" change="#ffffff"/>
         </scene>
         <scene id="230" background="radarScreen.jpg">
             <bgm src="04_20_tank.mp3" status="continue"></bgm>
-            <speak chara="ritaFullNameNoFace">.....</speak>
-            <speak chara="reannaNoFace">.....</speak>
+            <speak chara="ritaFullNameNoFace">...</speak>
+            <speak chara="reannaNoFace">...</speak>
             <goto goto="240" change="0"/>
         </scene>
         <scene id="240" background="blackCloud.jpg">
             <bgm src="04_20_tank.mp3" status="continue"></bgm>
             <show chara="ritaNervousHeadphoneGunClose" position="left"/>
-            <speak chara="ritaFullNameNoFace">Это... межконтинентальная баллистическая ракета?</speak>
-            <speak chara="ritaFullNameNoFace">Не слишком ли велика предполагаемая кинетическая мощность взрыва?</speak>
+            <speak chara="ritaFullNameNoFace">Это... межконтинентальная ракета?</speak>
+            <speak chara="ritaFullNameNoFace">Неужели расчётная кинетическая энергия настолько велика?</speak>
             <show chara="ritaNervousHeadphoneGunClose" position="left" opacity="0.7"/>
             <show chara="reaChangeSeriousClose" position="right"/>
-            <speak chara="reannaNoFace">Нет... Эта ещё опаснее.</speak>
-            <speak chara="reannaNoFace">...После инцидента с Хонкаем в Берлине штаб-квартира работала над——</speak>
-            <speak chara="reannaNoFace">——Противохонкайской ракетой.</speak>
+            <speak chara="reannaNoFace">Нет... всё куда хуже.</speak>
+            <speak chara="reannaNoFace">...В последние годы, вдохновлённая инцидентом с Хонкаем в Берлине, штаб-квартира тайно разработала бомбу, способную мгновенно воспроизвести взрыв Хонкая...</speak>
+            <speak chara="reannaNoFace">...Расщепляющуюся бомбу Хонкай.</speak>
             <show chara="reaChangeSeriousClose" position="right" opacity="0.7"/>
             <show chara="weltNakedCoatSurpriseClose" position="left"/>
-            <speak chara="weltNoFace">Что это?</speak>
+            <speak chara="weltNoFace">Что это... такое?</speak>
             <show chara="weltNakedCoatSurpriseClose" position="left" opacity="0.7"/>
             <show chara="reaChangeSeriousClose" position="right"/>
-            <speak chara="reannaNoFace">Противохонкайские ракеты искусственно конденсируют и высвобождают огромное количество энергии Хонкая, вызывая физическую цепную реакцию. В результате всё вокруг него уничтожается.</speak>
-            <speak chara="reannaNoFace">Короче говоря, это оружие - последняя козырная карта, разработанная против зверей Хонкая и Херршеров.</speak>
+            <speak chara="reannaNoFace">...Расщепляющаяся бомба Хонкай использует физическую цепную реакцию для искусственного сбора и высвобождения огромного количества энергии Хонкая со стороны Мнимого Дерева за очень короткий промежуток времени, достигая тем самым эффекта уничтожения всей материи в округе.</speak>
+            <speak chara="reannaNoFace">Именно по этой причине разработчики считают данное оружие главным козырем в борьбе с Херршерами и зверями Хонкая.</speak>
             <show chara="reaChangeSeriousClose" position="right" opacity="0.7"/>
             <show chara="weltNakedCoatSurpriseClose" position="left"/>
-            <speak chara="weltNoFace">Если она взорвётся в таком месте, как это——</speak>
+            <speak chara="weltNoFace">Если она взорвётся здесь...</speak>
             <show chara="weltNakedCoatSurpriseClose" position="left" opacity="0.7"/>
             <show chara="reaChangeSeriousClose" position="right"/>
-            <speak chara="reannaNoFace">...Не только мы в опасности, но и всё, что Эдисон сделала для защиты города, будет напрасно.</speak>
+            <speak chara="reannaNoFace">...Не только мы все окажемся в смертельной опасности; все усилия мисс Эдисон по защите этого города также потеряют всякий смысл.</speak>
             <show chara="reaChangeSeriousClose" position="right" opacity="0.7"/>
             <show chara="weltNakedCoatSurpriseClose" position="left"/>
-            <speak chara="weltNoFace">.....</speak>
+            <speak chara="weltNoFace">...</speak>
             <show chara="weltNakedCoatShoutClose" position="left"/>
-            <speak chara="weltNoFace">Чёрт возьми, это безумие!</speak>
+            <speak chara="weltNoFace">Это же абсурд!</speak>
             <show chara="weltNakedCoatShoutClose" position="left" opacity="0.7"/>
             <show chara="reaChangeSeriousClose" position="right"/>
-            <speak chara="reannaNoFace">.....</speak>
+            <speak chara="reannaNoFace">...</speak>
             <show chara="reaChangeConfidentClose" position="right"/>
-            <speak chara="reannaNoFace">Успокойся.</speak>
-            <speak chara="reannaNoFace">У нас всё ещё есть способ спасти всех.</speak>
+            <speak chara="reannaNoFace">Не паникуй.</speak>
+            <speak chara="reannaNoFace">У нас есть по крайней мере ещё один способ противостоять этому.</speak>
             <show chara="reaChangeNormalClose" position="right"/>
-            <speak chara="reannaNoFace">Для защиты всех... Мне нужна твоя помощь, Вельт.</speak>
+            <speak chara="reannaNoFace">Ради нашей общей надежды... Вельт, пожалуйста, помоги мне в том, что я собираюсь сделать.</speak>
             <goto goto="250" change="#ffffff"/>
         </scene>
         <scene id="250" background="blackCloud.jpg">
             <bgm src="07_20_amazingGrace.mp3" status="start"></bgm>
             <text article="1">
-                <p class="article-text">Реанна спокойно объяснила свой план.</p>
+                <p class="article-text">Реанна спокойно изложила свой план.</p>
             </text>
             <text article="1">
-                <p class="article-text">Логике было очень легко следовать——</p>
+                <p class="article-text">Принцип был очень прост...</p>
                 <br />
-                <p class="article-text">Прежде чем противохонкайская ракета упадёт на землю, Цветок Бездны уничтожит детонатор ракеты.</p>
+                <p class="article-text">...использовать Цветок Безды, чтобы уничтожить взрыватель расщепляющейся бомбы Хонкай до того, как она ударится о землю и взорвётся.</p>
             </text>
             <text article="1">
-                <p class="article-text">Корпус её машины оснащён небольшим ракетным пропеллером. Как только она узнает местоположение ракеты, она сможет приблизиться к ней, пока она ещё в воздухе.</p>
+                <p class="article-text">В её механическое тело были встроены ракетные ускорители: если удастся точно определить местоположение ракеты, она сможет приблизиться к ней в воздухе.</p>
                 <br />
-                <p class="article-text">"Вот тут-то всё и усложняется," - сказала она.</p>
+                <p class="article-text">«Но самое сложное, — добавила она, — будет потом».</p>
             </text>
             <text article="1">
-                <p class="article-text">"Уничтожение детонатора истощит Цветок Бездны и мои собственные боевые возможности."</p>
-                <p class="article-text">"——Если быть точнее, то, если нам повезет, Цветок Бездны уцелеет благодаря тому, что сделан из специальных материалов. Что касается меня, то соулиум, из которой состоит моё тело, испарится сразу же после воздействия чрезвычайно высоких температур."</p>
-                <p class="article-text">"Это цена, которую приходится платить за использование мощности, превышающей стандартную выходную мощность... Точно так же, как Шрёдингер сделала иначе."</p>
+                <p class="article-text">«В момент уничтожения взрывателя я и Цветок Безды также попадём под удар и потеряем тактическую ценность».</p>
+                <p class="article-text">«Если точнее, хотя Цветок Бездны с его особым методом ковки, возможно, и уцелеет, обычный соулиум, из которого состою я, попросту испарится от аномально высокой температуры».</p>
+                <p class="article-text">«Такова цена использования запредельной мощности... Прямо как в случае с доктором Шрёдингер, которая только что использовала другую форму запредельной мощности, чтобы исцелить вас».</p>
             </text>
             <text article="1">
-                <p class="article-text">"...Но это само по себе не остановит кинетическую энергию ракеты. Она будет продолжать падать, неся с собой много энергии Хонкая."</p>
-                <p class="article-text">"Хотя цепной реакции не произойдёт, она всё равно нанесёт разрушительный ущерб обычным людям и зданиям."</p>
+                <p class="article-text">«...Но даже в этом случае из-за огромной кинетической энергии эта ракета, которая сама по себе содержит немало энергии Хонкая, продолжит лететь по инерции».</p>
+                <p class="article-text">«Хотя она больше не сможет вызвать цепную реакцию, для обычных людей и простых зданий она всё равно останется разрушительным снарядом, несущим гибель».</p>
             </text>
             <text article="1">
-                <p class="article-text">"Так что, Вельт, тебе нужно..."</p>
+                <p class="article-text">«Поэтому, Вельт, твоя задача...»</p>
                 <br />
-                <p class="article-text">"...Не колебаться и избежать разрушений, вызванных ракетой, несмотря ни на что."</p>
+                <p class="article-text">«...любой ценой предотвратить разрушения от остаточного удара».</p>
             </text>
             <text article="1">
-                <p class="article-text">"Используя тот же принцип, по которому работает Звезда Эден, ты должен быть в состоянии создать щит для защиты всего города."</p>
-                <p class="article-text">"...Дальность действия 20 километров. Разбудив Ядро Херршера в твоём теле, ты сможешь противостоять этому - если предположить, что профессор Шрёдингер не ошиблась."</p>
-                <p class="article-text">"Излишне говорить, что это создаст огромную нагрузку на твоё и без того травмированное тело."</p>
+                <p class="article-text">«...Используя принцип Звезды Эдема, ты сможешь создать щит, который защитит весь город».</p>
+                <p class="article-text">«...Радиус двадцать километров. Если ты активируешь ядро Херршера, распределённое в твоём теле в виде ДНК, ты определённо сможешь поддержать такой масштаб... при условии, что в рассуждениях доктора Шрёдингер нет ошибок».</p>
+                <p class="article-text">«Хотя, должна сказать, это станет огромным бременем для твоего и без того израненного тела».</p>
             </text>
             <text article="1">
-                <p class="article-text">"Однако стоимость изготовления одной из этих противохонкайских ракет слишком высока. Если отбросить намерения Отто, он не сможет создать ещё одну по крайней мере в течение 10 лет."</p>
+                <p class="article-text">«Производство расщепляющейся бомбы Хонкай обходится невероятно дорого, и даже Отто вряд ли сможет создать вторую такую в ближайшие десять лет».</p>
                 <br />
-                <p class="article-text">"Короче говоря, это последняя козырная карта, которую он должен разыграть, и всё, что нам нужно сделать, чтобы выиграть, - это уничтожить её."</p>
+                <p class="article-text">«Иными словами, если смотреть на ситуацию с оптимизмом, он уже разыграл свой последний козырь, и всё, что нам нужно сделать, — это нейтрализовать его».</p>
             </text>
             <goto goto="260" change="#ffffff"/>
         </scene>
         <scene id="260" background="blackCloud.jpg">
             <bgm src="07_20_amazingGrace.mp3" status="continue"></bgm>
             <show chara="weltNakedCoatSurpriseClose" position="left"/>
-            <speak chara="weltNoFace">Но тогда... ты...</speak>
+            <speak chara="weltNoFace">Но... если так, ты...</speak>
             <show chara="weltNakedCoatSurpriseClose" position="left" opacity="0.7"/>
             <show chara="reaChangeConfidentClose" position="right"/>
-            <speak chara="reannaNoFace">Я не представляю никакой важности, тебе не нужно беспокоиться обо мне.</speak>
+            <speak chara="reannaNoFace">Я не имею значения.</speak>
             <show chara="reaChangeSeriousClose" position="right"/>
-            <speak chara="reannaNoFace">...Возможно, могло бы быть лучшее решение.</speak>
-            <speak chara="reannaNoFace">Но ракета уже в воздухе и будет здесь через 10 минут.</speak>
-            <speak chara="reannaNoFace">Мы не можем позволить себе роскошь не торопиться.</speak>
+            <speak chara="reannaNoFace">...Возможно, у этой проблемы есть и более удачное решение.</speak>
+            <speak chara="reannaNoFace">Но ракета уже запущена, и она ударит сюда меньше чем через десять минут.</speak>
+            <speak chara="reannaNoFace">У нас нет времени на раздумья.</speak>
             <show chara="reaChangeSeriousClose" position="right" opacity="0.7"/>
             <show chara="ritaNervousHeadphoneGunClose" position="left"/>
             <speak chara="ritaFullNameNoFace">...</speak>
             <show chara="ritaNervousHeadphoneGunClose" position="left" opacity="0.7"/>
             <show chara="reaChangeConfidentClose" position="right"/>
-            <speak chara="reannaNoFace">...Не нужно расстраиваться из-за этого.</speak>
+            <speak chara="reannaNoFace">...Не нужно из-за этого расстраиваться.</speak>
             <show chara="reaChangeSeriousClose" position="right"/>
-            <speak chara="reannaNoFace">И ещё...</speak>
-            <speak chara="reannaNoFace">Вельт, я скажу ещё раз——</speak>
-            <speak chara="reannaNoFace">В процессе выполнения этого плана, если твоя выработка энергии превысить предел того, с чем ты можешь справиться...</speak>
-            <speak chara="reannaNoFace">Раны, нанесённые [Ключом Лимитирования], могут вновь открыться и стать ещё хуже...</speak>
-            <speak chara="reannaNoFace">...До такой степени, что это приведёт к твоей смерти.</speak>
+            <speak chara="reannaNoFace">К тому же...</speak>
+            <speak chara="reannaNoFace">Вельт, я ещё раз подчеркиваю...</speak>
+            <speak chara="reannaNoFace">...В этом поспешно состряпанном плане, если твоя выходная мощность превысит предел того, что ты можешь выдержать...</speak>
+            <speak chara="reannaNoFace">...то раны, нанесённые тебе псевдо-Иудой, могут воспалиться ещё сильнее...</speak>
+            <speak chara="reannaNoFace">...И даже поставить твою жизнь под угрозу.</speak>
             <show chara="reaChangeSeriousClose" position="right" opacity="0.7"/>
             <show chara="weltNakedCoatShoutClose" position="left"/>
-            <speak chara="weltNoFace">Всё же... Э-Это могу сделать только я——</speak>
+            <speak chara="weltNoFace">Но... это... это ведь то, что могу сделать только я...</speak>
             <show chara="weltNakedCoatShoutClose" position="left" opacity="0.7"/>
             <show chara="reaChangeConfidentClose" position="right"/>
-            <speak chara="reannaNoFace">Это же можно сказать и про меня.</speak>
+            <speak chara="reannaNoFace">И я тоже.</speak>
             <show chara="reaChangeNormalClose" position="right"/>
-            <speak chara="reannaNoFace">Уничтожение детонатора до того, как ракета упадёт на землю. Это работа, которую могу выполнить только я——</speak>
+            <speak chara="reannaNoFace">Обезвредить взрыватель ракеты до того, как она упадёт на землю — это также то, что по силам только мне...</speak>
             <show chara="reaChangeConfidentClose" position="right"/>
-            <speak chara="reannaNoFace">Вот и всё.</speak>
+            <speak chara="reannaNoFace">И всё.</speak>
             <goto goto="270" change="#ffffff"/>
         </scene>
         <scene id="270" background="blackCloud.jpg">
             <bgm src="07_20_amazingGrace.mp3" status="continue"></bgm>
             <text article="1">
-                <p class="article-text">Реанна погрузила пальцы в разжиженный соулиум у себя на поясе.</p>
+                <p class="article-text">Реанна глубоко вонзила все десять пальцев в жидкий соулиум в нижней части своей спины.</p>
                 <br />
-                <p class="article-text">Когда её руки медленно, но твёрдо приложили усилие, из похожей на ртуть металлической оболочки появились два пропеллера размером с чашу.</p>
+                <p class="article-text">Когда она медленно и с силой потянула руками, из ртутеподобной металлической кожи появились два ускорителя размером с чашу.</p>
             </text>
             <text article="1">
-                <p class="article-text">"Остальное я оставлю на тебя."</p>
+                <p class="article-text">«Остальное оставляю на тебя».</p>
             </text>
-            <speak chara="weltNoFace">Да, предоставь это мне.</speak>
-            <speak chara="weltNoFace">Только я на это способен.</speak>
-            <speak chara="weltNoFace">Я позабочусь о том, чтобы сделать это должным образом.</speak>
+            <speak chara="weltNoFace">Да, не беспокойся.</speak>
+            <speak chara="weltNoFace">Это в моих силах.</speak>
+            <speak chara="weltNoFace">И я сделаю это лучше всех.</speak>
             <goto goto="280" change="#000000"/>
         </scene>
         <scene id="280" background="darkEnergyFade.jpg">
             <bgm src="07_20_amazingGrace.mp3" status="continue"></bgm>
-            <speak chara="adaNoFace">В тот день мы пытались остановить устрашающую противохонкайскую ракету.</speak>
-            <speak chara="adaNoFace">Я и Маргарет——</speak>
-            <speak chara="adaNoFace">Нет, даже если бы профессора не были в отключке——</speak>
-            <speak chara="adaNoFace">Никто бы не стал возражать против этого безумного плана.</speak>
+            <speak chara="adaNoFace">В тот день мы должны были остановить эту ужасную расщепляющуюся бомбу Хонкай во что бы то ни стало.</speak>
+            <speak chara="adaNoFace">Поэтому ни я, ни Маргарита...</speak>
+            <speak chara="adaNoFace">Нет, даже если бы профессор или доктора были в сознании...</speak>
+            <speak chara="adaNoFace">Никто бы не стал выступать против этого безумного плана.</speak>
             <goto goto="290" change="0"/>
         </scene>
         <scene id="290" background="landscapeSunset.jpg">
             <bgm src="07_20_amazingGrace.mp3" status="continue"></bgm>
-            <speak chara="adaNoFace">Я называю это безумным планом, потому что в предыдущей цивилизации——</speak>
-            <speak chara="adaNoFace">Даже те, кто использовал ядро 1-го Херршера для создания Архивов Пустоты, казалось бы, ни разу не создавали ничего такого масштаба из ничего.</speak>
-            <speak chara="adaNoFace">Причина очень проста. Архивы Пустоты не могут выдержать абсурдного расхода энергии, необходимого в первую очередь.</speak>
-            <speak chara="adaNoFace">Вельт - Херршер, который пытался это сделать, - не остался невредимым.</speak>
-            <speak chara="adaNoFace">Что касается невежественных граждан Нью-Йорка, то это было так, как если бы на город внезапно обрушился метеоритный дождь.</speak>
-            <speak chara="adaNoFace">Эмпайр Стейт Билдинг рухнул, и 5-я авеню превратилась в море огня.</speak>
-            <speak chara="adaNoFace">Но жители выжили.</speak>
-            <speak chara="adaNoFace">За исключением некоторых людей, которые были не из этого города, нам удалось добиться [нулевых жертв].</speak>
-            <speak chara="adaNoFace">Да... Действительно удивительно, но это не было чудом.</speak>
-            <speak chara="adaNoFace">Потому что он знал, что это возможно, сделай он всё, что в его силах.</speak>
+            <speak chara="adaNoFace">Я называю его безумным, потому что даже в предыдущую эру цивилизации...</speak>
+            <speak chara="adaNoFace">...Те, кто создал «Архив Пустоты», используя ядро «Первого Херршера», судя по всему, никогда не пытались воссоздавать нечто подобное из ничего в таких колоссальных масштабах.</speak>
+            <speak chara="adaNoFace">Причина предельно проста: «Архив Пустоты» попросту не выдержал бы такой невероятной мощности.</speak>
+            <speak chara="adaNoFace">И Вельт — израненный Херршер, который силой воплотил всё это в реальность — естественно, вряд ли мог выйти из этого целым и невредимым.</speak>
+            <speak chara="adaNoFace">Для простых жителей Нью-Йорка это был просто внезапный «метеоритный дождь».</speak>
+            <speak chara="adaNoFace">Из-за него рухнул Эмпайр-стейт-билдинг, а Пятая авеню превратилась в пепел.</speak>
+            <speak chara="adaNoFace">Но все горожане выжили.</speak>
+            <speak chara="adaNoFace">За исключением парочки людей, не принадлежавших этому городу, мы поразительным образом добились «нулевых потерь».</speak>
+            <speak chara="adaNoFace">Да... поразительно, но это не было чудом.</speak>
+            <speak chara="adaNoFace">Потому что этот человек знал, что он может достичь этого, выложившись на полную.</speak>
             <goto goto="295" change="#ffffff"/>
         </scene>
         <scene id="295" background="callaLily.jpg">
             <bgm src="07_20_amazingGrace.mp3" status="continue"></bgm>
-            <speak chara="adaNoFace">Зима прошла, и наступила весна. Профессор Эйнштейн и Тесла один за другим проснулись в своих больничных коек.</speak>
-            <speak chara="adaNoFace">Было немного удивительно...</speak>
-            <speak chara="adaNoFace">...Как спокойно они восприняли всё, что произошло за эту зиму.</speak>
-            <speak chara="adaNoFace">Благодаря [Стратегии пустого города] профессора Планк - смелому выступлению, чтобы скрыть слабую защиту, Отто больше не предпринимал враждебных действий.</speak>
-            <speak chara="adaNoFace">Используя силу Херршера Разума, Иоахим изменил свою внешность на внешность Вельта и вместе с профессорами дал многочисленные интервью СМИ.</speak>
-            <speak chara="adaNoFace">Мы не высовывались, но наш враг знал, что мы всё ещё живы и, похоже, так же сильны, как и прежде.</speak>
-            <speak chara="adaNoFace">...Для нас этого было достаточно.</speak>
+            <speak chara="adaNoFace">Зима сменилась весной, и доктор Эйнштейн с доктором Теслой одна за другой очнулись в своих больничных палатах.</speak>
+            <speak chara="adaNoFace">Что меня немного удивило...</speak>
+            <speak chara="adaNoFace">...Они спокойно приняли всё то, что произошло прошлой зимой.</speak>
+            <speak chara="adaNoFace">Благодаря хитрости профессора Планк с «пустым городом», Отто не стал предпринимать никаких дальнейших военных действий.</speak>
+            <speak chara="adaNoFace">Йоахим использовал силу Херршера Разума, чтобы принять облик Вельта, и в то время он вместе с профессором часто давал интервью различным СМИ.</speak>
+            <speak chara="adaNoFace">Мы не выступали под какими-то открытыми лозунгами, но враги знали: мы всё ещё живы и нет ни малейших признаков нашего ослабления.</speak>
+            <speak chara="adaNoFace">...Этого было достаточно.</speak>
             <goto goto="297" change="0"/>
         </scene>
         <scene id="297" background="landscapeSunset.jpg">
             <bgm src="07_20_amazingGrace.mp3" status="continue"></bgm>
-            <speak chara="adaNoFace">И ценой, которую нам пришлось за это заплатить, был... мальчик, который когда-то был известен как Иоахим...</speak>
-            <speak chara="adaNoFace">...Вместо того чтобы заживать, раны в его сердце только увеличивались.</speak>
-            <speak chara="adaNoFace">За один день он не только потерял своего отца, героя, которым восхищался, и даже свою прошлую жизнь——</speak>
-            <speak chara="adaNoFace">——но также и невинность его детства.</speak>
+            <speak chara="adaNoFace">Однако ценой за это стало то, что мальчик, которого когда-то звали Йоахим...</speak>
+            <speak chara="adaNoFace">...Рана в его сердце не только не зажила, но и стала разрываться всё глубже.</speak>
+            <speak chara="adaNoFace">В конце концов, всего за один день он потерял не только отца, но и героя, спасшего его, и даже свою прежнюю личность...</speak>
+            <speak chara="adaNoFace">...И самое главное — он потерял своё детство.</speak>
             <goto goto="300" change="#ffffff"/>
         </scene>
         <scene id="300" background="oldTVNewYork.jpg">
             <bgm src="morning.mp3" status="start"></bgm>
             <speak chara="newsNoFace">Сегодня особенный день.</speak>
-            <speak chara="newsNoFace">Для 53-летнего архитектора Джона Смита сегодня первый День благодарения, который он отпраздновал за 22 года.</speak>
-            <speak chara="johnSmithNoFace">Как кто-то из Бруклина... Я горжусь тем, чего мы достигли. Нам удалось восстановить это здание.</speak>
-            <speak chara="johnSmithNoFace">Бывший Эмпайр Стейт Билдинг, ныне известен как Обелиск Вельта.</speak>
-            <speak chara="johnSmithNoFace">Теперь я действительно чувствую, что Манхэттен вернулся.</speak>
-            <speak chara="newsNoFace" remark="next">Обелиск Вельта - это результат проекта реставрации небоскрёба компанией КЭ. Дизайн полностью повторяет версию Эмпайр Стейт Билдинг 1930 года постройки.</speak>
-            <remark>
-            <p class="article-text-h">Примечание:</p>
-            <p class="article-text">Компания КЭ (англ. ME corp) расшифровывается как компания Крупной Электроники.</p>
-            </remark>
-            <speak chara="newsNoFace">General Mechatronics пережила трудные времена после [катастрофы на День благодарения], но теперь, возродившись как компания КЭ, они стали одной из топ 500 компаний в мире.</speak>
-            <speak chara="newsNoFace">Как гражданину Нью-Йорка и сотруднику компании КЭ, ему, должно быть, было нелегко это сделать. То, что он чувствует, конечно, не может быть выражено таким лозунгом, как "отстраивай лучше".</speak>
-            <speak chara="johnSmithNoFace">В то время я был всего лишь электриком, отвечающим за безопасность здания.</speak>
-            <speak chara="johnSmithNoFace">Когда примерно в 3-4 часа дежурный охранник внезапно начал барабанить в мою дверь.</speak>
-            <speak chara="johnSmithNoFace">Я спал, а он вытащил меня на улицу в моей пижаме.</speak>
-            <speak chara="johnSmithNoFace">Именно тогда я понял, что городская электрическая сеть не работает.</speak>
-            <speak chara="newsNoFace">В те хаотичные и опасные сумеречные часы такие люди, как Джон Смит, осмотрели каждый уголок здания, чтобы устранить любые потенциальные опасности.</speak>
-            <speak chara="johnSmithNoFace">На самом деле мы просто следовали процедурам. В подобных ситуациях мозг не в состоянии сообразить, что делать, поэтому единственное, что мы могли сделать, - это следовать существующим процедурам ликвидации последствий стихийных бедствий.</speak>
-            <speak chara="johnSmithNoFace">Но я должен поблагодарить всех, кто был в здании, они выполнили наши инструкции и эвакуировали здание без паники.</speak>
-            <speak chara="johnSmithNoFace">В противном случае было бы невозможно, чтобы здание рухнуло и при этом жертв не было.</speak>
-            <speak chara="newsNoFace">Как всем известно, Эмпайр Стейт Билдинг был поражён внезапным падением метеорита ровно в 12:55 вечера и рухнул час спустя.</speak>
-            <speak chara="newsNoFace">Согласно расчётам экспертов, большинство метеоритов [катастрофы в День благодарения] сгорели на высоте более 300 метров——</speak>
-            <speak chara="newsNoFace">Таким образом, помимо метеорита, упавшего в залив Раритан, это единственное здание в Нью-Йорке, которое было непосредственно повреждено.</speak>
-            <speak chara="newsNoFace">Однако паника, вызванная этим бедствием, всё же повлияла на экономику, в результате чего индекс Доу-Джонса упал ниже——</speak>
+            <speak chara="newsNoFace">Для 53-летнего архитектора Джона Смита это первый День Благодарения, который он празднует за последние двадцать два года.</speak>
+            <speak chara="johnSmithNoFace">Как коренной житель Бруклина... я могу с гордостью заявить всему миру, что мы снова отстроили это здание.</speak>
+            <speak chara="johnSmithNoFace">Бывший Эмпайр-стейт-билдинг — ныне Башня Вельта.</speak>
+            <speak chara="johnSmithNoFace">В этот момент я чувствую, что мы наконец-то восстановили Манхэттен.</speak>
+            <speak chara="newsNoFace">Башня Вельта — это небоскрёб, инвестированный и реконструированный строительной компанией КЭ, его базовый дизайн полностью наследует структуру Эмпайр-стейт-билдинг 1930-х годов.</speak>
+            <speak chara="newsNoFace">Компания General Electric, пережившая кратковременный спад после «Катастрофы в День благодарения», теперь под названием обновлённой компанией КЭ вернула себе лидерство в списке Global 500.</speak>
+            <speak chara="newsNoFace">Для Джона Смита, который является одновременно жителем Нью-Йорка и сотрудником компании КЭ, все эти взлёты и падения невозможно описать одним лишь лозунгом «Снова великие».</speak>
+            <speak chara="johnSmithNoFace">В то время я работал инженером-электриком, отвечающим за безопасность здания.</speak>
+            <speak chara="johnSmithNoFace">Около трёх-четырёх часов утра дежуривший в ту ночь охранник начал громко стучать в железную дверь моей квартиры.</speak>
+            <speak chara="johnSmithNoFace">Я ещё сонный и в пижаме оказался на улице — он буквально вытащил меня туда силой.</speak>
+            <speak chara="johnSmithNoFace">И только тогда я осознал, что вся электросеть в городе полностью вышла из строя.</speak>
+            <speak chara="newsNoFace">В то хаотичное и полное опасностей утро Джон Смит и его коллеги проверили каждый уголок здания, чтобы исключить потенциальные угрозы.</speak>
+            <speak chara="johnSmithNoFace">Мы просто следовали установленным процедурам по устранению последствий катастрофы. В той ситуации мозг вообще не способен был что-то планировать — действовать по правилам было единственным, что мы могли сделать.</speak>
+            <speak chara="johnSmithNoFace">Однако... мы должны поблагодарить каждого, кто тогда находился в здании — спасибо им за уважение к нашей работе и за организованную эвакуацию.</speak>
+            <speak chara="johnSmithNoFace">Иначе при обрушении такого здания добиться «нулевых потерь» было бы просто невозможно.</speak>
+            <speak chara="newsNoFace">Как всем нам известно, в тот день в полдень, в 12:55, ровно через час после случайного столкновения с метеоритом, старый Эмпайр-стейт-билдинг с грохотом рухнул.</speak>
+            <speak chara="newsNoFace">По позднейшим расчётам, подавляющее большинство осколков метеоритного дождя «Катастрофы в День благодарения» сгорели на высоте более 300 метров...</speak>
+            <speak chara="newsNoFace">Поэтому, за исключением основной части метеорита, упавшей в залив Раритан, это здание стало единственной постройкой в Нью-Йорке, которая пострадала напрямую.</speak>
+            <speak chara="newsNoFace">Но, несмотря на это, паника, вызванная катастрофой, всё же сказалась на экономике того времени, и индекс Доу-Джонса однажды даже упал ниже...</speak>
             <goto goto="310" change="0"/>
         </scene>
         <scene id="310" background="hotelLivingroom.jpg">
             <bgm src="07_20_bellaCiao.mp3" status="start"></bgm>
-            <speak chara="yangNoFace">...Давай вернёмся.</speak>
-            <speak chara="adaNoFace">...Мы возвращаемся?</speak>
+            <speak chara="yangNoFace">...Пойдём обратно.</speak>
+            <speak chara="adaNoFace">...Обратно?</speak>
             <speak chara="yangNoFace">Ага.</speak>
-            <speak chara="yangNoFace">Давай вернёмся. Домой к остальным.</speak>
-            <speak chara="adaNoFace">...Ты об [Анти-Энтропии]?</speak>
-            <speak chara="yangNoFace">...Ага.</speak>
-            <speak chara="yangNoFace">Серьёзно. Что я делаю, убегаю из дома. Я такой глупый....</speak>
-            <speak chara="adaNoFace">Но когда придёт время появиться [Повелителю Анти-энтропии], тебе придётся замаскироваться... Я не думаю, что они поступают правильно в долгосрочной перспективе.</speak>
-            <speak chara="yangNoFace">Ага. Мне это тоже не нравится.</speak>
-            <speak chara="yangNoFace">Но попробуй взглянуть на это с другой стороны. Точно так же, как Эмпайр Стейт Билдинг был перестроен——</speak>
-            <speak chara="yangNoFace">У организации, рождённой в результате самопожертвования человека, нет иного выбора, кроме как следовать имиджу этого человека.</speak>
-            <speak chara="yangNoFace">...История неизбежно перевернёт страницу.</speak>
-            <speak chara="yangNoFace">Но перед этим мы должны признать свои ошибки.</speak>
-            <speak chara="adaNoFace">...Тебе плохо из-за того, что ты сбежал из дома?</speak>
-            <speak chara="yangNoFace">Ага... Но не только из-за этого.</speak>
+            <speak chara="yangNoFace">Обратно в наш общий дом.</speak>
+            <speak chara="adaNoFace">...Ты имеешь в виду «Анти-Энтропию»??</speak>
+            <speak chara="yangNoFace">...Да.</speak>
+            <speak chara="yangNoFace">Честно говоря, сбежав из дома, я вёл себя как полный дурак...</speak>
+            <speak chara="adaNoFace">Но заставлять тебя использовать маскировку каждый раз, когда нужно, чтобы появился «лидер Анти-Энтропии»... Я всё равно считаю, что они поступают неправильно. В долгосрочной перспективе.</speak>
+            <speak chara="yangNoFace">Да. Мне это тоже не нравится.</speak>
+            <speak chara="yangNoFace">Но с другой стороны, так же, как этот Эмпайр-стейт-билдинг можно было отстроить только в его первоначальном виде...</speak>
+            <speak chara="yangNoFace">Организация, основанная на самопожертвовании этого человека, может иметь в качестве символа лишь его образ.</speak>
+            <speak chara="yangNoFace">...Но история всегда открывает новую страницу.</speak>
+            <speak chara="yangNoFace">Однако перед этим нам нужно пойти и признать свои ошибки.</speak>
+            <speak chara="adaNoFace">...Хочешь извиниться за то, что сбежал из дома?</speak>
+            <speak chara="yangNoFace">Нет... Дело не только в этом.</speak>
             <speak chara="yangNoFace">Та битва изменила многих.</speak>
-            <speak chara="yangNoFace">Вельт пожертвовал собой ради защиты всех.</speak>
-            <speak chara="yangNoFace">Местонахождение профессора Шрёдингер было неизвестно с тех пор, как она подверглась квантованию; и Цветок Бездны не удалось обнаружить после того, как он упал на дно Атлантического океана.</speak>
-            <speak chara="yangNoFace">Что касается Эйнштейн и Теслы... их тела были навсегда изменены.</speak>
-            <speak chara="yangNoFace">И я, как единственный человек, подходящий для этого, унаследовал ядро 1-го Херршера.</speak>
-            <speak chara="yangNoFace">Я, в конце концов, не являюсь оригинальным 1-м Херршером.</speak>
-            <speak chara="yangNoFace">Ядро Херршера, эти децентрализованные существа, похожие на наноботов, превратили мои клетки в зомби-подобные машины.</speak>
-            <speak chara="yangNoFace">Чтобы я был максимально подготовлен к будущим угрозам.</speak>
-            <speak chara="yangNoFace">Просто чтобы иметь возможность физически перевоплотиться в этого героя, когда это будет необходимо.</speak>
+            <speak chara="yangNoFace">Ради защиты всех нас Вельт пожертвовал собой.</speak>
+            <speak chara="yangNoFace">Доктор Шрёдингер бесследно растворилась в квантовом состоянии, и её местонахождение неизвестно; Цветок Бездны также затонул в глубинах Атлантического океана, и найти его теперь почти невозможно.</speak>
+            <speak chara="yangNoFace">А Эйнштейн и Тесла... их тела навсегда изменились.</speak>
+            <speak chara="yangNoFace">А я, как единственный подходящий мужчина из присутствующих, унаследовал ядро Первого Херршера.</speak>
+            <speak chara="yangNoFace">И всё же я не оригинальный Первый Херршер.</speak>
+            <speak chara="yangNoFace">Ядро Херршера, эти распределённые нанороботы, превратили каждую мою клетку в зомби-подобную машину.</speak>
+            <speak chara="yangNoFace">И всё лишь для того, чтобы максимально повысить наше стратегическое устрашение.</speak>
+            <speak chara="yangNoFace">И чтобы в случае необходимости я смог физически превратить себя в того героя.</speak>
             <goto goto="320" change="#ffffff"/>
         </scene>
         <scene id="320" background="cloudSky.jpg">
             <bgm src="07_20_bellaCiao.mp3" status="continue"></bgm>
-            <speak chara="yangNoFace">Как я сказал профессору Планк в тот день, когда ушёл из дома——</speak>
-            <speak chara="yangNoFace">Это не должно было быть моим бременем. Совсем.</speak>
+            <speak chara="yangNoFace">Как я и сказал профессору Планк в тот день, когда сбежал из дома...</speak>
+            <speak chara="yangNoFace">Это не та боль, которую я должен был выносить. Совершенно не та.</speak>
             <speak chara="yangNoFace">Но...</speak>
-            <speak chara="yangNoFace">Посмотри на это. Тот архитектор, которого минуту назад показывали по телевизору...</speak>
-            <speak chara="yangNoFace">Я заметил, гуляя по округе в течение последних 2 лет. Шрамы, оставленные в тот день, всё ещё видны 20 лет спустя.</speak>
-            <speak chara="yangNoFace">Хотя рана больше не кровоточит, шрам никуда не делся.</speak>
-            <speak chara="yangNoFace">Только... Есть все эти бесчисленные люди храбрее меня.</speak>
-            <speak chara="yangNoFace">.....</speak>
-            <speak chara="yangNoFace">Имя [Вельт] - это не бремя, от которого можно отказаться.</speak>
-            <speak chara="yangNoFace">Ни за что.</speak>
+            <speak chara="yangNoFace">Взгляни на того архитектора в телевизоре...</speak>
+            <speak chara="yangNoFace">Только за эти два года путешествий я по-настоящему осознал, что шрамы, оставленные тем днём, до сих пор повсюду, даже двадцать лет спустя.</speak>
+            <speak chara="yangNoFace">Раны больше не кровоточат, но шрамы так просто не исчезают.</speak>
+            <speak chara="yangNoFace">Вот только... есть бесчисленное множество людей, которые оказались куда смелее меня.</speak>
+            <speak chara="yangNoFace">...</speak>
+            <speak chara="yangNoFace">Имя «Вельт» — это определённо не та ноша, которую нужно сбрасывать.</speak>
+            <speak chara="yangNoFace">Совершенно нет.</speak>
             <goto goto="330" change="#ffffff"/>
         </scene>
         <scene id="330" background="empireStateBuilding.jpg">
             <bgm src="07_20_bellaCiao.mp3" status="continue"></bgm>
-            <speak chara="yangNoFace">Статен-Айленд.</speak>
-            <speak chara="yangNoFace">Куинс.</speak>
+            <speak chara="yangNoFace">Стейтен-Айленд.</speak>
+            <speak chara="yangNoFace">Квинс.</speak>
             <speak chara="yangNoFace">Бруклин.</speak>
             <speak chara="yangNoFace">Бронкс.</speak>
             <speak chara="yangNoFace">Манхэттен.</speak>
-            <speak chara="yangNoFace">.....</speak>
-            <speak chara="yangNoFace">Ты это видишь, Ада?</speak>
-            <speak chara="yangNoFace">Всё это—— Вельт!</speak>
+            <speak chara="yangNoFace">...</speak>
+            <speak chara="yangNoFace">Ты видишь это, Ада?</speak>
+            <speak chara="yangNoFace">Всё это... и есть Вельт!</speak>
             <end last="1" post="U2FsdGVkX1+h4mbmmvyMmba9mr1G"/>
         </scene>
     </story>
