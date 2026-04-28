@@ -1458,7 +1458,7 @@ p {
 .dialog {
   position: absolute;
   bottom: /*1%*/ 1rem;
-  left: /*5%*/ 1.75rem;
+  left: 50%;
   width: /*90%*/ 42rem;
   height: /*25%*/ 7rem;
   z-index: 210;
@@ -1478,7 +1478,7 @@ p {
 .history {
   position: absolute;
   bottom: 1rem;
-  left: 1.75rem;
+  left: 50%;
   width: 42rem;
   height: 21rem;
   z-index: 250;
