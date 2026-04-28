@@ -11,7 +11,6 @@ var now_action = -1
 var historyChoiceList = [] // Используется для записи истории выборов в текущей сцене
 var uiImageList = new Array()
 var showInSceneList = new Array()
-var date_url = ''
 var xml_files_all_in_this = new Array()
 
 var tl_base_url = base_url + '/'
@@ -73,11 +72,6 @@ function tryAudio(pauseOrPlay, indexOrInner, countNumber) {
 
 //------------------------------------------------------
 $(function () {
-  loadExistXmlFile('date_url', function () {
-    date_url = xml_files_all_in_this['date_url']
-      .getElementsByTagName('log')[0]
-      .getAttribute('lastDate')
-  })
   preLoadUiImages('ui', uiImageList)
   $('#all').on('selectstart', function () {
     return false
@@ -1835,7 +1829,7 @@ function check_size() {
   window.scrollTo(0, 1) // Скрытие панели инструментов браузера
 }
 
-// CUSTOM: запрашивает XML по настраиваемому пользователем xmlPath
+// CUSTOM: запрашивает XML по настраиваемому пользователем xmlPath, в случае неудачи он вернется к основному репо VN
 function get_xml_ajax_async(
   xmlName,
   callBack,
@@ -1868,225 +1862,28 @@ function get_xml_ajax_async(
           false
         )
       } else {
+        console.error("Не удалось загрузить XML файл:", xmlFileURL);
         callBack()
       }
     },
   })
 }
-
 var loading_xml_files = new Array()
-
-// Функция для определения выбранного языка
-function isRussianLang() {
-  var currentLang = (typeof lang !== 'undefined') ? lang.toUpperCase() : 'CN';
-  var currentTlCssLang = (typeof tl_css_lang !== 'undefined') ? tl_css_lang.toLowerCase() : 'zh';
-  return currentLang === 'RU' || currentTlCssLang === 'ru';
-}
-
-// Вшитый контент файла exhibition_list.xml (Китайский)
-var exhibitionListXMLStr_CN = `<?xml version="1.0" encoding="utf-8"?>
-<data>
-	<log id="10010" type="end">往日是一首序曲</log>
-	<log id="10011" type="remark">入此门者，当放弃一切希望</log>
-	<log id="10012" type="remark">无名之地的意义</log>
-	<log id="10013" type="remark">好故事都值得修饰</log>
-	<log id="10020" type="end">我们所要做的事，应该一想到就做</log>
-	<log id="10021" type="remark">我宁愿失去印度，也不愿失去莎士比亚</log>
-	<log id="10022" type="remark">We are not amused</log>
-	<log id="10030" type="end">The day is long that never finds the night</log>
-	<log id="10031" type="remark">and yes I said yes I will yes</log>
-	<log id="10032" type="choice">对此我们自然希望能有一个严格的证明</log>
-	<log id="10033" type="choice">一个我正试图从中醒来的噩梦</log>
-	<log id="10040" type="end">Small and white, clean and bright</log>
-	<log id="10041" type="remark">维克多·拉斯洛就在那架飞机上</log>
-	<log id="10042" type="remark">Ratsatsaa ja ripidabi</log>
-	<log id="10043" type="remark">别闹了</log>
-	<log id="10050" type="end">美丽新世界</log>
-	<log id="10051" type="remark">冰冻星球</log>
-	<log id="10052" type="remark">我们唯一能确定的，就是不确定性</log>
-	<log id="10053" type="remark">为王者无安宁</log>
-	<log id="10060" type="end">我把雅典娜托付给了你们</log>
-	<log id="10061" type="remark">我不希望我们最后一刻是在逃跑</log>
-	<log id="10062" type="remark">等待，且心怀希望吧</log>
-	<log id="10063" type="remark">伦蒂尼恩的骑士</log>
-	<log id="10070" type="end">伦敦德里小调</log>
-	<log id="10071" type="remark">CTHULHU FHTAGN</log>
-	<log id="10072" type="remark">我要亲吻你的唇</log>
-	<log id="10073" type="remark">英格兰期盼人人都恪尽其责</log>
-	<log id="10080" type="end">傲慢与偏见与崩坏</log>
-	<log id="10081" type="remark">程序媛</log>
-	<log id="10082" type="remark">技术宅拯救世界</log>
-	<log id="10083" type="remark">这里空白太小，我写不下</log>
-	<log id="10090" type="end">ET NOLITE INEBRIARI VINO</log>
-	<log id="10091" type="remark">Dobrého Vojáka Tesla</log>
-	<log id="10100" type="end">To be, or not to be</log>
-	<log id="10101" type="remark">永动机？</log>
-	<log id="10102" type="remark">恒河英雄传说</log>
-	<log id="10103" type="remark">答案是42</log>
-	<log id="10110" type="end">月光王座</log>
-	<log id="10111" type="remark">Et tu, Brute?</log>	
-	<log id="10120" type="end">Paradise Lost?</log>
-	<log id="10121" type="remark">First Eily Dear, Then Danny Boy</log>	
-	<log id="10130" type="end">追憶似水流年</log>
-	<log id="10140" type="end">Zwei Dinge... Bewunderung und Ehrfurcht</log>
-	<log id="10141" type="remark">钻石尘</log>
-	<log id="10142" type="remark">星云锁</log>
-	<log id="10143" type="remark">北落门</log>
-	<log id="10150" type="end">If Chance Will Have Me King...?</log>
-	<log id="10151" type="remark">“存在”的最初分类</log>	
-	<log id="10152" type="remark">真正的重点是改变世界</log>
-	<log id="10160" type="end">“教父”</log>
-	<log id="10161" type="remark">1776年7月4日</log>	
-	<log id="10162" type="remark">1848年2月21日</log>	
-	<log id="10170" type="end">遥远的回声</log>
-	<log id="10171" type="remark">理性的边界</log>	
-	<log id="10172" type="remark">God save the king?</log>	
-	<log id="10173" type="remark">One if by land, and two if by sea</log>	
-	<log id="10180" type="end">我既是吞灭一切的死，又是将要诞生者的生</log>
-	<log id="10181" type="remark">一支军队拥有一个国家</log>	
-	<log id="10182" type="remark">YOU ARE ENTERING THE AMERICAN SECTOR</log>	
-	<log id="10183" type="remark">新罗马</log>	
-	<log id="10190" type="end">圣枪绽放</log>
-	<log id="10191" type="remark">叫我伊希梅尔吧</log>	
-	<log id="10192" type="remark">相约星期二</log>	
-	<log id="10200" type="end">麦田里的守望者</log>
-	<log id="10201" type="remark">那些令人无法理解的符号</log>	
-	<log id="10202" type="remark">奇想天外</log>
-	<log id="10203" type="remark">Caledfwlch, Caliburn, Excalibur</log>			
-	<log id="10210" type="end">叠加态</log>
-	<log id="10211" type="remark">1865年8月12日李斯特男爵的无菌手术</log>	
-	<log id="10212" type="remark">恒河英雄传说·恩返篇</log>		
-	<log id="10220" type="end">Blowing in the Wind</log>
-	<log id="10221" type="remark">希波克拉底的门徒</log>
-	<log id="10230" type="end">择日再死</log>
-	<log id="10231" type="remark">果壳中的宇宙</log>	
-	<log id="10240" type="end">致命魔术</log>
-	<log id="10241" type="remark">模仿游戏</log>
-	<log id="10242" type="remark">Scarborough Fair</log>	
-	<log id="10250" type="end">Prometheus Unbound</log>
-	<log id="10251" type="remark">Strong Words May Never Pass Away</log>
-	<log id="10260" type="end">他就是瓦尔特</log>
-	<log id="10261" type="remark">没有一个由女人生下的人可以伤害麦克白</log>
-	<log id="10262" type="remark">忒修斯之船</log>
-</data>`;
-
-// Вшитый контент файла exhibition_list.xml (Русский)
-var exhibitionListXMLStr_RU = `<?xml version="1.0" encoding="utf-8"?>
-<data>
-	<log id="10010" type="end">Прошлое - это прелюдия</log>
-	<log id="10011" type="remark">Оставь надежду, всяк сюда входящий</log>
-	<log id="10012" type="remark">Значение Безымянных земель</log>
-	<log id="10013" type="remark">Хорошие истории стоит приукрашивать</log>
-	<log id="10020" type="end">Что задумано, должно быть сделано немедленно</log>
-	<log id="10021" type="remark">Я скорее потеряю Индию, чем Шекспира</log>
-	<log id="10022" type="remark">We are not amused</log>
-	<log id="10030" type="end">The day is long that never finds the night</log>
-	<log id="10031" type="remark">and yes I said yes I will yes</log>
-	<log id="10032" type="choice">Естественно, мы надеемся на строгое доказательство</log>
-	<log id="10033" type="choice">Кошмар, от которого я пытаюсь проснуться</log>
-	<log id="10040" type="end">Small and white, clean and bright</log>
-	<log id="10041" type="remark">Виктор Ласло в том самолете</log>
-	<log id="10042" type="remark">Ratsatsaa ja ripidabi</log>
-	<log id="10043" type="remark">Вы шутите</log>
-	<log id="10050" type="end">О дивный новый мир</log>
-	<log id="10051" type="remark">Замерзшая планета</log>
-	<log id="10052" type="remark">Единственное, в чем мы уверены — это неопределенность</log>
-	<log id="10053" type="remark">Королю нет покоя</log>
-	<log id="10060" type="end">Я доверяю вам Афину</log>
-	<log id="10061" type="remark">Я не хочу, чтобы наши последние мгновения прошли в бегах</log>
-	<log id="10062" type="remark">Жди и надейся</log>
-	<log id="10063" type="remark">Рыцари Лондиниума</log>
-	<log id="10070" type="end">Лондондерри эйр</log>
-	<log id="10071" type="remark">CTHULHU FHTAGN</log>
-	<log id="10072" type="remark">Я хочу поцеловать твои губы</log>
-	<log id="10073" type="remark">Англия ждет, что каждый выполнит свой долг</log>
-	<log id="10080" type="end">Гордость, предубеждение и коллапс</log>
-	<log id="10081" type="remark">Женщина-программист</log>
-	<log id="10082" type="remark">Технари спасают мир</log>
-	<log id="10083" type="remark">Поля слишком малы, я не могу написать</log>
-	<log id="10090" type="end">ET NOLITE INEBRIARI VINO</log>
-	<log id="10091" type="remark">Dobrého Vojáka Tesla</log>
-	<log id="10100" type="end">To be, or not to be</log>
-	<log id="10101" type="remark">Вечный двигатель?</log>
-	<log id="10102" type="remark">Легенда о героях Ганга</log>
-	<log id="10103" type="remark">Ответ: 42</log>
-	<log id="10110" type="end">Лунный трон</log>
-	<log id="10111" type="remark">Et tu, Brute?</log>	
-	<log id="10120" type="end">Paradise Lost?</log>
-	<log id="10121" type="remark">First Eily Dear, Then Danny Boy</log>	
-	<log id="10130" type="end">В поисках утраченного времени</log>
-	<log id="10140" type="end">Zwei Dinge... Bewunderung und Ehrfurcht</log>
-	<log id="10141" type="remark">Алмазная пыль</log>
-	<log id="10142" type="remark">Туманность Андромеды</log>
-	<log id="10143" type="remark">Фомальгаут</log>
-	<log id="10150" type="end">If Chance Will Have Me King...?</log>
-	<log id="10151" type="remark">Первичная классификация «бытия»</log>	
-	<log id="10152" type="remark">Настоящий смысл — изменить мир</log>
-	<log id="10160" type="end">«Крестный отец»</log>
-	<log id="10161" type="remark">4 июля 1776 года</log>	
-	<log id="10162" type="remark">21 февраля 1848 года</log>	
-	<log id="10170" type="end">Далекое эхо</log>
-	<log id="10171" type="remark">Границы разума</log>	
-	<log id="10172" type="remark">God save the king?</log>	
-	<log id="10173" type="remark">One if by land, and two if by sea</log>	
-	<log id="10180" type="end">Я есть смерть, пожирающая все, и жизнь для тех, кто родится</log>
-	<log id="10181" type="remark">У армии есть государство</log>	
-	<log id="10182" type="remark">YOU ARE ENTERING THE AMERICAN SECTOR</log>	
-	<log id="10183" type="remark">Новый Рим</log>	
-	<log id="10190" type="end">Цветение Святого Копья</log>
-	<log id="10191" type="remark">Зовите меня Измаил</log>	
-	<log id="10192" type="remark">Вторники с Морри</log>	
-	<log id="10200" type="end">Над пропастью во ржи</log>
-	<log id="10201" type="remark">Эти непонятные символы</log>	
-	<log id="10202" type="remark">Невероятная фантазия</log>
-	<log id="10203" type="remark">Caledfwlch, Caliburn, Excalibur</log>			
-	<log id="10210" type="end">Суперпозиция</log>
-	<log id="10211" type="remark">Асептическая хирургия Джозефа Листера</log>	
-	<log id="10212" type="remark">Легенда о героях Ганга: Возвращение долга</log>		
-	<log id="10220" type="end">Blowing in the Wind</log>
-	<log id="10221" type="remark">Ученик Гиппократа</log>
-	<log id="10230" type="end">Умри, но не сейчас</log>
-	<log id="10231" type="remark">Вселенная в ореховой скорлупе</log>	
-	<log id="10240" type="end">Престиж</log>
-	<log id="10241" type="remark">Игра в имитацию</log>
-	<log id="10242" type="remark">Scarborough Fair</log>	
-	<log id="10250" type="end">Prometheus Unbound</log>
-	<log id="10251" type="remark">Strong Words May Never Pass Away</log>
-	<log id="10260" type="end">Он и есть Вельт</log>
-	<log id="10261" type="remark">Никто из рожденных женщиной не может навредить Макбету</log>
-	<log id="10262" type="remark">Корабль Тесея</log>
-</data>`;
-
-function getExhibitionListXMLStr() {
-    return isRussianLang() ? exhibitionListXMLStr_RU : exhibitionListXMLStr_CN;
-}
 
 function loadExistXmlFile(xmlName, callBack, fileType) {
   if (xml_files_all_in_this.hasOwnProperty(xmlName)) {
     return xml_files_all_in_this[xmlName]
-  } else if (xmlName === 'exhibition_list') {
-    loading_xml_files[xmlName] = true;
-    setTimeout(function() {
-        var parser = new DOMParser();
-        var xmlDoc = parser.parseFromString(getExhibitionListXMLStr(), "text/xml");
-        xml_files_all_in_this[xmlName] = xmlDoc;
-        delete loading_xml_files[xmlName];
-        if (callBack) callBack();
-    }, 0);
-    return null; // Принуждаем код дождаться обратного вызова
   } else if (loading_xml_files.hasOwnProperty(xmlName)) {
     return null // Исключить непредвиденный параллелизм
   } else {
     loading_xml_files[xmlName] = true
-    var customUrl = undefined;
     get_xml_ajax_async(
       xmlName,
       function () {
         delete loading_xml_files[xmlName]
-        if(callBack) callBack()
+        callBack()
       },
-      fileType,
-      customUrl
+      fileType
     )
     return null
   }
@@ -2750,8 +2547,8 @@ if (GetQueryString('auth_key')) {
 //Достижения-------------------------------------------
 var ajax_answer_achievement = null;
 
-// Статичная база данных достижений (Китайский)
-var masterAchievementData_CN = [
+// Статичная база данных всех возможных достижений из achievement.php
+var masterAchievementData = [
   {"achievement":10010,"text":"\u4f60\u9605\u8bfb\u4e86\u7b2c\u4e00\u7ae0\u7684\u5267\u60c5\u3002","image":"normal"},
   {"achievement":10011,"text":"\u4f60\u53d1\u73b0\u4e86\u5173\u4e8e\u300a\u795e\u66f2\u300b\u7684\u6ce8\u91ca\u3002","image":"welt"},
   {"achievement":10012,"text":"\u4f60\u53d1\u73b0\u4e86\u5173\u4e8e\u7684\u91cc\u96c5\u65af\u7279\u7684\u6ce8\u91ca\u3002","image":"tesla"},
@@ -2836,96 +2633,6 @@ var masterAchievementData_CN = [
   {"achievement":10262,"text":"\u4f60\u53d1\u73b0\u4e86\u5173\u4e8e\u201c\u5fd2\u4fee\u65af\u4e4b\u8239\u201d\u7684\u6ce8\u91ca\u3002","image":"reana"}
 ];
 
-// Статичная база данных достижений (Русский)
-var masterAchievementData_RU = [
-  {"achievement":10010,"text":"Вы прочитали сюжет 1-й главы.","image":"normal"},
-  {"achievement":10011,"text":"Вы нашли примечание о «Божественной комедии».","image":"welt"},
-  {"achievement":10012,"text":"Вы нашли примечание о Триесте.","image":"tesla"},
-  {"achievement":10013,"text":"Вы нашли примечание о «Властелине колец».","image":"ein"},
-  {"achievement":10020,"text":"Вы прочитали сюжет 2-й главы.","image":"normal"},
-  {"achievement":10021,"text":"Вы нашли примечание об Имперском исследовательском институте.","image":"welt"},
-  {"achievement":10022,"text":"Вы нашли примечание о Музее Виктории и Альберта.","image":"ein"},
-  {"achievement":10030,"text":"Вы прочитали сюжет 3-й главы.","image":"normal"},
-  {"achievement":10031,"text":"Вы нашли примечание об «Улиссе».","image":"tesla"},
-  {"achievement":10032,"text":"Вы выбрали одну из ветвей сюжета.","image":"ein"},
-  {"achievement":10033,"text":"Вы выбрали одну из ветвей сюжета.","image":"welt"},
-  {"achievement":10040,"text":"Вы прочитали сюжет 4-й главы.","image":"normal"},
-  {"achievement":10041,"text":"Вы нашли примечание о Хамфри Богарте.","image":"nokia"},
-  {"achievement":10042,"text":"Вы нашли примечание о «Польке Евы».","image":"nokia"},
-  {"achievement":10043,"text":"Вы нашли примечание о «Вы, конечно, шутите, мистер Фейнман!».","image":"plank"},
-  {"achievement":10050,"text":"Вы прочитали сюжет 5-й главы.","image":"normal"},
-  {"achievement":10051,"text":"Вы нашли примечание о Последнем ледниковом максимуме.","image":"schro"},
-  {"achievement":10052,"text":"Вы нашли примечание о принципе неопределенности.","image":"schro"},
-  {"achievement":10053,"text":"Вы нашли примечание о гейзере Старый Служака.","image":"plank"},
-  {"achievement":10060,"text":"Вы прочитали сюжет 6-й главы.","image":"normal"},
-  {"achievement":10061,"text":"Вы нашли примечание о Помпеях.","image":"welt"},
-  {"achievement":10062,"text":"Вы нашли примечание о «Графе Монте-Кристо».","image":"plank"},
-  {"achievement":10063,"text":"Вы нашли примечание о Лондиниуме.","image":"ein"},
-  {"achievement":10070,"text":"Вы прочитали сюжет 7-й главы.","image":"normal"},
-  {"achievement":10071,"text":"Вы нашли примечание о Род-Айленде.","image":"tesla"},
-  {"achievement":10072,"text":"Вы нашли примечание об Иоанне Крестителе.","image":"tesla"},
-  {"achievement":10073,"text":"Вы нашли примечание об изречении Нельсона.","image":"welt"},
-  {"achievement":10080,"text":"Вы прочитали сюжет 8-й главы.","image":"normal"},
-  {"achievement":10081,"text":"Вы нашли примечание о графине Лавлейс.","image":"ada"},
-  {"achievement":10082,"text":"Нет... вы ничего не нашли. Хм.","image":"ada"},
-  {"achievement":10083,"text":"Вы нашли примечание об эллиптической криптографии.","image":"ada"},
-  {"achievement":10090,"text":"Вы прочитали сюжет 9-й главы.","image":"normal"},
-  {"achievement":10091,"text":"Вы нашли примечание о личности Теслы.","image":"tesla"},
-  {"achievement":10100,"text":"Вы прочитали сюжет 10-й главы.","image":"normal"},
-  {"achievement":10101,"text":"Вы нашли примечание о втором начале термодинамики.","image":"schro"},
-  {"achievement":10102,"text":"Вы нашли примечание о Бхангаре.","image":"tesla"},
-  {"achievement":10103,"text":"Вы нашли примечание о «Главном вопросе».","image":"welt"},
-  {"achievement":10110,"text":"Вы прочитали сюжет 11-й главы.","image":"normal"},
-  {"achievement":10111,"text":"Вы нашли примечание о Бруте.","image":"welt"},
-  {"achievement":10120,"text":"Вы прочитали сюжет 12-й главы.","image":"normal"},
-  {"achievement":10121,"text":"Вы нашли примечание о песне «Danny Boy».","image":"welt"},
-  {"achievement":10130,"text":"Вы прочитали сюжет 13-й главы.","image":"normal"},
-  {"achievement":10140,"text":"Вы прочитали сюжет 14-й главы.","image":"normal"},
-  {"achievement":10141,"text":"Вы нашли примечание о Денебе.","image":"ein"},
-  {"achievement":10142,"text":"Вы нашли примечание о туманности Андромеды.","image":"ein"},
-  {"achievement":10143,"text":"Вы нашли примечание о Фомальгауте.","image":"ein"},
-  {"achievement":10150,"text":"Вы прочитали сюжет 15-й главы.","image":"normal"},
-  {"achievement":10151,"text":"Вы нашли примечание об онтологии.","image":"otto"},
-  {"achievement":10152,"text":"Вы нашли примечание о «Размышлениях юноши при выборе профессии».","image":"welt"},
-  {"achievement":10160,"text":"Вы прочитали сюжет 16-й главы.","image":"normal"},
-  {"achievement":10161,"text":"Вы нашли примечание о «Декларации независимости США».","image":"ein"},
-  {"achievement":10162,"text":"Вы нашли примечание о «Манифесте коммунистической партии».","image":"ein"},
-  {"achievement":10170,"text":"Вы прочитали сюжет 17-й главы.","image":"normal"},
-  {"achievement":10171,"text":"Вы нашли примечание о «Толерантности».","image":"tesla"},
-  {"achievement":10172,"text":"Вы нашли примечание о Бостонской бойне.","image":"ein"},
-  {"achievement":10173,"text":"Вы нашли примечание о битвах при Лексингтоне и Конкорде.","image":"welt"},
-  {"achievement":10180,"text":"Вы прочитали сюжет 18-й главы.","image":"normal"},
-  {"achievement":10181,"text":"Вы нашли примечание о Бранденбургских воротах.","image":"welt"},
-  {"achievement":10182,"text":"Вы нашли примечание о зонах оккупации Берлина.","image":"welt"},
-  {"achievement":10183,"text":"Вы нашли примечание о трассе US 1.","image":"tesla"},
-  {"achievement":10190,"text":"Вы прочитали сюжет 19-й главы.","image":"normal"},
-  {"achievement":10191,"text":"Вы нашли примечание о «Моби Дике».","image":"reana"},
-  {"achievement":10192,"text":"Вы нашли примечание о Тюре.","image":"tesla"},
-  {"achievement":10200,"text":"Вы прочитали сюжет 20-й главы.","image":"normal"},
-  {"achievement":10201,"text":"Вы нашли примечание о Войне за независимость Турции.","image":"reana"},
-  {"achievement":10202,"text":"Вы нашли примечание о Вельвичии.","image":"reana"},
-  {"achievement":10203,"text":"Вы нашли примечание о короле Артуре.","image":"tesla"},
-  {"achievement":10210,"text":"Вы прочитали сюжет 21-й главы.","image":"normal"},
-  {"achievement":10211,"text":"Вы нашли примечание о феноле (карболовой кислоте).","image":"reana"},
-  {"achievement":10212,"text":"Вы нашли примечание об Астре.","image":"tesla"},
-  {"achievement":10220,"text":"Вы прочитали сюжет 22-й главы.","image":"normal"},
-  {"achievement":10221,"text":"Вы нашли примечание о «Женевской декларации».","image":"normal"},
-  {"achievement":10230,"text":"Вы прочитали сюжет 23-й главы.","image":"normal"},
-  {"achievement":10231,"text":"Вы нашли примечание об 11-мерном пространстве-времени.","image":"nancy"},
-  {"achievement":10240,"text":"Вы прочитали сюжет 24-й главы.","image":"normal"},
-  {"achievement":10241,"text":"Вы нашли примечание об аналоговом сигнале.","image":"ada"},
-  {"achievement":10242,"text":"Вы нашли примечание о «Ярмарке в Скарборо».","image":"nancy"},
-  {"achievement":10250,"text":"Вы прочитали сюжет 25-й главы.","image":"normal"},
-  {"achievement":10251,"text":"Вы нашли примечание об «Освобождённом Прометее».","image":"welt"},
-  {"achievement":10260,"text":"Вы прочитали сюжет 26-й главы.","image":"normal"},
-  {"achievement":10261,"text":"Вы нашли примечание о «Макбете».","image":"otto"},
-  {"achievement":10262,"text":"Вы нашли примечание о «Корабле Тесея».","image":"reana"}
-];
-
-function getMasterAchievementData() {
-    return isRussianLang() ? masterAchievementData_RU : masterAchievementData_CN;
-}
-
 var masterPortraits = [
   {name: "welt", index: 750}, {name: "nokia", index: 550}, {name: "schro", index: 555},
   {name: "nancy", index: 745}, {name: "ada", index: 550}, {name: "reanna", index: 545},
@@ -2960,15 +2667,14 @@ function post_achievement(str_ach, callbackOne, callbackTwo) {
     if (str_ach === 'LOAD') {
       var unlockedIds = getLocalAchievements();
       var unlockedAchievements = [];
-      var activeAchievementData = getMasterAchievementData(); // Динамический выбор языка
-      for (var i = 0; i < activeAchievementData.length; i++) {
-        if (unlockedIds.indexOf(Number(activeAchievementData[i].achievement)) !== -1) {
-          unlockedAchievements.push(activeAchievementData[i]);
+      for (var i = 0; i < masterAchievementData.length; i++) {
+        if (unlockedIds.indexOf(Number(masterAchievementData[i].achievement)) !== -1) {
+          unlockedAchievements.push(masterAchievementData[i]);
         }
       }
       
       // Вычисляем процент открытия достижений
-      var progress = activeAchievementData.length > 0 ? unlockedIds.length / activeAchievementData.length : 0;
+      var progress = masterAchievementData.length > 0 ? unlockedIds.length / masterAchievementData.length : 0;
       
       // Разблокируем персонажей галереи в соответствии с общим прогрессом достижений
       var portraitsToReturn = masterPortraits.slice(0, Math.ceil(progress * masterPortraits.length));
@@ -2998,8 +2704,6 @@ var achievement_portraits = new Array()
 
 function portraitPage(typeReturn) {
   startLoad()
-  $('.grid_layout').hide() // Скрываем основное меню при открытии достижений
-
   if (!typeReturn) {
     post_achievement(
       'LOAD',
@@ -3017,7 +2721,6 @@ function portraitPage(typeReturn) {
     LoadFinish()
     alert(gameTips['link_error_tips'])
     $('#family-portrait').fadeOut()
-    $('.grid_layout').fadeIn() // Показываем меню в случае ошибки
     return
   }
   
@@ -3070,9 +2773,11 @@ function portraitPage(typeReturn) {
       }
     }
     preLoadUiImages('achievement', achievementImageList)
+    // Проверка, завершилась ли загрузка предзагруженных изображений
     var countIndexTimer = 0
     var preLoadImagesTimer = setInterval(function () {
       if (preLoadImagesCheck() > 0 || countIndexTimer > 1000) {
+        // Изображения загружены, либо истекло время ожидания
         clearTimeout(preLoadImagesTimer)
         $('#family-portrait').addClass('family-portrait')
         $('#achievement-exhibition').addClass('achievement-exhibition')
@@ -3081,7 +2786,7 @@ function portraitPage(typeReturn) {
         pHtml.addClass('portrait-wrapper')
         pHtml.css(
           'background-image',
-          "url('ru-RU/resources/achievement/sofaBack.png')"
+          "url('" + base_url + "ru-RU/resources/achievement/sofaBack.png')"
         )
         pHtml.css('z-index', '600')
         $('.portrait-wrapper#portrait-frame').append(pHtml)
@@ -3089,7 +2794,7 @@ function portraitPage(typeReturn) {
         pHtml.addClass('portrait-wrapper')
         pHtml.css(
           'background-image',
-          "url('ru-RU/resources/achievement/sofaFrontLeft.png')"
+          "url('" + base_url + "ru-RU/resources/achievement/sofaFrontLeft.png')"
         )
         pHtml.css('z-index', '700')
         $('.portrait-wrapper#portrait-frame').append(pHtml)
@@ -3097,7 +2802,7 @@ function portraitPage(typeReturn) {
         pHtml.addClass('portrait-wrapper')
         pHtml.css(
           'background-image',
-          "url('ru-RU/resources/achievement/sofaFrontRight.png')"
+          "url('" + base_url + "ru-RU/resources/achievement/sofaFrontRight.png')"
         )
         pHtml.css('z-index', '700')
         $('.portrait-wrapper#portrait-frame').append(pHtml)
@@ -3107,7 +2812,9 @@ function portraitPage(typeReturn) {
           pHtml.addClass('portrait-wrapper')
           pHtml.css(
             'background-image',
-            "url('ru-RU/resources/achievement/" +
+            "url('" +
+              base_url +
+              'ru-RU/resources/achievement/' +
               achievement_portraits[i]['name'] +
               ".png')"
           )
@@ -3129,13 +2836,6 @@ function portraitPage(typeReturn) {
           $('.progress-text').css('color', '#5b4c51')
         }
         $('.progress-text').html(achievement_progress)
-        
-        // Перехват закрытия, чтобы вернуть основное меню на экран
-        $('#family-portrait .achievement-back').unbind('click').click(function() {
-            $('#family-portrait').fadeOut();
-            $('.grid_layout').fadeIn();
-        });
-
         $('.family-portrait').fadeIn()
         LoadFinish()
         return
@@ -3146,7 +2846,6 @@ function portraitPage(typeReturn) {
     LoadFinish()
     alert(gameTips['check_error_tips'])
     $('#family-portrait').fadeOut()
-    $('.grid_layout').fadeIn()
     return
   }
 }
@@ -3197,14 +2896,18 @@ function exhibitionPage(page) {
           pHtml_txt.html(achievement_list[j]['text'])
           pHtml_pic.css(
             'background-image',
-            "url('ru-RU/resources/achievement/" +
+            "url('" +
+              base_url +
+              'ru-RU/resources/achievement/' +
               achievement_list[j]['image'] +
               "_h.png')"
           )
           if (exhibition_list[i].getAttribute('type') != 'end') {
             pHtml_tip.css(
               'background-image',
-              "url('ru-RU/resources/achievement/" +
+              "url('" +
+                base_url +
+                'ru-RU/resources/achievement/' +
                 exhibition_list[i].getAttribute('type') +
                 "_b.png')"
             )
@@ -3221,12 +2924,14 @@ function exhibitionPage(page) {
         pHtml_txt.css('color', '#cccccc')
         pHtml_pic.css(
           'background-image',
-          "url('ru-RU/resources/achievement/null_h.png')"
+          "url('" + base_url + "ru-RU/resources/achievement/null_h.png')"
         )
         if (exhibition_list[i].getAttribute('type') != 'end') {
           pHtml_tip.css(
             'background-image',
-            "url('ru-RU/resources/achievement/" +
+            "url('" +
+              base_url +
+              'ru-RU/resources/achievement/' +
               exhibition_list[i].getAttribute('type') +
               ".png')"
           )
@@ -3243,12 +2948,6 @@ function exhibitionPage(page) {
       $('.achievement-list').append(pHtml)
     }
   }
-
-  // Перехват закрытия, чтобы безопасно закрыть только это меню
-  $('#achievement-exhibition .achievement-back').unbind('click').click(function() {
-      $('#achievement-exhibition').fadeOut();
-  });
-
   $('.achievement-exhibition').fadeIn()
   LoadFinish()
 }
