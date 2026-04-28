@@ -1448,6 +1448,9 @@ function startGame(galgameKey, loadKey) {
       var bgm = $('#indexbgm')[0];
       bgm.pause(); // главная bgm
       
+      // ИСПРАВЛЕНИЕ: Показываем игровой слой, иначе останется белый экран от .frame
+      $('.main').show(); 
+
       // ИСПРАВЛЕНО: безопасный вызов без строк для eval
       setTimeout(function() { $(".menuscene").fadeOut(); }, 350);
       setTimeout(function() { $(".transition").fadeOut(450); }, 450);
@@ -1628,6 +1631,7 @@ function endGame(keyFlag) {
     sound.pause()
     if (!isNaN(sound.duration)) sound.currentTime = 0 // остановить bgm se
     $('.menuscene').fadeIn(500, function () {
+      $('.main').hide() // ИСПРАВЛЕНИЕ: Скрываем игру при выходе в меню
       $('.cg').css('display', 'none')
       bgm = $('#indexbgm')[0]
       if (!isNaN(bgm.duration)) bgm.currentTime = 0
@@ -1647,6 +1651,7 @@ function endGame(keyFlag) {
     sound.pause()
     if (!isNaN(sound.duration)) sound.currentTime = 0 // остановить bgm se
     $('.menuscene').fadeIn(500, function () {
+      $('.main').hide() // ИСПРАВЛЕНИЕ: Скрываем игру при выходе в меню
       $('.cg').css('display', 'none')
       bgm = $('#indexbgm')[0]
       if (!isNaN(bgm.duration)) bgm.currentTime = 0
