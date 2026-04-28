@@ -9,6 +9,7 @@ var characterData = {} // Объект
 var now_scene = -1 // Текущая сцена для сохранения
 var now_action = -1
 var historyChoiceList = [] // Используется для записи истории выборов в текущей сцене
+var gameLogHistory = [] // Исправление 1: Массив для хранения истории диалогов
 var uiImageList = new Array()
 var showInSceneList = new Array()
 var xml_files_all_in_this = {} // Объект для надежного хранения кэша
@@ -70,11 +71,68 @@ function tryAudio(pauseOrPlay, indexOrInner, countNumber) {
 }
 
 //------------------------------------------------------
+// Исправление 1: Реализация окна логов (Истории)
+function showLogWindow() {
+  if ($('#custom-log-window').length === 0) {
+    var logHtml = '<div id="custom-log-window" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.85); z-index:99999; overflow:hidden; font-family: sans-serif;">' +
+      '<div style="position:absolute; top:20px; left:50%; transform:translateX(-50%); width:90%; max-width:800px; height:calc(100% - 40px); background:rgba(20,20,20,0.95); border:1px solid #444; border-radius:8px; display:flex; flex-direction:column; box-shadow: 0 0 20px rgba(0,0,0,0.8);">' +
+        '<div style="padding:15px 20px; border-bottom:1px solid #444; display:flex; justify-content:space-between; align-items:center; background: rgba(40,40,40,0.9); border-radius: 8px 8px 0 0;">' +
+          '<h2 style="color:#ddd; margin:0; font-size:20px; letter-spacing: 1px;">ИСТОРИЯ ДИАЛОГОВ</h2>' +
+          '<button id="custom-log-close" style="background:#d32f2f; color:white; border:none; padding:8px 16px; border-radius:4px; cursor:pointer; font-size:14px; font-weight:bold; transition: background 0.2s;">ЗАКРЫТЬ</button>' +
+        '</div>' +
+        '<div id="custom-log-content" style="flex:1; padding:20px; overflow-y:auto; color:#ccc; font-size:16px; line-height:1.6;"></div>' +
+      '</div>' +
+    '</div>';
+    $('body').append(logHtml);
+    $('#custom-log-close').hover(function() { $(this).css('background', '#f44336'); }, function() { $(this).css('background', '#d32f2f'); });
+    $('#custom-log-close').click(function(e) {
+      e.stopPropagation();
+      $('#custom-log-window').fadeOut(150);
+    });
+    $('#custom-log-window').on('selectstart', function(e) { e.stopPropagation(); });
+    $('#custom-log-window').click(function(e) { e.stopPropagation(); });
+  }
+  
+  var contentHtml = '';
+  for (var i = 0; i < gameLogHistory.length; i++) {
+    var item = gameLogHistory[i];
+    if (item.name) {
+      contentHtml += '<div style="margin-bottom:12px;"><span style="color:' + item.color + '; font-weight:bold; font-size:1.05em;">' + item.name + '</span><br/><span style="color:#eee;">' + item.text + '</span></div>';
+    } else {
+      contentHtml += '<div style="margin-bottom:12px; color:#ddd; font-style: italic;">' + item.text + '</div>';
+    }
+  }
+  if (gameLogHistory.length === 0) {
+     contentHtml = '<div style="text-align:center; color:#888; margin-top:50px;">История пуста...</div>';
+  }
+  $('#custom-log-content').html(contentHtml);
+  $('#custom-log-window').fadeIn(150, function() {
+    var logContent = document.getElementById('custom-log-content');
+    logContent.scrollTop = logContent.scrollHeight;
+  });
+}
+
 $(function () {
   preLoadUiImages('ui', uiImageList)
   $('#all').on('selectstart', function () {
     return false
   })
+  
+  // Исправление 1: Надежная привязка кнопок Выхода и Логов с остановкой всплытия (stopPropagation)
+  $(document).on('click', '.home_btn', function(e) {
+    e.stopPropagation();
+    ToggleWindow('backToMenu');
+  });
+  
+  $(document).on('click', '.log_btn, .dialog-btn-log, img[src*="log.png"]', function(e) {
+    e.stopPropagation();
+    showLogWindow();
+  });
+  
+  $(document).on('click', '.buttonBar', function(e) {
+    e.stopPropagation(); // Защита кнопок управления от перехвата клика основным слоем
+  });
+
   history.pushState(null, null, document.URL)
   window.addEventListener('popstate', function () {
     history.pushState(null, null, document.URL)
@@ -467,7 +525,7 @@ function generate_all_characterData(name) {
     generate_all_characterData(name)
   })
   if (!xmlDoc) return
-  if (Object.keys(characterData).length > 0) { // ИСПРАВЛЕНО: Проверка наличия элементов в объекте
+  if (Object.keys(characterData).length > 0) { 
     // В этот момент xml уже загружен
     var imageList = xmlDoc.getElementsByTagName('image')
     preLoadImagesBegin(imageList)
@@ -530,7 +588,7 @@ function generate_all_characterData(name) {
   }
   // В этот момент xml уже загружен
   xmlDoc = loadExistXmlFile(name)
-  if (!xmlDoc || xmlDoc === "FAILED") return; // Защита от отсутствующего файла
+  if (!xmlDoc || xmlDoc === "FAILED") return; 
   var imageList = xmlDoc.getElementsByTagName('image')
   preLoadImagesBegin(imageList)
 }
@@ -675,6 +733,8 @@ function Action(gotoScene, gotoAction, skipKey, loadKey2) {
   if (gotoScene != now_scene) {
     ClearCharas()
     ClearDialog()
+    $('.dialog').hide() // Исправление 3: принудительно скрываем диалог при переходе в новую сцену, чтобы не "висело" пустое окно
+    $('.dialog-chara').hide() 
     if (thisScene.getAttribute('background')) {
       if (
         thisScene.getAttribute('background') == 'black' ||
@@ -694,7 +754,7 @@ function Action(gotoScene, gotoAction, skipKey, loadKey2) {
             'ru-RU/resources/background/' +
               thisScene.getAttribute('background') +
               "') no-repeat"
-          ) // Добавленный атрибут white удаляется, иначе он мгновенно прыгнет на белый цвет
+          ) 
           .css('background-size', size + ' ' + size)
           .css('background-position', 'center')
       }
@@ -843,6 +903,7 @@ function processAction(act, gotoScene, gotoAction, skipKey, loadKey2) {
     case 'text':
       lastEventNode = gotoAction
       ClearDialog() // Очистить временно загруженное форматирование
+      $('.dialog').show() // Исправление 3: показываем диалог только при выводе текста
       $('.dialog-chara').hide()
       post_achievement_in_event(act)
       var tempAttribute = act.getAttribute('article')
@@ -870,6 +931,17 @@ function processAction(act, gotoScene, gotoAction, skipKey, loadKey2) {
           .removeClass('dialog-overflow_article_center')
       }
       if (thisTextTemp == null) thisTextTemp = getText(act)
+      
+      // Исправление 1: Запись в лог
+      var logTextStr = (thisTextTemp || '').toString();
+      var logText = logTextStr.replace(/<br\s*\/?>/gi, '\n').replace(/<[^>]+>/g, '').trim();
+      logText = logText.replace(/\n/g, '<br/>');
+      if (logText) {
+        if (gameLogHistory.length == 0 || gameLogHistory[gameLogHistory.length-1].text !== logText) {
+          gameLogHistory.push({ name: '', text: logText });
+        }
+      }
+
       tempAttribute = act.getAttribute('remark')
       if (tempAttribute != null) {
         if (
@@ -887,16 +959,28 @@ function processAction(act, gotoScene, gotoAction, skipKey, loadKey2) {
     case 'speak':
       lastEventNode = gotoAction
       ClearDialog() // Очистить временно загруженное форматирование
+      $('.dialog').show() // Исправление 3: показываем диалог только при выводе текста
+      $('.dialog-chara').show()
       post_achievement_in_event(act)
       $('.dialog').removeClass('dialog_article')
       $('.dialog-overflow')
         .removeClass('dialog-overflow_article')
         .removeClass('dialog-overflow_article_center')
-      $('.dialog-chara').show()
       var chara = act.getAttribute('chara')
       var textColour = characterData[chara]['color']
       $('.dialog-chara-text').html(characterData[chara]['name'])
       $('.dialog-chara-text').css('color', textColour)
+      
+      // Исправление 1: Запись в лог
+      var logTextStr = (getText(act) || '').toString();
+      var logText = logTextStr.replace(/<br\s*\/?>/gi, '\n').replace(/<[^>]+>/g, '').trim();
+      logText = logText.replace(/\n/g, '<br/>');
+      if (logText) {
+        if (gameLogHistory.length == 0 || gameLogHistory[gameLogHistory.length-1].text !== logText) {
+          gameLogHistory.push({ name: characterData[chara]['name'], text: logText, color: textColour });
+        }
+      }
+
       var tempAttribute = act.getAttribute('remark')
       if (tempAttribute != null) {
         if (
@@ -1366,6 +1450,7 @@ function checkAutoLoad() {
 function startGame(galgameKey, loadKey) {
   var playKey
   autoSpeed = 'stop'
+  gameLogHistory = []; // Очистка логов при старте новой игры
   if (checkAutoLoad() == true && loadKey == null) {
     systemAutoLoadStart(galgameKey)
     return
@@ -1393,7 +1478,6 @@ function startGame(galgameKey, loadKey) {
     }
   }
   
-  // ИСПРАВЛЕНИЕ CUSTOM: Ранее скрипт мог игнорировать клик по главе у новых игроков.
   if (!playKey) {
     playKey = 'ch1'
   }
@@ -1442,7 +1526,7 @@ function startGame(galgameKey, loadKey) {
       clearTimeout(preLoadImagesTimer);
       $('.cg').css('display', 'none');
       
-      // ИСПРАВЛЕНИЕ: Корректно скрываем меню и показываем игровой слой вместе с кнопками (Выход, Логи)
+      // ИСПРАВЛЕНИЕ: Корректно скрываем меню и показываем игровой слой вместе с кнопками
       $('.transition').fadeIn(300, function () {
         $('.catalog-wrapper').hide();
         $('.catalog-wrapper-new').hide();
@@ -1452,6 +1536,9 @@ function startGame(galgameKey, loadKey) {
         $('.main').show(); 
         $('.home_btn').show();
         $('.buttonBar').show();
+        
+        $('.dialog').hide(); // Исправление 3: Изначально прячем диалог, чтобы не висел при старте
+        $('.dialog-chara').hide();
         
         setTimeout(function() { $(".transition").fadeOut(450); }, 100);
       });
@@ -2827,28 +2914,54 @@ function exhibitionPage(page) {
       pHtml_tip.addClass('exhibition-member-tips')
       pHtml_txt.addClass('exhibition-member-text')
 
-      // ИСПРАВЛЕНИЕ: Добавление CSS для устранения съезжающего текста и центрирования
-      pHtml_txt.css({
-        'text-align': 'left',
-        'white-space': 'normal',
-        'word-break': 'break-word',
-        'line-height': '1.3em',
-        'margin-top': '5px'
+      // ИСПРАВЛЕНИЕ 2: Переписанный CSS для устранения съезжающего текста и обрезки изображений
+      pHtml.css({
+        'height': 'auto',
+        'margin-bottom': '20px',
+        'display': 'block'
+      });
+      pHtml_box.css({
+        'height': 'auto',
+        'min-height': '100px',
+        'padding': '15px 15px 15px 120px', // Создаем слева безопасное пространство под изображение
+        'position': 'relative',
+        'box-sizing': 'border-box'
+      });
+      pHtml_pic.css({
+        'background-size': 'contain',
+        'background-position': 'center',
+        'background-repeat': 'no-repeat',
+        'position': 'absolute',
+        'left': '15px',
+        'top': '50%',
+        'transform': 'translateY(-50%)', // Центрируем изображение строго по вертикали
+        'width': '85px',
+        'height': '85px'
+      });
+      pHtml_tip.css({
+        'background-size': 'contain',
+        'background-repeat': 'no-repeat'
       });
       pHtml_tit.css({
         'text-align': 'left',
         'white-space': 'normal',
-        'word-break': 'break-word'
+        'word-break': 'break-word',
+        'line-height': '1.3em',
+        'position': 'relative',
+        'margin': '0 0 8px 0'
       });
-      pHtml_box.css({
-        'height': 'auto',
-        'min-height': '80px',
-        'padding-bottom': '10px'
+      pHtml_txt.css({
+        'text-align': 'left',
+        'white-space': 'normal',
+        'word-break': 'break-word',
+        'line-height': '1.4em',
+        'position': 'relative',
+        'margin': '0'
       });
 
       if (j >= achievement_list.length) {
         pHtml_txt.html('？？？？？？？？？？？？？？？？？？？？')
-        pHtml_txt.css('color', '#cccccc')
+        pHtml_txt.css('color', '#cccccc') // Сохраняем серый цвет для закрытых ачивок
         pHtml_pic.css(
           'background-image',
           "url('" + base_url + "ru-RU/resources/achievement/null_h.png')"
