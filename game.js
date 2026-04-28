@@ -1290,7 +1290,7 @@ function ClearDialog() {
   $('.dialog-text').html('')
   $('.dialog-chara-text').html('')
   $('.dialog').removeClass('dialog_article')
-  $('.dialog-overflow').removeClass('dialog-overflow_article')
+  $('.dialog-overflow').removeClass('dialog-overflow_article').removeClass('dialog-overflow_article_center')
 }
 
 function ToggleWindow(mode) {
@@ -1349,7 +1349,7 @@ function systemAutoLoadStart(galgameKey) {
 function cancelAutoLoad(galgameKey) {
   $('.cancel').unbind()
   CloseConfirmDialog()
-  startGame(1, { S: 0, A: 0 })
+  startGame(galgameKey, { S: 0, A: 0 })
 }
 
 function checkAutoLoad() {
@@ -1441,20 +1441,24 @@ function startGame(galgameKey, loadKey) {
     if (preLoadImagesCheck() > 0 || isTimeout) {
       clearTimeout(preLoadImagesTimer);
       $('.cg').css('display', 'none');
+      
+      // ИСПРАВЛЕНИЕ: Корректно скрываем меню и показываем игровой слой вместе с кнопками (Выход, Логи)
       $('.transition').fadeIn(300, function () {
         $('.catalog-wrapper').hide();
         $('.catalog-wrapper-new').hide();
         $('.cg-wrapper').hide();
+        
+        $('.menuscene').hide();
+        $('.main').show(); 
+        $('.home_btn').show();
+        $('.buttonBar').show();
+        
+        setTimeout(function() { $(".transition").fadeOut(450); }, 100);
       });
+      
       var bgm = $('#indexbgm')[0];
       bgm.pause(); // главная bgm
       
-      // ИСПРАВЛЕНИЕ: Показываем игровой слой, иначе останется белый экран от .frame
-      $('.main').show(); 
-
-      // ИСПРАВЛЕНО: безопасный вызов без строк для eval
-      setTimeout(function() { $(".menuscene").fadeOut(); }, 350);
-      setTimeout(function() { $(".transition").fadeOut(450); }, 450);
       LoadFinish();
 
       // Если сценарий так и не загрузился, сообщаем об ошибке
