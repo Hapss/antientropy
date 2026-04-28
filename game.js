@@ -1386,10 +1386,18 @@ function startGame(galgameKey, loadKey) {
       playKey = galgameKey // Передаваемый параметр — имя файла
       break
     }
+    // ИСПРАВЛЕНИЕ: Добавлен break, чтобы цикл останавливался, если ID найден!
     if (catalogListTemp[i].getAttribute('id') == galgameKey) {
       playKey = getText(catalogListTemp[i]) // Передаваемый параметр — ID
+      break
     }
   }
+  
+  // ИСПРАВЛЕНИЕ CUSTOM: Ранее скрипт мог игнорировать клик по главе у новых игроков.
+  if (!playKey) {
+    playKey = 'ch1'
+  }
+  
   if (playKey != galgameKey && Number(galgameKey) < 1) {
     i--
     playKey = getText(catalogListTemp[i]) // Недопустимый параметр, чтение последней главы
@@ -1402,12 +1410,6 @@ function startGame(galgameKey, loadKey) {
       thanksWords()
       return // Глава заканчивается
     }
-  }
-
-  // CUSTOM
-  let current = getCookie(now_galgame_tag)
-  if (!current) {
-    playKey = 'ch1'
   }
 
   galgame(playKey)
@@ -2307,124 +2309,6 @@ function GetQueryString(_name) {
   return null
 }
 
-// Связано с историей------------------------------------------------------
-$('.dialog-btn-history').click(function (e) {
-  e.stopPropagation()
-  showHistory()
-})
-
-$('.home_btn').click(function () {
-  if ($('.home_btn').hasClass('home_btn_history')) {
-    hideHistory()
-  } else if ($('.home_btn').hasClass('home_btn_remark')) {
-    hideremark()
-  } else {
-    dialogAutoplay('stop')
-    systemAutoSave()
-    ToggleWindow('backToMenu')
-  }
-})
-
-$('.history').hide()
-var remarkFlag_History = false
-
-function showHistory() {
-  var thisScene = sceneList[now_scene]
-  var thisEvent
-  var pHtml, pHtml2
-  var choiceList
-  var historyTextBox
-  var choiceKey
-  dialogAutoplay('stop')
-  $('.dialog').hide()
-  $('.dialog-btn').hide()
-  $('.choice').hide()
-  $('.history').show()
-  if ($('.remark_btn').css('opacity') == '1') {
-    remark_btn_hide()
-    remarkFlag_History = true
-  }
-  setListens()
-  $('.home_btn').addClass('home_btn_history')
-  historyTextBox = $('div#historyTextBox.history-text')
-  historyTextBox.html('')
-
-  for (var i = 0; i <= now_action; i++) {
-    thisEvent = thisScene.childNodes[i]
-    if (thisEvent != null) {
-      pHtml = null
-      pHtml2 = null
-      if (thisEvent.nodeName == 'text') {
-        var tempAttribute = thisEvent.getAttribute('article')
-        pHtml = $('<p></p>')
-        if (tempAttribute == null) {
-          pHtml.html(getText(thisEvent))
-        } else if (
-          tempAttribute == '1' ||
-          tempAttribute.indexOf('true') >= 0 ||
-          tempAttribute.indexOf('True') >= 0 ||
-          tempAttribute.indexOf('TRUE') >= 0
-        ) {
-          pHtml = $('<div></div>')
-          pHtml.html(thisEvent.innerHTML)
-        } else {
-          pHtml.html(getText(thisEvent))
-        }
-        pHtml.addClass('history-text')
-        historyTextBox.append(pHtml)
-      } else if (thisEvent.nodeName == 'speak') {
-        pHtml = $('<p></p>')
-        pHtml
-          .html(characterData[thisEvent.getAttribute('chara')]['name'] + ':')
-          .addClass('history-text')
-        historyTextBox.append(pHtml)
-        pHtml = $('<p></p>')
-        pHtml.html(getText(thisEvent)).addClass('history-text')
-        historyTextBox.append(pHtml)
-      } else if (thisEvent.nodeName == 'choices') {
-        choiceList = thisEvent.childNodes
-        pHtml = $('<ul></ul>')
-        choiceKey = 0
-        for (j = 0; j < choiceList.length; j++) {
-          if (choiceList[j].nodeName != '#text') {
-            pHtml2 = $('<li></li>')
-            pHtml2.html(getText(choiceList[j])).addClass('history-choice')
-            if (historyChoiceList[i] == choiceKey) {
-              pHtml2.addClass('history-choice-mark')
-            }
-            pHtml.append(pHtml2)
-            choiceKey++
-          }
-        }
-        historyTextBox.append(pHtml)
-      }
-      if (pHtml != null && i < now_action) {
-        historyTextBox.append('<br />')
-      }
-    }
-  }
-  historyTextBox.children().addClass('history-text')
-
-  var scrollIndex =
-    $('.history-overflow')[0].scrollHeight - $('.history-overflow').height()
-  $('.history-overflow').scrollTop(scrollIndex)
-}
-
-function hideHistory() {
-  $('div#historyTextBox.history-text').html('')
-  $('.history').hide()
-  $('.dialog').show()
-  $('.dialog-btn').show()
-  $('.choice').show()
-  $('.home_btn').removeClass('home_btn_history')
-  if (remarkFlag_History) {
-    remark_btn_show()
-    remarkFlag_History = false
-  }
-  setListens(now_scene, now_action)
-}
-//----------------------------------------------------------------
-
 // Связано с системой текстовых примечаний------------------------------------------------
 $('.remark').hide()
 remark_btn_hide()
@@ -2693,6 +2577,9 @@ function post_achievement(str_ach, callbackOne, callbackTwo) {
     } else {
       if (str_ach) {
         saveLocalAchievement(str_ach);
+        // ИСПРАВЛЕНИЕ: Инвалидируем кэш достижений, чтобы при следующем открытии они загрузились заново
+        achievement_result = null; 
+        achievement_list = [];
       }
       ajax_answer_achievement = { retcode: 1, msg: "success locally" };
       if (callbackOne) callbackOne();
@@ -2861,6 +2748,19 @@ function exhibitionPage(page) {
   if (page) {
     exhibition_index = Number(page)
   }
+
+  // ИСПРАВЛЕНИЕ: Если данные достижений еще не загружены в память, обязательно запрашиваем их!
+  if (!achievement_result) {
+    post_achievement('LOAD', function() {
+        achievement_result = ajax_answer_achievement;
+        if (achievement_result && achievement_result['achievement']) {
+            achievement_list = achievement_result['achievement'];
+        }
+        exhibitionPage(page);
+    });
+    return;
+  }
+
   var xmlDoc = loadExistXmlFile('exhibition_list', function () {
     var doc = xml_files_all_in_this['exhibition_list'];
     if (!doc || doc === "FAILED") { LoadFinish(); return; } // ИСПРАВЛЕНО
@@ -2922,6 +2822,26 @@ function exhibitionPage(page) {
       pHtml_tit.addClass('exhibition-member-title')
       pHtml_tip.addClass('exhibition-member-tips')
       pHtml_txt.addClass('exhibition-member-text')
+
+      // ИСПРАВЛЕНИЕ: Добавление CSS для устранения съезжающего текста и центрирования
+      pHtml_txt.css({
+        'text-align': 'left',
+        'white-space': 'normal',
+        'word-break': 'break-word',
+        'line-height': '1.3em',
+        'margin-top': '5px'
+      });
+      pHtml_tit.css({
+        'text-align': 'left',
+        'white-space': 'normal',
+        'word-break': 'break-word'
+      });
+      pHtml_box.css({
+        'height': 'auto',
+        'min-height': '80px',
+        'padding-bottom': '10px'
+      });
+
       if (j >= achievement_list.length) {
         pHtml_txt.html('？？？？？？？？？？？？？？？？？？？？')
         pHtml_txt.css('color', '#cccccc')
