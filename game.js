@@ -37,7 +37,6 @@ uiImageList.push(
   'save.png',
   'skip.png',
   'skip_1.png',
-  'submit.png',
   'thanks.png'
 )
 
