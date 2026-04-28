@@ -1839,19 +1839,19 @@ p {
 }
 
 .high {
-  background-image: url('resources/expression/high.gif');
+  background-image: url('ru-RU/resources/expression/high.gif');
 }
 
 .low {
-  background-image: url('resources/expression/low.gif');
+  background-image: url('ru-RU/resources/expression/low.gif');
 }
 
 .middle {
-  background-image: url('resources/expression/middle.gif');
+  background-image: url('ru-RU/resources/expression/middle.gif');
 }
 
 .super {
-  background-image: url('resources/expression/super.gif');
+  background-image: url('ru-RU/resources/expression/super.gif');
 }
 
 ul li {
