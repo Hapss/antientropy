@@ -3022,4 +3022,3 @@ $('.pagenum#pagenum-6').click(function () {
     exhibitionPage()
   }
 })
-}
