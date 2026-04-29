@@ -2920,7 +2920,7 @@ function exhibitionPage(page) {
     $('.pagenum#pagenum-6').addClass('pagenum-gray')
   }
   var pHtml = $('<p></p>')
-  pHtml.html('Chapter ' + (exhibition_index / 10 - 1000))
+  pHtml.html('Глава ' + (exhibition_index / 10 - 1000))
   pHtml.addClass('achievement-chapter-text')
   $('.achievement-chapter').html(pHtml)
   $('.achievement-list').html('')
@@ -2958,7 +2958,6 @@ function exhibitionPage(page) {
       pHtml_pic.addClass('exhibition-member-image')
       
       pHtml_tit.addClass('exhibition-member-title').css({
-          'position': 'static',
           'font-weight': 'normal', 
           'white-space': 'normal', 
           'word-wrap': 'break-word', 
@@ -2973,7 +2972,6 @@ function exhibitionPage(page) {
       pHtml_tip.addClass('exhibition-member-tips')
       
       pHtml_txt.addClass('exhibition-member-text').css({
-          'position': 'static',
           'font-weight': 'normal', 
           'white-space': 'normal', 
           'word-wrap': 'break-word', 
