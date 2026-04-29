@@ -71,7 +71,7 @@ function tryAudio(pauseOrPlay, indexOrInner, countNumber) {
 }
 
 //------------------------------------------------------
-// Исправление 1: Реализация окна логов (Истории)
+// Реализация окна логов (Истории)
 function showLogWindow() {
   if ($('#custom-log-window').length === 0) {
     var logHtml = '<div id="custom-log-window" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.85); z-index:99999; overflow:hidden; font-family: sans-serif;">' +
@@ -84,13 +84,21 @@ function showLogWindow() {
       '</div>' +
     '</div>';
     $('body').append(logHtml);
+    
     $('#custom-log-close').hover(function() { $(this).css('background', '#f44336'); }, function() { $(this).css('background', '#d32f2f'); });
     $('#custom-log-close').click(function(e) {
       e.stopPropagation();
       $('#custom-log-window').fadeOut(150);
     });
+    
+    // Закрытие по клику на фон
+    $('#custom-log-window').click(function(e) { 
+      $(this).fadeOut(150);
+    });
+    $('#custom-log-window > div').click(function(e) { 
+      e.stopPropagation(); // Не закрывать при клике на сам контент
+    });
     $('#custom-log-window').on('selectstart', function(e) { e.stopPropagation(); });
-    $('#custom-log-window').click(function(e) { e.stopPropagation(); });
   }
   
   var contentHtml = '';
@@ -721,12 +729,6 @@ function Action(gotoScene, gotoAction, skipKey, loadKey2) {
   remark_btn_hide()
   $('.choice_list').hide()
   $('.choice_list').html('')
-  
-  // ИСПРАВЛЕНИЕ: ЖЕСТКАЯ ОЧИСТКА ВСЕХ ВОЗМОЖНЫХ ВЕЛИКИХ ДИАЛОГОВ
-  $('.dialog1').hide()
-  $('.dialog2').hide()
-  $('.dialog3').hide()
-  $('.remark').hide()
 
   thisScene = sceneList[gotoScene]
 
@@ -937,7 +939,7 @@ function processAction(act, gotoScene, gotoAction, skipKey, loadKey2) {
       }
       if (thisTextTemp == null) thisTextTemp = getText(act)
       
-      // Исправление 1: Запись в лог
+      // Запись в лог
       var logTextStr = (thisTextTemp || '').toString();
       var logText = logTextStr.replace(/<br\s*\/?>/gi, '\n').replace(/<[^>]+>/g, '').trim();
       logText = logText.replace(/\n/g, '<br/>');
@@ -976,7 +978,7 @@ function processAction(act, gotoScene, gotoAction, skipKey, loadKey2) {
       $('.dialog-chara-text').html(characterData[chara]['name'])
       $('.dialog-chara-text').css('color', textColour)
       
-      // Исправление 1: Запись в лог
+      // Запись в лог
       var logTextStr = (getText(act) || '').toString();
       var logText = logTextStr.replace(/<br\s*\/?>/gi, '\n').replace(/<[^>]+>/g, '').trim();
       logText = logText.replace(/\n/g, '<br/>');
@@ -1380,13 +1382,10 @@ function ClearDialog() {
   $('.dialog-chara-text').html('')
   $('.dialog').removeClass('dialog_article')
   $('.dialog-overflow').removeClass('dialog-overflow_article').removeClass('dialog-overflow_article_center')
-  
-  // ИСПРАВЛЕНИЕ: Гарантированное скрытие окон примечаний и всех больших диалогов
-  $('.remark').hide(); 
+  $('.remark').hide(); // Гарантированное скрытие окна примечаний
+  $('#custom-log-window').hide(); // Исправление 2: Принудительное скрытие history log
   $('.dialog1').hide();
-  $('.dialog2').hide();
   $('.dialog3').hide();
-  $('.choice_list').hide();
 }
 
 function ToggleWindow(mode) {
@@ -1400,6 +1399,7 @@ function ToggleWindow(mode) {
       })
     })
   } else if (mode == 'backToMenu') {
+    $('#custom-log-window').hide(); // Исправление 2: Скрытие лога при переходе в меню
     $('.transition').fadeIn(450)
     endGame()
     setTimeout(function() { $(".transition").fadeOut(450); }, 500)
@@ -1463,6 +1463,8 @@ function startGame(galgameKey, loadKey) {
   var playKey
   autoSpeed = 'stop'
   gameLogHistory = []; // Очистка логов при старте новой игры
+  $('#custom-log-window').hide(); // Принудительно скрываем лог при старте
+  
   if (checkAutoLoad() == true && loadKey == null) {
     systemAutoLoadStart(galgameKey)
     return
@@ -1545,13 +1547,8 @@ function startGame(galgameKey, loadKey) {
         
         $('.dialog').hide(); 
         $('.dialog-chara').hide();
-        
-        // ИСПРАВЛЕНИЕ: Жесткое скрытие всех больших диалогов и примечаний при запуске новой игры
-        $('.remark').hide(); 
-        $('.dialog1').hide();
-        $('.dialog2').hide();
-        $('.dialog3').hide();
-        $('.choice_list').hide();
+        $('.remark').hide(); // Принудительное скрытие примечаний
+        $('#custom-log-window').hide(); // Принудительное скрытие истории
         
         setTimeout(function() { $(".transition").fadeOut(450); }, 100);
       });
@@ -1737,8 +1734,9 @@ function endGame(keyFlag) {
     setListens()
     $('.main').hide() // Скрываем игровой слой сразу
     $('.cg').css('display', 'none')
+    $('#custom-log-window').hide() // Скрываем лог при выходе
     
-    // Исправление 3: Восстановление видимости главного меню после выхода из главы
+    // Восстановление видимости главного меню после выхода из главы
     $('.catalog-wrapper-new').show();
     $('.catalog-wrapper').show();
     
@@ -1763,6 +1761,7 @@ function HideUi() {
   $('.dialog').hide()
   $('.dialog-chara').hide()
   $('.remark').hide()
+  $('#custom-log-window').hide()
 }
 
 function ShowUi(dialog, chara) {
@@ -2646,7 +2645,6 @@ function getLocalAchievements() {
 
 function saveLocalAchievement(ach_id) {
   var saved = getLocalAchievements();
-  // Исправление 4: поддержка мульти-ID и безопасное сохранение
   var ids = String(ach_id).split(',');
   var changed = false;
   for (var i = 0; i < ids.length; i++) {
@@ -2730,15 +2728,16 @@ function portraitPage(typeReturn) {
   
   var retcode = achievement_result['retcode']
   if (retcode > 0) {
-    var achievement_progress =
-      parseInt(achievement_result['progress'] * 100) + '%'
-    var achievement_progress_rem =
-      achievement_result['progress'] * 28.55 + 'rem'
-    var achievement_progress_text =
-      achievement_result['progress'] * 28.55 + 1.3 + 0.5 + 'rem'
-    var achievement_progress_text_r = 1.3 + 0.5 + 'rem'
-    var achievement_progress_icon =
-      achievement_result['progress'] * 28.55 - 1.3 + 'rem'
+    // Исправление 4: Ограничиваем прогресс визуально, чтобы иконка и текст не выходили за рамки.
+    var p_val = Number(achievement_result['progress']);
+    var clamped_text = p_val > 0.85 ? 0.85 : p_val;
+    var clamped_icon = p_val > 0.90 ? 0.90 : p_val;
+
+    var achievement_progress = parseInt(p_val * 100) + '%';
+    var achievement_progress_rem = p_val * 28.55 + 'rem';
+    var achievement_progress_text = clamped_text * 28.55 + 1.3 + 0.5 + 'rem';
+    var achievement_progress_icon = clamped_icon * 28.55 - 1.3 + 'rem';
+    
     achievement_list = achievement_result['achievement']
     achievement_portraits = achievement_result['portrait']
     var achievementImageList = new Array()
@@ -2828,15 +2827,18 @@ function portraitPage(typeReturn) {
             $('.portrait-wrapper#sofaFrontRight').fadeOut()
           }
         }
+        
         $('.progress-span').css('width', achievement_progress_rem)
         $('.progress-icon').css('left', achievement_progress_icon)
-        if (achievement_result['progress'] <= 0.8) {
-          $('.progress-text').css('left', achievement_progress_text)
-        } else {
-          $('.progress-text').css('right', achievement_progress_text_r)
-          $('.progress-text').css('color', '#5b4c51')
-        }
+        
+        // Исправление 4: Корректное выравнивание текста прогресса (всегда слева с ограничением)
+        $('.progress-text').css({
+          'left': achievement_progress_text,
+          'right': 'auto',
+          'color': p_val > 0.8 ? '#5b4c51' : '#ffffff'
+        });
         $('.progress-text').html(achievement_progress)
+        
         $('.family-portrait').fadeIn()
         LoadFinish()
         return
@@ -2905,9 +2907,13 @@ function exhibitionPage(page) {
       var pHtml_tit = $('<p></p>')
       var pHtml_txt = $('<p></p>')
       pHtml_tit.html(exhibition_list[i].textContent)
+      
+      // Исправление 3: Правильное применение разблокировки (icon + text)
       for (var j = 0; j < achievement_list.length; j++) {
         if (Number(achievement_list[j]['achievement']) == listId) {
-          pHtml_txt.html(achievement_list[j]['text'])
+          // Если в exhibition_list есть атрибут text, берем его (поддержка русской локализации)
+          var unlockedText = exhibition_list[i].getAttribute('text') || achievement_list[j]['text'];
+          pHtml_txt.html(unlockedText)
           pHtml_pic.css(
             'background-image',
             "url('" +
@@ -2931,69 +2937,24 @@ function exhibitionPage(page) {
       }
       
       pHtml_pic.addClass('exhibition-member-image')
-      pHtml_tit.addClass('exhibition-member-title')
+      
+      // Исправление 1: Применяем inline-стили для сброса bold и корректного переноса
+      pHtml_tit.addClass('exhibition-member-title').css({
+          'font-weight': 'normal', 
+          'white-space': 'normal', 
+          'word-wrap': 'break-word', 
+          'line-height': '1.2'
+      });
+      
       pHtml_tip.addClass('exhibition-member-tips')
-      pHtml_txt.addClass('exhibition-member-text')
-
-      // ИСПРАВЛЕНИЕ: Инлайновые стили с блочным позиционированием для предотвращения наложения
-      pHtml.css({
-        'position': 'relative',
-        'display': 'block',
-        'height': 'auto',
-        'margin-bottom': '10px'
-      });
       
-      pHtml_box.css({
-        'position': 'relative',
-        'min-height': '110px',
-        'padding': '15px 15px 15px 120px', // Отступ слева под изображение
-        'box-sizing': 'border-box',
-        'display': 'flex',
-        'flex-direction': 'column',
-        'justify-content': 'center'
-      });
-      
-      pHtml_pic.css({
-        'position': 'absolute',
-        'left': '20px',
-        'top': '50%',
-        'transform': 'translateY(-50%)',
-        'width': '85px',
-        'height': '85px',
-        'background-size': 'contain',
-        'background-repeat': 'no-repeat',
-        'background-position': 'center'
-      });
-      
-      if (exhibition_list[i].getAttribute('type') != 'end') {
-        pHtml_tip.css({
-          'position': 'absolute',
-          'left': '15px',
-          'top': '10px',
-          'width': '40px',
-          'height': '40px',
-          'background-size': 'contain',
-          'background-repeat': 'no-repeat'
-        });
-      }
-
-      pHtml_tit.css({
-        'position': 'static', // Переопределяет любые абсолютные позиции из CSS файла
-        'height': 'auto',
-        'line-height': '1.3',
-        'margin': '0 0 5px 0',
-        'font-weight': 'bold',
-        'text-align': 'left',
-        'display': 'block'
-      });
-
-      pHtml_txt.css({
-        'position': 'static', // Переопределяет любые абсолютные позиции из CSS файла
-        'height': 'auto',
-        'line-height': '1.3',
-        'margin': '0',
-        'text-align': 'left',
-        'display': 'block'
+      pHtml_txt.addClass('exhibition-member-text').css({
+          'font-weight': 'normal', 
+          'white-space': 'normal', 
+          'word-wrap': 'break-word', 
+          'line-height': '1.2', 
+          'overflow': 'visible',
+          'height': 'auto'
       });
 
       if (j >= achievement_list.length) {
@@ -3014,12 +2975,19 @@ function exhibitionPage(page) {
           )
         }
       }
+      
       pHtml_box
         .append(pHtml_pic)
         .append(pHtml_tip)
         .append(pHtml_tit)
         .append(pHtml_txt)
-      pHtml_box.addClass('exhibition-member')
+        
+      pHtml_box.addClass('exhibition-member').css({
+          'height': 'auto', 
+          'min-height': '110px', 
+          'padding-bottom': '10px'
+      });
+      
       pHtml.append(pHtml_box)
       pHtml.addClass('achievement-list-member')
       $('.achievement-list').append(pHtml)
