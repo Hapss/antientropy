@@ -9,7 +9,7 @@ var characterData = {} // Объект
 var now_scene = -1 // Текущая сцена для сохранения
 var now_action = -1
 var historyChoiceList = [] // Используется для записи истории выборов в текущей сцене
-var gameLogHistory = [] // Исправление 1: Массив для хранения истории диалогов
+var gameLogHistory = []
 var uiImageList = new Array()
 var showInSceneList = new Array()
 var xml_files_all_in_this = {} // Объект для надежного хранения кэша
@@ -114,6 +114,10 @@ function showLogWindow() {
      contentHtml = '<div style="text-align:center; color:#888; margin-top:50px;">История пуста...</div>';
   }
   $('#custom-log-content').html(contentHtml);
+  
+  // Гарантированно прячем любые конфликтующие лог-окна
+  $('.history-overflow, #history-overflow, .history-wrapper').hide();
+  
   $('#custom-log-window').fadeIn(150, function() {
     var logContent = document.getElementById('custom-log-content');
     logContent.scrollTop = logContent.scrollHeight;
@@ -618,7 +622,6 @@ function galgame(name) {
     galgame(name)
   })
   if (!xmlDoc) return
-  //--Сделать идентификатор scene значимым в sceneList
   var sceneList0 = []
   sceneList0 = xmlDoc.getElementsByTagName('scene')
   sceneList = new Array()
@@ -673,7 +676,7 @@ function checkTextScroll() {
       textLenth: (baseTime() / 5) * ((scrollTop1 - scrollTop0) / lineHeight),
     }
   } else if (scrollTop0 + showHeight < scrollHeight0 - lineHeight / 5) {
-    return { scrollTop: scrollTop1, textLenth: baseTime() / 20 } // Ситуация с накоплением ошибок
+    return { scrollTop: scrollTop1, textLenth: baseTime() / 20 }
   } else {
     return null // Достигнут конец
   }
@@ -684,10 +687,8 @@ var lastEventNode = 0
 function Action(gotoScene, gotoAction, skipKey, loadKey2) {
   var thisScene
   var thisEvent
-  // Сначала оцениваем прокрутку текста, чтобы завершить отображение текущего текста в приоритетном порядке
   checkTextScrollLastMove = 0
   if (!skipKey && autoSpeed != 'skip' && gotoScene == now_scene) {
-    // Если это не загрузка архива
     var checkTextScroll_answer = checkTextScroll()
     if (checkTextScroll_answer != null) {
       checkTextScrollLastMove = checkTextScroll_answer.textLenth * 5 * 2.5
@@ -843,7 +844,6 @@ function processAction(act, gotoScene, gotoAction, skipKey, loadKey2) {
       lastEventNode = gotoAction
       $('#all').hide()
       if (skipKey || autoSpeed == 'skip') {
-        // Пропускается при быстрой перемотке вперед или загрузке файла сохранения
         return
       }
       var time = 0.5
@@ -889,7 +889,6 @@ function processAction(act, gotoScene, gotoAction, skipKey, loadKey2) {
     case 'shake':
       lastEventNode = gotoAction
       if (skipKey || autoSpeed == 'skip') {
-        // Пропускается при быстрой перемотке вперед или загрузке файла сохранения
         return
       }
       var time = Number(act.getAttribute('time'))
@@ -1005,9 +1004,9 @@ function processAction(act, gotoScene, gotoAction, skipKey, loadKey2) {
     case 'choices':
       lastEventNode = gotoAction
       if (skipKey) {
-        if (loadKey2) return // Во время процесса загрузки пропустить
+        if (loadKey2) return
       }
-      dialogAutoplay('stop') // Принудительно прекратить автовоспроизведение
+      dialogAutoplay('stop')
       var choiceList = act.childNodes
       var choices = []
       for (var i = 0; i < choiceList.length; i++) {
@@ -1018,7 +1017,7 @@ function processAction(act, gotoScene, gotoAction, skipKey, loadKey2) {
                 text: getText(choiceList[i]),
                 continueScene: gotoScene,
                 continueAction: gotoAction,
-              }) // Выбор конечности не дает никакого эффекта
+              })
             } else {
               choices.push({
                 text: getText(choiceList[i]),
@@ -1108,7 +1107,7 @@ function processAction(act, gotoScene, gotoAction, skipKey, loadKey2) {
 
     case 'end':
       lastEventNode = gotoAction
-      dialogAutoplay('stop') // Принудительно прекратить автовоспроизведение
+      dialogAutoplay('stop')
       post_achievement_in_event(act)
       if (act.getAttribute('last')) {
         endGame(-1)
@@ -1123,7 +1122,6 @@ function processAction(act, gotoScene, gotoAction, skipKey, loadKey2) {
     case 'sound':
       lastEventNode = gotoAction
       if (skipKey || autoSpeed == 'skip') {
-        // Пропускать звуковые эффекты в истории при загрузке или перемотке
         return
       }
       var sound = $('#sound')[0]
@@ -1221,14 +1219,14 @@ function gotoA(sceneKey, change, skipKey) {
       changeColour = null
     }
   }
-  if (changeColour) dialogAutoplay('stop') // Принудительно прекратить автовоспроизведение
-  $('.white').removeClass().addClass('white').hide() // Отказоустойчивость
+  if (changeColour) dialogAutoplay('stop')
+  $('.white').removeClass().addClass('white').hide()
   $('.background')
     .css('transition-duration', '0ms')
     .css('transform', 'scale(1,1)')
     .css('transform-origin', 'center')
   if (changeColour) {
-    setListens() // Нет ответа на клик в настоящее время
+    setListens()
     $('.white')
       .css('background', changeColour)
       .fadeIn(changeTime, function () {
@@ -1244,9 +1242,9 @@ function gotoA(sceneKey, change, skipKey) {
 var actionTimer
 
 function nextAction(nowScene, nowAction, nowKey) {
-  systemAutoSave() // Автоматическое сохранение
+  systemAutoSave()
   if (!isdialogAutoplay()) {
-    setListens() // Нет ответа на клик в настоящее время
+    setListens()
   }
   if (actionTimer) {
     clearTimeout(actionTimer)
@@ -1274,9 +1272,9 @@ function RefreshDialog(
     )
   })
   if (checkTextScroll() == null) {
-    $('.dialog-overflow_article').addClass('dialog-overflow_article_center') // По центру
+    $('.dialog-overflow_article').addClass('dialog-overflow_article_center')
   } else {
-    $('.dialog-overflow_article').removeClass('dialog-overflow_article_center') // Отменить центрирование
+    $('.dialog-overflow_article').removeClass('dialog-overflow_article_center')
   }
   if (textColour != null) $('.dialog-text').css('color', textColour)
   else $('.dialog-text').css('color', '#ffffff')
@@ -1306,7 +1304,7 @@ function ShowDialog(mode, content) {
               c3: i,
             },
             function (e) {
-              historyChoiceList[e.data.c2] = e.data.c3 // Запись выбора, не связанного с переходом
+              historyChoiceList[e.data.c2] = e.data.c3
               nextAction(e.data.c1, e.data.c2)
               $('.choice_list').hide()
               $('.choice_list').html('')
@@ -1382,8 +1380,9 @@ function ClearDialog() {
   $('.dialog-chara-text').html('')
   $('.dialog').removeClass('dialog_article')
   $('.dialog-overflow').removeClass('dialog-overflow_article').removeClass('dialog-overflow_article_center')
-  $('.remark').hide(); // Гарантированное скрытие окна примечаний
-  $('#custom-log-window').hide(); // Исправление 2: Принудительное скрытие history log
+  $('.remark').hide();
+  $('#custom-log-window').hide();
+  $('.history-overflow, #history-overflow, .history-wrapper').hide(); // Скрытие нативных окон лога
   $('.dialog1').hide();
   $('.dialog3').hide();
 }
@@ -1399,7 +1398,8 @@ function ToggleWindow(mode) {
       })
     })
   } else if (mode == 'backToMenu') {
-    $('#custom-log-window').hide(); // Исправление 2: Скрытие лога при переходе в меню
+    $('#custom-log-window').hide();
+    $('.history-overflow, #history-overflow, .history-wrapper').hide();
     $('.transition').fadeIn(450)
     endGame()
     setTimeout(function() { $(".transition").fadeOut(450); }, 500)
@@ -1462,8 +1462,9 @@ function checkAutoLoad() {
 function startGame(galgameKey, loadKey) {
   var playKey
   autoSpeed = 'stop'
-  gameLogHistory = []; // Очистка логов при старте новой игры
-  $('#custom-log-window').hide(); // Принудительно скрываем лог при старте
+  gameLogHistory = [];
+  $('#custom-log-window').hide();
+  $('.history-overflow, #history-overflow, .history-wrapper').hide();
   
   if (checkAutoLoad() == true && loadKey == null) {
     systemAutoLoadStart(galgameKey)
@@ -1482,11 +1483,11 @@ function startGame(galgameKey, loadKey) {
   if (!xmlDoc) return
   for (var i = 0; i < catalogListLength; i++) {
     if (getText(catalogListTemp[i]) == galgameKey) {
-      playKey = galgameKey // Передаваемый параметр — имя файла
+      playKey = galgameKey
       break
     }
     if (catalogListTemp[i].getAttribute('id') == galgameKey) {
-      playKey = getText(catalogListTemp[i]) // Передаваемый параметр — ID
+      playKey = getText(catalogListTemp[i])
       break
     }
   }
@@ -1497,7 +1498,7 @@ function startGame(galgameKey, loadKey) {
   
   if (playKey != galgameKey && Number(galgameKey) < 1) {
     i--
-    playKey = getText(catalogListTemp[i]) // Недопустимый параметр, чтение последней главы
+    playKey = getText(catalogListTemp[i])
   } else if (i >= catalogListLength) {
     if (catalogListTemp[Number(galgameKey) - 1] != null) {
       playKey = getText(catalogListTemp[Number(galgameKey) - 1])
@@ -1505,7 +1506,7 @@ function startGame(galgameKey, loadKey) {
     } else {
       LoadFinish()
       thanksWords()
-      return // Глава заканчивается
+      return
     }
   }
 
@@ -1547,8 +1548,9 @@ function startGame(galgameKey, loadKey) {
         
         $('.dialog').hide(); 
         $('.dialog-chara').hide();
-        $('.remark').hide(); // Принудительное скрытие примечаний
-        $('#custom-log-window').hide(); // Принудительное скрытие истории
+        $('.remark').hide();
+        $('#custom-log-window').hide();
+        $('.history-overflow, #history-overflow, .history-wrapper').hide();
         
         setTimeout(function() { $(".transition").fadeOut(450); }, 100);
       });
@@ -1592,7 +1594,6 @@ function preLoadUiImages(resStr, resList, flag_continue) {
       .bind('error', function () {
         var count = $(this).data('retryCount')
         if (count < 5) {
-          // Количество попыток
           $(this).data('retryCount', count + 1)
           this.src = this.src
         }
@@ -1602,12 +1603,12 @@ function preLoadUiImages(resStr, resList, flag_continue) {
 }
 
 function preLoadImagesBegin(imageList) {
-  showInSceneList = new Array() // Очистить кэш-список изображений
+  showInSceneList = new Array()
   bgInSceneList = new Array()
   cgInSceneList = new Array()
   var charaDefErrorList = new Array()
   for (i in sceneList) {
-    var thisScene = sceneList[i] // Список сцен прочитан в процессе
+    var thisScene = sceneList[i]
     var thisBgFileName = thisScene.getAttribute('background')
     if (thisBgFileName.length) {
       if (
@@ -1624,7 +1625,7 @@ function preLoadImagesBegin(imageList) {
         if (chara) {
           if (characterData[chara]) {
             if ($.inArray(characterData[chara]['src'], showInSceneList) < 0) {
-              showInSceneList.push(characterData[chara]['src']) // Храните только действительно использованные и задекларированные изображения
+              showInSceneList.push(characterData[chara]['src'])
             }
           } else if (!charaDefErrorList[chara]) {
             console.log('Defination Error: ' + chara)
@@ -1684,7 +1685,6 @@ function preLoadImagesBegin(imageList) {
       .bind('error', function () {
         var count = $(this).data('retryCount')
         if (count < 5) {
-          // Количество попыток
           $(this).data('retryCount', count + 1)
           this.src = this.src
         }
@@ -1700,7 +1700,6 @@ function preLoadImagesBegin(imageList) {
     .bind('error', function () {
         var count = $(this).data('retryCount')
         if (count < 5) {
-          // Количество попыток
           $(this).data('retryCount', count + 1)
           this.src = this.src
         }
@@ -1728,15 +1727,15 @@ function endGame(keyFlag) {
   if (!isNaN(bgm.duration)) bgm.currentTime = 0
   var sound = $('#sound')[0]
   sound.pause()
-  if (!isNaN(sound.duration)) sound.currentTime = 0 // остановить bgm se
+  if (!isNaN(sound.duration)) sound.currentTime = 0
 
   if (keyFlag == null || keyFlag < 0) {
     setListens()
-    $('.main').hide() // Скрываем игровой слой сразу
+    $('.main').hide()
     $('.cg').css('display', 'none')
-    $('#custom-log-window').hide() // Скрываем лог при выходе
+    $('#custom-log-window').hide()
+    $('.history-overflow, #history-overflow, .history-wrapper').hide()
     
-    // Восстановление видимости главного меню после выхода из главы
     $('.catalog-wrapper-new').show();
     $('.catalog-wrapper').show();
     
@@ -1762,6 +1761,7 @@ function HideUi() {
   $('.dialog-chara').hide()
   $('.remark').hide()
   $('#custom-log-window').hide()
+  $('.history-overflow, #history-overflow, .history-wrapper').hide()
 }
 
 function ShowUi(dialog, chara) {
@@ -1774,7 +1774,6 @@ function ShowUi(dialog, chara) {
 }
 
 function ToggleCloseButton(close_obj) {
-  // Изменилась ли функция?
   var close_btn_data = $('.close_btn').attr('data')
   if (close_btn_data) {
     $('.close_btn').toggle()
@@ -1939,10 +1938,9 @@ function check_size() {
     .css('left', ($('.black').width() - $('.frame').width()) / 2 + 'px')
     .css('top', ($('.black').height() - $('.frame').height()) / 2 + 'px')
 
-  window.scrollTo(0, 1) // Скрытие панели инструментов браузера
+  window.scrollTo(0, 1)
 }
 
-// CUSTOM: запрашивает XML по настраиваемому пользователю xmlPath, в случае неудачи он вернется к основному репо VN
 function get_xml_ajax_async(
   xmlName,
   callBack,
@@ -2006,14 +2004,12 @@ function loadExistXmlFile(xmlName, callBack, fileType) {
 function getText(e) {
   var t = ''
   if (!e) return null
-  e = e.childNodes || e // Если передан элемент, то продолжаем обход его дочерних элементов; в противном случае предполагаем, что это массив
+  e = e.childNodes || e
   for (var i = 0; i < e.length; i++) {
-    // Если это не элемент, то возвращаем его текстовое значение;
-    // если это элемент, то рекурсивно проходим по всем дочерним узлам элемента;
     if (e[i].nodeType) {
       t += e[i].nodeType != 1 ? e[i].nodeValue : getText(e[i].childNodes)
     } else {
-      t += e[i] // Случай со строкой
+      t += e[i]
     }
   }
   return t
@@ -2524,7 +2520,6 @@ function wrk_check_size() {
   }
 }
 wrk_check_size()
-//wrk_check_size----------------------------------------
 
 var achievementQueryString = ''
 if (GetQueryString('auth_key')) {
@@ -2540,90 +2535,89 @@ if (GetQueryString('auth_key')) {
 //Достижения-------------------------------------------
 var ajax_answer_achievement = null;
 
-// Статичная база данных всех возможных достижений из achievement.php
 var masterAchievementData = [
-  {"achievement":10010,"text":"\u4f60\u9605\u8bfb\u4e86\u7b2c\u4e00\u7ae0\u7684\u5267\u60c5\u3002","image":"normal"},
-  {"achievement":10011,"text":"\u4f60\u53d1\u73b0\u4e86\u5173\u4e8e\u300a\u795e\u66f2\u300b\u7684\u6ce8\u91ca\u3002","image":"welt"},
-  {"achievement":10012,"text":"\u4f60\u53d1\u73b0\u4e86\u5173\u4e8e\u7684\u91cc\u96c5\u65af\u7279\u7684\u6ce8\u91ca\u3002","image":"tesla"},
-  {"achievement":10013,"text":"\u4f60\u53d1\u73b0\u4e86\u5173\u4e8e\u300a\u9b54\u6212\u300b\u7684\u6ce8\u91ca\u3002","image":"ein"},
-  {"achievement":10020,"text":"\u4f60\u9605\u8bfb\u4e86\u7b2c\u4e8c\u7ae0\u7684\u5267\u60c5\u3002","image":"normal"},
-  {"achievement":10021,"text":"\u4f60\u53d1\u73b0\u4e86\u5173\u4e8e\u5e1d\u56fd\u7814\u7a76\u9662\u7684\u6ce8\u91ca\u3002","image":"welt"},
-  {"achievement":10022,"text":"\u4f60\u53d1\u73b0\u4e86\u5173\u4e8e\u7ef4\u591a\u5229\u4e9a\u4e0e\u963f\u5c14\u4f2f\u7279\u535a\u7269\u9986\u7684\u6ce8\u91ca\u3002","image":"ein"},
-  {"achievement":10030,"text":"\u4f60\u9605\u8bfb\u4e86\u7b2c\u4e09\u7ae0\u7684\u5267\u60c5\u3002","image":"normal"},
-  {"achievement":10031,"text":"\u4f60\u53d1\u73b0\u4e86\u5173\u4e8e\u300a\u5c24\u5229\u897f\u65af\u300b\u7684\u6ce8\u91ca\u3002","image":"tesla"},
-  {"achievement":10032,"text":"\u4f60\u9009\u62e9\u4e86\u67d0\u4e2a\u5206\u652f\u9009\u9879\u3002","image":"ein"},
-  {"achievement":10033,"text":"\u4f60\u9009\u62e9\u4e86\u67d0\u4e2a\u5206\u652f\u9009\u9879\u3002","image":"welt"},
-  {"achievement":10040,"text":"\u4f60\u9605\u8bfb\u4e86\u7b2c\u56db\u7ae0\u7684\u5267\u60c5\u3002","image":"normal"},
-  {"achievement":10041,"text":"\u4f60\u53d1\u73b0\u4e86\u5173\u4e8e\u4ea8\u5f17\u83b1\u00b7\u9c8d\u5609\u7684\u6ce8\u91ca\u3002","image":"nokia"},
-  {"achievement":10042,"text":"\u4f60\u53d1\u73b0\u4e86\u5173\u4e8e\u300a\u4f0a\u5a03\u7684\u6ce2\u5c14\u5361\u300b\u7684\u6ce8\u91ca\u3002","image":"nokia"},
-  {"achievement":10043,"text":"\u4f60\u53d1\u73b0\u4e86\u5173\u4e8e\u300a\u522b\u95f9\u4e86\uff0c\u8d39\u66fc\u5148\u751f\u300b\u7684\u6ce8\u91ca\u3002","image":"plank"},
-  {"achievement":10050,"text":"\u4f60\u9605\u8bfb\u4e86\u7b2c\u4e94\u7ae0\u7684\u5267\u60c5\u3002","image":"normal"},
-  {"achievement":10051,"text":"\u4f60\u53d1\u73b0\u4e86\u5173\u4e8e\u672b\u6b21\u51b0\u76db\u671f\u7684\u6ce8\u91ca\u3002","image":"schro"},
-  {"achievement":10052,"text":"\u4f60\u53d1\u73b0\u4e86\u5173\u4e8e\u4e0d\u786e\u5b9a\u6027\u539f\u7406\u7684\u6ce8\u91ca\u3002","image":"schro"},
-  {"achievement":10053,"text":"\u4f60\u53d1\u73b0\u4e86\u5173\u4e8e\u8001\u5fe0\u5b9e\u6cc9\u7684\u6ce8\u91ca\u3002","image":"plank"},
-  {"achievement":10060,"text":"\u4f60\u9605\u8bfb\u4e86\u7b2c\u516d\u7ae0\u7684\u5267\u60c5\u3002","image":"normal"},
-  {"achievement":10061,"text":"\u4f60\u53d1\u73b0\u4e86\u5173\u4e8e\u5e9e\u8d1d\u7684\u6ce8\u91ca\u3002","image":"welt"},
-  {"achievement":10062,"text":"\u4f60\u53d1\u73b0\u4e86\u5173\u4e8e\u300a\u57fa\u7763\u5c71\u4f2f\u7235\u300b\u7684\u6ce8\u91ca\u3002","image":"plank"},
-  {"achievement":10063,"text":"\u4f60\u53d1\u73b0\u4e86\u5173\u4e8e\u4f26\u8482\u5c3c\u6069\u7684\u6ce8\u91ca\u3002","image":"ein"},
-  {"achievement":10070,"text":"\u4f60\u9605\u8bfb\u4e86\u7b2c\u4e03\u7ae0\u7684\u5267\u60c5\u3002","image":"normal"},
-  {"achievement":10071,"text":"\u4f60\u53d1\u73b0\u4e86\u5173\u4e8e\u7f57\u5fb7\u5c9b\u7684\u6ce8\u91ca\u3002","image":"tesla"},
-  {"achievement":10072,"text":"\u4f60\u53d1\u73b0\u4e86\u5173\u4e8e\u65bd\u6d17\u8005\u7ea6\u7ff0\u7684\u6ce8\u91ca\u3002","image":"tesla"},
-  {"achievement":10073,"text":"\u4f60\u53d1\u73b0\u4e86\u5173\u4e8e\u7eb3\u5c14\u900a\u7684\u540d\u8a00\u7684\u6ce8\u91ca\u3002","image":"welt"},
-  {"achievement":10080,"text":"\u4f60\u9605\u8bfb\u4e86\u7b2c\u516b\u7ae0\u7684\u5267\u60c5\u3002","image":"normal"},
-  {"achievement":10081,"text":"\u4f60\u53d1\u73b0\u4e86\u5173\u4e8e\u6d1b\u592b\u83b1\u65af\u4f2f\u7235\u592b\u4eba\u7684\u6ce8\u91ca\u3002","image":"ada"},
-  {"achievement":10082,"text":"\u4e0d\u2026\u2026\u4f60\u4ec0\u4e48\u4e5f\u6ca1\u6709\u53d1\u73b0\u3002\u55ef\u3002","image":"ada"},
-  {"achievement":10083,"text":"\u4f60\u53d1\u73b0\u4e86\u5173\u4e8e\u692d\u5706\u66f2\u7ebf\u5bc6\u7801\u7684\u6ce8\u91ca\u3002","image":"ada"},
-  {"achievement":10090,"text":"\u4f60\u9605\u8bfb\u4e86\u7b2c\u4e5d\u7ae0\u7684\u5267\u60c5\u3002","image":"normal"},
-  {"achievement":10091,"text":"\u4f60\u53d1\u73b0\u4e86\u5173\u4e8e\u7279\u65af\u62c9\u8eab\u4efd\u4fe1\u606f\u7684\u6ce8\u91ca\u3002","image":"tesla"},
-  {"achievement":10100,"text":"\u4f60\u9605\u8bfb\u4e86\u7b2c\u5341\u7ae0\u7684\u5267\u60c5\u3002","image":"normal"},
-  {"achievement":10101,"text":"\u4f60\u53d1\u73b0\u4e86\u5173\u4e8e\u70ed\u529b\u5b66\u7b2c\u4e8c\u5b9a\u5f8b\u7684\u6ce8\u91ca\u3002","image":"schro"},
-  {"achievement":10102,"text":"\u4f60\u53d1\u73b0\u4e86\u5173\u4e8e\u822c\u5ea6\u7684\u6ce8\u91ca\u3002","image":"tesla"},
-  {"achievement":10103,"text":"\u4f60\u53d1\u73b0\u4e86\u5173\u4e8e\u201c\u7ec8\u6781\u7b54\u6848\u201d\u7684\u6ce8\u91ca\u3002","image":"welt"},
-  {"achievement":10110,"text":"\u4f60\u9605\u8bfb\u4e86\u7b2c\u5341\u4e00\u7ae0\u7684\u5267\u60c5\u3002","image":"normal"},
-  {"achievement":10111,"text":"\u4f60\u53d1\u73b0\u4e86\u5173\u4e8e\u5e03\u9c81\u56fe\u7684\u6ce8\u91ca\u3002","image":"welt"},
-  {"achievement":10120,"text":"\u4f60\u9605\u8bfb\u4e86\u7b2c\u5341\u4e8c\u7ae0\u7684\u5267\u60c5\u3002","image":"normal"},
-  {"achievement":10121,"text":"\u4f60\u53d1\u73b0\u4e86\u5173\u4e8e\u300a\u4e39\u5c3c\u7537\u5b69\u300b\u7684\u6ce8\u91ca\u3002","image":"welt"},
-  {"achievement":10130,"text":"\u4f60\u9605\u8bfb\u4e86\u7b2c\u5341\u4e09\u7ae0\u7684\u5267\u60c5\u3002","image":"normal"},
-  {"achievement":10140,"text":"\u4f60\u9605\u8bfb\u4e86\u7b2c\u5341\u56db\u7ae0\u7684\u5267\u60c5\u3002","image":"normal"},
-  {"achievement":10141,"text":"\u4f60\u53d1\u73b0\u4e86\u5173\u4e8e\u5929\u6d25\u56db\u7684\u6ce8\u91ca\u3002","image":"ein"},
-  {"achievement":10142,"text":"\u4f60\u53d1\u73b0\u4e86\u5173\u4e8e\u4ed9\u5973\u5ea7\u7684\u6ce8\u91ca\u3002","image":"ein"},
-  {"achievement":10143,"text":"\u4f60\u53d1\u73b0\u4e86\u5173\u4e8e\u5317\u843d\u5e08\u95e8\u7684\u6ce8\u91ca\u3002","image":"ein"},
-  {"achievement":10150,"text":"\u4f60\u9605\u8bfb\u4e86\u7b2c\u5341\u4e94\u7ae0\u7684\u5267\u60c5\u3002","image":"normal"},
-  {"achievement":10151,"text":"\u4f60\u53d1\u73b0\u4e86\u5173\u4e8e\u672c\u4f53\u8bba\u7684\u6ce8\u91ca\u3002","image":"otto"},
-  {"achievement":10152,"text":"\u4f60\u53d1\u73b0\u4e86\u5173\u4e8e\u300a\u9752\u5e74\u5728\u9009\u62e9\u804c\u4e1a\u65f6\u7684\u8003\u8651\u300b\u7684\u6ce8\u91ca\u3002","image":"welt"},
-  {"achievement":10160,"text":"\u4f60\u9605\u8bfb\u4e86\u7b2c\u5341\u516d\u7ae0\u7684\u5267\u60c5\u3002","image":"normal"},
-  {"achievement":10161,"text":"\u4f60\u53d1\u73b0\u4e86\u5173\u4e8e\u300a\u7f8e\u56fd\u72ec\u7acb\u5ba3\u8a00\u300b\u7684\u6ce8\u91ca\u3002","image":"ein"},
-  {"achievement":10162,"text":"\u4f60\u53d1\u73b0\u4e86\u5173\u4e8e\u300a\u5171\u4ea7\u515a\u5ba3\u8a00\u300b\u7684\u6ce8\u91ca\u3002","image":"ein"},
-  {"achievement":10170,"text":"\u4f60\u9605\u8bfb\u4e86\u7b2c\u5341\u4e03\u7ae0\u7684\u5267\u60c5\u3002","image":"normal"},
-  {"achievement":10171,"text":"\u4f60\u53d1\u73b0\u4e86\u5173\u4e8e\u300a\u5bbd\u5bb9\u300b\u7684\u6ce8\u91ca\u3002","image":"tesla"},
-  {"achievement":10172,"text":"\u4f60\u53d1\u73b0\u4e86\u5173\u4e8e\u6ce2\u58eb\u987f\u5c60\u6740\u7684\u6ce8\u91ca\u3002","image":"ein"},
-  {"achievement":10173,"text":"\u4f60\u53d1\u73b0\u4e86\u5173\u4e8e\u5217\u514b\u661f\u6566\u548c\u5eb7\u79d1\u5fb7\u6218\u5f79\u7684\u6ce8\u91ca\u3002","image":"welt"},
-  {"achievement":10180,"text":"\u4f60\u9605\u8bfb\u4e86\u7b2c\u5341\u516b\u7ae0\u7684\u5267\u60c5\u3002","image":"normal"},
-  {"achievement":10181,"text":"\u4f60\u53d1\u73b0\u4e86\u5173\u4e8e\u52c3\u5170\u767b\u5821\u95e8\u7684\u6ce8\u91ca\u3002","image":"welt"},
-  {"achievement":10182,"text":"\u4f60\u53d1\u73b0\u4e86\u5173\u4e8e\u67cf\u6797\u5360\u9886\u533a\u7684\u6ce8\u91ca\u3002","image":"welt"},
-  {"achievement":10183,"text":"\u4f60\u53d1\u73b0\u4e86\u5173\u4e8e\u7f8e\u56fd1\u53f7\u56fd\u9053\u7684\u6ce8\u91ca\u3002","image":"tesla"},
-  {"achievement":10190,"text":"\u4f60\u9605\u8bfb\u4e86\u7b2c\u5341\u4e5d\u7ae0\u7684\u5267\u60c5\u3002","image":"normal"},
-  {"achievement":10191,"text":"\u4f60\u53d1\u73b0\u4e86\u5173\u4e8e\u300a\u767d\u9cb8\u300b\u7684\u6ce8\u91ca\u3002","image":"reana"},
-  {"achievement":10192,"text":"\u4f60\u53d1\u73b0\u4e86\u5173\u4e8e\u63d0\u5c14\u7684\u6ce8\u91ca\u3002","image":"tesla"},
-  {"achievement":10200,"text":"\u4f60\u9605\u8bfb\u4e86\u7b2c\u4e8c\u5341\u7ae0\u7684\u5267\u60c5\u3002","image":"normal"},
-  {"achievement":10201,"text":"\u4f60\u53d1\u73b0\u4e86\u5173\u4e8e\u571f\u8033\u5176\u72ec\u7acb\u6218\u4e89\u7684\u6ce8\u91ca\u3002","image":"reana"},
-  {"achievement":10202,"text":"\u4f60\u53d1\u73b0\u4e86\u5173\u4e8e\u767e\u5c81\u5170\u7684\u6ce8\u91ca\u3002","image":"reana"},
-  {"achievement":10203,"text":"\u4f60\u53d1\u73b0\u4e86\u5173\u4e8e\u4e9a\u745f\u738b\u7684\u6ce8\u91ca\u3002","image":"tesla"},
-  {"achievement":10210,"text":"\u4f60\u9605\u8bfb\u4e86\u7b2c\u4e8c\u5341\u4e00\u7ae0\u7684\u5267\u60c5\u3002","image":"normal"},
-  {"achievement":10211,"text":"\u4f60\u53d1\u73b0\u4e86\u5173\u4e8e\u77f3\u70ad\u9178\u7684\u6ce8\u91ca\u3002","image":"reana"},
-  {"achievement":10212,"text":"\u4f60\u53d1\u73b0\u4e86\u5173\u4e8e\u963f\u65af\u7279\u62c9\u7684\u6ce8\u91ca\u3002","image":"tesla"},
-  {"achievement":10220,"text":"\u4f60\u9605\u8bfb\u4e86\u7b2c\u4e8c\u5341\u4e8c\u7ae0\u7684\u5267\u60c5\u3002","image":"normal"},
-  {"achievement":10221,"text":"\u4f60\u53d1\u73b0\u4e86\u5173\u4e8e\u300a\u65e5\u5185\u74e6\u5ba3\u8a00\u300b\u7684\u6ce8\u91ca\u3002","image":"normal"},
-  {"achievement":10230,"text":"\u4f60\u9605\u8bfb\u4e86\u7b2c\u4e8c\u5341\u4e09\u7ae0\u7684\u5267\u60c5\u3002","image":"normal"},
-  {"achievement":10231,"text":"\u4f60\u53d1\u73b0\u4e86\u5173\u4e8e\u5341\u4e00\u7ef4\u65f6\u7a7a\u7684\u6ce8\u91ca\u3002","image":"nancy"},
-  {"achievement":10240,"text":"\u4f60\u9605\u8bfb\u4e86\u7b2c\u4e8c\u5341\u56db\u7ae0\u7684\u5267\u60c5\u3002","image":"normal"},
-  {"achievement":10241,"text":"\u4f60\u53d1\u73b0\u4e86\u5173\u4e8e\u6a21\u62df\u4fe1\u53f7\u7684\u6ce8\u91ca\u3002","image":"ada"},
-  {"achievement":10242,"text":"\u4f60\u53d1\u73b0\u4e86\u5173\u4e8e\u300a\u65af\u5361\u5e03\u7f57\u96c6\u5e02\u300b\u7684\u6ce8\u91ca\u3002","image":"nancy"},
-  {"achievement":10250,"text":"\u4f60\u9605\u8bfb\u4e86\u7b2c\u4e8c\u5341\u4e94\u7ae0\u7684\u5267\u60c5\u3002","image":"normal"},
-  {"achievement":10251,"text":"\u4f60\u53d1\u73b0\u4e86\u5173\u4e8e\u300a\u89e3\u653e\u4e86\u7684\u666e\u7f57\u7c73\u4fee\u65af\u300b\u7684\u6ce8\u91ca\u3002","image":"welt"},
-  {"achievement":10260,"text":"\u4f60\u9605\u8bfb\u4e86\u7b2c\u4e8c\u5341\u516d\u7ae0\u7684\u5267\u60c5\u3002","image":"normal"},
-  {"achievement":10261,"text":"\u4f60\u53d1\u73b0\u4e86\u5173\u4e8e\u300a\u9ea6\u514b\u767d\u300b\u7684\u6ce8\u91ca\u3002","image":"otto"},
-  {"achievement":10262,"text":"\u4f60\u53d1\u73b0\u4e86\u5173\u4e8e\u201c\u5fd2\u4fee\u65af\u4e4b\u8239\u201d\u7684\u6ce8\u91ca\u3002","image":"reana"}
+  {"achievement":10010,"text":"Вы прочитали сюжет первой главы.","image":"normal"},
+  {"achievement":10011,"text":"Вы нашли примечание о «Божественной комедии».","image":"welt"},
+  {"achievement":10012,"text":"Вы нашли примечание о Риасте.","image":"tesla"},
+  {"achievement":10013,"text":"Вы нашли примечание о «Властелине колец».","image":"ein"},
+  {"achievement":10020,"text":"Вы прочитали сюжет второй главы.","image":"normal"},
+  {"achievement":10021,"text":"Вы нашли примечание об Имперском исследовательском институте.","image":"welt"},
+  {"achievement":10022,"text":"Вы нашли примечание о Виктории и Музее Альберта.","image":"ein"},
+  {"achievement":10030,"text":"Вы прочитали сюжет третьей главы.","image":"normal"},
+  {"achievement":10031,"text":"Вы нашли примечание об «Улиссе».","image":"tesla"},
+  {"achievement":10032,"text":"Вы выбрали один из вариантов ветвления.","image":"ein"},
+  {"achievement":10033,"text":"Вы выбрали один из вариантов ветвления.","image":"welt"},
+  {"achievement":10040,"text":"Вы прочитали сюжет четвертой главы.","image":"normal"},
+  {"achievement":10041,"text":"Вы нашли примечание о Хамфри Богарте.","image":"nokia"},
+  {"achievement":10042,"text":"Вы нашли примечание о «Польке Евы».","image":"nokia"},
+  {"achievement":10043,"text":"Вы нашли примечание о «Вы, конечно, шутите, мистер Фейнман».","image":"plank"},
+  {"achievement":10050,"text":"Вы прочитали сюжет пятой главы.","image":"normal"},
+  {"achievement":10051,"text":"Вы нашли примечание о Последнем ледниковом максимуме.","image":"schro"},
+  {"achievement":10052,"text":"Вы нашли примечание о принципе неопределенности.","image":"schro"},
+  {"achievement":10053,"text":"Вы нашли примечание об источнике Олд Фейтфул.","image":"plank"},
+  {"achievement":10060,"text":"Вы прочитали сюжет шестой главы.","image":"normal"},
+  {"achievement":10061,"text":"Вы нашли примечание о Помпеях.","image":"welt"},
+  {"achievement":10062,"text":"Вы нашли примечание о «Графе Монте-Кристо».","image":"plank"},
+  {"achievement":10063,"text":"Вы нашли примечание о Лондиниуме.","image":"ein"},
+  {"achievement":10070,"text":"Вы прочитали сюжет седьмой главы.","image":"normal"},
+  {"achievement":10071,"text":"Вы нашли примечание о Род-Айленде.","image":"tesla"},
+  {"achievement":10072,"text":"Вы нашли примечание об Иоанне Крестителе.","image":"tesla"},
+  {"achievement":10073,"text":"Вы нашли примечание об известных цитатах Нельсона.","image":"welt"},
+  {"achievement":10080,"text":"Вы прочитали сюжет восьмой главы.","image":"normal"},
+  {"achievement":10081,"text":"Вы нашли примечание о графине Лавлейс.","image":"ada"},
+  {"achievement":10082,"text":"Нет... вы ничего не нашли. Да.","image":"ada"},
+  {"achievement":10083,"text":"Вы нашли примечание об эллиптической криптографии.","image":"ada"},
+  {"achievement":10090,"text":"Вы прочитали сюжет девятой главы.","image":"normal"},
+  {"achievement":10091,"text":"Вы нашли примечание о личности Теслы.","image":"tesla"},
+  {"achievement":10100,"text":"Вы прочитали сюжет десятой главы.","image":"normal"},
+  {"achievement":10101,"text":"Вы нашли примечание о втором начале термодинамики.","image":"schro"},
+  {"achievement":10102,"text":"Вы нашли примечание о праджне.","image":"tesla"},
+  {"achievement":10103,"text":"Вы нашли примечание об «Окончательном ответе».","image":"welt"},
+  {"achievement":10110,"text":"Вы прочитали сюжет одиннадцатой главы.","image":"normal"},
+  {"achievement":10111,"text":"Вы нашли примечание о Бруте.","image":"welt"},
+  {"achievement":10120,"text":"Вы прочитали сюжет двенадцатой главы.","image":"normal"},
+  {"achievement":10121,"text":"Вы нашли примечание о «Danny Boy».","image":"welt"},
+  {"achievement":10130,"text":"Вы прочитали сюжет тринадцатой главы.","image":"normal"},
+  {"achievement":10140,"text":"Вы прочитали сюжет четырнадцатой главы.","image":"normal"},
+  {"achievement":10141,"text":"Вы нашли примечание о Денебе.","image":"ein"},
+  {"achievement":10142,"text":"Вы нашли примечание о созвездии Андромеды.","image":"ein"},
+  {"achievement":10143,"text":"Вы нашли примечание о Фомальгауте.","image":"ein"},
+  {"achievement":10150,"text":"Вы прочитали сюжет пятнадцатой главы.","image":"normal"},
+  {"achievement":10151,"text":"Вы нашли примечание об онтологии.","image":"otto"},
+  {"achievement":10152,"text":"Вы нашли примечание о «Размышлениях юноши при выборе профессии».","image":"welt"},
+  {"achievement":10160,"text":"Вы прочитали сюжет шестнадцатой главы.","image":"normal"},
+  {"achievement":10161,"text":"Вы нашли примечание о «Декларации независимости США».","image":"ein"},
+  {"achievement":10162,"text":"Вы нашли примечание о «Манифесте коммунистической партии».","image":"ein"},
+  {"achievement":10170,"text":"Вы прочитали сюжет семнадцатой главы.","image":"normal"},
+  {"achievement":10171,"text":"Вы нашли примечание о «Толерантности».","image":"tesla"},
+  {"achievement":10172,"text":"Вы нашли примечание о Бостонской бойне.","image":"ein"},
+  {"achievement":10173,"text":"Вы нашли примечание о битвах при Лексингтоне и Конкорде.","image":"welt"},
+  {"achievement":10180,"text":"Вы прочитали сюжет восемнадцатой главы.","image":"normal"},
+  {"achievement":10181,"text":"Вы нашли примечание о Бранденбургских воротах.","image":"welt"},
+  {"achievement":10182,"text":"Вы нашли примечание о зоне оккупации Берлина.","image":"welt"},
+  {"achievement":10183,"text":"Вы нашли примечание о трассе 1 (US Route 1).","image":"tesla"},
+  {"achievement":10190,"text":"Вы прочитали сюжет девятнадцатой главы.","image":"normal"},
+  {"achievement":10191,"text":"Вы нашли примечание о «Моби Дике».","image":"reana"},
+  {"achievement":10192,"text":"Вы нашли примечание о Тюре.","image":"tesla"},
+  {"achievement":10200,"text":"Вы прочитали сюжет двадцатой главы.","image":"normal"},
+  {"achievement":10201,"text":"Вы нашли примечание о войне за независимость Турции.","image":"reana"},
+  {"achievement":10202,"text":"Вы нашли примечание о вельвичии.","image":"reana"},
+  {"achievement":10203,"text":"Вы нашли примечание о короле Артуре.","image":"tesla"},
+  {"achievement":10210,"text":"Вы прочитали сюжет двадцать первой главы.","image":"normal"},
+  {"achievement":10211,"text":"Вы нашли примечание о феноле (карболовой кислоте).","image":"reana"},
+  {"achievement":10212,"text":"Вы нашли примечание об Астреи.","image":"tesla"},
+  {"achievement":10220,"text":"Вы прочитали сюжет двадцать второй главы.","image":"normal"},
+  {"achievement":10221,"text":"Вы нашли примечание о «Женевской декларации».","image":"normal"},
+  {"achievement":10230,"text":"Вы прочитали сюжет двадцать третьей главы.","image":"normal"},
+  {"achievement":10231,"text":"Вы нашли примечание об 11-мерном пространстве-времени.","image":"nancy"},
+  {"achievement":10240,"text":"Вы прочитали сюжет двадцать четвертой главы.","image":"normal"},
+  {"achievement":10241,"text":"Вы нашли примечание об аналоговом сигнале.","image":"ada"},
+  {"achievement":10242,"text":"Вы нашли примечание о «Ярмарке в Скарборо».","image":"nancy"},
+  {"achievement":10250,"text":"Вы прочитали сюжет двадцать пятой главы.","image":"normal"},
+  {"achievement":10251,"text":"Вы нашли примечание об «Освобожденном Прометее».","image":"welt"},
+  {"achievement":10260,"text":"Вы прочитали сюжет двадцать шестой главы.","image":"normal"},
+  {"achievement":10261,"text":"Вы нашли примечание о «Макбете».","image":"otto"},
+  {"achievement":10262,"text":"Вы нашли примечание о «Корабле Тесея».","image":"reana"}
 ];
 
 var masterPortraits = [
@@ -2728,7 +2722,6 @@ function portraitPage(typeReturn) {
   
   var retcode = achievement_result['retcode']
   if (retcode > 0) {
-    // Исправление 4: Ограничиваем прогресс визуально, чтобы иконка и текст не выходили за рамки.
     var p_val = Number(achievement_result['progress']);
     var clamped_text = p_val > 0.85 ? 0.85 : p_val;
     var clamped_icon = p_val > 0.90 ? 0.90 : p_val;
@@ -2736,6 +2729,7 @@ function portraitPage(typeReturn) {
     var achievement_progress = parseInt(p_val * 100) + '%';
     var achievement_progress_rem = p_val * 28.55 + 'rem';
     var achievement_progress_text = clamped_text * 28.55 + 1.3 + 0.5 + 'rem';
+    var achievement_progress_text_r = 1.3 + 0.5 + 'rem';
     var achievement_progress_icon = clamped_icon * 28.55 - 1.3 + 'rem';
     
     achievement_list = achievement_result['achievement']
@@ -2831,12 +2825,20 @@ function portraitPage(typeReturn) {
         $('.progress-span').css('width', achievement_progress_rem)
         $('.progress-icon').css('left', achievement_progress_icon)
         
-        // Исправление 4: Корректное выравнивание текста прогресса (всегда слева с ограничением)
-        $('.progress-text').css({
-          'left': achievement_progress_text,
-          'right': 'auto',
-          'color': p_val > 0.8 ? '#5b4c51' : '#ffffff'
-        });
+        if (p_val <= 0.8) {
+          $('.progress-text').css({
+              'left': achievement_progress_text,
+              'right': 'auto',
+              'color': '#ffffff'
+          });
+        } else {
+          $('.progress-text').css({
+              'left': 'auto',
+              'right': achievement_progress_text_r,
+              'color': '#5b4c51'
+          });
+        }
+        
         $('.progress-text').html(achievement_progress)
         
         $('.family-portrait').fadeIn()
@@ -2897,6 +2899,7 @@ function exhibitionPage(page) {
   pHtml.addClass('achievement-chapter-text')
   $('.achievement-chapter').html(pHtml)
   $('.achievement-list').html('')
+  
   for (var i = 0; i < exhibition_list.length; i++) {
     var listId = Number(exhibition_list[i].getAttribute('id'))
     if (listId >= exhibition_index && listId < exhibition_index + 10) {
@@ -2906,60 +2909,59 @@ function exhibitionPage(page) {
       var pHtml_tip = $('<div></div>')
       var pHtml_tit = $('<p></p>')
       var pHtml_txt = $('<p></p>')
+      
       pHtml_tit.html(exhibition_list[i].textContent)
       
-      // Исправление 3: Правильное применение разблокировки (icon + text)
       for (var j = 0; j < achievement_list.length; j++) {
         if (Number(achievement_list[j]['achievement']) == listId) {
-          // Если в exhibition_list есть атрибут text, берем его (поддержка русской локализации)
           var unlockedText = exhibition_list[i].getAttribute('text') || achievement_list[j]['text'];
           pHtml_txt.html(unlockedText)
           pHtml_pic.css(
             'background-image',
-            "url('" +
-              base_url +
-              'ru-RU/resources/achievement/' +
-              achievement_list[j]['image'] +
-              "_h.png')"
+            "url('" + base_url + 'ru-RU/resources/achievement/' + achievement_list[j]['image'] + "_h.png')"
           )
           if (exhibition_list[i].getAttribute('type') != 'end') {
             pHtml_tip.css(
               'background-image',
-              "url('" +
-                base_url +
-                'ru-RU/resources/achievement/' +
-                exhibition_list[i].getAttribute('type') +
-                "_b.png')"
+              "url('" + base_url + 'ru-RU/resources/achievement/' + exhibition_list[i].getAttribute('type') + "_b.png')"
             )
           }
           break
         }
       }
-      
+
       pHtml_pic.addClass('exhibition-member-image')
       
-      // Исправление 1: Применяем inline-стили для сброса bold и корректного переноса
       pHtml_tit.addClass('exhibition-member-title').css({
+          'position': 'static',
           'font-weight': 'normal', 
           'white-space': 'normal', 
           'word-wrap': 'break-word', 
-          'line-height': '1.2'
+          'line-height': '1.3',
+          'width': '100%',
+          'height': 'auto',
+          'margin-top': '0',
+          'margin-bottom': '4px',
+          'color': '#fff'
       });
       
       pHtml_tip.addClass('exhibition-member-tips')
       
       pHtml_txt.addClass('exhibition-member-text').css({
+          'position': 'static',
           'font-weight': 'normal', 
           'white-space': 'normal', 
           'word-wrap': 'break-word', 
+          'word-break': 'break-word',
           'line-height': '1.2', 
-          'overflow': 'visible',
-          'height': 'auto'
+          'width': '100%',
+          'height': 'auto',
+          'margin': '0'
       });
 
       if (j >= achievement_list.length) {
-        pHtml_txt.html('？？？？？？？？？？？？？？？？？？？？')
-        pHtml_txt.css('color', '#cccccc') // Сохраняем серый цвет для закрытых ачивок
+        pHtml_txt.html('??? ??? ??? ??? ??? ??? ??? ??? ???')
+        pHtml_txt.css('color', '#cccccc')
         pHtml_pic.css(
           'background-image',
           "url('" + base_url + "ru-RU/resources/achievement/null_h.png')"
@@ -2967,11 +2969,7 @@ function exhibitionPage(page) {
         if (exhibition_list[i].getAttribute('type') != 'end') {
           pHtml_tip.css(
             'background-image',
-            "url('" +
-              base_url +
-              'ru-RU/resources/achievement/' +
-              exhibition_list[i].getAttribute('type') +
-              ".png')"
+            "url('" + base_url + 'ru-RU/resources/achievement/' + exhibition_list[i].getAttribute('type') + ".png')"
           )
         }
       }
@@ -2984,12 +2982,26 @@ function exhibitionPage(page) {
         
       pHtml_box.addClass('exhibition-member').css({
           'height': 'auto', 
-          'min-height': '110px', 
-          'padding-bottom': '10px'
+          'min-height': '90px',
+          'display': 'flex',
+          'flex-direction': 'column',
+          'justify-content': 'center',
+          'padding-left': '100px', // Место под иконку
+          'padding-right': '10px',
+          'padding-top': '10px',
+          'padding-bottom': '10px',
+          'box-sizing': 'border-box',
+          'position': 'relative'
       });
       
       pHtml.append(pHtml_box)
-      pHtml.addClass('achievement-list-member')
+      pHtml.addClass('achievement-list-member').css({
+          'position': 'relative',
+          'height': 'auto',
+          'display': 'block',
+          'margin-bottom': '15px'
+      });
+      
       $('.achievement-list').append(pHtml)
     }
   }
