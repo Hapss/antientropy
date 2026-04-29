@@ -2958,6 +2958,7 @@ function exhibitionPage(page) {
       pHtml_pic.addClass('exhibition-member-image')
       
       pHtml_tit.addClass('exhibition-member-title').css({
+          'position': 'relative',
           'font-weight': 'normal', 
           'white-space': 'normal', 
           'word-wrap': 'break-word', 
@@ -2972,6 +2973,7 @@ function exhibitionPage(page) {
       pHtml_tip.addClass('exhibition-member-tips')
       
       pHtml_txt.addClass('exhibition-member-text').css({
+          'position': 'relative',
           'font-weight': 'normal', 
           'white-space': 'normal', 
           'word-wrap': 'break-word', 
