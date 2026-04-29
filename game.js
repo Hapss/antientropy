@@ -721,6 +721,12 @@ function Action(gotoScene, gotoAction, skipKey, loadKey2) {
   remark_btn_hide()
   $('.choice_list').hide()
   $('.choice_list').html('')
+  
+  // ИСПРАВЛЕНИЕ: ЖЕСТКАЯ ОЧИСТКА ВСЕХ ВОЗМОЖНЫХ ВЕЛИКИХ ДИАЛОГОВ
+  $('.dialog1').hide()
+  $('.dialog2').hide()
+  $('.dialog3').hide()
+  $('.remark').hide()
 
   thisScene = sceneList[gotoScene]
 
@@ -1374,9 +1380,13 @@ function ClearDialog() {
   $('.dialog-chara-text').html('')
   $('.dialog').removeClass('dialog_article')
   $('.dialog-overflow').removeClass('dialog-overflow_article').removeClass('dialog-overflow_article_center')
-  $('.remark').hide(); // Исправление 2: Гарантированное скрытие окна примечаний
+  
+  // ИСПРАВЛЕНИЕ: Гарантированное скрытие окон примечаний и всех больших диалогов
+  $('.remark').hide(); 
   $('.dialog1').hide();
+  $('.dialog2').hide();
   $('.dialog3').hide();
+  $('.choice_list').hide();
 }
 
 function ToggleWindow(mode) {
@@ -1535,7 +1545,13 @@ function startGame(galgameKey, loadKey) {
         
         $('.dialog').hide(); 
         $('.dialog-chara').hide();
-        $('.remark').hide(); // Исправление 2: Принудительное скрытие примечаний при запуске новой игры
+        
+        // ИСПРАВЛЕНИЕ: Жесткое скрытие всех больших диалогов и примечаний при запуске новой игры
+        $('.remark').hide(); 
+        $('.dialog1').hide();
+        $('.dialog2').hide();
+        $('.dialog3').hide();
+        $('.choice_list').hide();
         
         setTimeout(function() { $(".transition").fadeOut(450); }, 100);
       });
@@ -2919,7 +2935,67 @@ function exhibitionPage(page) {
       pHtml_tip.addClass('exhibition-member-tips')
       pHtml_txt.addClass('exhibition-member-text')
 
-      // Удален ломавший верстку inline CSS, теперь используются корректные классы
+      // ИСПРАВЛЕНИЕ: Инлайновые стили с блочным позиционированием для предотвращения наложения
+      pHtml.css({
+        'position': 'relative',
+        'display': 'block',
+        'height': 'auto',
+        'margin-bottom': '10px'
+      });
+      
+      pHtml_box.css({
+        'position': 'relative',
+        'min-height': '110px',
+        'padding': '15px 15px 15px 120px', // Отступ слева под изображение
+        'box-sizing': 'border-box',
+        'display': 'flex',
+        'flex-direction': 'column',
+        'justify-content': 'center'
+      });
+      
+      pHtml_pic.css({
+        'position': 'absolute',
+        'left': '20px',
+        'top': '50%',
+        'transform': 'translateY(-50%)',
+        'width': '85px',
+        'height': '85px',
+        'background-size': 'contain',
+        'background-repeat': 'no-repeat',
+        'background-position': 'center'
+      });
+      
+      if (exhibition_list[i].getAttribute('type') != 'end') {
+        pHtml_tip.css({
+          'position': 'absolute',
+          'left': '15px',
+          'top': '10px',
+          'width': '40px',
+          'height': '40px',
+          'background-size': 'contain',
+          'background-repeat': 'no-repeat'
+        });
+      }
+
+      pHtml_tit.css({
+        'position': 'static', // Переопределяет любые абсолютные позиции из CSS файла
+        'height': 'auto',
+        'line-height': '1.3',
+        'margin': '0 0 5px 0',
+        'font-weight': 'bold',
+        'text-align': 'left',
+        'display': 'block'
+      });
+
+      pHtml_txt.css({
+        'position': 'static', // Переопределяет любые абсолютные позиции из CSS файла
+        'height': 'auto',
+        'line-height': '1.3',
+        'margin': '0',
+        'text-align': 'left',
+        'display': 'block'
+      });
+
       if (j >= achievement_list.length) {
         pHtml_txt.html('？？？？？？？？？？？？？？？？？？？？')
         pHtml_txt.css('color', '#cccccc') // Сохраняем серый цвет для закрытых ачивок
