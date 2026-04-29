@@ -1487,6 +1487,7 @@ p {
   background-position: center;
   background-repeat: no-repeat;
   color: white;
+  display: none;
 }
 
 .remark {
