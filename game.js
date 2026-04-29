@@ -118,7 +118,6 @@ $(function () {
     return false
   })
   
-  // Исправление 1: Надежная привязка кнопок Выхода и Логов с остановкой всплытия (stopPropagation)
   $(document).on('click', '.home_btn', function(e) {
     e.stopPropagation();
     ToggleWindow('backToMenu');
@@ -130,7 +129,7 @@ $(function () {
   });
   
   $(document).on('click', '.buttonBar', function(e) {
-    e.stopPropagation(); // Защита кнопок управления от перехвата клика основным слоем
+    e.stopPropagation(); 
   });
 
   history.pushState(null, null, document.URL)
@@ -733,7 +732,7 @@ function Action(gotoScene, gotoAction, skipKey, loadKey2) {
   if (gotoScene != now_scene) {
     ClearCharas()
     ClearDialog()
-    $('.dialog').hide() // Исправление 3: принудительно скрываем диалог при переходе в новую сцену, чтобы не "висело" пустое окно
+    $('.dialog').hide()
     $('.dialog-chara').hide() 
     if (thisScene.getAttribute('background')) {
       if (
@@ -903,7 +902,7 @@ function processAction(act, gotoScene, gotoAction, skipKey, loadKey2) {
     case 'text':
       lastEventNode = gotoAction
       ClearDialog() // Очистить временно загруженное форматирование
-      $('.dialog').show() // Исправление 3: показываем диалог только при выводе текста
+      $('.dialog').show()
       $('.dialog-chara').hide()
       post_achievement_in_event(act)
       var tempAttribute = act.getAttribute('article')
@@ -959,7 +958,7 @@ function processAction(act, gotoScene, gotoAction, skipKey, loadKey2) {
     case 'speak':
       lastEventNode = gotoAction
       ClearDialog() // Очистить временно загруженное форматирование
-      $('.dialog').show() // Исправление 3: показываем диалог только при выводе текста
+      $('.dialog').show()
       $('.dialog-chara').show()
       post_achievement_in_event(act)
       $('.dialog').removeClass('dialog_article')
@@ -1375,6 +1374,9 @@ function ClearDialog() {
   $('.dialog-chara-text').html('')
   $('.dialog').removeClass('dialog_article')
   $('.dialog-overflow').removeClass('dialog-overflow_article').removeClass('dialog-overflow_article_center')
+  $('.remark').hide(); // Исправление 2: Гарантированное скрытие окна примечаний
+  $('.dialog1').hide();
+  $('.dialog3').hide();
 }
 
 function ToggleWindow(mode) {
@@ -1459,7 +1461,7 @@ function startGame(galgameKey, loadKey) {
   
   var xmlDoc = loadExistXmlFile('catalog_list', function () {
     var doc = xml_files_all_in_this['catalog_list'];
-    if (!doc || doc === "FAILED") { LoadFinish(); return; } // Безопасный выход при ошибке
+    if (!doc || doc === "FAILED") { LoadFinish(); return; } 
     catalogListTemp = doc.getElementsByTagName('log')
     catalogListLength = catalogListTemp.length
     LoadFinish()
@@ -1471,7 +1473,6 @@ function startGame(galgameKey, loadKey) {
       playKey = galgameKey // Передаваемый параметр — имя файла
       break
     }
-    // ИСПРАВЛЕНИЕ: Добавлен break, чтобы цикл останавливался, если ID найден!
     if (catalogListTemp[i].getAttribute('id') == galgameKey) {
       playKey = getText(catalogListTemp[i]) // Передаваемый параметр — ID
       break
@@ -1499,34 +1500,29 @@ function startGame(galgameKey, loadKey) {
   galgame(playKey)
   now_galgame = i + 1 // от 1, а не от 0
 
-  // Надежный таймер загрузки
   var countIndexTimer = 0;
   var preLoadImagesTimer = setInterval(function () {
     countIndexTimer++;
 
-    // Если прошло больше 10 секунд (100 * 100ms), принудительно прерываем бесконечное ожидание
     var isTimeout = countIndexTimer > 100;
     
-    // Убеждаемся, что сценарий отправлен на загрузку
     var isPlayDocLoading = !xml_files_all_in_this.hasOwnProperty(playKey);
     if (isPlayDocLoading) {
         loadExistXmlFile(playKey, function () {});
         if (!isTimeout) return;
     }
 
-    // Убеждаемся, что база персонажей загрузилась
     var isCharDataEmpty = Object.keys(characterData).length === 0;
     var isCharDocFailed = xml_files_all_in_this['characterData'] === "FAILED";
     
     if (isCharDataEmpty && !isCharDocFailed) {
-        if (!isTimeout) return; // Ждём, пока не загрузится или не будет ошибка/таймаут
+        if (!isTimeout) return; 
     }
 
     if (preLoadImagesCheck() > 0 || isTimeout) {
       clearTimeout(preLoadImagesTimer);
       $('.cg').css('display', 'none');
       
-      // ИСПРАВЛЕНИЕ: Корректно скрываем меню и показываем игровой слой вместе с кнопками
       $('.transition').fadeIn(300, function () {
         $('.catalog-wrapper').hide();
         $('.catalog-wrapper-new').hide();
@@ -1537,8 +1533,9 @@ function startGame(galgameKey, loadKey) {
         $('.home_btn').show();
         $('.buttonBar').show();
         
-        $('.dialog').hide(); // Исправление 3: Изначально прячем диалог, чтобы не висел при старте
+        $('.dialog').hide(); 
         $('.dialog-chara').hide();
+        $('.remark').hide(); // Исправление 2: Принудительное скрытие примечаний при запуске новой игры
         
         setTimeout(function() { $(".transition").fadeOut(450); }, 100);
       });
@@ -1548,7 +1545,6 @@ function startGame(galgameKey, loadKey) {
       
       LoadFinish();
 
-      // Если сценарий так и не загрузился, сообщаем об ошибке
       if (xml_files_all_in_this[playKey] === "FAILED") {
           alert("Не удалось загрузить файл сценария: " + playKey + ".xml\nПроверьте, существует ли файл по пути ru-RU/xml/" + playKey + ".xml");
           return;
@@ -1560,7 +1556,7 @@ function startGame(galgameKey, loadKey) {
         Action(0, 0)
       } else {
         for (i = 0; i < loadKey.A; i++) {
-          Action(loadKey.S, i, 1, 1) // все параметры действия
+          Action(loadKey.S, i, 1, 1) 
         }
         Action(loadKey.S, loadKey.A)
       }
@@ -1726,6 +1722,10 @@ function endGame(keyFlag) {
     $('.main').hide() // Скрываем игровой слой сразу
     $('.cg').css('display', 'none')
     
+    // Исправление 3: Восстановление видимости главного меню после выхода из главы
+    $('.catalog-wrapper-new').show();
+    $('.catalog-wrapper').show();
+    
     $('.menuscene').fadeIn(500, function () {
       var indexBgm = $('#indexbgm')[0]
       if (!isNaN(indexBgm.duration)) indexBgm.currentTime = 0
@@ -1746,6 +1746,7 @@ function HideUi() {
   $('.home_btn').hide()
   $('.dialog').hide()
   $('.dialog-chara').hide()
+  $('.remark').hide()
 }
 
 function ShowUi(dialog, chara) {
@@ -1960,7 +1961,7 @@ function get_xml_ajax_async(
         )
       } else {
         console.error("Не удалось загрузить XML файл:", xmlFileURL);
-        xml_files_all_in_this[xmlName] = "FAILED"; // ИСПРАВЛЕНО: предотвращение бесконечного цикла, если файла нет
+        xml_files_all_in_this[xmlName] = "FAILED"; 
         callBack()
       }
     },
@@ -1969,10 +1970,10 @@ function get_xml_ajax_async(
 
 function loadExistXmlFile(xmlName, callBack, fileType) {
   if (xml_files_all_in_this.hasOwnProperty(xmlName)) {
-    if (xml_files_all_in_this[xmlName] === "FAILED") return null; // ИСПРАВЛЕНО: немедленная остановка при ошибке
+    if (xml_files_all_in_this[xmlName] === "FAILED") return null; 
     return xml_files_all_in_this[xmlName]
   } else if (loading_xml_files.hasOwnProperty(xmlName)) {
-    return null // Исключить непредвиденный параллелизм
+    return null 
   } else {
     loading_xml_files[xmlName] = true
     get_xml_ajax_async(
@@ -2034,7 +2035,7 @@ function catalogPageNew(page, flag) {
   }
   var xmlDoc = loadExistXmlFile('catalog_list', function () {
     var doc = xml_files_all_in_this['catalog_list'];
-    if (!doc || doc === "FAILED") { LoadFinish(); return; } // ИСПРАВЛЕНО
+    if (!doc || doc === "FAILED") { LoadFinish(); return; } 
     catalogListTemp = doc.getElementsByTagName('log')
     catalogListLength = catalogListTemp.length
     catalogPageNew(page, flag)
@@ -2629,17 +2630,28 @@ function getLocalAchievements() {
 
 function saveLocalAchievement(ach_id) {
   var saved = getLocalAchievements();
-  var id = Number(ach_id);
-  if (saved.indexOf(id) === -1) {
-    saved.push(id);
-    localStorage.setItem('anti_entropy_achievements', JSON.stringify(saved));
+  // Исправление 4: поддержка мульти-ID и безопасное сохранение
+  var ids = String(ach_id).split(',');
+  var changed = false;
+  for (var i = 0; i < ids.length; i++) {
+    var id = Number(ids[i].trim());
+    if (!isNaN(id) && saved.indexOf(id) === -1) {
+      saved.push(id);
+      changed = true;
+    }
+  }
+  if (changed) {
+    try {
+      localStorage.setItem('anti_entropy_achievements', JSON.stringify(saved));
+    } catch(e) {
+      console.warn("Не удалось сохранить достижение", e);
+    }
   }
 }
 
 function post_achievement(str_ach, callbackOne, callbackTwo) {
   ajax_answer_achievement = null;
 
-  // Имитация асинхронного вызова, чтобы сохранить оригинальный рабочий процесс
   setTimeout(function() {
     if (str_ach === 'LOAD') {
       var unlockedIds = getLocalAchievements();
@@ -2650,10 +2662,7 @@ function post_achievement(str_ach, callbackOne, callbackTwo) {
         }
       }
       
-      // Вычисляем процент открытия достижений
       var progress = masterAchievementData.length > 0 ? unlockedIds.length / masterAchievementData.length : 0;
-      
-      // Разблокируем персонажей галереи в соответствии с общим прогрессом достижений
       var portraitsToReturn = masterPortraits.slice(0, Math.ceil(progress * masterPortraits.length));
 
       ajax_answer_achievement = {
@@ -2668,7 +2677,6 @@ function post_achievement(str_ach, callbackOne, callbackTwo) {
     } else {
       if (str_ach) {
         saveLocalAchievement(str_ach);
-        // ИСПРАВЛЕНИЕ: Инвалидируем кэш достижений, чтобы при следующем открытии они загрузились заново
         achievement_result = null; 
         achievement_list = [];
       }
@@ -2717,7 +2725,6 @@ function portraitPage(typeReturn) {
       achievement_result['progress'] * 28.55 - 1.3 + 'rem'
     achievement_list = achievement_result['achievement']
     achievement_portraits = achievement_result['portrait']
-    // preload
     var achievementImageList = new Array()
     achievementImageList.push(
       'portraitBg.jpg',
@@ -2753,11 +2760,9 @@ function portraitPage(typeReturn) {
       }
     }
     preLoadUiImages('achievement', achievementImageList)
-    // Проверка, завершилась ли загрузка предзагруженных изображений
     var countIndexTimer = 0
     var preLoadImagesTimer = setInterval(function () {
       if (preLoadImagesCheck() > 0 || countIndexTimer > 100) {
-        // Изображения загружены, либо истекло время ожидания
         clearTimeout(preLoadImagesTimer)
         $('#family-portrait').addClass('family-portrait')
         $('#achievement-exhibition').addClass('achievement-exhibition')
@@ -2840,7 +2845,6 @@ function exhibitionPage(page) {
     exhibition_index = Number(page)
   }
 
-  // ИСПРАВЛЕНИЕ: Если данные достижений еще не загружены в память, обязательно запрашиваем их!
   if (!achievement_result) {
     post_achievement('LOAD', function() {
         achievement_result = ajax_answer_achievement;
@@ -2854,7 +2858,7 @@ function exhibitionPage(page) {
 
   var xmlDoc = loadExistXmlFile('exhibition_list', function () {
     var doc = xml_files_all_in_this['exhibition_list'];
-    if (!doc || doc === "FAILED") { LoadFinish(); return; } // ИСПРАВЛЕНО
+    if (!doc || doc === "FAILED") { LoadFinish(); return; }
     exhibition_list = doc.getElementsByTagName('log')
     exhibitionPage(page)
   })
@@ -2909,56 +2913,13 @@ function exhibitionPage(page) {
           break
         }
       }
+      
       pHtml_pic.addClass('exhibition-member-image')
       pHtml_tit.addClass('exhibition-member-title')
       pHtml_tip.addClass('exhibition-member-tips')
       pHtml_txt.addClass('exhibition-member-text')
 
-      // ИСПРАВЛЕНИЕ 2: Переписанный CSS для устранения съезжающего текста и обрезки изображений
-      pHtml.css({
-        'height': 'auto',
-        'margin-bottom': '20px',
-        'display': 'block'
-      });
-      pHtml_box.css({
-        'height': 'auto',
-        'min-height': '100px',
-        'padding': '15px 15px 15px 120px', // Создаем слева безопасное пространство под изображение
-        'position': 'relative',
-        'box-sizing': 'border-box'
-      });
-      pHtml_pic.css({
-        'background-size': 'contain',
-        'background-position': 'center',
-        'background-repeat': 'no-repeat',
-        'position': 'absolute',
-        'left': '15px',
-        'top': '50%',
-        'transform': 'translateY(-50%)', // Центрируем изображение строго по вертикали
-        'width': '85px',
-        'height': '85px'
-      });
-      pHtml_tip.css({
-        'background-size': 'contain',
-        'background-repeat': 'no-repeat'
-      });
-      pHtml_tit.css({
-        'text-align': 'left',
-        'white-space': 'normal',
-        'word-break': 'break-word',
-        'line-height': '1.3em',
-        'position': 'relative',
-        'margin': '0 0 8px 0'
-      });
-      pHtml_txt.css({
-        'text-align': 'left',
-        'white-space': 'normal',
-        'word-break': 'break-word',
-        'line-height': '1.4em',
-        'position': 'relative',
-        'margin': '0'
-      });
-
+      // Удален ломавший верстку inline CSS, теперь используются корректные классы
       if (j >= achievement_list.length) {
         pHtml_txt.html('？？？？？？？？？？？？？？？？？？？？')
         pHtml_txt.css('color', '#cccccc') // Сохраняем серый цвет для закрытых ачивок
