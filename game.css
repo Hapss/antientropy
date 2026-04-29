@@ -416,10 +416,10 @@ p {
 .progress-button {
   position: absolute;
   z-index: 810;
-  height: 2rem;
-  width: 5.9rem;
-  right: 0.75rem;
-  bottom: 0.65rem;
+  height: 11.5%;
+  width: 19%;
+  right: 36rem;
+  bottom: 22rem;
   background: url('ru-RU/resources/achievement/details.png');
     center / auto 100% no-repeat;
   cursor: pointer;
