@@ -116,7 +116,7 @@ function showLogWindow() {
   $('#custom-log-content').html(contentHtml);
   
   // Гарантированно прячем любые конфликтующие лог-окна
-  $('.history-overflow, #history-overflow, .history-wrapper').hide();
+  $('.history, .history-overflow, #history-overflow, .history-wrapper').hide();
   
   $('#custom-log-window').fadeIn(150, function() {
     var logContent = document.getElementById('custom-log-content');
@@ -135,7 +135,7 @@ $(function () {
     ToggleWindow('backToMenu');
   });
   
-  $(document).on('click', '.log_btn, .dialog-btn-log, img[src*="log.png"]', function(e) {
+  $(document).on('click', '.log_btn, .dialog-btn-log, .dialog-btn-history, img[src*="log.png"]', function(e) {
     e.stopPropagation();
     showLogWindow();
   });
@@ -1382,7 +1382,7 @@ function ClearDialog() {
   $('.dialog-overflow').removeClass('dialog-overflow_article').removeClass('dialog-overflow_article_center')
   $('.remark').hide();
   $('#custom-log-window').hide();
-  $('.history-overflow, #history-overflow, .history-wrapper').hide(); // Скрытие нативных окон лога
+  $('.history, .history-overflow, #history-overflow, .history-wrapper').hide(); // Скрытие нативных окон лога
   $('.dialog1').hide();
   $('.dialog3').hide();
 }
@@ -1399,7 +1399,7 @@ function ToggleWindow(mode) {
     })
   } else if (mode == 'backToMenu') {
     $('#custom-log-window').hide();
-    $('.history-overflow, #history-overflow, .history-wrapper').hide();
+    $('.history, .history-overflow, #history-overflow, .history-wrapper').hide();
     $('.transition').fadeIn(450)
     endGame()
     setTimeout(function() { $(".transition").fadeOut(450); }, 500)
@@ -1464,7 +1464,7 @@ function startGame(galgameKey, loadKey) {
   autoSpeed = 'stop'
   gameLogHistory = [];
   $('#custom-log-window').hide();
-  $('.history-overflow, #history-overflow, .history-wrapper').hide();
+  $('.history, .history-overflow, #history-overflow, .history-wrapper').hide();
   
   if (checkAutoLoad() == true && loadKey == null) {
     systemAutoLoadStart(galgameKey)
@@ -1550,7 +1550,7 @@ function startGame(galgameKey, loadKey) {
         $('.dialog-chara').hide();
         $('.remark').hide();
         $('#custom-log-window').hide();
-        $('.history-overflow, #history-overflow, .history-wrapper').hide();
+        $('.history, .history-overflow, #history-overflow, .history-wrapper').hide();
         
         setTimeout(function() { $(".transition").fadeOut(450); }, 100);
       });
@@ -1734,7 +1734,7 @@ function endGame(keyFlag) {
     $('.main').hide()
     $('.cg').css('display', 'none')
     $('#custom-log-window').hide()
-    $('.history-overflow, #history-overflow, .history-wrapper').hide()
+    $('.history, .history-overflow, #history-overflow, .history-wrapper').hide()
     
     $('.catalog-wrapper-new').show();
     $('.catalog-wrapper').show();
@@ -1761,7 +1761,7 @@ function HideUi() {
   $('.dialog-chara').hide()
   $('.remark').hide()
   $('#custom-log-window').hide()
-  $('.history-overflow, #history-overflow, .history-wrapper').hide()
+  $('.history, .history-overflow, #history-overflow, .history-wrapper').hide()
 }
 
 function ShowUi(dialog, chara) {
@@ -3022,3 +3022,4 @@ $('.pagenum#pagenum-6').click(function () {
     exhibitionPage()
   }
 })
+}
