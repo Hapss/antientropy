@@ -9,6 +9,7 @@ var characterData = {} // Объект
 var now_scene = -1 // Текущая сцена для сохранения
 var now_action = -1
 var historyChoiceList = [] // Используется для записи истории выборов в текущей сцене
+var gameLogHistory = []
 var uiImageList = new Array()
 var showInSceneList = new Array()
 var xml_files_all_in_this = {} // Объект для надежного хранения кэша
@@ -70,6 +71,58 @@ function tryAudio(pauseOrPlay, indexOrInner, countNumber) {
 }
 
 //------------------------------------------------------
+// Реализация окна логов (Истории)
+function showLogWindow() {
+  if ($('#custom-log-window').length === 0) {
+    var logHtml = '<div id="custom-log-window" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.85); z-index:99999; overflow:hidden; font-family: sans-serif;">' +
+      '<div style="position:absolute; top:20px; left:50%; transform:translateX(-50%); width:90%; max-width:800px; height:calc(100% - 40px); background:rgba(20,20,20,0.95); border:1px solid #444; border-radius:8px; display:flex; flex-direction:column; box-shadow: 0 0 20px rgba(0,0,0,0.8);">' +
+        '<div style="padding:15px 20px; border-bottom:1px solid #444; display:flex; justify-content:space-between; align-items:center; background: rgba(40,40,40,0.9); border-radius: 8px 8px 0 0;">' +
+          '<h2 style="color:#ddd; margin:0; font-size:20px; letter-spacing: 1px;">ИСТОРИЯ ДИАЛОГОВ</h2>' +
+          '<button id="custom-log-close" style="background:#d32f2f; color:white; border:none; padding:8px 16px; border-radius:4px; cursor:pointer; font-size:14px; font-weight:bold; transition: background 0.2s;">ЗАКРЫТЬ</button>' +
+        '</div>' +
+        '<div id="custom-log-content" style="flex:1; padding:20px; overflow-y:auto; color:#ccc; font-size:16px; line-height:1.6;"></div>' +
+      '</div>' +
+    '</div>';
+    $('body').append(logHtml);
+    
+    $('#custom-log-close').hover(function() { $(this).css('background', '#f44336'); }, function() { $(this).css('background', '#d32f2f'); });
+    $('#custom-log-close').click(function(e) {
+      e.stopPropagation();
+      $('#custom-log-window').fadeOut(150);
+    });
+    
+    // Закрытие по клику на фон
+    $('#custom-log-window').click(function(e) { 
+      $(this).fadeOut(150);
+    });
+    $('#custom-log-window > div').click(function(e) { 
+      e.stopPropagation(); // Не закрывать при клике на сам контент
+    });
+    $('#custom-log-window').on('selectstart', function(e) { e.stopPropagation(); });
+  }
+  
+  var contentHtml = '';
+  for (var i = 0; i < gameLogHistory.length; i++) {
+    var item = gameLogHistory[i];
+    if (item.name) {
+      contentHtml += '<div style="margin-bottom:12px;"><span style="color:' + item.color + '; font-weight:bold; font-size:1.05em;">' + item.name + '</span><br/><span style="color:#eee;">' + item.text + '</span></div>';
+    } else {
+      contentHtml += '<div style="margin-bottom:12px; color:#ddd; font-style: italic;">' + item.text + '</div>';
+    }
+  }
+  if (gameLogHistory.length === 0) {
+     contentHtml = '<div style="text-align:center; color:#888; margin-top:50px;">История пуста...</div>';
+  }
+  $('#custom-log-content').html(contentHtml);
+  
+  // Гарантированно прячем любые конфликтующие лог-окна
+  $('.history-overflow, #history-overflow, .history-wrapper').hide();
+  
+  $('#custom-log-window').fadeIn(150, function() {
+    var logContent = document.getElementById('custom-log-content');
+    logContent.scrollTop = logContent.scrollHeight;
+  });
+}
 
 $(function () {
   preLoadUiImages('ui', uiImageList)
@@ -77,25 +130,16 @@ $(function () {
     return false
   })
   
-  $('.dialog-btn-history').click(function (e) {
-    e.stopPropagation()
-    showHistory()
-  })
-
-  $('.home_btn').click(function () {
-    if ($('.home_btn').hasClass('home_btn_history')) {
-      hideHistory()
-    } else if ($('.home_btn').hasClass('home_btn_remark')) {
-      hideremark()
-    } else {
-      dialogAutoplay('stop')
-      systemAutoSave()
-      ToggleWindow('backToMenu')
-    }
-  })
-
-  $('.history').hide()
-
+  $(document).on('click', '.home_btn', function(e) {
+    e.stopPropagation();
+    ToggleWindow('backToMenu');
+  });
+  
+  $(document).on('click', '.log_btn, .dialog-btn-log, img[src*="log.png"]', function(e) {
+    e.stopPropagation();
+    showLogWindow();
+  });
+  
   $(document).on('click', '.buttonBar', function(e) {
     e.stopPropagation(); 
   });
@@ -893,6 +937,16 @@ function processAction(act, gotoScene, gotoAction, skipKey, loadKey2) {
           .removeClass('dialog-overflow_article_center')
       }
       if (thisTextTemp == null) thisTextTemp = getText(act)
+      
+      // Запись в лог
+      var logTextStr = (thisTextTemp || '').toString();
+      var logText = logTextStr.replace(/<br\s*\/?>/gi, '\n').replace(/<[^>]+>/g, '').trim();
+      logText = logText.replace(/\n/g, '<br/>');
+      if (logText) {
+        if (gameLogHistory.length == 0 || gameLogHistory[gameLogHistory.length-1].text !== logText) {
+          gameLogHistory.push({ name: '', text: logText });
+        }
+      }
 
       tempAttribute = act.getAttribute('remark')
       if (tempAttribute != null) {
@@ -922,6 +976,16 @@ function processAction(act, gotoScene, gotoAction, skipKey, loadKey2) {
       var textColour = characterData[chara]['color']
       $('.dialog-chara-text').html(characterData[chara]['name'])
       $('.dialog-chara-text').css('color', textColour)
+      
+      // Запись в лог
+      var logTextStr = (getText(act) || '').toString();
+      var logText = logTextStr.replace(/<br\s*\/?>/gi, '\n').replace(/<[^>]+>/g, '').trim();
+      logText = logText.replace(/\n/g, '<br/>');
+      if (logText) {
+        if (gameLogHistory.length == 0 || gameLogHistory[gameLogHistory.length-1].text !== logText) {
+          gameLogHistory.push({ name: characterData[chara]['name'], text: logText, color: textColour });
+        }
+      }
 
       var tempAttribute = act.getAttribute('remark')
       if (tempAttribute != null) {
@@ -1317,7 +1381,8 @@ function ClearDialog() {
   $('.dialog').removeClass('dialog_article')
   $('.dialog-overflow').removeClass('dialog-overflow_article').removeClass('dialog-overflow_article_center')
   $('.remark').hide();
-  $('.history').hide();
+  $('#custom-log-window').hide();
+  $('.history-overflow, #history-overflow, .history-wrapper').hide(); // Скрытие нативных окон лога
   $('.dialog1').hide();
   $('.dialog3').hide();
 }
@@ -1333,7 +1398,8 @@ function ToggleWindow(mode) {
       })
     })
   } else if (mode == 'backToMenu') {
-    $('.history').hide();
+    $('#custom-log-window').hide();
+    $('.history-overflow, #history-overflow, .history-wrapper').hide();
     $('.transition').fadeIn(450)
     endGame()
     setTimeout(function() { $(".transition").fadeOut(450); }, 500)
@@ -1396,7 +1462,9 @@ function checkAutoLoad() {
 function startGame(galgameKey, loadKey) {
   var playKey
   autoSpeed = 'stop'
-  $('.history').hide();
+  gameLogHistory = [];
+  $('#custom-log-window').hide();
+  $('.history-overflow, #history-overflow, .history-wrapper').hide();
   
   if (checkAutoLoad() == true && loadKey == null) {
     systemAutoLoadStart(galgameKey)
@@ -1481,7 +1549,8 @@ function startGame(galgameKey, loadKey) {
         $('.dialog').hide(); 
         $('.dialog-chara').hide();
         $('.remark').hide();
-        $('.history').hide();
+        $('#custom-log-window').hide();
+        $('.history-overflow, #history-overflow, .history-wrapper').hide();
         
         setTimeout(function() { $(".transition").fadeOut(450); }, 100);
       });
@@ -1664,7 +1733,8 @@ function endGame(keyFlag) {
     setListens()
     $('.main').hide()
     $('.cg').css('display', 'none')
-    $('.history').hide()
+    $('#custom-log-window').hide()
+    $('.history-overflow, #history-overflow, .history-wrapper').hide()
     
     $('.catalog-wrapper-new').show();
     $('.catalog-wrapper').show();
@@ -1690,7 +1760,8 @@ function HideUi() {
   $('.dialog').hide()
   $('.dialog-chara').hide()
   $('.remark').hide()
-  $('.history').hide()
+  $('#custom-log-window').hide()
+  $('.history-overflow, #history-overflow, .history-wrapper').hide()
 }
 
 function ShowUi(dialog, chara) {
@@ -2417,102 +2488,6 @@ function hideremark() {
 }
 //---------------------------------------------------------------
 
-var remarkFlag_History = false
-
-function showHistory() {
-  var thisScene = sceneList[now_scene]
-  var thisEvent
-  var pHtml, pHtml2
-  var choiceList
-  var historyTextBox
-  var choiceKey
-  dialogAutoplay('stop')
-  $('.dialog').hide()
-  $('.dialog-btn').hide()
-  $('.choice').hide()
-  $('.history').show()
-  if ($('.remark_btn').css('opacity') == '1') {
-    remark_btn_hide()
-    remarkFlag_History = true
-  }
-  setListens()
-  $('.home_btn').addClass('home_btn_history')
-  historyTextBox = $('div#historyTextBox.history-text')
-  historyTextBox.html('')
-
-  for (var i = 0; i <= now_action; i++) {
-    thisEvent = thisScene.childNodes[i]
-    if (thisEvent != null) {
-      pHtml = null
-      pHtml2 = null
-      if (thisEvent.nodeName == 'text') {
-        var tempAttribute = thisEvent.getAttribute('article')
-        pHtml = $('<p></p>')
-        if (tempAttribute == null) {
-          pHtml.html(getText(thisEvent))
-        } else if (
-          tempAttribute == '1' ||
-          tempAttribute.indexOf('true') >= 0 ||
-          tempAttribute.indexOf('True') >= 0 ||
-          tempAttribute.indexOf('TRUE') >= 0
-        ) {
-          pHtml = $('<div></div>')
-          pHtml.html(thisEvent.innerHTML)
-        } else {
-          pHtml.html(getText(thisEvent))
-        }
-        pHtml.addClass('history-text')
-        historyTextBox.append(pHtml)
-      } else if (thisEvent.nodeName == 'speak') {
-        pHtml = $('<p></p>')
-        pHtml.html(characterData[thisEvent.getAttribute('chara')]['name'] + ':').addClass('history-text')
-        historyTextBox.append(pHtml)
-        pHtml = $('<p></p>')
-        pHtml.html(getText(thisEvent)).addClass('history-text')
-        historyTextBox.append(pHtml)
-      } else if (thisEvent.nodeName == 'choices') {
-        choiceList = thisEvent.childNodes
-        pHtml = $('<ul></ul>')
-        choiceKey = 0
-        for (var j = 0; j < choiceList.length; j++) {
-          if (choiceList[j].nodeName != '#text') {
-            pHtml2 = $('<li></li>')
-            pHtml2.html(getText(choiceList[j])).addClass('history-choice')
-            if (historyChoiceList[i] == choiceKey) {
-              pHtml2.addClass('history-choice-mark')
-            }
-            pHtml.append(pHtml2)
-            choiceKey++
-          }
-        }
-        historyTextBox.append(pHtml)
-      }
-      if (pHtml != null && i < now_action) {
-        historyTextBox.append('<br />')
-      }
-    }
-  }
-  historyTextBox.children().addClass('history-text')
-
-  var scrollIndex = $('.history-overflow')[0].scrollHeight - $('.history-overflow').height()
-  $('.history-overflow').scrollTop(scrollIndex)
-}
-
-function hideHistory() {
-  $('div#historyTextBox.history-text').html('')
-  $('.history').hide()
-  $('.dialog').show()
-  $('.dialog-btn').show()
-  $('.choice').show()
-  $('.home_btn').removeClass('home_btn_history')
-  if (remarkFlag_History) {
-    remark_btn_show()
-    remarkFlag_History = false
-  }
-  setListens(now_scene, now_action)
-}
-
-
 function wrk_get_size() {
   var winWidth
   if (window.innerWidth) winWidth = window.innerWidth
@@ -2560,6 +2535,8 @@ if (GetQueryString('auth_key')) {
 //Достижения-------------------------------------------
 var ajax_answer_achievement = null;
 
+// ПЕРЕВОД: Оригинальные описания достижений были на китайском (в Unicode).
+// Именно поэтому вместо текста рендерились "?????". База переведена на русский:
 var masterAchievementData = [
   {"achievement":10010,"text":"Вы прочитали сюжет первой главы.","image":"normal"},
   {"achievement":10011,"text":"Вы нашли примечание о «Божественной комедии».","image":"welt"},
@@ -2747,6 +2724,7 @@ function portraitPage(typeReturn) {
   
   var retcode = achievement_result['retcode']
   if (retcode > 0) {
+    // Безопасное ограничение значений от "улетания" за края экрана
     var p_val = Number(achievement_result['progress']);
     var clamped_text = p_val > 0.85 ? 0.85 : p_val;
     var clamped_icon = p_val > 0.90 ? 0.90 : p_val;
@@ -2850,6 +2828,7 @@ function portraitPage(typeReturn) {
         $('.progress-span').css('width', achievement_progress_rem)
         $('.progress-icon').css('left', achievement_progress_icon)
         
+        // Исправление обрезания прогресса: восстанавливаем оригинальную логику выравнивания
         if (p_val <= 0.8) {
           $('.progress-text').css({
               'left': achievement_progress_text,
@@ -2920,7 +2899,7 @@ function exhibitionPage(page) {
     $('.pagenum#pagenum-6').addClass('pagenum-gray')
   }
   var pHtml = $('<p></p>')
-  pHtml.html('Глава ' + (exhibition_index / 10 - 1000))
+  pHtml.html('Chapter ' + (exhibition_index / 10 - 1000))
   pHtml.addClass('achievement-chapter-text')
   $('.achievement-chapter').html(pHtml)
   $('.achievement-list').html('')
@@ -2955,35 +2934,6 @@ function exhibitionPage(page) {
         }
       }
 
-      pHtml_pic.addClass('exhibition-member-image')
-      
-      pHtml_tit.addClass('exhibition-member-title').css({
-          'position': 'relative',
-          'font-weight': 'normal', 
-          'white-space': 'normal', 
-          'word-wrap': 'break-word', 
-          'line-height': '1.3',
-          'width': '100%',
-          'height': 'auto',
-          'margin-top': '0',
-          'margin-bottom': '4px',
-          'color': '#fff'
-      });
-      
-      pHtml_tip.addClass('exhibition-member-tips')
-      
-      pHtml_txt.addClass('exhibition-member-text').css({
-          'position': 'relative',
-          'font-weight': 'normal', 
-          'white-space': 'normal', 
-          'word-wrap': 'break-word', 
-          'word-break': 'break-word',
-          'line-height': '1.2', 
-          'width': '100%',
-          'height': 'auto',
-          'margin': '0'
-      });
-
       if (j >= achievement_list.length) {
         pHtml_txt.html('??? ??? ??? ??? ??? ??? ??? ??? ???')
         pHtml_txt.css('color', '#cccccc')
@@ -2998,25 +2948,84 @@ function exhibitionPage(page) {
           )
         }
       }
+
+      // БЕЗОПАСНАЯ ИЗОЛИРОВАННАЯ ВЕРСТКА:
+      // Явно отключаем overflow: hidden (который задан глобально в css) для предотвращения обрезки.
+      pHtml_pic.addClass('exhibition-member-image').css({
+          'position': 'absolute',
+          'left': '0.6rem',
+          'top': '50%',
+          'margin-top': '-1.8rem',
+          'overflow': 'visible'
+      });
       
-      pHtml_box
-        .append(pHtml_pic)
-        .append(pHtml_tip)
-        .append(pHtml_tit)
-        .append(pHtml_txt)
-        
-      pHtml_box.addClass('exhibition-member').css({
-          'height': 'auto', 
-          'min-height': '90px',
+      pHtml_tip.addClass('exhibition-member-tips').css({
+          'position': 'absolute',
+          'left': '2.8rem',
+          'top': '50%',
+          'margin-top': '-2.2rem',
+          'overflow': 'visible'
+      });
+      
+      // Создаем обертку только для текстов
+      var pHtml_text_wrapper = $('<div></div>').css({
           'display': 'flex',
           'flex-direction': 'column',
           'justify-content': 'center',
-          'padding-left': '100px', // Место под иконку
-          'padding-right': '10px',
-          'padding-top': '10px',
-          'padding-bottom': '10px',
+          'width': '100%',
+          'overflow': 'visible'
+      });
+
+      pHtml_tit.addClass('exhibition-member-title').css({
+          'position': 'relative',
+          'left': '0',
+          'top': '0',
+          'font-weight': 'normal', 
+          'white-space': 'normal', 
+          'word-wrap': 'break-word', 
+          'line-height': '1.3',
+          'width': '100%',
+          'height': 'auto',
+          'margin': '0 0 4px 0',
+          'color': '#fdffea',
+          'overflow': 'visible'
+      });
+      
+      pHtml_txt.addClass('exhibition-member-text').css({
+          'position': 'relative',
+          'left': '0',
+          'bottom': '0',
+          'font-weight': 'normal', 
+          'white-space': 'normal', 
+          'word-wrap': 'break-word', 
+          'word-break': 'break-word',
+          'line-height': '1.2', 
+          'width': '100%',
+          'height': 'auto',
+          'margin': '0',
+          'overflow': 'visible'
+      });
+
+      // Помещаем тексты в защищенную обертку
+      pHtml_text_wrapper.append(pHtml_tit).append(pHtml_txt);
+
+      pHtml_box
+        .append(pHtml_pic)
+        .append(pHtml_tip)
+        .append(pHtml_text_wrapper)
+        
+      pHtml_box.addClass('exhibition-member').css({
+          'height': 'auto', 
+          'min-height': '4.8rem',
+          'display': 'flex',
+          'align-items': 'center',      // Вертикальное центрирование текстового блока по отношению к иконке
+          'padding-left': '5.5rem',     // Жесткий отступ слева, чтобы текст никогда не задевал иконку
+          'padding-right': '1rem',
+          'padding-top': '0.5rem',
+          'padding-bottom': '0.5rem',
           'box-sizing': 'border-box',
-          'position': 'relative'
+          'position': 'relative',
+          'overflow': 'visible'
       });
       
       pHtml.append(pHtml_box)
@@ -3024,7 +3033,8 @@ function exhibitionPage(page) {
           'position': 'relative',
           'height': 'auto',
           'display': 'block',
-          'margin-bottom': '15px'
+          'margin-bottom': '1rem',
+          'overflow': 'visible'
       });
       
       $('.achievement-list').append(pHtml)
