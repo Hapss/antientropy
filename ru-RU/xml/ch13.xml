@@ -1,0 +1,516 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data>
+    <story>
+        <scene id="0" background="bg.jpg">
+            <bgm src="mid-lude.mp3" status="start"></bgm>
+            <cg src="newсhapter.png" bg="bg.jpg"></cg>
+            <goto goto="10" change="#000000"/>
+        </scene>
+        <scene id="10" background="westCliffWindow.jpg">
+            <bgm src="12_15_1946.mp3" status="start"></bgm>
+            <text>Давным-давно.</text>
+            <text remark="next">Так давно, что «Розуэлл» был всего лишь неизвестным городком на берегу реки Пекос.</text>
+            <remark>
+                <p class="article-text-h">Примечание:</p>
+                <p class="article-text">Розуэлл — город в штате Нью-Мексико, США. 4 июля 1947 года здесь произошёл инцидент с крушением неопознанного летающего объекта.</p>
+                <p class="article-text">Конспирологи считают, что правительство США скрыло правду о случившемся; они верят, что это было крушение летающей тарелки, а не метеозонда.</p>
+            </remark>
+            <text remark="next">Так давно, что «Бикини» было всего лишь названием атолла.</text>
+            <remark>
+                <p class="article-text-h">Примечание:</p>
+                <p class="article-text">Атолл Бикини — это коралловый риф в Маршалловых островах. Начиная с 1946 года, здесь было проведено более 20 испытаний ядерного оружия.</p>
+                <p class="article-text">«Бикини» стало символом ядерного взрыва — когда в мире моды появился революционный дизайн купальника, это географическое название было позаимствовано вполне естественно.</p>
+            </remark>
+            <text>Так давно, что тогда мне было вдвое меньше лет, чем сейчас.</text>
+            <goto goto="20" change="#ffffff"/>
+        </scene>
+        <scene id="20" background="einHomeSw.jpg">
+            <bgm src="12_15_1946.mp3" status="continue"></bgm>
+            <text>1946 год. Швейцария. Цюрих</text>
+            <show chara="fatherEmbarraClose" position="right" opacity="0.7"/>
+            <show chara="motherSeriousClose" position="left"/>
+            <speak chara="motherNoFace">...</speak>
+            <show chara="motherNormalClose" position="left"/>
+            <speak chara="motherNoFace">Лизерль, сегодня с тобой придёт поговорить один очень квалифицированный дядя.</speak>
+            <speak chara="motherNoFace">Он совсем не чета тем невежественным психиатрам, что были до него, так что, пожалуйста, сотрудничай с ним.</speak>
+            <speak chara="meEinNoFace">...</speak>
+            <show chara="motherNormalClose" position="left" opacity="0.7"/>
+            <show chara="fatherSmileClose" position="right"/>
+            <speak chara="fatherNoFace">Не волнуйся. Он сказал, что не будет уговаривать тебя вернуться в школу и ходить на эти скучные уроки.</speak>
+            <speak chara="fatherNoFace">Он очень известный специалист, совсем не такой, как остальные.</speak>
+            <speak chara="meEinNoFace">...</speak>
+            <goto goto="25" change="#ffffff"/>
+        </scene>
+        <scene id="25" background="westCliffWindow.jpg">
+            <bgm src="12_15_1946.mp3" status="continue"></bgm>
+            <text>Хм... небольшое уточнение.</text>
+            <show chara="motherSeriousClose-up" position="center"/>
+            <text>Это моя мама. Она аудитор, обычно очень занята на работе и бывает дома только по воскресеньям и на Рождество.</text>
+            <text>Очень скучная работа, не так ли?</text>
+            <show chara="fatherEmbarraClose-up" position="center"/>
+            <text>Это мой папа. Он дизайнер, а если точнее — разрабатывает форму стрелок для часов.</text>
+            <text>...Ещё более скучная работа, ага?</text>
+            <hide position="center"/>
+            <text>Поэтому можете себе представить, насколько мучительной была жизнь для меня — единственного в этой семье человека, увлечённого размышлениями о МЕТАФИЗИКЕ.</text>
+            <text>Поэтому можете представить, что после того как я по собственному желанию бросила школу, за три месяца они привели ко мне пятерых «психотерапевтов».</text>
+            <text>Ах... да, МЕТАФИЗИКА.</text>
+            <text>Раз уж мы рассказываем историю о том времени, я тоже должна рассуждать так, как рассуждала тогда.</text>
+            <goto goto="30" change="#ffffff"/>
+        </scene>
+        <scene id="30" background="einRoomSw.jpg">
+            <bgm src="12_15_1946.mp3" status="continue"></bgm>
+            <show chara="einNormalLittleClose" position="right" opacity="0.7"/>
+            <show chara="karlSmileClose" position="left"/>
+            <speak chara="karlNoNameNoFace">Привет. Я Карл... Карл Густав.</speak>
+            <show chara="karlSlyClose" position="left"/>
+            <speak chara="karlNoFace">Можешь называть меня «Карл» или «Густав».</speak>
+            <show chara="karlSlyClose" position="left" opacity="0.7"/>
+            <show chara="einNormalLittleClose" position="right"/>
+            <speak chara="meEinNoFace">...</speak>
+            <show chara="einBoringLittleClose" position="right"/>
+            <speak chara="meEinNoFace">То «Карл», то «Густав»... Вы что, какой-то шведский король?</speak>
+            <show chara="einBoringLittleClose" position="right" opacity="0.7"/>
+            <show chara="karlFoolClose" position="left"/>
+            <speak chara="karlNoFace">А-ха-ха... надо мной часто так подшучивают...</speak>
+            <show chara="karlSmileClose" position="left"/>
+            <speak chara="karlNoFace">Кстати говоря, я слышал, ты в последнее время занимаешься какими-то очень интересными личными исследованиями. Не поделишься со мной?</speak>
+            <show chara="karlSmileClose" position="left" opacity="0.7"/>
+            <show chara="einFretfulLittleClose" position="right"/>
+            <speak chara="meEinNoFace">...</speak>
+            <show chara="einFretfulLittleClose" position="right" opacity="0.7"/>
+            <show chara="karlThinkingClose" position="left"/>
+            <speak chara="karlNoFace">...А.</speak>
+            <show chara="karlFoolClose" position="left"/>
+            <speak chara="karlNoFace">«Да разве этот старый хрыч хоть что-нибудь поймёт» —</speak>
+            <show chara="karlSlyClose" position="left"/>
+            <speak chara="karlNoFace">...ведь так?</speak>
+            <show chara="karlSlyClose" position="left" opacity="0.7"/>
+            <show chara="einFretfulLittleClose" position="right"/>
+            <speak chara="meEinNoFace">...</speak>
+            <show chara="einFretfulLittleClose" position="right" opacity="0.7"/>
+            <show chara="karlFoolClose" position="left"/>
+            <speak chara="karlNoFace">...Думаю, для начала ты можешь меня проверить.</speak>
+            <show chara="karlSmileClose" position="left"/>
+            <speak chara="karlNoFace">Разве не нужно сначала прощупать почву, прежде чем делать выводы?</speak>
+            <show chara="karlSmileClose" position="left" opacity="0.7"/>
+            <show chara="einFretfulLittleClose" position="right"/>
+            <speak chara="meEinNoFace">...</speak>
+            <show chara="einFretfulLittleClose" position="right" opacity="0.7"/>
+            <show chara="karlFoolClose" position="left"/>
+            <speak chara="karlNoFace">Не сочти за хвастовство, но в университете у меня были отличные оценки по точным наукам!</speak>
+            <show chara="karlFoolClose" position="left" opacity="0.7"/>
+            <show chara="einBoringLittleClose" position="right"/>
+            <speak chara="meEinNoFace">...</speak>
+            <show chara="einBoringLittleClose" position="right" opacity="0.7"/>
+            <show chara="karlSlyClose" position="left"/>
+            <speak chara="karlNoFace">Правда-правда. А самый высокий балл я получил по геометрии, которую преподавал сам Гильберт!</speak>
+            <show chara="karlSlyClose" position="left" opacity="0.7"/>
+            <show chara="einFretfulLittleClose" position="right"/>
+            <speak chara="meEinNoFace">...</speak>
+            <show chara="einNormalLittleClose" position="right"/>
+            <speak chara="meEinNoFace">Ну.</speak>
+            <show chara="einProvocativeLittleClose" position="right"/>
+            <speak chara="meEinNoFace">...Знаешь ли ты, какое максимальное количество попарно перпендикулярных прямых может быть в пространстве?</speak>
+            <speak chara="meEinNoFace">Ответишь неправильно — проваливай, договорились?</speak>
+            <goto goto="40" change="#ffffff"/>
+        </scene>
+        <scene id="40" background="westCliffWindow.jpg">
+            <bgm src="12_15_1946.mp3" status="continue"></bgm>
+            <text>Оглядываясь назад... этот человек и правда был не так прост.</text>
+            <text>Я думала, что смогу легко от него отделаться с помощью этого вопроса, ответ на который удобно подстроить под себя...</text>
+            <text>...Но я не учла, что заставив меня заговорить и задать ему вопрос... он, по сути, уже победил.</text>
+            <text>По крайней мере, он уже далеко превзошёл тех четырёх предыдущих так называемых «специалистов».</text>
+            <goto goto="50" change="#ffffff"/>
+        </scene>
+        <scene id="50" background="einRoomSw.jpg">
+            <bgm src="12_15_1946.mp3" status="continue"></bgm>
+            <show chara="einProvocativeLittleClose" position="right" opacity="0.7"/>
+            <show chara="karlThinkingClose" position="left"/>
+            <speak chara="karlNoFace">Ортогональные прямые...</speak>
+            <show chara="karlSmileClose" position="left"/>
+            <speak chara="karlNoFace">Да сколько угодно, столько и будет.</speak>
+            <show chara="karlSmileClose" position="left" opacity="0.7"/>
+            <show chara="einNormalLittleClose" position="right"/>
+            <speak chara="meEinNoFace">...！</speak>
+            <show chara="einNormalLittleClose" position="right" opacity="0.7"/>
+            <show chara="karlSmileClose" position="left"/>
+            <speak chara="karlNoFace">Размерность пространства может быть бесконечной. В таком случае одни лишь его координатные оси уже представляют собой бесконечное множество попарно перпендикулярных прямых.</speak>
+            <show chara="karlSlyClose" position="left"/>
+            <speak chara="karlNoFace">В конце концов, все эти пространства, прямые — не более чем искусственно заданные вымышленные концепции.</speak>
+            <show chara="karlSlyClose" position="left" opacity="0.7"/>
+            <show chara="einCryLittleClose" position="right"/>
+            <speak chara="meEinNoFace">...</speak>
+            <show chara="einCryLittleClose" position="right" opacity="0.7"/>
+            <show chara="karlThinkingClose" position="left"/>
+            <speak chara="karlNoFace">Э-э... ч-что случилось?</speak>
+            <show chara="karlThinkingClose" position="left" opacity="0.7"/>
+            <show chara="einHappyLittleClose" position="right"/>
+            <speak chara="meEinNoFace">...</speak>
+            <show chara="einHappyLittleClose" position="right" opacity="0.7"/>
+            <show chara="karlFoolClose" position="left"/>
+            <speak chara="karlNoFace">Не... не смотри на меня с такой глупой улыбкой... Я... я ляпнул какую-то глупость?</speak>
+            <show chara="karlFoolClose" position="left" opacity="0.7"/>
+            <show chara="einHappyLittleClose" position="right"/>
+            <speak chara="meEinNoFace">Нет...</speak>
+            <speak chara="meEinNoFace">Это не так...</speak>
+            <show chara="einCryLittleClose" position="right"/>
+            <speak chara="meEinNoFace">Я, я...</speak>
+            <goto goto="60" change="0"/>
+        </scene>
+        <scene id="60" background="">
+            <bgm src="12_15_1946.mp3" status="continue"></bgm>
+            <speak chara="meEinNoFace">Уа-а-а-а-а-а-а-а-а-а-а-а-а-а-а-а-а-а-а-а!</speak>
+            <goto goto="65" change="#ffffff"/>
+        </scene>
+        <scene id="65" background="westCliffWindow.jpg">
+            <bgm src="12_15_1946.mp3" status="continue"></bgm>
+            <text>Да, в тот момент я позорно разрыдалась.</text>
+            <text>Увидь я сейчас ту маленькую девочку, радующуюся встрече с «родственной душой», я бы точно не удержалась и поддразнила бы её.</text>
+            <text>Впрочем... у всех бывает такой возраст, когда эмоции бьют через край, верно же?</text>
+            <text>Это не уродливо... наоборот, это прекрасно. Это та красота, что запечатлена на часах жизни, и её нельзя получить насильно.</text>
+            <text>Для кого-то такой момент наступает в 18 лет, для кого-то в 80... а для меня он наступил в 8 лет. Вот и всё.</text>
+            <text>С этой точки зрения тот, кто смог составить мне компанию в моём безумии... и был по-настоящему выдающимся человеком.</text>
+            <goto goto="70" change="#ffffff"/>
+        </scene>
+        <scene id="70" background="einRoomSw.jpg">
+            <bgm src="12_15_1946.mp3" status="continue"></bgm>
+            <show chara="einNormalLittleClose" position="right" opacity="0.7"/>
+            <show chara="karlThinkingClose" position="left"/>
+            <speak chara="karlNoFace">«Найдите два тетраэдра с одинаковыми площадями оснований и высотами, которые нельзя разбить на две группы соответственно конгруэнтных тетраэдров»...</speak>
+            <show chara="karlThinkingClose" position="left" opacity="0.7"/>
+            <show chara="einBoringLittleClose" position="right"/>
+            <speak chara="meEinNoFace">Мне кажется, даже если ты пропялишься в это ещё час, никакого прогресса не будет.</speak>
+            <show chara="einBoringLittleClose" position="right" opacity="0.7"/>
+            <show chara="karlFoolClose" position="left"/>
+            <speak chara="karlNoFace">А у тебя есть какие-то особые идеи?</speak>
+            <show chara="karlFoolClose" position="left" opacity="0.7"/>
+            <show chara="einFretfulLittleClose" position="right"/>
+            <speak chara="meEinNoFace">...Заткнись. Я вообще-то думаю.</speak>
+            <show chara="einFretfulLittleClose" position="right" opacity="0.7"/>
+            <show chara="karlThinkingClose" position="left"/>
+            <speak chara="karlNoFace">Хм... значит, мы оба ничего не можем придумать.</speak>
+            <show chara="karlFoolClose" position="left"/>
+            <speak chara="karlNoFace">Давай посмотрим ответ!</speak>
+            <show chara="karlFoolClose" position="left" opacity="0.7"/>
+            <show chara="einSurpriseLittleClose" position="right"/>
+            <speak chara="meEinNoFace">А?!</speak>
+            <show chara="einSurpriseLittleClose" position="right" opacity="0.7"/>
+            <show chara="karlSmileClose" position="left"/>
+            <speak chara="karlNoFace">А что в этом плохого? Мы же стремимся познать неизвестное, а не участвуем в викторине.</speak>
+            <show chara="karlSmileClose" position="left" opacity="0.7"/>
+            <show chara="einFretfulLittleClose" position="right"/>
+            <speak chara="meEinNoFace">Но...</speak>
+            <show chara="einFretfulLittleClose" position="right" opacity="0.7"/>
+            <show chara="karlSmileClose" position="left"/>
+            <speak chara="karlNoFace">Не расстраивайся так. У воображения каждого человека есть свои пределы.</speak>
+            <speak chara="karlNoFace">Только научившись использовать чужое воображение, ты сможешь увидеть больше красивых пейзажей.</speak>
+            <show chara="karlSmileClose" position="left" opacity="0.7"/>
+            <show chara="einFretfulLittleClose" position="right"/>
+            <speak chara="meEinNoFace">...</speak>
+            <show chara="einFretfulLittleClose" position="right" opacity="0.7"/>
+            <show chara="karlThinkingClose" position="left"/>
+            <speak chara="karlNoFace">Дай-ка посмотрю...</speak>
+            <speak chara="karlNoFace">Здесь сказано, что можно определить инвариант на основе длин рёбер и двугранных углов многогранника...</speak>
+            <show chara="karlThinkingClose" position="left" opacity="0.7"/>
+            <show chara="einSurpriseLittleClose" position="right"/>
+            <speak chara="meEinNoFace">...Что? Быстро дай посмотреть!</speak>
+            <show chara="einSurpriseLittleClose" position="right" opacity="0.7"/>
+            <show chara="karlShameClose" position="left"/>
+            <speak chara="karlNoFace">П-потише! Н-не выхватывай так резко! Ты же порвёшь книгу!</speak>
+            <goto goto="80" change="#ffffff"/>
+        </scene>
+        <scene id="80" background="westCliffWindow.jpg">
+            <bgm src="12_15_1946.mp3" status="continue"></bgm>
+            <text>Честно говоря, из всех задач, что мы тогда с ним разбирали, я помню только эту.</text>
+            <text>И дело не только во впечатляющем решении. Знаете, когда я вскоре рассказала об этой задаче Планк...</text>
+            <show chara="emmaBlackClose-up" position="center"/>
+            <text remark="next">«Что? Этот тип решил проверить тебя с помощью третьей проблемы Гильберта? Он в своём уме?!»</text>
+            <remark>
+                <p class="article-text-h">Примечание:</p>
+                <p class="article-text">23 проблемы Гильберта — это «23 важнейшие математические проблемы современности», сформулированные немецким математиком Давидом Гильбертом (David Hilbert) на II Международном конгрессе математиков в Париже в 1900 году.</p>
+                <p class="article-text">«Найдите два тетраэдра с одинаковыми площадями оснований и высотами, которые нельзя разбить на две группы соответственно конгруэнтных тетраэдров» — это как раз 3-я проблема из их числа.</p>
+                <br/>
+                <p class="article-text">P.S. Среди 23 проблем наиболее известны:</p>
+                <p class="article-text">1. Континуум-гипотеза</p>
+                <p class="article-text">2. Непротиворечивость аксиом арифметики</p>
+                <p class="article-text">8. Гипотеза Римана, проблема Гольдбаха, проблема близнецов</p>
+                <p class="article-text">18. Плотнейшая упаковка шаров</p>
+            </remark>
+            <hide position="center"/>
+            <text>...Вот видите, такие жуткие вещи, естественно, запоминаются на всю жизнь, верно?</text>
+            <text>Ах. Вы спрашиваете, почему я уже тогда была знакома с Планк?</text>
+            <text>Ну, это...</text>
+            <goto goto="100" change="#ffffff"/>
+        </scene>
+        <scene id="100" background="einHomeSw.jpg">
+            <bgm src="12_15_1946.mp3" status="continue"></bgm>
+            <show chara="emmaNormalClose" position="left" opacity="0.7"/>
+            <show chara="karlSmileClose" position="right"/>
+            <speak chara="karlNoFace">Всем привет, позвольте представить.</speak>
+            <speak chara="karlNoFace">Это мисс Эмма Планк... самый молодой профессор физики в истории Принстонского университета.</speak>
+            <show chara="karlSmileClose" position="right" opacity="0.7"/>
+            <show chara="emmaPromiseSmileClose" position="left"/>
+            <speak chara="emmaNoFace">Привет! Я Эмма! Двоюродная сестра Карла!</speak>
+            <show chara="emmaSmileClose" position="left"/>
+            <speak chara="emmaNoFace">Он всегда, вольно или невольно, забывает упомянуть об этом, когда представляет меня другим.</speak>
+            <show chara="emmaPromiseSmileClose" position="left"/>
+            <speak chara="emmaNoFace">Но я никогда не придавала этому значения, правда?</speak>
+            <show chara="emmaPromiseSmileClose" position="left" opacity="0.7"/>
+            <show chara="karlFoolClose" position="right"/>
+            <speak chara="karlNoFace">А-ха-ха...</speak>
+            <show chara="fatherEmbarraClose" position="right" opacity="0.7"/>
+            <show chara="motherSeriousClose" position="left"/>
+            <speak chara="motherNoFace">...Кхм-кхм.</speak>
+            <show chara="karlFoolClose" position="right"/>
+            <show chara="emmaNormalClose" position="left" opacity="0.7"/>
+            <speak chara="karlNoFace">А... вернёмся к делу, вернёмся к делу.</speak>
+            <show chara="karlNormalClose" position="right"/>
+            <speak chara="karlNoFace">Ранее мы предварительно обсуждали возможность того, чтобы ваш ребёнок сразу поступил в университет.</speak>
+            <show chara="karlSmileClose" position="right"/>
+            <speak chara="karlNoFace">Как только вы дали своё согласие, я тут же связался с Эммой.</speak>
+            <speak chara="karlNoFace">С точки зрения обучения несовершеннолетних, её пол и возраст должны стать большим преимуществом.</speak>
+            <show chara="karlSmileClose" position="right" opacity="0.7"/>
+            <show chara="emmaPromiseSmileClose" position="left"/>
+            <speak chara="emmaNoFace">К тому же мне действительно очень интересна ваша дочь!</speak>
+            <speak chara="emmaNoFace">Пожалуйста, позвольте ей вместе со мной отправиться на поиски тайн этого мира!</speak>
+            <show chara="fatherEmbarraClose" position="right" opacity="0.7"/>
+            <show chara="motherNormalClose" position="left"/>
+            <speak chara="motherNoFace">...</speak>
+            <show chara="emmaPromiseSeriousClose" position="left" opacity="0.7"/>
+            <show chara="karlSmileClose" position="right"/>
+            <speak chara="karlNoFace">Ха-ха... Прошу прощения, Эмма в любой ситуации немного переполнена энергией.</speak>
+            <show chara="fatherSmileClose" position="right"/>
+            <show chara="motherNormalClose" position="left" opacity="0.7"/>
+            <speak chara="fatherNoFace">Нет, это ведь замечательно... Думаю, наша дочь определённо сможет с ней поладить.</speak>
+            <show chara="fatherSmileClose" position="right" opacity="0.7"/>
+            <show chara="motherSlyClose" position="left"/>
+            <speak chara="motherNoFace">...</speak>
+            <speak chara="motherNoFace">...Против этого я тоже не возражаю.</speak>
+            <goto goto="110" change="#ffffff"/>
+        </scene>
+        <scene id="110" background="westCliffWindow.jpg">
+            <bgm src="12_15_1946.mp3" status="continue"></bgm>
+            <text>Если Карл был тем, кто показал мне новый мир, то Эмма стала самым настоящим навигатором.</text>
+            <text>...Хотя позже, шутки ради, даже не помню с какого года, я стала называть её «профессор Планк».</text>
+            <text>В то время у Эммы... как бы это сказать, ещё не было этой ауры лёгкого «кризиса среднего возраста», как сейчас.</text>
+            <text>Чистокровный учёный. Невероятная красавица. Она всегда озаряла тебя своим собственным светом.</text>
+            <text>Учила играть на пианино, учила петь, вместе со мной смотрела на звёзды.</text>
+            <text>По сравнению с той, с которой меня связывало кровное родство... скорее уж она была больше похожа на мою маму.</text>
+            <text>...Конечно, я не хочу сказать, что Карл был в чём-то плох. Это было исключительно «преимущество пола».</text>
+            <goto goto="120" change="#ffffff"/>
+        </scene>
+        <scene id="120" background="einRoomSw.jpg">
+            <bgm src="12_15_1946.mp3" status="continue"></bgm>
+            <show chara="karlSmileClose" position="left" opacity="0.7"/>
+            <show chara="einNormalLittleClose" position="right"/>
+            <speak chara="meEinNoFace">Карл, ты завтра возвращаешься в Германию?</speak>
+            <show chara="einNormalLittleClose" position="right" opacity="0.7"/>
+            <show chara="karlSmileClose" position="left"/>
+            <speak chara="karlNoFace">Да...</speak>
+            <show chara="karlFoolClose" position="left"/>
+            <speak chara="karlNoFace">Эти выходные — последние дни моего отпуска, так что мне нужно вернуться в штаб.</speak>
+            <show chara="karlFoolClose" position="left" opacity="0.7"/>
+            <show chara="einSurpriseLittleClose" position="right"/>
+            <speak chara="meEinNoFace">В штаб?</speak>
+            <show chara="einSurpriseLittleClose" position="right" opacity="0.7"/>
+            <show chara="karlSmileClose" position="left"/>
+            <speak chara="karlNoFace">В отдел психологических консультаций при комендатуре обороны Берлина союзных войск.</speak>
+            <show chara="karlSmileClose" position="left" opacity="0.7"/>
+            <show chara="einNormalLittleClose" position="right"/>
+            <speak chara="meEinNoFace">Хм... значит, ты и вправду настоящий «специалист»?</speak>
+            <show chara="einNormalLittleClose" position="right" opacity="0.7"/>
+            <show chara="karlFoolClose" position="left"/>
+            <speak chara="karlNoFace">Ха-ха... Если ты поверила в это только сейчас, значит, мой личный имидж и впрямь так себе.</speak>
+            <show chara="karlFoolClose" position="left" opacity="0.7"/>
+            <show chara="einProvocativeLittleClose" position="right"/>
+            <speak chara="meEinNoFace">Ну, он определённо не так хорош, как ты о себе думаешь.</speak>
+            <show chara="einNormalLittleClose" position="right"/>
+            <speak chara="meEinNoFace">Но... работа в штабе... ты занимаешься лечением посттравматического синдрома?</speak>
+            <show chara="einNormalLittleClose" position="right" opacity="0.7"/>
+            <show chara="karlSmileClose" position="left"/>
+            <speak chara="karlNoFace">Вроде того... Занимайся этим непрофессионал, ему пришлось бы довольно туго.</speak>
+            <show chara="karlThinkingClose" position="left"/>
+            <speak chara="karlNoFace">В конце концов, большинству людей не нравится слушать чужие жалобы, это заставляет их примерять чужую боль на себя.</speak>
+            <show chara="karlThinkingClose" position="left" opacity="0.7"/>
+            <show chara="einNormalLittleClose" position="right"/>
+            <speak chara="meEinNoFace">А в чём особенность профессионалов?</speak>
+            <show chara="einNormalLittleClose" position="right" opacity="0.7"/>
+            <show chara="karlNormalClose" position="left"/>
+            <speak chara="karlNoFace">Профессионал рассматривает собеседника как объект для анализа.</speak>
+            <show chara="karlThinkingClose" position="left"/>
+            <speak chara="karlNoFace">Мы анализируем их боль, лечим их боль, но никогда не позволяем себе пропустить её через себя.</speak>
+            <show chara="karlSmileClose" position="left"/>
+            <speak chara="karlNoFace">Как только возникают какие-либо личные чувства, пациента необходимо передать на лечение кому-то другому.</speak>
+            <show chara="karlSmileClose" position="left" opacity="0.7"/>
+            <show chara="einProvocativeLittleClose" position="right"/>
+            <speak chara="meEinNoFace">...Значит, можно сказать, что ты передал меня Эмме?</speak>
+            <show chara="einProvocativeLittleClose" position="right" opacity="0.7"/>
+            <show chara="karlShameClose" position="left"/>
+            <speak chara="karlNoFace">...Нет-нет-нет, это совершенно не так!</speak>
+            <speak chara="karlNoFace">Во-первых, ты не пациент; во-вторых, я тебя не лечил; и в-третьих, Эмма — не врач!</speak>
+            <show chara="karlShameClose" position="left" opacity="0.7"/>
+            <show chara="einSmileLittleClose" position="right"/>
+            <speak chara="meEinNoFace">Ха-ха, Карл так забавно паникует!</speak>
+            <show chara="einSmileLittleClose" position="right" opacity="0.7"/>
+            <show chara="karlShameClose" position="left"/>
+            <speak chara="karlNoFace">...Ха? Ты что, издеваешься надо мной?</speak>
+            <show chara="karlSlyClose" position="left"/>
+            <speak chara="karlNoFace">Ах ты мелкая паршивка, вот я тебе сейчас задам!</speak>
+            <show chara="karlSlyClose" position="left" opacity="0.7"/>
+            <show chara="einCryLittleClose" position="right"/>
+            <speak chara="meEinNoFace">А-а-а! Дядя Карл сейчас будет меня бить!</speak>
+            <show chara="einCryLittleClose" position="right" opacity="0.7"/>
+            <show chara="karlShameClose" position="left"/>
+            <speak chara="karlNoFace">Н-не кричи ерунду!</speak>
+            <hide position="left"/>
+            <hide position="right"/>
+            <show chara="karlShameClose" position="center"/>
+            <speak chara="karlNoFace">А ну стой!</speak>
+            <goto goto="130" change="#ffffff"/>
+        </scene>
+        <scene id="130" background="einHomeSw.jpg">
+            <bgm src="12_15_1946.mp3" status="continue"></bgm>
+            <show chara="karlTiredClose" position="left"/>
+            <speak chara="karlNoFace">Фух... ну и устал же я...</speak>
+            <show chara="karlTiredClose" position="left" opacity="0.7"/>
+            <show chara="einProvocativeLittleClose" position="right"/>
+            <speak chara="meEinNoFace">Вроде Карл ещё молодой человек, а выдыхается так же быстро, как старый дед.</speak>
+            <show chara="einProvocativeLittleClose" position="right" opacity="0.7"/>
+            <show chara="karlTiredClose" position="left"/>
+            <speak chara="karlNoFace">Н-не твоё дело...</speak>
+            <show chara="karlThinkingClose" position="left"/>
+            <speak chara="karlNoFace">Всё из-за того, что в Швейцарии жить слишком уж комфортно...</speak>
+            <show chara="karlFoolClose" position="left"/>
+            <speak chara="karlNoFace">Чёрт, мне даже возвращаться в Берлин расхотелось!</speak>
+            <show chara="karlFoolClose" position="left" opacity="0.7"/>
+            <show chara="einNormalLittleClose" position="right"/>
+            <speak chara="meEinNoFace">...</speak>
+            <show chara="einHappyLittleClose" position="right"/>
+            <speak chara="meEinNoFace">...Мы ещё увидимся в будущем?</speak>
+            <show chara="einHappyLittleClose" position="right" opacity="0.7"/>
+            <show chara="karlThinkingClose" position="left"/>
+            <speak chara="karlNoFace">...</speak>
+            <show chara="karlFoolClose" position="left"/>
+            <speak chara="karlNoFace">Да, если у нас обоих будут каникулы.</speak>
+            <show chara="karlFoolClose" position="left" opacity="0.7"/>
+            <show chara="einSmileLittleClose" position="right"/>
+            <speak chara="meEinNoFace">Было бы здорово, будь Карл на пару лет моложе.</speak>
+            <show chara="einSmileLittleClose" position="right" opacity="0.7"/>
+            <show chara="karlFoolClose" position="left"/>
+            <speak chara="karlNoFace">А?</speak>
+            <show chara="karlFoolClose" position="left" opacity="0.7"/>
+            <show chara="einHappyLittleClose" position="right"/>
+            <speak chara="meEinNoFace">Если бы Карл был моложе... лет на десять? Я бы попыталась свести тебя с сестрой Эммой!</speak>
+            <show chara="einHappyLittleClose" position="right" opacity="0.7"/>
+            <show chara="karlShameClose" position="left"/>
+            <speak chara="karlNoFace">И-ик!</speak>
+            <speak chara="karlNoFace">Ах ты мелкая шкодница, у тебя всё больше и больше пакостных идей в голове!</speak>
+            <show chara="karlShameClose" position="left" opacity="0.7"/>
+            <show chara="einHappyLittleClose" position="right"/>
+            <speak chara="meEinNoFace">Хе-хе...</speak>
+            <show chara="einSmileLittleClose" position="right"/>
+            <speak chara="meEinNoFace">Эмма мне так и сказала:</speak>
+            <show chara="einProvocativeLittleClose" position="right"/>
+            <speak chara="meEinNoFace">«Мужчины на словах называют других испорченными, но в глубине души только и мечтают о том, чтобы испортиться самим!»</speak>
+            <show chara="einProvocativeLittleClose" position="right" opacity="0.7"/>
+            <show chara="karlShameClose" position="left"/>
+            <speak chara="karlNoFace">Эй! Чему это она тебя учит?!</speak>
+            <show chara="karlShameClose" position="left" opacity="0.7"/>
+            <show chara="einHappyLittleClose" position="right"/>
+            <speak chara="meEinNoFace">Хм... думаешь, я тебе скажу?</speak>
+            <show chara="einProvocativeLittleClose" position="right"/>
+            <speak chara="meEinNoFace">«Если сможешь сбросить лет двадцать, давай вместе станем учениками Эммы!»</speak>
+            <hide position="left"/>
+            <hide position="right"/>
+            <show chara="emmaPromiseSmileClose" position="center"/>
+            <speak chara="emmaNoFace">Ой, а звучит неплохо! Карл, тебе придётся постараться!</speak>
+            <hide position="center"/>
+            <show chara="emmaPromiseSmileClose" position="right" opacity="0.7"/>
+            <show chara="karlShameClose" position="left"/>
+            <speak chara="karlNoFace">Э-Эмма!? Когда ты...</speak>
+            <show chara="karlShameClose" position="left" opacity="0.7"/>
+            <show chara="emmaSmileClose" position="right"/>
+            <speak chara="emmaNoFace">Хе-хе, «Было бы здорово, если бы Карл был лет на десять моложе...»</speak>
+            <show chara="emmaPromiseSmileClose" position="right"/>
+            <speak chara="emmaNoFace">Даже если и не на десять лет моложе, ничего страшного!?</speak>
+            <show chara="emmaPromiseSmileClose" position="right" opacity="0.7"/>
+            <show chara="karlShameClose" position="left"/>
+            <speak chara="karlNoFace">А-а-а-а-а-а, да к чему всё это!!!</speak>
+            <goto goto="140" change="#ffffff"/>
+        </scene>
+        <scene id="140" background="westCliffWindow.jpg">
+            <bgm src="12_15_1946.mp3" status="continue"></bgm>
+            <text>В то время, хоть я и была ещё мала, но у меня уже было некое предчувствие.</text>
+            <text>«В будущем мы, наверное, вряд ли ещё увидимся».</text>
+            <text>Только в тот момент никто и подумать не мог...</text>
+            <text>Что тот последний день лета станет последним днём, когда траектории наших жизней пересеклись.</text>
+            <text>Карл был очень занятым человеком, и у него почти не бывало полноценных отпусков; а занимаясь исследованиями вместе с Планк, я тоже никак не могла назвать себя бездельницей.</text>
+            <text>Возможно, все думали: «В любом случае, в будущем у нас ещё будет время».</text>
+            <text>Вплоть до событий трёхлетней давности.</text>
+            <text>Да, 1 января 1952 года. В тот день, когда внезапно разразился Хонкай, уничтоживший весь город.</text>
+            <text>Он тогда находился в Берлине.</text>
+            <text>Да, в Берлине, в самом центре города.</text>
+            <goto goto="150" change="#ffffff"/>
+        </scene>
+        <scene id="150" background="hotelSw.jpg">
+            <bgm src="12_15_1946.mp3" status="continue"></bgm>
+            <show chara="karlSmileClose" position="left" opacity="0.7"/>
+            <show chara="emmaNormalClose" position="right"/>
+            <speak chara="emmaNoFace">Карл... В свой следующий отпуск ты ведь снова поедешь помогать детям в других местах, верно?</speak>
+            <show chara="emmaNormalClose" position="right" opacity="0.7"/>
+            <show chara="karlSmileClose" position="left"/>
+            <speak chara="karlNoFace">Ну... В общем-то да.</speak>
+            <speak chara="karlNoFace">Наша мелкая шкодница уже ведь нашла свой путь?</speak>
+            <speak chara="karlNoFace">А в этом мире ещё много тех, кто сбился с пути и нуждается в моей помощи, чтобы его найти.</speak>
+            <show chara="karlSmileClose" position="left" opacity="0.7"/>
+            <show chara="emmaSmileClose" position="right"/>
+            <speak chara="emmaNoFace">Ха-ха... Это так в твоём стиле.</speak>
+            <show chara="emmaSmileClose" position="right" opacity="0.7"/>
+            <show chara="karlFoolClose" position="left"/>
+            <speak chara="karlNoFace">...</speak>
+            <show chara="karlSmileClose" position="left"/>
+            <speak chara="karlNoFace">Что ж, Эмма, мне пора отправляться.</speak>
+            <show chara="karlSmileClose" position="left" opacity="0.7"/>
+            <show chara="emmaNormalClose" position="right"/>
+            <speak chara="emmaNoFace">...</speak>
+            <speak chara="emmaNoFace">Нет, погоди-ка.</speak>
+            <show chara="emmaNormalClose" position="right" opacity="0.7"/>
+            <show chara="karlShameClose" position="left"/>
+            <speak chara="karlNoFace">А?</speak>
+            <show chara="karlShameClose" position="left" opacity="0.7"/>
+            <show chara="emmaSmileClose" position="right"/>
+            <speak chara="emmaNoFace">Да нет, ничего страшного.</speak>
+            <show chara="emmaSmileClose" position="right"/>
+            <speak chara="emmaNoFace">Я помню... в школьные годы ты ведь пел в хоре?</speak>
+            <goto goto="160" change="#ffffff"/>
+        </scene>
+        <scene id="160" background="hotelSw.jpg">
+            <bgm src="12_15_1946.mp3" status="continue"></bgm>
+            <show chara="emmaBlackClose-up" position="center"/>
+            <speak chara="emmaNoFace">Ага, мне удалось одолжить инструменты.</speak>
+            <speak chara="emmaNoFace">Я сама выбрала песню, ты всё равно знаешь слова.</speak>
+            <speak chara="emmaNoFace">Чего застыл? Иди и тащи сюда эту мелкую шкодницу, сидящую вон там! Она же по своей глупости пытается оставить нас наедине!</speak>
+            <goto goto="170" change="#ffffff"/>
+        </scene>
+        <scene id="170" background="CG13-1.jpg">
+            <bgm src="10_20_londonderry_p.mp3" status="start"></bgm>
+            <speak chara="emmaNoFace">О, мальчик Дэнни, волынки, волынки зовут</speak>
+            <speak chara="emmaNoFace">От долины к долине, вниз по склонам гор</speak>
+            <speak chara="emmaNoFace">Лето прошло, и все розы увядают,</speak>
+            <speak chara="emmaNoFace">Тебе, это тебе пора уходить, а мне — ждать.</speak>
+            <speak chara="emmaNoFace">Но возвращайся, когда лето вернётся на луга,</speak>
+            <speak chara="emmaNoFace">Или когда долина затихнет под белым снегом,</speak>
+            <speak chara="emmaNoFace">Я буду здесь и в лучах солнца, и в тени,</speak>
+            <speak chara="emmaNoFace">О, мальчик Дэнни, о мальчик Дэнни, я так тебя люблю!</speak>
+            <speak chara="karlNoFace">Но когда ты вернёшься, и все цветы уже увянут,</speak>
+            <speak chara="karlNoFace">И я буду мёртв — ведь смерть ждёт каждого,</speak>
+            <speak chara="karlNoFace">Ты придёшь и найдёшь место, где я покоюсь,</speak>
+            <speak chara="karlNoFace">И преклонишь колени, и тихо скажешь мне «прощай»;</speak>
+            <speak chara="karlNoFace">И я услышу, хоть твои шаги и будут легки,</speak>
+            <speak chara="karlNoFace">И в моей могиле станет теплей и слаще,</speak>
+            <speak chara="karlNoFace">Потому что ты наклонишься и скажешь, что любишь меня,</speak>
+            <speak chara="karlNoFace">И я буду спать с миром, пока ты не придёшь ко мне...</speak>
+            <end post="U2FsdGVkX1+xkpSdMeRC3Mean98cjWF96OT3Viw3ijY="/>
+        </scene>
+    </story>
+</data>

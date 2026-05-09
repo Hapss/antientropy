@@ -1,0 +1,392 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data>
+    <story>
+        <scene id="0" background="bg.jpg">
+            <bgm src="mid-lude.mp3" status="start"></bgm>
+            <cg src="newсhapter.png" bg="bg.jpg"></cg>
+            <goto goto="10" change="#000000"/>
+        </scene>
+        <scene id="10" background="dreamSky.jpg">
+            <bgm src="03_03_bostonNight.mp3" status="start"></bgm>
+            <show chara="ottoShadowClose-up" position="center"/>
+            <speak chara="ottoShadowNoFace">Позволь мне рассказать тебе историю.</speak>
+            <speak chara="ottoShadowNoFace">Был один греческий герой... ха, хотя не так уж важно, откуда он родом.</speak>
+            <speak chara="ottoShadowNoFace">В общем, он был велик, поэтому люди сохранили корабль, на котором он совершал свои подвиги, как памятник.</speak>
+            <speak chara="ottoShadowNoFace">Но время безжалостно, и древесина, из которой был сделан этот корабль, постепенно сгнила.</speak>
+            <speak chara="ottoShadowNoFace">Чтобы этот великий корабль в конце концов не пришлось сжечь как подношение, местные жители придумали отличный способ:</speak>
+            <speak chara="ottoShadowNoFace">каждый год они осматривали все детали корабля, и если какие-то из них сильно сгнили, то их заменяли на новые.</speak>
+            <speak chara="ottoShadowNoFace">В результате, сто лет спустя, когда философ пришёл посмотреть на корабль, все его детали были заменены как минимум один раз.</speak>
+            <speak chara="ottoShadowNoFace">Услышав об этом, философ расстроился и спросил местных жителей: «Это всё ещё тот самый первоначальный корабль?»</speak>
+            <speak chara="ottoShadowNoFace">А местные жители беззаботно ответили:</speak>
+            <speak chara="ottoShadowNoFace">«Если вы говорите, что нет, господин философ, то, как Вы думаете, когда он перестал им быть?»</speak>
+            <speak chara="ottoShadowNoFace">«Вы же знаете, что кораблям время от времени нужно менять детали, даже во время плаваний великого героя».</speak>
+            <goto goto="20" change="#ffffff"/>
+        </scene>
+        <scene id="20" background="benchClinic.jpg">
+            <bgm src="morning.mp3" status="start"></bgm>
+            <speak chara="reannaNoNameNoFace">...</speak>
+            <text>Сон закончился.</text>
+            <text>Неизвестно почему, ты сидишь на скамейке в какой-то клинике.</text>
+            <text>Ах...</text>
+            <text>...Вспомнила, это та рыжеволосая ковбойша привела вас сюда.</text>
+            <text>Потому что ты спасла ей жизнь.</text>
+            <text>...Придя сюда, ты сама не заметила, как уснула сидя.</text>
+            <text>...Как стыдно. Для нынешней тебя расход энергии на «Нулевую мощность» должен быть ничтожным.</text>
+            <text>И всё же...</text>
+            <text>...Неужели, находясь рядом с этими людьми, ты слишком расслабилась морально?</text>
+            <text remark="next">К счастью, прошло не так много времени, и во влажном, холодном воздухе всё ещё витал запах карболовой кислоты.</text>
+            <remark post="U2FsdGVkX195uGGwk19hRG2IpYlg">
+                <p class="article-text-h">Примечание:</p>
+                <p class="article-text">Карболовая кислота, или фенол (химическая формула: PhOH), — простейшее фенольное органическое соединение. Её разбавленный раствор был первым дезинфицирующим средством, применённым в современной медицине. Фенол — небезопасный дезинфектор: его концентрированные растворы обладают сильной проникающей и коррозионной способностью для кожи, а также высокой токсичностью. В наше время он в основном используется в химическом синтезе, например, при производстве аспирина и фенолформальдегидных смол.</p>
+            </remark>
+            <text>Яркий утренний солнечный свет льётся из узкого окна в конце коридора: сильный контраст между светом и тенью придаёт этой обычной клинике странную, пугающую атмосферу.</text>
+            <goto goto="30" change="0"/>
+        </scene>
+        <scene id="30" background="wallClinic.jpg">
+            <bgm src="lab.mp3" status="start"></bgm>
+            <show chara="morganClose" position="left"/>
+            <speak chara="morganNoNameNoFace">Здравствуйте.</speak>
+            <show chara="morganClose" position="left" opacity="0.7"/>
+            <show chara="reaHahArmedClose" position="right"/>
+            <speak chara="reannaNoFace">З-здравствуйте.</speak>
+            <show chara="reaHahArmedClose" position="right" opacity="0.7"/>
+            <show chara="morganClose" position="left"/>
+            <text>Она с бесстрастным лицом протянула руку...</text>
+            <text>...похоже, намереваясь обменяться рукопожатием.</text>
+            <speak chara="morganNoNameNoFace">Микари Морган. Заведующая этой клиникой.</speak>
+            <show chara="morganClose" position="left" opacity="0.7"/>
+            <show chara="reaHahArmedClose" position="right"/>
+            <speak chara="reannaNoFace">Реанна Бригантия. Валькирия Шиксала.</speak>
+            <show chara="reaHahArmedClose" position="right" opacity="0.7"/>
+            <show chara="morganClose" position="left"/>
+            <speak chara="morganNoFace">Твои спутники восполняют энергию в соседней комнате... Не хочешь немного? Высококалорийная еда.</speak>
+            <show chara="morganClose" position="left" opacity="0.7"/>
+            <show chara="reaHahArmedClose" position="right"/>
+            <speak chara="reannaNoFace">А, нет, спасибо. Я... плотно позавтракала, ха-ха.</speak>
+            <show chara="reaHahArmedClose" position="right" opacity="0.7"/>
+            <show chara="morganClose" position="left"/>
+            <speak chara="morganNoFace">Вот как... тогда я наслажусь этим сама.</speak>
+            <text>С этими словами она развернула плитку шоколада и закинула кусочек в рот.</text>
+            <speak chara="morganNoFace">Кстати.</speak>
+            <speak chara="morganNoFace">Спасибо, что вовремя спасла Элейн. Эта идиотка без нас умерла бы уже несколько раз.</speak>
+            <speak chara="morganNoFace">Но мне вот интересно... что это за «полевое медицинское оборудование» такое у вас?</speak>
+            <show chara="morganClose" position="left" opacity="0.7"/>
+            <show chara="reaHahArmedClose" position="right"/>
+            <speak chara="reannaNoFace">Аха-ха... Ну, это...</speak>
+            <goto goto="40" change="#ffffff"/>
+        </scene>
+        <scene id="40" background="livingroomClinic.jpg">
+            <bgm src="lab.mp3" status="continue"></bgm>
+            <show chara="einSmileWinterClose" position="left"/>
+            <speak chara="einNoFace">М-м... Какая вкусная икра. И текстура у хлеба в самый раз.</speak>
+            <show chara="einSmileWinterClose" position="left" opacity="0.7"/>
+            <show chara="elaineSmileClose" position="right"/>
+            <speak chara="elaineNoFace">Я же говорила, да? У них всегда есть способы достать что-нибудь особенно вкусное.</speak>
+            <speak chara="elaineNoFace" remark="next">Например, эту каспийскую икру белуги, или те белые истрийские трюфели, или иберийский хамон...</speak>
+            <remark>
+                <p class="article-text-h">Примечание:</p>
+                <p class="article-text">Белуга (лат. Huso huso) — вид рыб семейства осетровых. Это одна из крупнейших пресноводных рыб в мире, а также самый крупный и ценный вид осетровых, длина которого может достигать более 8 метров, а вес — более 1 тонны. Икра белуги (особенно та, что добывается в устье Волги, близ Астрахани) имеет крупные икринки, гладкую текстуру и долгое послевкусие. Это самый вкусный и дорогой сорт икры в мире.</p>
+            </remark>
+            <show chara="elaineSmileClose" position="right" opacity="0.7"/>
+            <show chara="teslaSurpriseGlassWinterClose" position="left"/>
+            <speak chara="teslaNoFace">Что? Доктор Морган настолько богата?</speak>
+            <show chara="teslaSurpriseGlassWinterClose" position="left" opacity="0.7"/>
+            <show chara="elaineNormalClose" position="right"/>
+            <speak chara="elaineNoFace">Хм... сказать, что богата... или что у неё много связей...</speak>
+            <show chara="hellawesNormalClose" position="right"/>
+            <speak chara="hellawesNoNameNoFace">Кхм... какими бы хорошими ни были деликатесы, ими сыт не будешь, верно?</speak>
+            <speak chara="hellawesNoNameNoFace">А вот и бананово-шоколадный торт.</speak>
+            <show chara="hellawesNormalClose" position="right" opacity="0.7"/>
+            <show chara="teslaStarGlassWinterClose" position="left"/>
+            <speak chara="teslaNoFace">Ух ты, как пахнет!</speak>
+            <show chara="teslaStarGlassWinterClose" position="left" opacity="0.7"/>
+            <show chara="mbembaClose" position="right"/>
+            <speak chara="mbembaNoFace">Мм-м-м, пахнет даже лучше, чем печёт моя мама!</speak>
+            <show chara="hellawesNormalClose" position="right"/>
+            <speak chara="hellawesNoNameNoFace">Конечно, вы думаете, я зря ношу этот костюм крольчихи?</speak>
+            <show chara="hellawesNormalClose" position="right" opacity="0.7"/>
+            <show chara="teslaEatGlassWinterClose" position="left"/>
+            <speak chara="teslaNoFace">Тогда я приступлю!</speak>
+            <show chara="teslaEatGlassWinterClose" position="left" opacity="0.7"/>
+            <show chara="einSmileWinterClose" position="right"/>
+            <speak chara="einNoFace">Пф-ф-ф... ешь медленнее, не подавись.</speak>
+            <show chara="einSlyWinterClose" position="right"/>
+            <speak chara="einNoFace">Ах... похлопать тебя по спинке, чтобы срыгнула?</speak>
+            <show chara="einSlyWinterClose" position="right" opacity="0.7"/>
+            <show chara="teslaBiteGlassWinterClose" position="left"/>
+            <speak chara="teslaNoFace">...Не твоё дело! Зануда.</speak>
+            <show chara="teslaBiteGlassWinterClose" position="left" opacity="0.7"/>
+            <show chara="hellawesNormalClose" position="right"/>
+            <speak chara="hellawesNoNameNoFace">Кхм... а ведь она права. Даже если спешите, нужно тщательно пережёвывать еду.</speak>
+            <show chara="hellawesNormalClose" position="right" opacity="0.7"/>
+            <show chara="teslaErGlassWinterClose" position="left"/>
+            <speak chara="teslaNoFace">...Кстати, мисс Хелавис, а чем именно Вы помогаете доктору Морган?</speak>
+            <show chara="teslaErGlassWinterClose" position="left" opacity="0.7"/>
+            <show chara="hellawesNormalClose" position="right"/>
+            <speak chara="hellawesNoFace">Прямо сейчас... конечно же, подрабатываю медсестрой.</speak>
+            <speak chara="hellawesNoFace">Не смотри на мой наряд, у меня и правда есть лицензия, знаешь ли.</speak>
+            <speak chara="hellawesNoFace">Обычно в клинике не нужно столько рабочих рук... но всегда бывают исключения, верно?</speak>
+            <show chara="elaineNormalClose" position="right"/>
+            <speak chara="elaineNoFace">Как только вчера посреди ночи внезапно отключилось электричество, доктор Морган собрала нас всех здесь.</speak>
+            <show chara="elaineSmileClose" position="right"/>
+            <speak chara="elaineNoFace">Как видишь, вот она рядом даже не успела переодеться после ночной смены.</speak>
+            <show chara="elaineSmileClose" position="right" opacity="0.7"/>
+            <show chara="weltAstonishNewClose" position="left"/>
+            <speak chara="weltNoFace">Погодите... получается, вы изначально были сформированной... организацией?</speak>
+            <show chara="weltAstonishNewClose" position="left" opacity="0.7"/>
+            <show chara="hellawesNormalClose" position="right"/>
+            <speak chara="hellawesNoFace">Хм... слово «организация» звучит слишком громко...</speak>
+            <speak chara="hellawesNoFace">Но мы и правда что-то вроде «деловой команды».</speak>
+            <speak chara="hellawesNoFace">Мы с Персивалем отвечаем за сбор информации, Элейн занимается ведением дел и выбиванием долгов, а что касается доктора Морган... Она, конечно же, мозговой центр.</speak>
+            <show chara="hellawesNormalClose" position="right" opacity="0.7"/>
+            <show chara="weltNervousNewClose" position="left"/>
+            <speak chara="weltNoFace">Эм... так вы что...</speak>
+            <show chara="weltNervousNewClose" position="left" opacity="0.7"/>
+            <show chara="hellawesNormalClose" position="right"/>
+            <speak chara="hellawesNoFace">А? Мы не делаем ничего противозаконного, понятно?</speak>
+            <show chara="hellawesNormalClose" position="right" opacity="0.7"/>
+            <show chara="elaineSmileClose" position="right"/>
+            <speak chara="elaineNoFace">Хе-хе, вы слишком много надумываете.</speak>
+            <speak chara="elaineNoFace">Где бы эта кучка трусов набралась смелости заниматься делами, за которые можно лишиться головы? ...Ой, торт закончился!</speak>
+            <speak chara="elaineNoFace">Малышка Хела, давай откроем то! То самое! «Цветок Сены»!</speak>
+            <goto goto="50" change="0"/>
+        </scene>
+        <scene id="50" background="backdoorClinic.jpg">
+            <bgm src="lab.mp3" status="stop"></bgm>
+            <sound src="11_3_mess lock.mp3"/>
+            <show chara="percivalNormalClose" position="right"/>
+            <speak chara="percivalNoNameNoFace">Не надо ничего открывать!</speak>
+            <speak chara="percivalNoNameNoFace">Помогите мне!</speak>
+            <bgm src="10_25_noise.mp3" status="start"></bgm>
+            <text>В заднюю дверь клиники резко ворвался крепкий молодой человек в не по размеру сидящем белом халате.</text>
+            <show chara="percivalNormalClose" position="right" opacity="0.7"/>
+            <show chara="hellawesNormalClose" position="left"/>
+            <speak chara="hellawesNoFace">Персиваль, ты... Боже мой, кто-то ранен?</speak>
+            <show chara="hellawesNormalClose" position="left" opacity="0.7"/>
+            <show chara="percivalNormalClose" position="right"/>
+            <speak chara="percivalNoFace">Чего застыли? Быстрее несите его к доктору! Нужно спасать жизнь!</speak>
+            <text>Крепкий юноша сбросил с плеча умирающего мужчину в костюме, с ног до головы залитом кровью.</text>
+            <text>На спине мужчины было несколько длинных ран. Судя по разорванной одежде, сверху они были глубокими, а снизу более мелкими.</text>
+            <show chara="percivalNormalClose" position="right" opacity="0.7"/>
+            <show chara="weltQuestionNewClose" position="left"/>
+            <speak chara="weltNoFace">Это... царапины от когтей зверя?</speak>
+            <show chara="weltQuestionNewClose" position="left" opacity="0.7"/>
+            <show chara="percivalNormalClose" position="right"/>
+            <speak chara="percivalNoFace">Не знаю!</speak>
+            <speak chara="percivalNoFace">Оставляю его на вас, там у дверей лежит ещё один!</speak>
+            <goto goto="60" change="#ffffff"/>
+        </scene>
+        <scene id="60" background="wallClinic.jpg">
+            <bgm src="04_20_tank.mp3" status="start"></bgm>
+            <show chara="elaineNormalClose" position="right"/>
+            <speak chara="elaineNoFace">...Микари! Как он?</speak>
+            <show chara="elaineNormalClose" position="right" opacity="0.7"/>
+            <show chara="morganClose" position="left"/>
+            <speak chara="morganNoFace">Всего лишь поверхностные раны, ничего страшного.</speak>
+            <show chara="morganClose" position="left" opacity="0.7"/>
+            <show chara="weltAstonishNewClose" position="right"/>
+            <speak chara="weltNoFace">...А?</speak>
+            <show chara="weltAstonishNewClose" position="right" opacity="0.7"/>
+            <show chara="morganClose" position="left"/>
+            <speak chara="morganNoFace">Крупные артерии и главные нервы не задеты, это обычные разрывы мышц. Полежит в покое месяц-другой и поправится.</speak>
+            <speak chara="morganNoFace">Вот только...</speak>
+            <show chara="morganClose" position="left" opacity="0.7"/>
+            <show chara="weltQuestionNewClose" position="right"/>
+            <speak chara="weltNoFace">Только что?</speak>
+            <show chara="weltQuestionNewClose" position="right" opacity="0.7"/>
+            <show chara="morganClose" position="left"/>
+            <speak chara="morganNoFace">...Ладно, пусть мисс Бригантия, которая так любит всё объяснять, расскажет вам. А мне ещё нужно наложить им швы.</speak>
+            <hide position="left"></hide>
+            <show chara="reaHahArmedClose" position="right"/>
+            <speak chara="reannaNoFace">Аха-ха... Недавнее... и правда нужно было сохранить в тайне от вас, простите.</speak>
+            <show chara="reaHahArmedClose" position="right" opacity="0.7"/>
+            <show chara="teslaBiteGlassWinterClose" position="left"/>
+            <speak chara="teslaNoFace">Тц, хватит уже извиняться.</speak>
+            <show chara="teslaEmbarraGlassWinterClose" position="left"/>
+            <speak chara="teslaNoFace">Реанна, что вообще произошло?</speak>
+            <show chara="teslaEmbarraGlassWinterClose" position="left" opacity="0.7"/>
+            <show chara="reaSeriousArmedClose" position="right"/>
+            <speak chara="reannaNoFace">В их ранах наблюдаются признаки эрозии от энергии Хонкая. Хоть и не сильные, но без сомнения, это дело когтей зверя Хонкая.</speak>
+            <show chara="reaNormalArmedClose" position="right"/>
+            <speak chara="reannaNoFace">Кроме того, края ран пугающе гладкие, что свидетельствует об аномально быстрых атаках врага. Обычному человеку защититься от такого очень трудно.</speak>
+            <show chara="reaSeriousArmedClose" position="right"/>
+            <speak chara="reannaNoFace">Поэтому...</speak>
+            <show chara="reaSmileArmedClose" position="right"/>
+            <bgm src="04_20_Brigantia.mp3" status="start"></bgm>
+            <speak chara="reannaNoFace">Вы оставайтесь здесь и помогайте доктору, а я пойду и уничтожу его.</speak>
+            <show chara="reaSmileArmedClose" position="right" opacity="0.7"/>
+            <show chara="einSeriousEmWinterClose" position="left"/>
+            <speak chara="einNoFace">...Ты уверена? А вдруг это какая-то ловушка?</speak>
+            <show chara="einSeriousEmWinterClose" position="left" opacity="0.7"/>
+            <show chara="reaEmbarraArmedClose" position="right"/>
+            <speak chara="reannaNoFace">Доктор, я уничтожила множество зверей Хонкая... но ни один из них не мог сравниться интеллектом с человеком, да и вообще с млекопитающим.</speak>
+            <show chara="reaSmileArmedClose" position="right"/>
+            <speak chara="reannaNoFace">Клиника только что не подверглась прямой атаке. Учитывая их модель поведения, в ближайшее время здесь будет абсолютно безопасно.</speak>
+            <show chara="reaLaughArmedClose" position="right"/>
+            <speak chara="reannaNoFace">К тому же, если я не ошибаюсь...</speak>
+            <show chara="reaSmileArmedClose" position="right"/>
+            <speak chara="reannaNoFace">...у вас в рукаве тоже есть козырь, верно?</speak>
+            <show chara="reaSmileArmedClose" position="right" opacity="0.7"/>
+            <show chara="einFoolWinterClose" position="left"/>
+            <speak chara="einNoFace">...</speak>
+            <goto goto="70" change="#ffffff"/>
+        </scene>
+        <scene id="70" background="livingroomClinic.jpg">
+            <bgm src="04_20_Brigantia.mp3" status="continue"></bgm>
+            <text>Таинственно подмигнув, Реанна взяла Цветок Бездны и покинула клинику.</text>
+            <bgm src="04_20_tank.mp3" status="start"></bgm>
+            <show chara="elaineNormalClose" position="left"/>
+            <speak chara="elaineNoFace">Козырь? О чём она?</speak>
+            <show chara="elaineNormalClose" position="left" opacity="0.7"/>
+            <show chara="weltNervousNewClose" position="right"/>
+            <speak chara="weltNoFace">Эм...</speak>
+            <show chara="teslaErGlassWinterClose" position="right"/>
+            <speak chara="teslaNoFace">Ну...</speak>
+            <show chara="einSmileWinterClose" position="right"/>
+            <speak chara="einNoFace">Вот.</speak>
+            <text>Кудрявая девушка неизвестно откуда достала пригоршню серебристо-серых пуль и протянула их рыжеволосой ковбойше.</text>
+            <show chara="einSmileWinterClose" position="right" opacity="0.7"/>
+            <show chara="elaineNormalClose" position="left"/>
+            <speak chara="elaineNoFace">Это...</speak>
+            <show chara="elaineNormalClose" position="left" opacity="0.7"/>
+            <show chara="einSlyWinterClose" position="right"/>
+            <speak chara="einNoFace" remark="next">Серебряная пуля.</speak>
+            <remark>
+                <p class="article-text-h">Примечание:</p>
+                <p class="article-text">Серебряная пуля — это пуля, отлитая из серебра. В европейском средневековом фольклоре изделия из серебра, такие как серебряные ножи или вилки, считались единственным эффективным оружием против оборотней, ведьм и прочих чудовищ. В переносном смысле термин «серебряная пуля» означает мощное, простое и безотказное средство для решения любой проблемы — некий «универсальный козырь».</p>
+            </remark>
+            <show chara="einSlyWinterClose" position="right" opacity="0.7"/>
+            <show chara="elaineNormalClose" position="left"/>
+            <speak chara="elaineNoFace">А?</speak>
+            <show chara="elaineNormalClose" position="left" opacity="0.7"/>
+            <show chara="einLveWinterClose" position="right"/>
+            <speak chara="einNoFace">Шучу, на самом деле такого названия нет.</speak>
+            <show chara="einSmileWinterClose" position="right"/>
+            <speak chara="einNoFace" remark="next">«Пули Астра» — это боеприпасы, изготовленные из сплава, который изобрела присутствующая здесь доктор Тесла. Они обладают весьма хорошим бронебойным эффектом против зверей Хонкая.</speak>
+            <remark post="U2FsdGVkX18Mxo5Y1tbHXcnS6m3z">
+                <p class="article-text-h">Примечание:</p>
+                <p class="article-text">«Астра» (санскр. अस्त्र) — это собирательное название сверхъестественного оружия в индийской мифологии, которое даруется богами.</p>
+                <p class="article-text">Например, Пашупатастра (Pashupatastra) — это «Астра», дарованная Шивой (бог разрушения и повелитель зверей в индуизме) Арджуне. Считается, что её мощь способна уничтожить всю вселенную.</p>
+            </remark>
+            <show chara="einSmileWinterClose" position="right" opacity="0.7"/>
+            <show chara="teslaErGlassWinterClose" position="right"/>
+            <speak chara="teslaNoFace">А... да... ха-ха... можно сказать, что они довольно эффективны?</speak>
+            <show chara="teslaShameGlassWinterClose" position="right"/>
+            <speak chara="teslaNoFace" remark="next">Кстати говоря, хоть это и бронебойные пули, но они калибра .45... у вас есть подходящее оружие для них?</speak>
+            <remark>
+                <p class="article-text-h">Примечание:</p>
+                <p class="article-text">.45 Auto (патрон .45 калибра для автоматических пистолетов), также известный как .45 ACP (Automatic Colt Pistol, автоматический пистолет Кольта), — это тип патронов, используемый во многих американских пистолетах и пистолетах-пулемётах. Его тяжёлая пуля на дозвуковой скорости способна легко нанести смертельный урон незащищённым целям...</p>
+                <p class="article-text">...Однако в нашей истории Тесла пошла иным путём. Она использовала эффект самозатачивания Тюр-сплава — особую способность урана разжижаться и пробивать броню при высокоскоростном вращательном трении — и, вопреки обыкновению, создала эту сверхзвуковую бронебойную пулю .45 калибра, которую можно использовать даже в лёгком стрелковом оружии.</p>
+                <p class="article-text">P.S. «.45» означает, что диаметр пули составляет приблизительно 0,45 дюйма.</p>
+            </remark>
+            <goto goto="80" change="#ffffff"/>
+        </scene>
+        <scene id="80" background="livingroomClinic.jpg">
+            <bgm src="04_20_tank.mp3" status="continue"></bgm>
+            <show chara="elaineSmileClose" position="left"/>
+            <speak chara="elaineNoFace">Хе-хе...</speak>
+            <speak chara="elaineNoFace">Давайте! Каждому по «пишущей машинке»!</speak>
+            <show chara="elaineSmileClose" position="left" opacity="0.7"/>
+            <show chara="mbembaClose" position="right"/>
+            <speak chara="mbembaNoFace" remark="next">Ого, Томпсон! С такой штукой в руках вообще ничего не страшно.</speak>
+            <remark>
+                <p class="article-text-h">Примечание:</p>
+                <p class="article-text">«Чикагская пишущая машинка» — это популярное прозвище пистолета-пулемёта Томпсона, полученное им из-за звука стрельбы, похожего на стук клавиш печатной машинки, а также за то, что он был излюбленным оружием чикагских гангстеров в 1930-х годах. Выдающаяся убойная сила на коротких дистанциях сделала серию Томпсона одним из самых популярных пистолетов-пулемётов в мире на тот момент, уступая лишь советской серии «ППШ».</p>
+            </remark>
+            <show chara="mbembaClose" position="right" opacity="0.7"/>
+            <show chara="weltAstonishNewClose" position="left"/>
+            <speak chara="weltNoFace">...Это ведь пистолет-пулемёт? У нас вообще есть столько боеприпасов?</speak>
+            <show chara="weltAstonishNewClose" position="left" opacity="0.7"/>
+            <show chara="teslaShameGlassWinterClose" position="right"/>
+            <speak chara="teslaNoFace">Об этом можешь не волноваться! В спорткаре, на котором мы приехали, спрятан целый ящик под завязку!</speak>
+            <show chara="teslaShameGlassWinterClose" position="right" opacity="0.7"/>
+            <show chara="weltEmbarraNewClose" position="left"/>
+            <speak chara="weltNoFace">Целый... ящик под завязку?!</speak>
+            <show chara="weltEmbarraNewClose" position="left" opacity="0.7"/>
+            <show chara="teslaErGlassWinterClose" position="right"/>
+            <speak chara="teslaNoFace">...А что, разве ты не думаешь, что это вполне в её стиле? Массовое производство, а потом заначки на всякий случай по всем углам?</speak>
+            <show chara="teslaErGlassWinterClose" position="right" opacity="0.7"/>
+            <show chara="weltAstonishNewClose" position="left"/>
+            <speak chara="weltNoFace">В её...?</speak>
+            <show chara="weltAstonishNewClose" position="left" opacity="0.7"/>
+            <bgm src="04_20_tank.mp3" status="stop"></bgm>
+            <show chara="teslaBoringGlassWinterClose" position="right"/>
+            <speak chara="teslaNoFace">...</speak>
+            <bgm src="10_25_noise.mp3" status="start"></bgm>
+            <show chara="teslaDisgustedGlassWinterClose" position="right"/>
+            <speak chara="teslaNoFace">Эдисон!</speak>
+            <show chara="teslaEmbarraGlassWinterClose" position="right"/>
+            <speak chara="teslaNoFace">...</speak>
+            <show chara="teslaEmbarraGlassWinterClose" position="right" opacity="0.7"/>
+            <show chara="weltAstonishNewClose" position="left"/>
+            <speak chara="weltNoFace">Эм... ты... злишься на мисс Нэнси?</speak>
+            <show chara="weltAstonishNewClose" position="left" opacity="0.7"/>
+            <show chara="teslaNormalGlassWinterClose" position="right"/>
+            <speak chara="teslaNoFace">...</speak>
+            <show chara="teslaSmileGlassWinterClose" position="right"/>
+            <speak chara="teslaNoFace">...Можешь ты сегодня хоть немного реже упоминать это имя, а?</speak>
+            <show chara="teslaAngryGlassWinterClose" position="right"/>
+            <shake position="right" time="250"></shake>
+            <speak chara="teslaNoFace">...Как вспомню, так бесит!</speak>
+            <show chara="teslaBiteGlassWinterClose" position="right"/>
+            <speak chara="teslaNoFace">Бесит больше, чем комары, больше, чем блохи, и в сотни тысяч раз больше, чем зелёные мясные мухи!</speak>
+            <show chara="teslaBiteGlassWinterClose" position="right" opacity="0.7"/>
+            <show chara="weltSorryNewClose" position="left"/>
+            <speak chara="weltNoFace">П-прости.</speak>
+            <show chara="weltSorryNewClose" position="left" opacity="0.7"/>
+            <show chara="teslaEmbarraGlassWinterClose" position="right"/>
+            <speak chara="teslaNoFace">...</speak>
+            <show chara="teslaBiteGlassWinterClose" position="right"/>
+            <speak chara="teslaNoFace">Тц. Вот дурак.</speak>
+            <show chara="teslaBiteGlassWinterClose" position="right" opacity="0.7"/>
+            <show chara="weltAstonishNewClose" position="left"/>
+            <speak chara="weltNoFace">Э...?</speak>
+            <show chara="weltAstonishNewClose" position="left" opacity="0.7"/>
+            <show chara="teslaNormalGlassWinterClose" position="right"/>
+            <speak chara="teslaNoFace">Это не то, за что ты должен передо мной извиняться.</speak>
+            <speak chara="teslaNoFace">...</speak>
+            <show chara="teslaAstonishGlassWinterClose" position="right"/>
+            <speak chara="teslaNoFace">Если с ними что-то случится, сможешь ли ты вернуть их целыми и невредимыми?</speak>
+            <show chara="teslaDisgustedGlassWinterClose" position="right"/>
+            <speak chara="teslaNoFace">Сможешь?</speak>
+            <show chara="teslaAstonishGlassWinterClose" position="right"/>
+            <speak chara="teslaNoFace">Отвечай, а?!</speak>
+            <goto goto="90" change="0"/>
+        </scene>
+        <scene id="90" background="backdoorClinic.jpg">
+            <bgm src="10_25_noise.mp3" status="stop"></bgm>
+            <sound src="8_24_knock_door.mp3"/>
+            <text>Тук.</text>
+            <sound src="8_24_knock_door.mp3"/>
+            <text>Тук-тук.</text>
+            <sound src="8_24_knock_door.mp3"/>
+            <text>Тук-тук-тук.</text>
+            <goto goto="100" change="0"/>
+        </scene>
+        <scene id="100" background="livingroomClinic.jpg">
+            <bgm src="10_25_noise.mp3" status="stop"></bgm>
+            <show chara="elaineNormalClose" position="right"/>
+            <speak chara="elaineNoFace">...Кто-то стучит в дверь?</speak>
+            <show chara="elaineNormalClose" position="right" opacity="0.7"/>
+            <show chara="mbembaClose" position="left"/>
+            <speak chara="mbembaNoFace">...Я пойду посмотрю.</speak>
+            <goto goto="105" change="#ffffff"/>
+        </scene>
+        <scene id="105" background="white">
+            <bgm src="10_25_noise.mp3" status="stop"></bgm>
+            <sound src="hit man.mp3"/>
+            <speak chara="mbembaNoFace">Ува-а!</speak>
+            <goto goto="110" change="0"/>
+        </scene>
+        <scene id="110" background="CG21.jpg">
+            <bgm src="8_24_war.mp3" status="start"></bgm>
+            <speak chara="mbembaNoFace">Ч-что... Вы делаете...?</speak>
+            <speak chara="schroCatNoNameNoFace">С дороги, мелкая сошка.</speak>
+            <speak chara="schroCatNoNameNoFace">Я пришла за тем смазливым мальчишкой позади тебя.</speak>
+            <speak chara="schroCatNoNameNoFace">...Да, я говорю о тебе.</speak>
+            <speak chara="schroCatNoNameNoFace">...Выходи, Вельт.</speak>
+            <speak chara="schroCatNoNameNoFace">...И умри.</speak>
+            <end post="U2FsdGVkX18B8yapKZq9zigEFiYZ"/>
+        </scene>
+    </story>
+</data>

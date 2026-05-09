@@ -1,0 +1,361 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data>
+    <story>
+        <scene id="0" background="bg.jpg">
+            <bgm src="mid-lude.mp3" status="start"></bgm>
+            <cg src="newсhapter.png" bg="bg.jpg"></cg>
+            <goto goto="10" change="#000000"/>
+        </scene>
+        <scene id="10" background="streetProvidence.jpg">
+            <bgm src="03_03_bostonNight.mp3" status="start"></bgm>
+            <text>Улица впереди была залита лужами.</text>
+            <text>Вопреки суровой ноябрьской погоде, вода в них совсем не была ледяной — от неё даже веяло теплом.</text>
+            <text>Ранние дикие утки вопреки сезону беззаботно плавали в этих лужах.</text>
+            <text>Однако...</text>
+            <text>Всё, что происходит в реальном мире, не может быть таким же прекрасным, как кажется на первый, поверхностный взгляд.</text>
+            <text>Как и дорога под этой водой: неровная, скользкая, липкая, да ещё и усеянная острыми твёрдыми предметами, по ней было просто невозможно идти.</text>
+            <show chara="einFoolWinterClose" position="center"/>
+            <speak chara="einNoFace">Я нашла виновника проколотой шины.</speak>
+            <hide position="center"/>
+            <text>Юноша посмотрел туда, куда указывала девушка, и увидел несколько огромных острых «ракушек», намертво впившихся в спущенное правое заднее колесо спорткара.</text>
+            <text>Взбаламученная колёсами вода немного прояснилась, и Вельт смог разглядеть густо поросшие там жуткие организмы.</text>
+            <text>Серо-белые с тёмно-пурпурным «ракушки» — такие же известковые острые конусы, как те, что впились в шину — беспорядочно теснились друг к другу.</text>
+            <text>Трудно было сказать, моллюски это или что-то иное.</text>
+            <text>Короче говоря, если бы всем демонам в аду отрубили когти и сложили их вместе, как сардины в банке — получилось бы примерно то, что они видели перед собой.</text>
+            <show chara="teslaBiteGlassWinterClose" position="left"/>
+            <speak chara="teslaNoFace" remark="next">Если вкратце... на этой бетонной дороге... выросли морские жёлуди, в несколько раз крупнее обычных.</speak>
+            <remark>
+                <p class="article-text-h">Примечание:</p>
+                <p class="article-text">В обычном контексте морские жёлуди (балянусы) — это обширная группа усоногих ракообразных, ведущих прикреплённый образ жизни. В основном они селятся на скалах, но иногда прикрепляются к корягам, днищам кораблей, панцирям крабов и раковинам моллюсков, а некоторые специализированные виды даже паразитируют прямо на китах (так называемые «китовые вши»).</p>
+                <p class="article-text">P.S. Поиск фотографий морских желудей (особенно китовых) может вызвать неприятные ощущения, поэтому игрокам стоит проявлять осторожность в своём любопытстве.</p>
+            </remark>
+            <text>Стильно одетая девушка констатировала это сквозь стиснутые зубы; казалось, она не в силах справиться с таким скоплением ракообразных.</text>
+            <show chara="teslaBiteGlassWinterClose" position="left" opacity="0.7"/>
+            <show chara="weltEmbarraNewClose" position="right"/>
+            <speak chara="weltNoFace">Морские жёлуди... это ведь морские обитатели?</speak>
+            <speak chara="weltNoFace">Здесь... пусть даже море и близко, но всё же...</speak>
+            <show chara="weltEmbarraNewClose" position="right" opacity="0.7"/>
+            <show chara="teslaBiteGlassWinterClose" position="left"/>
+            <speak chara="teslaNoFace">Я и сама это прекрасно знаю!</speak>
+            <show chara="teslaDisgustedGlassWinterClose" position="left"/>
+            <speak chara="teslaNoFace">От этого ведь только страшнее, нет?!</speak>
+            <show chara="teslaAstonishGlassWinterClose" position="left"/>
+            <speak chara="teslaNoFace">Эта мерзость, которая ни за что не появилась бы вдали от моря, просто взяла и проколола нам шину?!</speak>
+            <show chara="teslaAstonishGlassWinterClose" position="left" opacity="0.7"/>
+            <show chara="einNormalWinterClose" position="right"/>
+            <speak chara="einNoFace">22 февраля 1861 года во время сильной бури в Сингапуре с неба обрушился дождь из бесчисленного множества морских рыб.</speak>
+            <speak chara="einNoFace">Но эти прочно приросшие к лужам морские жёлуди не могли упасть с неба.</speak>
+            <speak chara="einNoFace">...Где мы сейчас точно находимся?</speak>
+            <show chara="einNormalWinterClose" position="right" opacity="0.7"/>
+            <show chara="teslaNormalGlassWinterClose" position="left"/>
+            <speak chara="teslaNoFace">Потакет-авеню... район Хоуп-стрит.</speak>
+            <text>Стильно одетая девушка изучала карту в своих руках:</text>
+            <speak chara="teslaNoFace">Слева неподалёку находится кладбище Свон-Пойнт; а за кладбищем — воронкообразное устье реки Сиконк.</speak>
+            <speak chara="teslaNoFace">Если мы собираемся провести разведку на местности, то это будет такой вот треугольник: от Бенсли-Пойнт до парка Липпитт, а затем до парка Блэкстоун...</speak>
+            <hide position="left"/>
+            <hide position="right"/>
+            <bgm src="03_03_bostonNight.mp3" status="stop"></bgm>
+            <speak chara="reannaNoNameNoFace">Но в центре всего всё равно это кладбище, верно?</speak>
+            <speak chara="reannaNoNameNoFace">Боже, почему наши с вами встречи вечно как-то связаны с кладбищами?</speak>
+            <speak chara="teslaNoFace">Кто здесь?</speak>
+            <show chara="reaSmileArmedClose" position="center"/>
+            <text>«Незваная гостья», чьих шагов совершенно не было слышно, с ног до головы была облачена в специальный боевой костюм...</text>
+            <speak chara="einNoFace">А...</speak>
+            <speak chara="weltNoFace">...Реанна?</speak>
+            <goto goto="20" change="#ffffff"/>
+        </scene>
+        <scene id="20" background="streetProvidence.jpg">
+            <bgm src="10_20_PeerGynt.mp3" status="start"></bgm>
+            <show chara="reaLaughArmedClose" position="right"/>
+            <speak chara="reannaNoFace">...В таком наряде меня, наверное, трудно узнать?</speak>
+            <show chara="reaLaughArmedClose" position="right" opacity="0.7"/>
+            <show chara="teslaBoringGlassWinterClose" position="left"/>
+            <speak chara="teslaNoFace">Эм...</speak>
+            <speak chara="teslaNoFace">(Её боевой костюм... не сияет золотом и даже не сине-белый...)</speak>
+            <show chara="teslaBoringGlassWinterClose" position="left" opacity="0.7"/>
+            <show chara="reaEmbarraArmedClose" position="right"/>
+            <speak chara="reannaNoFace">А? Что?</speak>
+            <show chara="reaEmbarraArmedClose" position="right" opacity="0.7"/>
+            <show chara="teslaErGlassWinterClose" position="left"/>
+            <speak chara="teslaNoFace">Эм. Ничего, ничего.</speak>
+            <show chara="teslaNormalGlassWinterClose" position="left"/>
+            <speak chara="teslaNoFace">Оставим это... Почему ты здесь, Реанна?</speak>
+            <speak chara="teslaNoFace">Разве ты не валькирия штаб-квартиры?</speak>
+            <show chara="teslaNormalGlassWinterClose" position="left" opacity="0.7"/>
+            <show chara="reaHahArmedClose" position="right"/>
+            <speak chara="reannaNoFace">А, ты об этом...</speak>
+            <show chara="reaSmileArmedClose" position="right"/>
+            <speak chara="reannaNoFace">Я, как и вы, вообще-то была в отпуске, знаешь ли.</speak>
+            <show chara="reaSmileArmedClose" position="right" opacity="0.7"/>
+            <show chara="teslaSurpriseGlassWinterClose" position="left"/>
+            <speak chara="teslaNoFace">Э?</speak>
+            <show chara="teslaSurpriseGlassWinterClose" position="left" opacity="0.7"/>
+            <show chara="reaHahArmedClose" position="right"/>
+            <speak chara="reannaNoFace" remark="next">Я даже заранее купила билеты на паром до Нантакета, чтобы посетить музей китобойного промысла...</speak>
+            <remark post="U2FsdGVkX1+nM00AVZfqWdagRa33">
+                <p class="article-text-h">Примечание:</p>
+                <p class="article-text">Нантакет — остров на юго-западе штата Массачусетс, США, и один из мировых центров китобойного промысла в прошлом. В знаменитом романе Германа Мелвилла «Моби Дик, или Белый кит» китобойное судно «Пекод» отправляется в своё кругосветное плавание именно отсюда.</p>
+            </remark>
+            <show chara="reaSeriousArmedClose" position="right"/>
+            <speak chara="reannaNoFace">Но, как видите, вчера рано утром произошла эта аномальная ситуация.</speak>
+            <show chara="reaNormalArmedClose" position="right"/>
+            <speak chara="reannaNoFace">...А вы-то что? Собираетесь охотиться с голыми руками?</speak>
+            <speak chara="reannaNoFace">На улицах непонятно откуда выросли морские жёлуди; а когда доберётесь до кладбища, как вы будете справляться со зверями Хонкая, если они вам встретятся?</speak>
+            <show chara="reaNormalArmedClose" position="right" opacity="0.7"/>
+            <show chara="teslaShameGlassWinterClose" position="left"/>
+            <speak chara="teslaNoFace">Хоть это и вышло случайно, но об этом и правда не стоит слишком беспокоиться.</speak>
+            <speak chara="teslaNoFace">Ещё немного подождём, и мы вооружимся до зубов.</speak>
+            <show chara="teslaShameGlassWinterClose" position="left" opacity="0.7"/>
+            <show chara="weltAstonishNewClose" position="right"/>
+            <speak chara="weltNoFace">???</speak>
+            <show chara="reaNormalArmedClose" position="right"/>
+            <speak chara="reannaNoFace">..?</speak>
+            <show chara="reaNormalArmedClose" position="right" opacity="0.7"/>
+            <show chara="teslaErGlassWinterClose" position="left"/>
+            <speak chara="teslaNoFace">А... ну... нам удалось связаться с одним местным ведомством.</speak>
+            <speak chara="teslaNoFace">Эм? Как... как там оно называлось?</speak>
+            <show chara="einNormalWinterClose" position="left"/>
+            <speak chara="einNoFace">Федеральное агентство по управлению в чрезвычайных ситуациях, специальный офис связи в Провиденсе.</speak>
+            <speak chara="einNoFace">Это ведомство, созданное совместно североамериканским филиалом и правительством США.</speak>
+            <speak chara="einNoFace">Согласно их уставу, в данный момент Тесла обладает временным правом командования этим отделом.</speak>
+            <show chara="teslaErGlassWinterClose" position="left"/>
+            <speak chara="teslaNoFace">Кхм-кхм... большое спасибо за краткий пересказ.</speak>
+            <show chara="teslaSnickerGlassWinterClose" position="left"/>
+            <speak chara="teslaNoFace">В общем, мы договорились встретиться с ними на центральной лужайке ближайшего университета...</speak>
+            <speak chara="teslaNoFace">Не хочешь пойти с нами?</speak>
+            <goto goto="30" change="#ffffff"/>
+        </scene>
+        <scene id="30" background="universityMorning.jpg">
+            <bgm src="themeTesla.mp3" status="start"></bgm>
+            <show chara="tank" position="back"/>
+            <show chara="mbembaClose" position="left"/>
+            <show chara="alexClose" position="right"/>
+            <show chara="yuriSadClose" position="center"/>
+            <text>Трое парней, высоких и низких, полных и худых, а также две бронемашины, которые выглядели так, будто совершенно не способны решить проблему.</text>
+            <text>Оглянувшись на валькирию Реанну, а затем посмотрев на стоящих перед ней «госслужащих», Тесла почувствовала сильную боль в желудке.</text>
+            <goto goto="40" change="0"/>
+        </scene>
+        <scene id="40" background="universityMorning.jpg">
+            <bgm src="10_25_noise.mp3" status="start"></bgm>
+            <show chara="tank" position="back"/>
+            <show chara="teslaErGlassWinterClose" position="left"/>
+            <speak chara="teslaNoFace">Так... вас только трое? И все парни?</speak>
+            <show chara="teslaErGlassWinterClose" position="left" opacity="0.7"/>
+            <show chara="yuriSeriousClose" position="right"/>
+            <speak chara="yuriNoFace">...Ну... простите.</speak>
+            <text>Самый низкий из троих, Юрий, был их представителем.</text>
+            <show chara="yuriSadClose" position="right"/>
+            <speak chara="yuriNoFace">Я дежурил в ночную смену... Мбемба вообще живёт в офисе... а Алекс снимает квартиру неподалёку.</speak>
+            <speak chara="yuriNoFace">В условиях отсутствия связи мы трое — единственные, кто смог собраться за такое короткое время... ничего не поделаешь.</speak>
+            <show chara="yuriSadClose" position="right" opacity="0.7"/>
+            <show chara="teslaDisgustedGlassWinterClose" position="left"/>
+            <speak chara="teslaNoFace">Я вам говорю, сейчас вообще-то происшествие, связанное с Хонкаем!</speak>
+            <show chara="teslaBiteGlassWinterClose" position="left"/>
+            <speak chara="teslaNoFace">Какой мне толк от нескольких мужчин, у которых от природы низкая сопротивляемость?</speak>
+            <show chara="teslaErGlassWinterClose" position="left"/>
+            <speak chara="teslaNoFace">А ты ещё говорил, что «у вас есть средства для решения проблемы»...</speak>
+            <show chara="teslaDisgustedGlassWinterClose" position="left"/>
+            <speak chara="teslaNoFace">...С помощью этих танков, которые даже армия считает древним хламом?</speak>
+            <show chara="teslaErGlassWinterClose" position="left"/>
+            <speak chara="teslaNoFace">А как же те новые прототипы мехов? Хоть они ещё и не запущены в серийное производство, неужели вам не выделили ни одного?</speak>
+            <show chara="teslaErGlassWinterClose" position="left" opacity="0.7"/>
+            <show chara="mbembaClose" position="right"/>
+            <speak chara="mbembaNoFace" remark="next">Этот танк действительно переделан из «Шермана II», но в него встроена броня из Тюр-сплава, а также добавлены мощные огнемёты и распылители химикатов.</speak>
+            <remark>
+                <p class="article-text-h">Примечание:</p>
+                <p class="article-text">Средний танк M4 был разработан и производился США во время Второй мировой войны и имеет множество модификаций. Его общепринятое название «Шерман» — это прозвище, данное британской армией в честь «генерала-дьявола» армии Севера Уильяма Текумсе Шермана времён Гражданской войны в США.</p>
+                <p class="article-text">Во время битвы за Саванну в 1864 году (известной как Марш Шермана к морю) войска под командованием Шермана применяли тактику выжженной земли, разрушив огромное количество инфраструктуры Юга и нанеся жестокий удар по благосостоянию и боевому духу армии и мирного населения южан.</p>
+            </remark>
+            <show chara="yuriSadClose" position="right"/>
+            <speak chara="yuriNoFace">По словам... мисс Эдисон... тактические мехи стоят слишком дорого, и при столкновении с обычным Хонкаем гораздо... выгоднее использовать такое вот модифицированное оборудование обычной армии.</speak>
+            <show chara="alexClose" position="right"/>
+            <speak chara="alexNoFace" remark="next">Добавлю. Так называемый «Тюр-сплав» — это название, придуманное мисс Эдисон. На самом деле это цементированный титано-урановый сплав...</speak>
+            <remark post="U2FsdGVkX18qFb5k3RSFaoDOxcnk">
+                <p class="article-text-h">Примечание:</p>
+                <p class="article-text">Тюр — бог войны в скандинавской мифологии, или, точнее, бог, символизирующий героизм и отвагу. В разных языках его имя пишется по-разному: Týr (древнескандинавский), Ty (древненорвежский), Ti (древнешведский), Tiw или Tiu (древнеанглийский), Ziu или Zio (древненемецкий) и т. д.</p>
+                <p class="article-text">P.S. Английское слово «вторник» (Tuesday) на самом деле означает «День Тюра» (Tiw's Day).</p>
+            </remark>
+            <bgm src="themeTesla.mp3" status="start"></bgm>
+            <show chara="alexClose" position="right" opacity="0.7"/>
+            <show chara="teslaAngryGlassWinterClose" position="left"/>
+            <shake position="left" time="250"></shake>
+            <speak chara="teslaNoFace">Не умничай тут передо мной! Я сама разработала этот сплав!</speak>
+            <shake position="left" time="250"></shake>
+            <speak chara="teslaNoFace">Сплав массового производства, способный экранировать энергию Хонкая! Дешёвый заменитель соулиума!</speak>
+            <shake position="left" time="250"></shake>
+            <speak chara="teslaNoFace">Изначально он предназначался для создания финальной версии мехов! Но из-за его высокой плотности мощности двигателя совершенно не хватало!</speak>
+            <shake position="left" time="250"></shake>
+            <speak chara="teslaNoFace">Это дешёвый патент всего за пятьдесят тысяч баксов, вот и всё!</speak>
+            <bgm src="11_17_tatakau.mp3" status="start"></bgm>
+            <show chara="teslaErGlassWinterClose" position="left"/>
+            <speak chara="teslaNoFace">...Кхм-кхм.</speak>
+            <show chara="teslaShameGlassWinterClose" position="left"/>
+            <speak chara="teslaNoFace">В общем, в итоге его использовали для брони танков?</speak>
+            <speak chara="teslaNoFace">...И правда похоже на идиотскую идею, которая могла прийти в голову этой выскочке.</speak>
+            <show chara="teslaEmbarraGlassWinterClose" position="left"/>
+            <speak chara="teslaNoFace">...Знаете, что я думаю о ней?</speak>
+            <speak chara="teslaNoFace">Она совершенно не понимает, с чем столкнулась — с горсткой дезертиров или пулемётом Максима, но при этом считает себя зулусским воином, уверенным, что у «нас» всегда есть способ победить.</speak>
+            <show chara="teslaShameGlassWinterClose" position="left"/>
+            <speak chara="teslaNoFace">...Не понимаете — и ладно.</speak>
+            <speak chara="teslaNoFace">...В любом случае, как говорится, «лучше, чем ничего». Я не отрицаю, что при определённых условиях вы сможете помочь...</speak>
+            <speak chara="teslaNoFace">При «определённых условиях».</speak>
+            <show chara="teslaSnickerGlassWinterClose" position="left"/>
+            <speak chara="teslaNoFace">...Реанна.</speak>
+            <show chara="teslaSnickerGlassWinterClose" position="left" opacity="0.7"/>
+            <show chara="reaHahArmedClose" position="right"/>
+            <speak chara="reannaNoFace">...Нужно, чтобы я что-то сделала?</speak>
+            <show chara="reaHahArmedClose" position="right" opacity="0.7"/>
+            <show chara="teslaSnickerGlassWinterClose" position="left"/>
+            <speak chara="teslaNoFace">Можно я возьму на себя разработку плана разведки и возможного штурма?</speak>
+            <show chara="teslaShameGlassWinterClose" position="left"/>
+            <speak chara="teslaNoFace">Всё-таки я лучше представляю, на что способно их барахло.</speak>
+            <goto goto="50" change="#ffffff"/>
+        </scene>
+        <scene id="50" background="parkWaterTree.jpg">
+            <bgm src="horror.mp3" status="start"></bgm>
+            <text>24 ноября 1955 года.</text>
+            <text>6 часов 45 минут утра.</text>
+            <text>Небо над Провиденсом только-только начало светлеть.</text>
+            <show chara="teslaNormalGlassHeadsetWinterClose-up" position="center"/>
+            <speak chara="teslaNoFace">Это Фредерика Никола Тесла. Мы с Алексом прибыли на заданную позицию к северу от Бенсли-Пойнт и вывесили красный флаг.</speak>
+            <show chara="yuriSeriousClose-up" position="center"/>
+            <speak chara="yuriNoFace">Это Юрий Армстронг. Я прибыл на заданную позицию к северу от парка Блэкстоун и вывесил синий флаг.</speak>
+            <show chara="teslaNormalGlassHeadsetWinterClose-up" position="center"/>
+            <speak chara="teslaNoFace">Принято.</speak>
+            <speak chara="teslaNoFace">Подчёркиваю в последний раз: ваша боеспособность крайне ограничена. При столкновении с подозрительной целью немедленно распыляйте химикаты, чтобы задержать её. Ни в коем случае не открывайте огонь без приказа и тем более не используйте огнемёты, иначе последствия будут непредсказуемыми!</speak>
+            <show chara="yuriSeriousClose-up" position="center"/>
+            <speak chara="yuriNoFace">Понял.</speak>
+            <show chara="reaNormalArmedClose-up" position="center"/>
+            <speak chara="reannaNoFace">Это Реанна Бригантия.</speak>
+            <speak chara="reannaNoFace">Прибыла на заданную позицию к западу от парка Липпитт.</speak>
+            <show chara="teslaNormalGlassHeadsetWinterClose-up" position="center"/>
+            <speak chara="teslaNoFace">Принято.</speak>
+            <speak chara="teslaNoFace">Пожалуйста, будь готова выдвинуться в любой момент. Если мы или Юрий обнаружим подозрительную цель, сразу же сообщим тебе.</speak>
+            <show chara="reaNormalArmedClose-up" position="center"/>
+            <speak chara="reannaNoFace">Принято.</speak>
+            <speak chara="reannaNoFace">Время моего перемещения в худшем случае составит около двух минут; мой радиус поражения в худшем случае можно удержать в пределах десяти метров...</speak>
+            <speak chara="reannaNoFace">Пожалуйста, запомните эти две цифры и не допускайте ненужных жертв из-за ошибок в расчётах.</speak>
+            <show chara="teslaNormalGlassHeadsetWinterClose-up" position="center"/>
+            <speak chara="teslaNoFace">Вот так. Продержитесь 2 минуты и держитесь на расстоянии более 10 метров.</speak>
+            <speak chara="teslaNoFace">Выдвигаемся.</speak>
+            <goto goto="60" change="#ffffff"/>
+        </scene>
+        <scene id="60" background="parkWaterTree.jpg">
+            <bgm src="horror.mp3" status="continue"></bgm>
+            <text>Утренние лучи поздней осени пробивались сквозь переплетённые, словно венозная сетка, ветви деревьев, влажно освещая колеи, оставленные гусеницами.</text>
+            <text>Юрий Армстронг, управляя бронемашиной, медленно продвигался на север от парка Блэкстоун.</text>
+            <text>Впервые оказавшись на «поле боя», он вспомнил образ своего отца.</text>
+            <text>Это было летом десять лет назад. Он тащил своего только что демобилизовавшегося отца, желая услышать из его уст историю о Нормандии.</text>
+            <text>Однако отец лишь холодно спросил в ответ:</text>
+            <text>«Когда вокруг кромешная тьма, и мы видим лишь вспышки зенитных орудий... знаешь, почему мы заставляли себя прыгать вниз?»</text>
+            <text>«...»</text>
+            <text>«Потому что за два года до этого мы тренировались сотни раз».</text>
+            <text>«Больше нет никаких „почему“».</text>
+            <text>«Это реальная жизнь, здесь нет супергероев вроде Капитана Америки».</text>
+            <text>«Когда я прыгал с парашютом в первый раз, у меня так свело икры от страха, что я обмочился».</text>
+            <text>«...Профессиональные военные — это просто люди, прошедшие долгую подготовку, благодаря которой они научились отбрасывать ненужные эмоции, вот и всё».</text>
+            <show chara="yuriSeriousClose-up" position="left"/>
+            <speak chara="yuriNoFace">(Отбрасывать ненужные эмоции — вот и всё.)</speak>
+            <show chara="yuriSeriousClose-up" position="left" opacity="0.7"/>
+            <show chara="mbembaClose-up" position="right"/>
+            <speak chara="mbembaNoFace">...Юрий.</speak>
+            <show chara="mbembaClose-up" position="right" opacity="0.7"/>
+            <show chara="yuriSadClose-up" position="left"/>
+            <speak chara="yuriNoFace">...Я жалок, да? Наверное, я сейчас бледный как смерть.</speak>
+            <show chara="yuriSadClose-up" position="left" opacity="0.7"/>
+            <show chara="mbembaClose-up" position="right"/>
+            <speak chara="mbembaNoFace">...Нет.</speak>
+            <speak chara="mbembaNoFace">...Я куда более жалок.</speak>
+            <speak chara="mbembaNoFace">...Ты сейчас почувствуешь запах. Прости.</speak>
+            <show chara="mbembaClose-up" position="right" opacity="0.7"/>
+            <show chara="yuriSadClose-up" position="left"/>
+            <speak chara="yuriNoFace">???</speak>
+            <show chara="yuriSeriousClose-up" position="left"/>
+            <speak chara="yuriNoFace">Угх...</speak>
+            <text>Резкий запах, похожий на запах аммиака, начал расползаться по салону.</text>
+            <text>Это запах, который могут источать млекопитающие в моменты крайнего ужаса.</text>
+            <show chara="yuriSeriousClose-up" position="left" opacity="0.7"/>
+            <show chara="mbembaClose-up" position="right"/>
+            <speak chara="mbembaNoFace">Я... вижу его...</speak>
+            <speak chara="mbembaNoFace">Нет, я хочу сказать...</speak>
+            <speak chara="mbembaNoFace">Кажется, оно тоже нас видит.</speak>
+            <hide position="left"/>
+            <hide position="right"/>
+            <show chara="peduncle" position="center"/>
+            <text>Монстр смотрел на их движущуюся железную коробку своими размером с мяч для регби глазами, расположенными на щупальцах.</text>
+            <text>Трудно описать его строение... нет, скорее всего, его просто невозможно было осмыслить.</text>
+            <text>На некоторых щупальцах росли ряды глаз, на других — ряды клешней, на третьих — ряды неописуемых ротовых аппаратов...</text>
+            <text>Эти щупальца, словно морские жёлуди, крепились к прямоугольному гранитному блоку — возможно, надгробию. В таком виде они составляли единое целое и, подобно червю, бесцельно и бесшумно ползали вокруг.</text>
+            <text>Единственное, в чём можно было быть уверенным... оно было здесь абсолютным властелином.</text>
+            <hide position="center"/>
+            <show chara="mbembaClose-up" position="right"/>
+            <speak chara="mbembaNoFace">Ч-что нам... нужно делать? Сжечь его? Давай- давай спалим эту тварь к чертям?</speak>
+            <show chara="mbembaClose-up" position="right" opacity="0.7"/>
+            <show chara="yuriSeriousClose-up" position="left"/>
+            <speak chara="yuriNoFace">...Стой.</speak>
+            <show chara="yuriSadClose-up" position="left"/>
+            <speak chara="yuriNoFace">...Ни в коем случае.</speak>
+            <speak chara="yuriNoFace">...Успокойся.</speak>
+            <speak chara="yuriNoFace">Не трогай красную панель... положи руку на синюю...</speak>
+            <speak chara="yuriNoFace">Да... просто нажми на синюю панель...</speak>
+            <show chara="yuriSeriousClose-up" position="left"/>
+            <text>Шатен с тёмными кругами под глазами глубоко вздохнул.</text>
+            <text>Хотя от этого запаха аммиака так и хотелось задержать дыхание.</text>
+            <bgm src="11_17_tatakau.mp3" status="start"></bgm>
+            <speak chara="yuriNoFace">Это «Синий фронт»! Мы обнаружили противника! Начинаем распыление химикатов!</speak>
+            <speak chara="yuriNoFace">Повторяю, «Синий фронт» обнаружил противника, начинаем распыление химикатов!</speak>
+            <goto goto="70" change="0"/>
+        </scene>
+        <scene id="70" background="graveMorning.jpg">
+            <bgm src="11_17_tatakau.mp3" status="continue"></bgm>
+            <show chara="teslaDisgustedGlassWinterClose-up" position="center"/>
+            <speak chara="teslaNoFace">Реанна!</speak>
+            <show chara="reaSeriousArmedClose-up" position="center"/>
+            <speak chara="reannaNoFace">...</speak>
+            <speak chara="reannaNoFace">......</speak>
+            <show chara="teslaDisgustedGlassWinterClose-up" position="center"/>
+            <speak chara="teslaNoFace">Реанна!!</speak>
+            <show chara="reaSeriousArmedClose-up" position="center"/>
+            <speak chara="reannaNoFace">.........</speak>
+            <show chara="reaNormalArmedClose-up" position="center"/>
+            <speak chara="reannaNoFace">Цель зафиксирована! Пожалуйста, немедленно начинайте тактическое маневрирование, врага я беру на себя!</speak>
+            <show chara="yuriSeriousClose-up" position="center"/>
+            <speak chara="yuriNoFace">Понял!</speak>
+            <goto goto="80" change="#ffffff"/>
+        </scene>
+        <scene id="80" background="CG19-0-1.jpg">
+            <bgm src="11_17_tatakau.mp3" status="continue"></bgm>
+            <text>Сильнейшая валькирия.</text>
+            <goto goto="82" change="0"/>
+        </scene>
+        <scene id="82" background="CG19-0-2.jpg">
+            <bgm src="11_17_tatakau.mp3" status="continue"></bgm>
+            <text>В случае необходимости она способна пробежать километр за минуту на одних только ногах...</text>
+            <goto goto="84" change="0"/>
+        </scene>
+        <scene id="84" background="CG19-0-3.jpg">
+            <bgm src="11_17_tatakau.mp3" status="continue"></bgm>
+            <text>В её теле скрыт огромный потенциал, с которым не сравнится ни одно оружие.</text>
+            <goto goto="90" change="0"/>
+        </scene>
+        <scene id="90" background="CG19-0-4.jpg">
+            <bgm src="11_17_tatakau.mp3" status="continue"></bgm>
+            <speak chara="reannaNoFace">Ich bin das Schwarz auch das Weiß</speak>
+            <speak chara="reannaNoFace">Vor dem Beginn und zwar nach dem Ende</speak>
+            <goto goto="95" change="0"/>
+        </scene>
+        <scene id="95" background="CG19.jpg">
+            <bgm src="11_17_tatakau.mp3" status="continue"></bgm>
+            <speak chara="reannaNoFace">Я — чернота, поглощающая всё, и белизна, дающая всему жизнь;</speak>
+            <speak chara="reannaNoFace">Я рождена до сотворения мира и существую после его уничтожения;</speak>
+            <speak chara="reannaNoFace">Божественный Ключ: Цветок Бездны, Первая номинальная мощность...</speak>
+            <goto goto="100" change="0"/>
+        </scene>
+        <scene id="100" background="parkWaterTree.jpg">
+            <bgm src="11_17_tatakau.mp3" status="continue"></bgm>
+            <cg src="shengqiangShock.png" bg="parkWaterTree.jpg" fadeOut="0" fadeIn="0"></cg>
+            <cg src="zhanfangPetal.png" bg="parkWaterTree.jpg" fadeOut="0" fadeIn="0"></cg>
+            <end post="U2FsdGVkX1+Ny96acaorRcQ6snPL"/>
+        </scene>
+    </story>
+</data>

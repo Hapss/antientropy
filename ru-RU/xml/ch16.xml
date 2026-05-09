@@ -1,0 +1,405 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data>
+    <story>
+        <scene id="0" background="bg.jpg">
+            <bgm src="mid-lude.mp3" status="start"></bgm>
+            <cg src="newсhapter.png" bg="bg.jpg"></cg>
+            <goto goto="10" change="#000000"/>
+        </scene>
+        <scene id="10" background="westCliffWomenRoom.jpg">
+            <bgm src="12_15_1946.mp3" status="start"></bgm>
+            <text>...</text>
+            <text>Сегодня мне тоже не снились сны.</text>
+            <text>Спал я очень крепко.</text>
+            <text>Утренний воздух пропитан характерным для побережья солёным запахом.</text>
+            <text>Пропитанное влагой одеяло тяжело лежит на теле.</text>
+            <text>За шторами пробивается прямоугольный свет из окна.</text>
+            <text>Действительно, наступил новый день.</text>
+            <text>Нужно собрать вещи и ехать обратно в Лондон, результаты расшифровки Ады должны нас уже ждать.</text>
+            <text>...Меня не покидает странное предчувствие.</text>
+            <text>Кажется, судьбы меня и окружающих людей скоро круто изменятся.</text>
+            <text>Это именно то, от чего я когда-то пытался убежать.</text>
+            <text>Я говорил себе «отбрось домыслы», чтобы не задумываться слишком глубоко.</text>
+            <text>...Дело не в том, что я так уж люблю Лондон.</text>
+            <text>Просто под одной крышей мы все привыкли к присутствию друг друга.</text>
+            <text>Даже Вельт кажется кем-то, кто был частью нашей жизни уже очень давно.</text>
+            <text>Я искренне надеюсь, что эти спокойные дни будут длиться вечно.</text>
+            <goto goto="20" change="0"/>
+        </scene>
+        <scene id="20" background="westCliffBeach.jpg">
+            <bgm src="12_15_1946.mp3" status="continue"></bgm>
+            <text remark="next">«Мы считаем эти истины самоочевидными: все люди созданы равными и наделены некоторыми неотъемлемыми правами, к которым относятся жизнь, свобода и стремление к счастью».</text>
+            <remark post="U2FsdGVkX1+V00C1bWCZ1mItXrxvd2HnHUK+zfphgA4=">
+                <p class="article-text-h">Примечание:</p>
+                <p class="article-text">Эта фраза взята из «Декларации независимости США».</p>
+            </remark>
+            <text remark="next">«Свободное развитие каждого является условием свободного развития всех».</text>
+            <remark post="U2FsdGVkX19DUpbEWgHXgh+oWXOF9WuI5jO6G9PaEd0=">
+                <p class="article-text-h">Примечание:</p>
+                <p class="article-text">Эта фраза взята из «Манифеста Коммунистической партии».</p>
+                <p class="article-text">Полная цитата: «Вместо старой буржуазной общества с его классами и классовыми противоречиями возникнет такое объединение, в котором свободное развитие каждого будет условием свободного развития всех».</p>
+            </remark>
+            <text>Однако такая военная организация, как Шиксал, легко может склониться к тому, чтобы растоптать всё, кроме права на жизнь.</text>
+            <text>В моменты, когда речь идёт о жизни и смерти, такой исход действительно становится неизбежным.</text>
+            <text>Но акцентирование на одном праве часто наносит удар по самому этому праву.</text>
+            <text>Если фундаментальная «правовая основа» военной организации будет разрушена из-за подобного эффекта—</text>
+            <text>—то она постепенно превратится в нечто столь же презренное, как и враги, которых она когда-то уничтожала.</text>
+            <text>И неважно, будет ли её лидером мудрый правитель вроде Георга III или Наполеона I, или же бездарный монарх вроде Карла I или Людовика XVI.</text>
+            <goto goto="30" change="0"/>
+        </scene>
+        <scene id="30" background="westCliff.jpg">
+            <bgm src="12_15_1946.mp3" status="continue"></bgm>
+            <text>Эта женщина, «Г.А.», транслирует свои взгляды через видеозапись.</text>
+            <text>Она говорит, что идеалы организации Шиксал в корне ошибочны.</text>
+            <text>Если Шиксал действительно окажется подобен многим империям в истории—</text>
+            <text>—если в итоге он будет признан лишь монстром, порождённым желаниями немногих...</text>
+            <text>...то человек с совестью обязан встать на противоположную сторону.</text>
+            <text>Но...</text>
+            <text>Эта «противоположная сторона», кажется, представляет собой нечто более обнажённое, движимое лишь пламенем мести.</text>
+            <text>Принцесса Нэнси...</text>
+            <text>Нет.</text>
+            <text>Гамлет.</text>
+            <text>Когда я впервые увидел председателя GE Mechanical Union, она произвела на меня именно такое впечатление.</text>
+            <text>Нэнси Томас Эдисон — живой, реальный Гамлет.</text>
+            <text>У неё есть чувства и страсти.</text>
+            <text>У неё есть человеческие слабости.</text>
+            <text>Просто как только дело касается конкретных целей, она насильно заставляет себя забыть обо всём, оставляя лишь холодный расчёт выгод и потерь—</text>
+            <text>—чтобы лично отомстить Хонкаю за свою семью и даже за всё человечество.</text>
+            <text>Для этого она не побрезгует устранить любое препятствие.</text>
+            <text>Она не остановится, пока не достигнет цели.</text>
+            <text>Сама она, её компания, её страна, Шиксал... для неё всё это лишь разменные монеты на пути к цели.</text>
+            <goto goto="40" change="0"/>
+        </scene>
+        <scene id="40" background="westCliffWomenRoom.jpg">
+            <bgm src="12_15_1946.mp3" status="continue"></bgm>
+            <text>Как же это тяжело.</text>
+            <text>Такая жизнь совсем не приносит счастья.</text>
+            <text>Ради достижения цели она превратила саму себя в инструмент для исполнения желаний.</text>
+            <text>...Не говоря уже об окружающих её людях.</text>
+            <text>Хотя Тесла тоже бывает импульсивной... её направление совершенно иное.</text>
+            <goto goto="50" change="0"/>
+        </scene>
+        <scene id="50" background="CG16-1-1.jpg">
+            <bgm src="12_15_1946.mp3" status="continue"></bgm>
+            <text>По сравнению с ней, она куда милее.</text>
+            <text>...</text>
+            <text>Посплю-ка я ещё немного.</text>
+            <text>Сегодняшний день может оказаться очень долгим.</text>
+            <goto goto="60" change="#ffffff"/>
+        </scene>
+        <scene id="60" background="CG16-1-2.jpg">
+            <bgm src="morning.mp3" status="start"></bgm>
+            <sound src="8_24_knock_door.mp3"/>
+            <speak chara="someoneNoFace">Тук-тук... Тук-тук...</speak>
+            <goto goto="63" change="0"/>
+        </scene>
+        <scene id="63" background="CG16-1-3.jpg">
+            <bgm src="morning.mp3" status="continue"></bgm>
+            <sound src="Hah.mp3"/>
+            <speak chara="teslaNoFace">М-м... Который час... Зачем так звонить в дверь...</speak>
+            <speak chara="teslaNoFace">Чучело взъерошенное... Сходи открой...</speak>
+            <speak chara="teslaNoFace">...</speak>
+            <speak chara="teslaNoFace">...А?</speak>
+            <speak chara="teslaNoFace">Уже встала и ушла?..</speak>
+            <speak chara="teslaNoFace">Она же не восьмидесятилетняя старуха, зачем так рано подниматься...</speak>
+            <goto goto="66" change="0"/>
+        </scene>
+        <scene id="66" background="westCliffWomenRoom2.jpg">
+            <bgm src="morning.mp3" status="continue"></bgm>
+            <sound src="8_24_knock_door.mp3"/>
+            <speak chara="someoneNoFace">Тук-тук... Тук-тук...</speak>
+            <goto goto="68" change="0"/>
+        </scene>
+        <scene id="68" background="">
+            <bgm src="themeTesla.mp3" status="start"></bgm>
+            <sound src="8_24_mess.mp3"/>
+            <speak chara="teslaNoFace">Да замолчи ты уже!</speak>
+            <speak chara="teslaNoFace">Дай мне поспать, идиот!</speak>
+            <goto goto="70" change="#ffffff"/>
+        </scene>
+        <scene id="70" background="westCliffWomenRoom2.jpg">
+            <bgm src="themeTesla.mp3" status="continue"></bgm>
+            <show chara="weltLaughNewFar" position="center"/>
+            <speak chara="someoneNoFace">Доброе утро, доктор Тесла.</speak>
+            <speak chara="teslaNoFace">...</speak>
+            <speak chara="teslaNoFace">...Ты ещё кто?</speak>
+            <goto goto="80" change="#ffffff"/>
+        </scene>
+        <scene id="80" background="">
+            <bgm src="serenity.mp3" status="start"></bgm>
+            <text>В тот день, чуть ранее—</text>
+            <speak chara="ritaNoNameNoFace">(...Господин Вельт, задержитесь на секунду.)</speak>
+            <speak chara="weltNoFace">...Кто здесь?</speak>
+            <speak chara="ritaNoFace">Это я, Рита.</speak>
+            <speak chara="weltNoFace">Хозяйка гостиницы?</speak>
+            <speak chara="ritaNoFace">В коридоре неудобно разговаривать. Идите за мной.</speak>
+            <goto goto="90" change="#ffffff"/>
+        </scene>
+        <scene id="90" background="westCliffBossRoomNight.jpg">
+            <bgm src="lab.mp3" status="start"></bgm>
+            <show chara="weltSurpriseRobeClose-up" position="right" opacity="0.7"/>
+            <show chara="ritaNormalAhClose-up" position="left"/>
+            <speak chara="ritaNoFace">Простите, что так внезапно...</speak>
+            <speak chara="ritaNoFace">Но...</speak>
+            <show chara="ritaNormalClose-up" position="left" opacity="0.7"/>
+            <show chara="weltSurpriseRobeClose-up" position="right"/>
+            <speak chara="weltNoFace">Что... что случилось?</speak>
+            <show chara="weltSurpriseRobeClose-up" position="right" opacity="0.7"/>
+            <show chara="ritaNormalAhClose-up" position="left"/>
+            <speak chara="ritaNoFace">Ваша одежда, которую Вы сдавали в чистку, ещё не успела высохнуть...</speak>
+            <speak chara="ritaNoFace">А если здесь отключат электричество, это затянется на полдня...</speak>
+            <speak chara="ritaNoFace">Так что завтра, когда Вы будете возвращаться, Вам, возможно, придётся переодеться...</speak>
+            <show chara="ritaNormalClose-up" position="left" opacity="0.7"/>
+            <show chara="weltNervousRobeClose-up" position="right"/>
+            <speak chara="weltNoFace">Э-э...</speak>
+            <speak chara="weltNoFace">У меня... у меня нет с собой запасного пальто!</speak>
+            <speak chara="weltNoFace">То, что на мне сейчас, испачкалось в песке на пляже—</speak>
+            <show chara="weltNervousRobeClose-up" position="right" opacity="0.7"/>
+            <show chara="ritaSmileClose-up" position="left"/>
+            <speak chara="ritaNoFace">Не волнуйтесь, не волнуйтесь.</speak>
+            <speak chara="ritaNoFace">Это наша оплошность, так что я найду способ решить вопрос с Вашим пальто.</speak>
+            <speak chara="ritaNoFace">У меня как раз есть один мужской костюм... Не хотите примерить этот наряд?</speak>
+            <goto goto="100" change="#ffffff"/>
+        </scene>
+        <scene id="100" background="westCliffBossRoomNight.jpg">
+            <bgm src="lab.mp3" status="continue"></bgm>
+            <show chara="weltNervousNewClose-up" position="right" opacity="0.7"/>
+            <show chara="ritaSmileClose-up" position="left"/>
+            <speak chara="ritaNoFace">А... отлично, отлично! Как раз по размеру!</speak>
+            <show chara="ritaSmileClose-up" position="left" opacity="0.7"/>
+            <show chara="weltNervousNewClose-up" position="right"/>
+            <speak chara="weltNoFace">М-м... Такое ощущение, будто он... сшит на заказ...</speak>
+            <show chara="weltNervousNewClose-up" position="right" opacity="0.7"/>
+            <show chara="ritaSmileClose-up" position="left"/>
+            <speak chara="ritaNoFace">Ха-ха, у меня очень точный глаз на чужие фигуры!</speak>
+            <show chara="ritaSmileLeftClose-up" position="left"/>
+            <speak chara="ritaNoFace">...Ах, точно. Здесь есть ещё один подарок от другого гостя.</speak>
+            <show chara="ritaSmileLeftClose-up" position="left" opacity="0.7"/>
+            <show chara="weltQuestionNewClose-up" position="right"/>
+            <speak chara="weltNoFace">Другого гостя?</speak>
+            <show chara="weltQuestionNewClose-up" position="right" opacity="0.7"/>
+            <show chara="ritaSmileLeftClose-up" position="left"/>
+            <speak chara="ritaNoFace">Там... кажется, её зовут Фу Хуа? Она сказала, что она Ваш друг.</speak>
+            <show chara="ritaSmileLeftClose-up" position="left" opacity="0.7"/>
+            <show chara="weltQuestionNewClose-up" position="right"/>
+            <speak chara="weltNoFace">Фу... Фу Хуа?</speak>
+            <speak chara="weltNoFace">Как... как она могла...</speak>
+            <speak chara="weltNoFace">...Я могу открыть прям здесь?</speak>
+            <show chara="weltQuestionNewClose-up" position="right" opacity="0.7"/>
+            <show chara="ritaSmileClose-up" position="left"/>
+            <speak chara="ritaNoFace">Конечно, можно.</speak>
+            <show chara="ritaSmileClose-up" position="left" opacity="0.7"/>
+            <show chara="weltEmbarraNewClose-up" position="right"/>
+            <speak chara="weltNoFace">Что это за безвкусица...</speak>
+            <show chara="weltEmbarraNewClose-up" position="right" opacity="0.7"/>
+            <show chara="ritaSmileLeftClose-up" position="left"/>
+            <speak chara="ritaNoFace">...Перцовый баллончик?</speak>
+            <show chara="ritaSmileLeftClose-up" position="left" opacity="0.7"/>
+            <show chara="weltEmbarraNewClose-up" position="right"/>
+            <speak chara="weltNoFace">Что?</speak>
+            <show chara="weltEmbarraNewClose-up" position="right" opacity="0.7"/>
+            <show chara="ritaSmileClose-up" position="left"/>
+            <speak chara="ritaNoFace">Это баллончик для самообороны, который носят девушки. Пшикнешь в лицо — и преступник будет просто в ужасе.</speak>
+            <speak chara="ritaNoFace">Хотя сжатого газа там немного, им очень легко пользоваться...</speak>
+            <speak chara="ritaNoFace">Для такого гостя, как Вы, это должно быть довольно практично?</speak>
+            <show chara="ritaSmileClose-up" position="left" opacity="0.7"/>
+            <show chara="weltSBDNewClose-up" position="right"/>
+            <speak chara="weltNoFace">...Совсем не практично!</speak>
+            <speak chara="weltNoFace">...Да эта упаковка выглядит как девчачья игрушка!</speak>
+            <speak chara="weltNoFace">...В конце концов, с чего она взяла, что мне может понадобиться такая штуковина!</speak>
+            <goto goto="110" change="#ffffff"/>
+        </scene>
+        <scene id="110" background="carMorning.jpg">
+            <bgm src="10_20_PeerGynt.mp3" status="start"></bgm>
+            <show chara="teslaSnickerGlassWinterClose-up" position="left"/>
+            <show chara="weltEmbarraNewClose-up" position="right" opacity="0.7"/>
+            <speak chara="teslaNoFace">Пха-ха-ха-ха-ха!</speak>
+            <speak chara="teslaNoFace">Перцовый баллончик!</speak>
+            <speak chara="teslaNoFace">Бедный епископ, его и впрямь презирают собственные валькирии!</speak>
+            <show chara="teslaSnickerGlassWinterClose-up" position="left" opacity="0.7"/>
+            <show chara="weltQuestionNewClose-up" position="right"/>
+            <speak chara="weltNoFace">...Ах, точно.</speak>
+            <speak chara="weltNoFace">Внимательно осмотрев подарок, я нашёл внутри записку.</speak>
+            <speak chara="weltNoFace" remark="next">«Берег далёк, песок ровен; закат догорает, освещая путь домой».</speak>
+            <remark>
+                <p class="article-text-h">Примечание:</p>
+                <p class="article-text">Эта фраза взята из стихотворения «Наньсянцзы: Далёкий берег и ровный песок», написанного поэтом эпохи Пяти династий и Десяти государств Оуян Цюн.</p>
+                <p class="article-text">Полный текст: «Берег далёк, песок ровен; закат догорает, освещая путь домой. Павлин самозабвенно любуется своим золотым хвостом у воды, не замечая приближающегося путника».</p>
+            </remark>
+            <speak chara="weltNoFace">Даже не знаю, что это значит.</speak>
+            <show chara="weltQuestionNewClose-up" position="right" opacity="0.7"/>
+            <show chara="teslaShameGlassWinterClose-up" position="left"/>
+            <speak chara="teslaNoFace">Хм.</speak>
+            <speak chara="teslaNoFace">Так просто храни её у себя.</speak>
+            <speak chara="teslaNoFace">Если вдруг случится что-то серьёзное, ты прочтёшь строчку из стиха, и кто-нибудь может примчаться на помощь специально ради этого.</speak>
+            <show chara="teslaShameGlassWinterClose-up" position="left" opacity="0.7"/>
+            <show chara="weltNervousNewClose-up" position="right"/>
+            <speak chara="weltNoFace">Э-э...</speak>
+            <show chara="einSlyWinterClose-up" position="right"/>
+            <speak chara="einNoFace">Пф-ф. Доктор Тесла ревнует.</speak>
+            <show chara="einSlyWinterClose-up" position="right" opacity="0.7"/>
+            <show chara="teslaAngryGlassWinterClose-up" position="left"/>
+            <speak chara="teslaNoFace">Ревную?! С чего бы это мне ревновать!</speak>
+            <show chara="teslaAngryGlassWinterClose-up" position="left" opacity="0.7"/>
+            <show chara="weltSighNewClose-up" position="right"/>
+            <speak chara="weltNoFace">Послушай...</speak>
+            <show chara="weltSighNewClose-up" position="right" opacity="0.7"/>
+            <show chara="teslaBoringGlassWinterClose-up" position="left"/>
+            <speak chara="teslaNoFace">А?</speak>
+            <show chara="teslaBoringGlassWinterClose-up" position="left" opacity="0.7"/>
+            <show chara="weltSighNewClose-up" position="right"/>
+            <speak chara="weltNoFace">Э-э... я хотел сказать...</speak>
+            <speak chara="weltNoFace">Это дело с епископом... Мы просто оставим всё как есть... это нормально?</speak>
+            <show chara="weltSighNewClose-up" position="right" opacity="0.7"/>
+            <show chara="teslaBoringGlassWinterClose-up" position="left"/>
+            <speak chara="teslaNoFace">...И что же ты хочешь сделать?</speak>
+            <show chara="teslaBoringGlassWinterClose-up" position="left" opacity="0.7"/>
+            <show chara="weltSighNewClose-up" position="right"/>
+            <speak chara="weltNoFace">Ну... я не имею в виду, что именно мне делать...</speak>
+            <show chara="weltSighNewClose-up" position="right" opacity="0.7"/>
+            <show chara="teslaBoringGlassWinterClose-up" position="left"/>
+            <speak chara="teslaNoFace">Ладно-ладно, я знаю, что ты на самом деле очень обеспокоен.</speak>
+            <speak chara="teslaNoFace">Честно говоря...</speak>
+            <speak chara="teslaNoFace">В крайнем случае мы все переведёмся к Эдисон... Что в этом такого?</speak>
+            <show chara="teslaBoringGlassWinterClose-up" position="left" opacity="0.7"/>
+            <show chara="weltQuestionNewClose-up" position="right"/>
+            <speak chara="weltNoFace">Но... разве ты её не ненавидишь?</speak>
+            <show chara="weltQuestionNewClose-up" position="right" opacity="0.7"/>
+            <show chara="teslaBoringGlassWinterClose-up" position="left"/>
+            <speak chara="teslaNoFace">А. Да.</speak>
+            <speak chara="teslaNoFace">Но что с того?</speak>
+            <speak chara="teslaNoFace">Ты думаешь, если случится беда, будет лучше, если мы оставим тебя одного на произвол судьбы?</speak>
+            <show chara="teslaBoringGlassWinterClose-up" position="left" opacity="0.7"/>
+            <show chara="weltSighNewClose-up" position="right"/>
+            <speak chara="weltNoFace">Э-э... нет... я не это имел в виду...</speak>
+            <show chara="weltSighNewClose-up" position="right" opacity="0.7"/>
+            <show chara="teslaSmileGlassWinterClose-up" position="left"/>
+            <speak chara="teslaNoFace">Хм, тогда просто замолчи.</speak>
+            <speak chara="teslaNoFace">Даже если небо рухнет, держать его на плечах — не твоя забота.</speak>
+            <show chara="teslaShameGlassWinterClose-up" position="left"/>
+            <speak chara="teslaNoFace">К тому же, мне нравится твоя смелость дерзить ему прямо в лицо.</speak>
+            <speak chara="teslaNoFace">Ты ведь тоже такая, шваброголовая?</speak>
+            <goto goto="120" change="#ffffff"/>
+        </scene>
+        <scene id="120" background="adaRoom.jpg">
+            <bgm src="10_25_ada.mp3" status="start"></bgm>
+            <text>В тот день, чуть позже.</text>
+            <show chara="adaSmileAhFar" position="center"/>
+            <speak chara="adaNoFace">Друзья, зашифрованная информация в соулиуме успешно расшифрована.</speak>
+            <speak chara="adaNoFace">Всего два объекта: текстовый файл и видеозапись.</speak>
+            <show chara="adaSmileFar" position="center"/>
+            <speak chara="adaNoFace">Я начну с текста, хорошо?</speak>
+            <show chara="adaSpot" position="center"/>
+            <text>Как обычно, Ада спроецировала текст прямо в воздухе.</text>
+            <text>Это был английский язык —</text>
+            <text article="1">
+                <p class="article-text">"Follow the Freedom Trail, then visit Lexington in the midnight."</p>
+            </text>
+            <goto goto="130" change="#ffffff"/>
+        </scene>
+        <scene id="130" background="adaRoomRVS.jpg">
+            <bgm src="10_25_ada.mp3" status="continue"></bgm>
+            <show chara="weltQuestionNewFar" position="left"/>
+            <show chara="teslaNormalGlassWinterFar" position="right" opacity="0.7"/>
+            <speak chara="weltNoFace" remark="next">Следуй по Тропе Свободы, а затем посети Лексингтон в полночь...</speak>
+            <remark>
+                <p class="article-text-h">Примечание:</p>
+                <p class="article-text">Тропа Свободы — это маршрут, отмеченный красной плиткой (с 1951 года), соединяющий шестнадцать исторических достопримечательностей времён Войны за независимость в центре Бостона.</p>
+            </remark>
+            <speak chara="weltNoFace">Это значит... достопримечательности Бостона?</speak>
+            <show chara="weltQuestionNewFar" position="left" opacity="0.7"/>
+            <show chara="teslaErGlassWinterFar" position="right"/>
+            <speak chara="teslaNoFace">Ну вот, неужели нас действительно заставят мотаться через полмира?</speak>
+            <show chara="teslaErGlassWinterFar" position="right" opacity="0.7"/>
+            <show chara="einNormalWinterFar" position="left"/>
+            <speak chara="einNoFace">...Сначала посмотрим видео.</speak>
+            <goto goto="140" change="#ffffff"/>
+        </scene>
+        <scene id="140" background="CG16-2.jpg">
+            <bgm src="10_25_ada.mp3" status="continue"></bgm>
+            <text>Человек на записи явно был всё той же таинственной Г.A.</text>
+            <text>Однако она казалась немного старше, чем во время записи предыдущего видео.</text>
+            <bgm src="11_17_tatakau.mp3" status="start"></bgm>
+            <speak chara="haNoFace">Прежде всего, поздравляю вас с успешной расшифровкой, исследователи далёкого будущего.</speak>
+            <speak chara="haNoFace">Я не знаю, каково это — путешествовать между океанами в ваше время. Возможно, это очень легко.</speak>
+            <speak chara="haNoFace">Но даже так, я надеюсь, вы найдёте время для раздумий...</speak>
+            <speak chara="haNoFace">Найдя последний соулиум, что именно вы собираетесь сделать с этими данными?</speak>
+            <speak chara="haNoFace">Помните мой вывод, который я когда-то озвучила?</speak>
+            <speak chara="haNoFace">Методы Шиксала, основанные на грубой силе, не смогут победить Хонкай.</speak>
+            <speak chara="haNoFace">Здесь я должна признать... это лишь моё личное мнение.</speak>
+            <speak chara="haNoFace">Хотя я по-прежнему считаю этот вывод верным...</speak>
+            <speak chara="haNoFace">...я не требую, чтобы вы во всём со мной соглашались. Никто не совершенен.</speak>
+            <speak chara="haNoFace">В предыдущих записях вы наверняка видели меня молодой.</speak>
+            <speak chara="haNoFace">Полной пылающей энергии, ненавидящей зло и живущей моментом.</speak>
+            <speak chara="haNoFace">Я не скажу, что изменилась...</speak>
+            <speak chara="haNoFace">Но, по крайней мере, живя под чужим именем, я научилась смотреть на этот мир более открыто.</speak>
+            <speak chara="haNoFace">Не слепо враждовать с кем бы то ни было, а сосредоточиться на развитии способности судить здраво.</speak>
+            <speak chara="haNoFace">Я надеюсь, вы поступите так же.</speak>
+            <speak chara="haNoFace">Каковы бы ни были ваши убеждения, я хочу, чтобы—</speak>
+            <speak chara="haNoFace">—вы смогли услышать голос в самой глубине своего сердца.</speak>
+            <speak chara="haNoFace">Знайте: самое непоправимое, что может случиться с человеком — это пойти неверным путём и растратить жизнь впустую.</speak>
+            <speak chara="haNoFace">Действие — лишь средство... Идеал же — вот истинная программа.</speak>
+            <speak chara="haNoFace">Именно поэтому...</speak>
+            <speak chara="haNoFace">Я надеюсь, вы приложите усилия и снова посетите нашу страну, которой нет в учебниках древней истории.</speak>
+            <speak chara="haNoFace">Соединённые Штаты Америки.</speak>
+            <speak chara="haNoFace">Она была создана именно такими людьми—</speak>
+            <speak chara="haNoFace">Теми, кто уважает своё сердце... и отважно защищает справедливость.</speak>
+            <speak chara="haNoFace">Пришло время назвать моё настоящее имя.</speak>
+            <speak chara="haNoFace">Я — Гармония Айетт. Моя фамилия — Мотье.</speak>
+            <speak chara="haNoFace">Потомок маркиза Лафайета, Гильбера Дю Мотье.</speak>
+            <speak chara="haNoFace">Или вы можете называть меня прозвищем из мира бизнеса—</speak>
+            <speak chara="haNoFace">«Крестный отец».</speak>
+            <goto goto="150" change="#ffffff"/>
+        </scene>
+        <scene id="150" background="adaRoomRVS.jpg">
+            <bgm src="10_25_ada.mp3" status="start"></bgm>
+            <show chara="weltAstonishNewFar" position="left" opacity="0.7"/>
+            <show chara="teslaAstonishGlassWinterFar" position="right"/>
+            <speak chara="teslaNoFace">Маркиз Лафайет? У него... у него есть такой потомок?</speak>
+            <show chara="teslaAstonishGlassWinterFar" position="right" opacity="0.7"/>
+            <show chara="weltAstonishNewFar" position="left"/>
+            <speak chara="weltNoFace">Кто это? Какой-то древний аристократ?</speak>
+            <show chara="weltAstonishNewFar" position="left" opacity="0.7"/>
+            <show chara="teslaShoutGlassWinterFar" position="right"/>
+            <speak chara="teslaNoFace">Эй! Ты что, не знаешь маркиза Лафайета? Боже мой!</speak>
+            <show chara="teslaShoutGlassWinterFar" position="right" opacity="0.7"/>
+            <show chara="weltAstonishNewFar" position="left"/>
+            <speak chara="weltNoFace">Э-э... так кто же этот маркиз...</speak>
+            <show chara="weltAstonishNewFar" position="left" opacity="0.7"/>
+            <show chara="teslaAstonishGlassWinterFar" position="right"/>
+            <speak chara="teslaNoFace">В 18 лет участвовал в войне за независимость США, в 36 — в революции во Франции, а в 72 снова возглавил французскую революцию! Его называют «Героем двух миров»!</speak>
+            <speak chara="teslaNoFace">И ты говоришь, что не знаешь такого человека?</speak>
+            <show chara="teslaAstonishGlassWinterFar" position="right" opacity="0.7"/>
+            <show chara="weltNervousNewFar" position="left"/>
+            <speak chara="weltNoFace">Э-э... Наверное, потому что я ни француз, ни американец...</speak>
+            <show chara="weltNervousNewFar" position="left" opacity="0.7"/>
+            <show chara="teslaEmbarraGlassWinterFar" position="right"/>
+            <speak chara="teslaNoFace">В любом случае, знай: только в окрестностях Бостона есть пять улиц под названием «Лафайетт-стрит» — только подумай!</speak>
+            <goto goto="160" change="0"/>
+        </scene>
+        <scene id="160" background="adaRoom.jpg">
+            <bgm src="themeEin.mp3" status="start"></bgm>
+            <show chara="einNormalWinterFar" position="center"/>
+            <speak chara="einNoFace">...Кхм.</speak>
+            <speak chara="einNoFace">Её предки — это её предки, а она сама — это она сама.</speak>
+            <speak chara="einNoFace">Нам не стоит зацикливаться на таких пустяках.</speak>
+            <show chara="einSeriousEmWinterFar" position="center"/>
+            <speak chara="einNoFace">Однако...</speak>
+            <show chara="einSeriousAhWinterFar" position="center"/>
+            <speak chara="einNoFace">В конечном счёте, мы на самом деле ничего не знаем о том, что нас ждёт впереди.</speak>
+            <show chara="einSeriousEmWinterFar" position="center"/>
+            <speak chara="einNoFace">Но даже несмотря на это...</speak>
+            <speak chara="einNoFace">Это может быть выбор, после которого нет пути назад.</speak>
+            <speak chara="einNoFace">...</speak>
+            <bgm src="11_17_tatakau.mp3" status="start"></bgm>
+            <show chara="einSmileWinterFar" position="center"/>
+            <speak chara="einNoFace">Тесла.</speak>
+            <speak chara="einNoFace">Вельт.</speak>
+            <show chara="einSlyWinterFar" position="center"/>
+            <speak chara="einNoFace">Вы хотите остановиться на этом и передать правду тем, кто обладает большей властью—</speak>
+            <show chara="einNormalWinterFar" position="center"/>
+            <speak chara="einNoFace">—или же вы хотите самостоятельно раскрыть секреты, которые этот «Крёстный отец» так тщательно скрывал до сих пор?</speak>
+            <end post="U2FsdGVkX1+qjQtlqkMV9tfIhNltWxNqBw9dG0VmPJ0="/>
+        </scene>
+    </story>
+</data>

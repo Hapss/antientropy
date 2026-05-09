@@ -1,0 +1,484 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data>
+    <story>
+        <scene id="0" background="bg.jpg">
+            <bgm src="mid-lude.mp3" status="start"></bgm>
+            <cg src="newсhapter.png" bg="bg.jpg"></cg>
+            <goto goto="10" change="#000000"/>
+        </scene>
+        <scene id="10" background="bostonCommon.jpg">
+            <bgm src="03_03_bostonNight.mp3" status="start"></bgm>
+            <text>Четверг, 24 ноября 1955 года, 1 час ночи.</text>
+            <text>Растущая луна светила не очень ярко, за пределами света фонарей хоть глаз выколи.</text>
+            <text remark="next">В одной руке модифицированная радиостанция WS No.88, в другой — мощный прожектор...</text>
+            <remark>
+                <p class="article-text-h">Примечание:</p>
+                <p class="article-text">Радиостанция WS No.88 — это УКВ-ЧМ трансивер (в просторечии «рация»), использовавшийся британскими военными в 1950-х годах, в основном для связи пехоты на коротких дистанциях (до 2 миль).</p>
+            </remark>
+            <text>Попрощавшись с водителем, одолженным у североамериканского филиала, доктор Эйнштейн и её спутники стояли на ночных улицах Бостона.</text>
+            <text>Это Тремонт-стрит, 139, вход в Бостон-Коммон и начало «Тропы Свободы».</text>
+            <text>Этот исторический маршрут с вековой историей был отреставрирован 4 года назад. Тёмно-красная тротуарная плитка, подобно запекшейся крови, связывала бурную эпоху прошлого с настоящим.</text>
+            <show chara="einNormalWinterFar" position="right"/>
+            <speak chara="einNoFace">Вот мы и у начала «Тропы Свободы». Ада, есть что-нибудь?</speak>
+            <show chara="einNormalWinterFar" position="right" opacity="0.7"/>
+            <show chara="adaNormalRadioFar" position="left"/>
+            <speak chara="adaNoFace">Обнаружена слабая реакция энергии Хонкая.</speak>
+            <speak chara="adaNoFace">Зашифрованный текст совпадает с полученным ранее ключом. Это аудиозапись человечества прошлой эры.</speak>
+            <speak chara="adaNoFace">Длина сигнала — 348 единиц, он полностью получен.</speak>
+            <text>Рация WS No.88 издала серию шумных электронных звуков.</text>
+            <text>Ядро Ады в таком примитивном устройстве едва могло поддерживать работу, она даже не могла создать стабильную голограмму.</text>
+            <show chara="adaNormalRadioFar" position="left" opacity="0.7"/>
+            <show chara="einNormalWinterFar" position="right"/>
+            <speak chara="einNoFace">Тогда оставляю перевод на тебя.</speak>
+            <show chara="einNormalWinterFar" position="right" opacity="0.7"/>
+            <show chara="adaSmileRadioFar" position="left"/>
+            <speak chara="adaNoFace">Без проблем, доктор Эйнштейн.</speak>
+            <goto goto="20" change="#ffffff"/>
+        </scene>
+        <scene id="20" background="bostonCommon.jpg">
+            <bgm src="03_03_bostonNight.mp3" status="continue"></bgm>
+            <speak chara="oldTapeNoFace">...</speak>
+            <speak chara="oldTapeNoFace">Если в будущем люди другой цивилизации найдут эти данные, я надеюсь оставить им цельную историю.</speak>
+            <speak chara="oldTapeNoFace">На этой планете Хонкай рождается вместе с цивилизацией.</speak>
+            <speak chara="oldTapeNoFace">Чем больше развивается человеческая цивилизация, тем сильнее становится Хонкай.</speak>
+            <speak chara="oldTapeNoFace">Каждый раз, когда Хонкай порождает Херршера, человечеству приходится платить огромную цену, чтобы его победить.</speak>
+            <speak chara="oldTapeNoFace">Херршер Разума, Херршер Пустоты, Херршер Грома, Херршер Ветра... Созидание и разрушение, господство и ограничение...</speak>
+            <speak chara="oldTapeNoFace">До недавних событий, пережив разрушения, сопоставимые с более чем десятью мировыми войнами, почти семьдесят процентов наших городов уже были уничтожены.</speak>
+            <speak chara="oldTapeNoFace">Однако... по сравнению с тем событием, которое я собираюсь задокументировать, всё предыдущее было лишь детскими игрушками.</speak>
+            <goto goto="25" change="#ffffff"/>
+        </scene>
+        <scene id="25" background="bostonCommon.jpg">
+            <bgm src="03_03_bostonNight.mp3" status="continue"></bgm>
+            <show chara="weltQuestionNewFar" position="right"/>
+            <speak chara="weltNoFace">...Ты знаешь об истории, Ада?</speak>
+            <show chara="weltQuestionNewFar" position="right" opacity="0.7"/>
+            <show chara="adaNormalRadioFar" position="left"/>
+            <speak chara="adaNoFace">Нет, господин Вельт.</speak>
+            <speak chara="adaNoFace">В моей базе данных нет соответствующих сведений.</speak>
+            <speak chara="adaNoFace">...А что касается моего собственного сознания, то я не застала ту эпоху.</speak>
+            <show chara="adaNormalRadioFar" position="left" opacity="0.7"/>
+            <show chara="teslaNormalGlassWinterFar" position="left"/>
+            <speak chara="teslaNoFace">Вельт, ты, возможно, не знаешь... когда Аду откопали, она была в «выключенном» состоянии.</speak>
+            <speak chara="teslaNoFace">Образно говоря... она «родилась» уже в нашу эпоху, после того как её нашли.</speak>
+            <show chara="weltQuestionNewFar" position="right"/>
+            <speak chara="weltNoFace">Хм...</speak>
+            <show chara="weltQuestionNewFar" position="right" opacity="0.7"/>
+            <show chara="einNormalWinterFar" position="left"/>
+            <speak chara="einNoFace">...В общем, давайте пока пойдём вперёд. Похоже, она намеревалась оставлять по короткой записи у каждой достопримечательности.</speak>
+            <show chara="einSmileWinterFar" position="left"/>
+            <speak chara="einNoFace">Вторая точка «Тропы Свободы» — Капитолий штата Массачусетс. Нужно пересечь парк и выйти на Бикон-стрит.</speak>
+            <goto goto="30" change="#ffffff"/>
+        </scene>
+        <scene id="30" background="massachusettsStateHouse.jpg">
+            <bgm src="03_03_bostonNight.mp3" status="continue"></bgm>
+            <show chara="weltQuestionNewFar" position="right"/>
+            <speak chara="weltNoFace">...Кстати, почему её назвали «улицей Маяка» (Бикон-стрит)?</speak>
+            <show chara="weltQuestionNewFar" position="right" opacity="0.7"/>
+            <show chara="teslaSnickerGlassWinterFar" position="left"/>
+            <speak chara="teslaNoFace">Конечно же, потому что раньше здесь был маяк.</speak>
+            <speak chara="teslaNoFace">Не только эта улица называется «улицей Маяка», но и весь этот район называется «Бикон-Хилл» (Холм Маяка).</speak>
+            <speak chara="teslaNoFace">Знаешь, около четырёхсот лет назад Бостон был одним из важнейших портов Северной Америки.</speak>
+            <show chara="einNormalWinterFar" position="left"/>
+            <speak chara="einNoFace">То, что из-за развития города исчезают ориентиры — с этим ничего не поделаешь.</speak>
+            <speak chara="einNoFace" remark="next">Ещё до массового переселения ирландцев в этот город Бикон-Хилл срыли для нужд мелиорации и расширения суши.</speak>
+            <remark>
+                <p class="article-text-h">Примечание:</p>
+                <p class="article-text">Массовая миграция ирландцев на северо-восток США началась после начала Великого голода в Ирландии в 1845 году. Этот голод, вызванный неурожаем картофеля и бездействием британского правительства, привёл к тому, что население острова Ирландия сократилось наполовину. Поскольку большинство погибших или покинувших страну ирландцев были бедняками, для которых родным был гэльский язык, основным языком общения в Ирландии постепенно стал английский, что навсегда изменило языковую и культурную экологию острова.</p>
+            </remark>
+            <show chara="einNormalWinterFar" position="left" opacity="0.7"/>
+            <show chara="adaNormalRadioFar" position="right"/>
+            <speak chara="adaNoFace">Обнаружена слабая реакция энергии Хонкая.</speak>
+            <speak chara="adaNoFace">Зашифрованный текст совпадает с полученным ранее ключом. Это аудиозапись человечества прошлой эры.</speak>
+            <speak chara="adaNoFace">Длина сигнала — 194 единицы, он полностью получен.</speak>
+            <show chara="adaNormalRadioFar" position="right" opacity="0.7"/>
+            <show chara="einFoolWinterFar" position="left"/>
+            <speak chara="einNoFace">А, давайте пока отложим пустую болтовню.</speak>
+            <show chara="einNormalWinterFar" position="left"/>
+            <speak chara="einNoFace">Послушаем, что в записи.</speak>
+            <goto goto="40" change="#ffffff"/>
+        </scene>
+        <scene id="40" background="massachusettsStateHouse.jpg">
+            <bgm src="03_03_bostonNight.mp3" status="continue"></bgm>
+            <speak chara="oldTapeNoFace">На тридцать третьем этаже некой военной базы держали взаперти одну необычную девушку.</speak>
+            <speak chara="oldTapeNoFace">Хотя внутри неё бурлила мощная энергия Хонкая, у неё не было никаких особых способностей.</speak>
+            <speak chara="oldTapeNoFace">Конечно, она по-прежнему сохраняла человеческое сознание.</speak>
+            <speak chara="oldTapeNoFace">Её самыми искренними словами, сказанными перед детектором лжи, были лишь...</speak>
+            <speak chara="oldTapeNoFace">«Я хочу домой».</speak>
+            <goto goto="45" change="#ffffff"/>
+        </scene>
+        <scene id="45" background="massachusettsStateHouse.jpg">
+            <bgm src="03_03_bostonNight.mp3" status="continue"></bgm>
+            <show chara="teslaEmbarraGlassWinterFar" position="left"/>
+            <speak chara="teslaNoFace" remark="next">...«Страх — причина любой нетерпимости». Я уже могу догадаться о трагичной судьбе этой девушки.</speak>
+            <remark post="U2FsdGVkX18FMez2JjeaxPpFtfL8">
+                <p class="article-text-h">Примечание:</p>
+                <p class="article-text">«Повторяю, страх — причина любой нетерпимости» — эта известная фраза написана Хендриком Виллемом ван Лоном (Hendrik Willem van Loon) в его книге «Толерантность» (Tolerance). Хотя он родился в Нидерландах, в интеллектуальных кругах его принято считать американским писателем.</p>
+            </remark>
+            <show chara="teslaShameGlassWinterFar" position="left"/>
+            <speak chara="teslaNoFace">Но в чём тогда замысел Г.А.? В конце концов, вся эта информация была оставлена ею намеренно.</speak>
+            <show chara="teslaShameGlassWinterFar" position="left" opacity="0.7"/>
+            <show chara="einNormalWinterFar" position="right"/>
+            <speak chara="einNoFace">...Дальше идёт церковь Парк-Стрит. Нужно повернуть направо на следующем перекрёстке.</speak>
+            <show chara="einNormalWinterFar" position="right" opacity="0.7"/>
+            <show chara="teslaErGlassWinterFar" position="left"/>
+            <speak chara="teslaNoFace">Эм. А ты не хочешь высказать своё мнение?</speak>
+            <show chara="teslaErGlassWinterFar" position="left" opacity="0.7"/>
+            <show chara="einNormalWinterFar" position="right"/>
+            <speak chara="einNoFace">...Зачем спешить?</speak>
+            <speak chara="einNoFace">Когда мы пройдём всю «Тропу Свободы», то, естественно, сможем услышать запись целиком.</speak>
+            <show chara="einNormalWinterFar" position="right" opacity="0.7"/>
+            <show chara="teslaErGlassWinterFar" position="left"/>
+            <speak chara="teslaNoFace">Эх. Твоей выдержке можно только позавидовать.</speak>
+            <show chara="teslaErGlassWinterFar" position="left" opacity="0.7"/>
+            <show chara="einSlyWinterFar" position="right"/>
+            <speak chara="einNoFace">Спасибо за комплимент. Не делать поспешных выводов — это достоинство исследователя.</speak>
+            <goto goto="50" change="#ffffff"/>
+        </scene>
+        <scene id="50" background="ParkStreet.jpg">
+            <bgm src="03_03_bostonNight.mp3" status="continue"></bgm>
+            <speak chara="oldTapeNoFace">В один из последующих дней убийца-самоуправник ворвался в камеру и жестоко убил её.</speak>
+            <speak chara="oldTapeNoFace">Однако никто и подумать не мог, что сила Двенадцатого Херршера проявится именно в момент её смерти.</speak>
+            <speak chara="oldTapeNoFace">«Херршер Эрозии».</speak>
+            <speak chara="oldTapeNoFace">Особый источник заражения, вирус, обладающий самосознанием.</speak>
+            <speak chara="oldTapeNoFace">Не только биологический, но и электронный.</speak>
+            <goto goto="60" change="#ffffff"/>
+        </scene>
+        <scene id="60" background="ParkStreet.jpg">
+            <bgm src="03_03_bostonNight.mp3" status="continue"></bgm>
+            <show chara="teslaShameGlassWinterFar" position="left"/>
+            <speak chara="teslaNoFace">Хм. Оказывается, бывают и такие особые сущности.</speak>
+            <speak chara="teslaNoFace">Впрочем, теоретически это не исключено. В конце концов, существуют же такие «читерские» оружия, как «Цветок Бездны»...</speak>
+            <show chara="einNormalWinterFar" position="right"/>
+            <speak chara="einNoFace">Следующая точка — кладбище Гранари. Должно быть прямо за этим углом.</speak>
+            <show chara="einNormalWinterFar" position="right" opacity="0.7"/>
+            <show chara="teslaErGlassWinterFar" position="left"/>
+            <speak chara="teslaNoFace">Эм...</speak>
+            <speak chara="teslaNoFace">Ладно, проехали...</speak>
+            <goto goto="70" change="#ffffff"/>
+        </scene>
+        <scene id="70" background="chapelBuryingGround.jpg">
+            <bgm src="03_03_bostonNight.mp3" status="continue"></bgm>
+            <speak chara="oldTapeNoFace">Сначала она заразила этих убийц, а затем через биочипы в их телах проникла во всевозможные электронные системы.</speak>
+            <speak chara="oldTapeNoFace">Разумеется, в том числе и в боевые системы военной базы.</speak>
+            <speak chara="oldTapeNoFace">Все ракеты на базе, ведомые яростью девушки, были выпущены по нашим немногим уцелевшим городам.</speak>
+            <speak chara="oldTapeNoFace">Вполне естественно, что эти города были уничтожены...</speak>
+            <speak chara="oldTapeNoFace">И люди, и машины испарились в одно мгновение в пламени взрывов.</speak>
+            <goto goto="80" change="#ffffff"/>
+        </scene>
+        <scene id="80" background="kingsChapel.jpg">
+            <bgm src="03_03_bostonNight.mp3" status="continue"></bgm>
+            <speak chara="oldTapeNoFace">Выходы из нашей базы тоже были заблокированы Херршером.</speak>
+            <speak chara="oldTapeNoFace">Каждую минуту, каждую секунду брались под контроль всё новые системы.</speak>
+            <speak chara="oldTapeNoFace">Каждую минуту, каждую секунду заражались всё новые наши соотечественники.</speak>
+            <speak chara="oldTapeNoFace">Разделённые запертыми намертво дверями, они в отчаянии беспомощно наблюдали за тем, как превращаются в ходячих мертвецов.</speak>
+            <speak chara="oldTapeNoFace">В буквальном смысле — в ходячих мертвецов.</speak>
+            <goto goto="90" change="#ffffff"/>
+        </scene>
+        <scene id="90" background="campusMassachusetts.jpg">
+            <bgm src="03_03_bostonNight.mp3" status="continue"></bgm>
+            <speak chara="oldTapeNoFace">Наша база находилась вне контроля в течение одного часа, восьми минут и двадцати секунд.</speak>
+            <speak chara="oldTapeNoFace">В течение самого длинного в истории человечества одного часа, восьми минут и двадцати секунд...</speak>
+            <speak chara="oldTapeNoFace">Мы, счастливчики, у которых ещё оставалось время продумать контрмеры, уничтожили биочипы в собственных телах, пожертвовали почти всеми электронными терминалами...</speak>
+            <speak chara="oldTapeNoFace">И, наконец, с помощью ловушки, установленной одной из докторов, мы запечатали этого ужасающего Херршера в «коробку».</speak>
+            <speak chara="oldTapeNoFace">Ценой этому... стало крушение цивилизации.</speak>
+            <goto goto="100" change="#ffffff"/>
+        </scene>
+        <scene id="100" background="oldCornerBookstore.jpg">
+            <bgm src="03_03_bostonNight.mp3" status="continue"></bgm>
+            <speak chara="oldTapeNoFace">С точки зрения знаний, наш упадок был не так уж велик.</speak>
+            <speak chara="oldTapeNoFace">Среди выживших оставалось много учёных людей, и они ни за что бы не сдались.</speak>
+            <speak chara="oldTapeNoFace">С технической точки зрения, те базы и убежища, что избежали катастрофы из-за отсутствия в них людей, возможно, ещё можно было бы запустить заново.</speak>
+            <speak chara="oldTapeNoFace">Если повезёт, мы могли бы найти новые силы для борьбы и снова укрепить свои позиции.</speak>
+            <speak chara="oldTapeNoFace">Но с точки зрения цивилизации... человеческой цивилизации больше не существовало.</speak>
+            <speak chara="oldTapeNoFace">Промышленные линии, накапливавшиеся сотнями лет, сокровища искусства, передававшиеся тысячелетиями, городское общество, построенное трудом и кооперацией сотен миллионов людей...</speak>
+            <speak chara="oldTapeNoFace">...Всего этого больше не было.</speak>
+            <speak chara="oldTapeNoFace">На самом деле мы уже проиграли.</speak>
+            <goto goto="110" change="#ffffff"/>
+        </scene>
+        <scene id="110" background="oldSouthMeetinghouse.jpg">
+            <bgm src="03_03_bostonNight.mp3" status="continue"></bgm>
+            <speak chara="oldTapeNoFace">Это всё и есть причина, по которой мы покинули эту истерзанную базу и пустились в бега.</speak>
+            <speak chara="oldTapeNoFace">Северная Америка, Южная Америка, острова, далёкие от материков...</speak>
+            <speak chara="oldTapeNoFace">Под руководством доктора мы едва собрали несколько флотов и с оставшимися припасами отправились к тем убежищам, что пережили атаку.</speak>
+            <speak chara="oldTapeNoFace">Она ободряла всех словами: «Наш дом — это вовсе не географическое понятие».</speak>
+            <speak chara="oldTapeNoFace">«Дом может быть где угодно. На самом деле он существует благодаря людям, благодаря нашим соотечественникам».</speak>
+            <speak chara="oldTapeNoFace">«Где наши братья, там и наш дом».</speak>
+            <speak chara="oldTapeNoFace">...Возможно, доктор была права.</speak>
+            <speak chara="oldTapeNoFace">Но эти «необитаемые острова» и вправду стали нашей последней «землёй обетованной».</speak>
+            <goto goto="120" change="#ffffff"/>
+        </scene>
+        <scene id="120" background="oldStateHouse.jpg">
+            <bgm src="03_03_bostonNight.mp3" status="continue"></bgm>
+            <speak chara="oldTapeNoFace">Сегодня день нашего отбытия.</speak>
+            <speak chara="oldTapeNoFace">Число погибших на базе составляет 15626 человек, по радио прямо сейчас зачитывают их имена.</speak>
+            <speak chara="oldTapeNoFace">Там есть те, кого мы знали раньше.</speak>
+            <speak chara="oldTapeNoFace">Есть и те, чьи имена мы узнали лишь во время похорон.</speak>
+            <speak chara="oldTapeNoFace">В любом случае, пока я знаю ваши истории... я буду записывать их здесь.</speak>
+            <speak chara="oldTapeNoFace">Как ваше последнее наследие.</speak>
+            <goto goto="130" change="#ffffff"/>
+        </scene>
+        <scene id="130" background="bostonMassacreSite.jpg">
+            <bgm src="03_03_bostonNight.mp3" status="continue"></bgm>
+            <show chara="teslaErGlassWinterClose" position="left"/>
+            <speak chara="teslaNoFace">Эм... Всё это я, конечно, понимаю...</speak>
+            <speak chara="teslaNoFace">Но почему мы остановились перед этим канализационным люком?</speak>
+            <show chara="teslaErGlassWinterClose" position="left" opacity="0.7"/>
+            <show chara="einNormalWinterClose" position="right"/>
+            <speak chara="einNoFace">Это не канализационный люк. Внимательно посмотри на надпись.</speak>
+            <show chara="einNormalWinterClose" position="right" opacity="0.7"/>
+            <show chara="teslaNormalGlassWinterClose" position="left"/>
+            <speak chara="teslaNoFace" remark="next">Пятое марта, тысяча семьсот семидесятый год... Бостонская резня... Ах.</speak>
+            <remark post="U2FsdGVkX19kUIIJSICTAeS2APir">
+                <p class="article-text-h">Примечание:</p>
+                <p class="article-text">Бостонская резня) — конфликт между британскими солдатами и жителями Бостона, в результате которого погибли пять человек.</p>
+                <p class="article-text">5 марта 1770 года британский офицер (Джон Голдфинч) возвращался в казармы после покупки парика. Подмастерье мастера по изготовлению париков (Эдвард Гаррик), ошибочно решив, что офицер не заплатил, начал кричать на него. Офицер объяснил ситуацию и собирался уйти, но тут вмешался его подчинённый (Хью Уайт), решивший вступиться за офицера. Завязалась перепалка с подмастерьем, которая закончилась тем, что Уайт ударил его. Подмастерье залился кровью и начал громко плакать. Разгневанная толпа тут же окружила офицера и его солдата. Другой британский офицер (Томас Престон) прибыл с несколькими солдатами им на выручку, но толпа начала бросать в них камни и избивать. В панике отряд британских войск открыл огонь по толпе, убив 5 мирных жителей и ранив 6 человек.</p>
+                <p class="article-text">Хотя вина за этот инцидент лежала не только на британских войсках, он сильно обострил противоречия между армией и жителями британских колоний в Северной Америке, что в конечном итоге привело к началу Войны за независимость США.</p>
+            </remark>
+            <show chara="teslaNormalGlassWinterClose" position="left" opacity="0.7"/>
+            <show chara="einNormalWinterClose" position="right"/>
+            <speak chara="einNoFace">Да. Это десятая точка на «Тропе Свободы» — место Бостонской резни.</speak>
+            <goto goto="140" change="#ffffff"/>
+        </scene>
+        <scene id="140" background="bostonMassacreSite.jpg">
+            <bgm src="03_03_bostonNight.mp3" status="continue"></bgm>
+            <speak chara="oldTapeNoFace">№289 Бакаб Салливан</speak>
+            <speak chara="oldTapeNoFace">№290 Хунабку Салливан</speak>
+            <speak chara="oldTapeNoFace">№291 Камазотц Салливан</speak>
+            <speak chara="oldTapeNoFace">№292 Ицамна Салливан</speak>
+            <speak chara="oldTapeNoFace">№293 Ишкик Салливан</speak>
+            <speak chara="oldTapeNoFace">Все пятеро братьев и сестёр Салливан были бойцами.</speak>
+            <speak chara="oldTapeNoFace">Трое братьев, Хунаб, Камазотц и Ицамна, были случайно заражены во время боя.</speak>
+            <speak chara="oldTapeNoFace">Бакаб в тот момент тоже находился там, он погиб от рук своих младших братьев.</speak>
+            <speak chara="oldTapeNoFace">Их сестра Ишкик дожила до конца битвы... но через три дня, из-за нехватки медикаментов, трагически скончалась от инфекции в ране.</speak>
+            <speak chara="oldTapeNoFace">При жизни эта пятёрка не знала меня...</speak>
+            <speak chara="oldTapeNoFace">Я лишь тот, кому поручили похоронить их тела.</speak>
+            <speak chara="oldTapeNoFace">На теле сестры было много царапин... говорят, перед самой смертью у неё проявлялись симптомы безумия.</speak>
+            <goto goto="150" change="#ffffff"/>
+        </scene>
+        <scene id="150" background="faneuilHall.jpg">
+            <bgm src="03_03_bostonNight.mp3" status="continue"></bgm>
+            <speak chara="oldTapeNoFace">№3426 Хастур Кольт</speak>
+            <speak chara="oldTapeNoFace">Хастур был невероятно харизматичным оратором и часто посещал различные военные базы, чтобы поднимать боевой дух.</speak>
+            <speak chara="oldTapeNoFace">Когда я нашёл его, его тело лежало на земле со скрюченными конечностями, а пустые глаза смотрели на раскачивающуюся люстру.</speak>
+            <speak chara="oldTapeNoFace">Улики на месте происшествия указывали на то, что после заражения Херршером он не прекратил свою речь, а наоборот, приходил во всё большее возбуждение.</speak>
+            <speak chara="oldTapeNoFace">Казалось, что его речь тоже приобрела способность заражать: и он, и слушатели были не в силах противиться этому дурману, они танцевали до тех пор, пока не падали замертво от истощения.</speak>
+            <speak chara="oldTapeNoFace">Я слышал речи Хастура в других местах. К счастью, в этом несчастье я не был его фанатом.</speak>
+            <goto goto="160" change="#ffffff"/>
+        </scene>
+        <scene id="160" background="paulRevereHouse.jpg">
+            <bgm src="03_03_bostonNight.mp3" status="continue"></bgm>
+            <speak chara="oldTapeNoFace">№5390 Амброджино Моро</speak>
+            <speak chara="oldTapeNoFace">Амброджино был застрелен.</speak>
+            <speak chara="oldTapeNoFace">Он не был заражён Херршером. Тот, кто застрелил его, также не проявлял признаков безумия и даже тщательно стёр отпечатки пальцев.</speak>
+            <speak chara="oldTapeNoFace">Поэтому мы можем лишь предполагать, что это было давно спланированное убийство, и преступник успешно совершил задуманное, воспользовавшись хаосом, возникшим из-за появления Херршера.</speak>
+            <speak chara="oldTapeNoFace">Сам Амброджино был эксцентричным и скупым старикашкой. Я сталкивался с ним пару раз, и, честно говоря, он был крайне неприятным типом.</speak>
+            <speak chara="oldTapeNoFace">У него не было семьи, его временно поселили на базе, потому что его родной город был разрушен.</speak>
+            <speak chara="oldTapeNoFace">Учитывая всё это, я даже представить не могу, кому бы понадобилось так изощряться, чтобы его убить.</speak>
+            <goto goto="170" change="#ffffff"/>
+        </scene>
+        <scene id="170" background="oldNorthChurch.jpg">
+            <bgm src="03_03_bostonNight.mp3" status="continue"></bgm>
+            <speak chara="oldTapeNoFace">№8421 Вендиго Карлайл</speak>
+            <speak chara="oldTapeNoFace">№8422 Ровена Лерой</speak>
+            <speak chara="oldTapeNoFace">№8594 Джокса Мартинес</speak>
+            <speak chara="oldTapeNoFace">№8595 Кук Ли</speak>
+            <speak chara="oldTapeNoFace">Вендиго был священником. Он был единственным в молельне, кто не подвергся заражению Херршера... но погиб первым.</speak>
+            <speak chara="oldTapeNoFace">Согласно нашим данным, когда верующие заразились, обезумели и плотным кольцом окружили Вендиго...</speak>
+            <speak chara="oldTapeNoFace">...Он не убежал. Возможно, он продолжал молиться за них. До тех пор, пока верующие не разорвали его на куски и не сожрали.</speak>
+            <speak chara="oldTapeNoFace">Я слышал имя Вендиго: он был набожным человеком. Интересно, что сказал ему его «Бог» перед смертью.</speak>
+            <speak chara="oldTapeNoFace">Люди под номерами с 8422 по 8595 были обычными верующими из этого приюта. Съев Вендиго, они тоже погибли, перебив друг друга.</speak>
+            <speak chara="oldTapeNoFace">Ровена была маленькой девочкой с золотистыми волосами.</speak>
+            <speak chara="oldTapeNoFace">Джокса был старухой.</speak>
+            <speak chara="oldTapeNoFace">Кук был честным бизнесменом.</speak>
+            <speak chara="oldTapeNoFace">Перед лицом «Херршера Эрозии» между ними не было никаких различий...</speak>
+            <goto goto="180" change="#ffffff"/>
+        </scene>
+        <scene id="180" background="coppsHillBuryingGround.jpg">
+            <bgm src="03_03_bostonNight.mp3" status="continue"></bgm>
+            <speak chara="oldTapeNoFace">№12687 Эдвардс Маннергейм</speak>
+            <speak chara="oldTapeNoFace">№12688 Ширли Маннергейм</speak>
+            <speak chara="oldTapeNoFace">Эдвардс был из старой аристократии — последний член семьи Маннергейм, а Ширли была его молодой женой.</speak>
+            <speak chara="oldTapeNoFace">Ширли приехала на нашу базу именно для того, чтобы сыграть свадьбу с Эдвардсом.</speak>
+            <speak chara="oldTapeNoFace">Когда началась битва, Эдвардс был одет в белый фрак, Ширли оторвала подол своего свадебного платья, и они вместе взялись за оружие.</speak>
+            <speak chara="oldTapeNoFace">Причиной смерти обоих стали огромная кровопотеря и инфекция в ранах.</speak>
+            <speak chara="oldTapeNoFace">Я сохранил ту позу, в которой Ширли перед смертью обнимала тело Эдвардса, и похоронил их вместе.</speak>
+            <speak chara="oldTapeNoFace">К сожалению, у меня не было возможности сделать для них семиугольное надгробие, свойственное семье Маннергейм.</speak>
+            <goto goto="190" change="#ffffff"/>
+        </scene>
+        <scene id="190" background="bunkerHill.jpg">
+            <bgm src="03_03_bostonNight.mp3" status="continue"></bgm>
+            <speak chara="oldTapeNoFace">№14936 Патриция Зингер</speak>
+            <speak chara="oldTapeNoFace">Мы с Патрицией однажды виделись. В то время она была одним из дежурных врачей на базе.</speak>
+            <speak chara="oldTapeNoFace">В течение того мучительного часа с лишним она, несмотря на несколько огнестрельных ранений, оставалась на передовой, спасая раненых.</speak>
+            <speak chara="oldTapeNoFace">Вскоре после того, как мы вернули контроль над базой... я своими глазами видел, как она упала на красную плитку у пульта управления.</speak>
+            <speak chara="oldTapeNoFace">Кровь под ней, казалось, стала продолжением красного кирпича... а мы должны были наступить на эту кровь и идти дальше.</speak>
+            <goto goto="200" change="#ffffff"/>
+        </scene>
+        <scene id="200" background="bunkerHill.jpg">
+            <bgm src="03_03_bostonNight.mp3" status="continue"></bgm>
+            <show chara="teslaNormalGlassWinterClose-up" position="left"/>
+            <speak chara="teslaNoFace">Монумент Банкер-Хилл... выходит, это и есть конец «Тропы Свободы»?</speak>
+            <show chara="teslaNormalGlassWinterClose-up" position="left" opacity="0.7"/>
+            <show chara="weltNervousNewClose-up" position="right"/>
+            <speak chara="weltNoFace">Неужели это наконец закончилось... эти тяжёлые истории...</speak>
+            <show chara="weltNervousNewClose-up" position="right" opacity="0.7"/>
+            <show chara="einNormalWinterClose-up" position="right"/>
+            <speak chara="einNoFace">С точки зрения самой кирпичной тропы — да... Но если смотреть на список из 16 достопримечательностей, мы ещё не были у «Конститьюшн».</speak>
+            <show chara="einNormalWinterClose-up" position="right" opacity="0.7"/>
+            <show chara="teslaNormalGlassWinterClose-up" position="left"/>
+            <speak chara="teslaNoFace">Хм, это тот самый деревянный военный корабль, который более ста лет числится в составе ВМС США?</speak>
+            <show chara="teslaNormalGlassWinterClose-up" position="left" opacity="0.7"/>
+            <show chara="einNormalWinterClose-up" position="right"/>
+            <speak chara="einNoFace">Угу. Поскольку запись у монумента всё ещё рассказывает о жертвах...</speak>
+            <show chara="einNormalWinterClose-up" position="right" opacity="0.7"/>
+            <show chara="teslaSnickerGlassWinterClose-up" position="left"/>
+            <speak chara="teslaNoFace">Тогда вполне вероятно, что Г.А. оставила своё личное мнение возле «Конститьюшн» или в Лексингтоне? В качестве заключения?</speak>
+            <show chara="teslaSnickerGlassWinterClose-up" position="left" opacity="0.7"/>
+            <show chara="einSmileWinterClose-up" position="right"/>
+            <speak chara="einNoFace">Именно так.</speak>
+            <goto goto="210" change="#ffffff"/>
+        </scene>
+        <scene id="210" background="ussConstitution.jpg">
+            <bgm src="03_03_bostonNight.mp3" status="continue"></bgm>
+            <text>Как и предполагала Эйнштейн, запись, оставленная возле «Конститьюшн», была сделана самой «Г.А.».</text>
+            <speak chara="haNoFace">Я — Г.А.... Возможно, вы уже хорошо знаете мой голос.</speak>
+            <speak chara="haNoFace">Когда-то я тоже была валькирией в организации под названием Шиксал.</speak>
+            <speak chara="haNoFace">Когда я нашла в руинах Йеллоустона эти данные, сохранившиеся с давних времён, 50 000 лет назад, я не смогла сдержать своё любопытство.</speak>
+            <speak chara="haNoFace">Я воспроизвела всё содержимое на устройстве, найденном прямо там... Скажите спасибо, что я оставила вам истории лишь шести групп погибших.</speak>
+            <speak chara="haNoFace">Клянусь, выслушивать сотни историй смертей одну за другой — это точно плохая затея.</speak>
+            <speak chara="haNoFace">Поскольку я не очень хорошо владела языком прошлого, ради надёжности я тайно попросила одного учёного перевести и систематизировать эти материалы.</speak>
+            <speak chara="haNoFace">Однако... на этого человека внезапно донесли цепные псы Шиксала, и его бросили за решётку.</speak>
+            <speak chara="haNoFace">Это было в 1829 году... Имя учёного — Нильс Хенрик Абель.</speak>
+            <speak chara="haNoFace">Если у вас есть возможность, можете проверить подлинность этой истории.</speak>
+            <speak chara="haNoFace">Позже по ложному доносу обвинили и меня; я избежала такой же участи лишь потому, что валькирия, пришедшая арестовать меня, закрыла на это глаза.</speak>
+            <speak chara="haNoFace">Я извлекла из соулиума десяток самых важных записей, а остальные оставила Шиксалу.</speak>
+            <speak chara="haNoFace">...Возможно, я перестала им доверять уже очень давно.</speak>
+            <speak chara="haNoFace">Их отношение к врагам всегда было параноидальным — «уничтожить во что бы то ни стало».</speak>
+            <speak chara="haNoFace">Настолько параноидальным, что поневоле начинаешь подозревать: не пытается ли кто-то скрыть за этим свои грязные замыслы?</speak>
+            <speak chara="haNoFace">Настолько, что соулиум, который я не забрала, был уничтожен епископом, а учёный, изучавший его, физически устранён, умерев в голоде и холоде.</speak>
+            <speak chara="haNoFace">Ни Шиксал, ни его епископ не способны по-настоящему победить Хонкай.</speak>
+            <speak chara="haNoFace">Даже если однажды они смогут достичь уровня развития технологий прошлой эры или даже превзойти его...</speak>
+            <speak chara="haNoFace">...По крайней мере, столкнувшись с Херршерами, чьи способности непредсказуемы, с их привычными методами они останутся абсолютно беспомощными.</speak>
+            <speak chara="haNoFace">Доверять судьбу мира подобной организации — это абсолютно неправильно.</speak>
+            <speak chara="haNoFace">В Лексингтоне я оставила вам оружие, способное противостоять этому епископу.</speak>
+            <speak chara="haNoFace">Используйте его с умом... но запомните: «Лучшая угроза — это бездействие».</speak>
+            <speak chara="haNoFace">Потому что, если вы начнёте действовать и не добьётесь результата, люди больше не будут бояться ваших угроз.</speak>
+            <goto goto="220" change="#ffffff"/>
+        </scene>
+        <scene id="220" background="ussConstitution.jpg">
+            <bgm src="03_03_bostonNight.mp3" status="continue"></bgm>
+            <show chara="teslaNormalGlassWinterClose-up" position="left"/>
+            <speak chara="teslaNoFace">Шваброголовая, что думаешь?</speak>
+            <show chara="teslaNormalGlassWinterClose-up" position="left" opacity="0.7"/>
+            <show chara="einNormalWinterClose-up" position="right"/>
+            <speak chara="einNoFace">Слова лишь одной стороны... пожалуй.</speak>
+            <speak chara="einNoFace">Но они звучат вполне убедительно.</speak>
+            <show chara="einNormalWinterClose-up" position="right" opacity="0.7"/>
+            <show chara="teslaNormalGlassWinterClose-up" position="left"/>
+            <speak chara="teslaNoFace">Хм... ты планируешь найти оружие, о котором она говорит, прежде чем решать, что делать дальше?</speak>
+            <show chara="teslaNormalGlassWinterClose-up" position="left" opacity="0.7"/>
+            <show chara="einFoolWinterClose-up" position="right"/>
+            <speak chara="einNoFace">А разве есть способ лучше? Не можем же мы делать выводы без доказательств.</speak>
+            <show chara="einFoolWinterClose-up" position="right" opacity="0.7"/>
+            <show chara="teslaShameGlassWinterClose-up" position="left"/>
+            <speak chara="teslaNoFace">...Так и знала, что ты это скажешь.</speak>
+            <speak chara="teslaNoFace">Поблагодари меня за то, что я посоветовала тебе упаковать вещи и взять из общаги всё самое важное.</speak>
+            <show chara="teslaShameGlassWinterClose-up" position="left" opacity="0.7"/>
+            <show chara="einSlyWinterClose-up" position="right"/>
+            <speak chara="einNoFace">...Разве у нас была бы такая возможность, если бы Шрёдингер не организовала спецрейс?</speak>
+            <show chara="einSlyWinterClose-up" position="right" opacity="0.7"/>
+            <show chara="teslaShameGlassWinterClose-up" position="left"/>
+            <speak chara="teslaNoFace">Хм, я знаю, что ты просто не хочешь меня хвалить.</speak>
+            <speak chara="teslaNoFace">Если Шрёдингер так серьёзно к этому относится, почему сама не приехала?</speak>
+            <show chara="teslaShameGlassWinterClose-up" position="left" opacity="0.7"/>
+            <show chara="einSlyWinterClose-up" position="right"/>
+            <speak chara="einNoFace">Говорят, эксперимент Эдисон перешёл в критическую фазу, и она просто не могла вырваться.</speak>
+            <speak chara="einNoFace">Она также настоятельно рекомендовала нам потом заглянуть в Нью-Йорк, чтобы взглянуть на «энергетическую установку, опережающую своё время».</speak>
+            <show chara="einSlyWinterClose-up" position="right" opacity="0.7"/>
+            <show chara="teslaEmbarraGlassWinterClose-up" position="left"/>
+            <speak chara="teslaNoFace">Тц. Какое ещё «опережающую время»? Что вообще эта скряга может придумать?</speak>
+            <show chara="teslaEmbarraGlassWinterClose-up" position="left" opacity="0.7"/>
+            <show chara="weltEmbarraNewClose-up" position="right"/>
+            <speak chara="weltNoFace">Эм... даже если она тебе не нравится, не стоит так говорить...</speak>
+            <show chara="weltEmbarraNewClose-up" position="right" opacity="0.7"/>
+            <show chara="teslaShameGlassWinterClose-up" position="left"/>
+            <speak chara="teslaNoFace">Что ты понимаешь? Взрослые разговаривают, не перебивай.</speak>
+            <show chara="teslaShameGlassWinterClose-up" position="left" opacity="0.7"/>
+            <show chara="weltSighNewClose-up" position="right"/>
+            <speak chara="weltNoFace">Эх...</speak>
+            <show chara="weltSighNewClose-up" position="right" opacity="0.7"/>
+            <show chara="einSmileWinterClose-up" position="right"/>
+            <speak chara="einNoFace">Массачусетс H6D626... А, вот и она. Машина, которую мы попросили подготовить Шрёдингер.</speak>
+            <show chara="einSmileWinterClose-up" position="right" opacity="0.7"/>
+            <show chara="teslaShoutWinterClose-up" position="left"/>
+            <speak chara="teslaNoFace">Что? Э-это...</speak>
+            <speak chara="teslaNoFace">Это же «Роллс-Ройс»?</speak>
+            <speak chara="teslaNoFace">Ты ничего не путаешь? Шрёдингер и эта скряга приготовили для нас такую шикарную машину?</speak>
+            <show chara="teslaShoutWinterClose-up" position="left" opacity="0.7"/>
+            <show chara="einSlyWinterClose-up" position="right"/>
+            <speak chara="einNoFace">Хе-хе—</speak>
+            <speak chara="einNoFace">Дорогая мисс Тесла...</speak>
+            <speak chara="einNoFace">Пока вокруг тихая и тёмная ночь, не желаешь ли прокатиться с «небывалым» размахом?</speak>
+            <goto goto="230" change="#ffffff"/>
+        </scene>
+        <scene id="230" background="lexingtonMA.jpg">
+            <bgm src="10_20_PeerGynt.mp3" status="start"></bgm>
+            <text>«Роллс-Ройс» с номерами H6D626 промчался по Массачусетс-авеню более десяти миль (сопровождаемый восторженными криками мисс Теслы) и наконец с визгом тормозов остановился.</text>
+            <text>Перед нними предстал небольшой треугольный парк у дороги—</text>
+            <text>—несмотря на свои скромные размеры, это великая достопримечательность, навсегда вписавшая своё имя в историю человечества.</text>
+            <text remark="next">Лексингтон — именно здесь 19 апреля 1775 года прозвучал первый выстрел Войны за независимость США.</text>
+            <remark post="U2FsdGVkX19rc2sXYtcTfwfoS00J">
+                <p class="article-text-h">Примечание:</p>
+                <p class="article-text">Сражения при Лексингтоне и Конкорде (Battles of Lexington and Concord) — вооружённое столкновение между британской армией и североамериканским ополчением, произошедшее 19 апреля 1775 года. Хотя Сенат США в 1908 году принял резолюцию, признающую Битву при Пойнт-Плезант (Battle of Point Pleasant) первой битвой Войны за независимость (1775–1783), американское общество по-прежнему считает отправной точкой войны именно бои у Лексингтона и Конкорда.</p>
+            </remark>
+            <goto goto="240" change="#ffffff"/>
+        </scene>
+        <scene id="240" background="lexingtonMA.jpg">
+            <bgm src="10_20_PeerGynt.mp3" status="continue"></bgm>
+            <show chara="einNormalWinterFar" position="right"/>
+            <speak chara="einNoFace">Ада.</speak>
+            <show chara="einNormalWinterFar" position="right" opacity="0.7"/>
+            <show chara="adaNormalRadioFar" position="left"/>
+            <speak chara="adaNoFace">42.45 градуса северной широты, 71.23 градуса западной долготы — подтверждено вхождение в целевую зону. Активация режима поиска.</speak>
+            <show chara="adaSmileRadioFar" position="left"/>
+            <speak chara="adaNoFace">Обнаружен источник.</speak>
+            <show chara="adaSmileRadioFar" position="left" opacity="0.7"/>
+            <show chara="weltAstonishNewFar" position="right"/>
+            <speak chara="weltNoFace">Так быстро?</speak>
+            <show chara="weltAstonishNewFar" position="right" opacity="0.7"/>
+            <show chara="adaNormalRadioFar" position="left"/>
+            <text>Проигнорировав вопрос Вельта, Ада сосредоточенно продолжала выполнять свои протоколы.</text>
+            <speak chara="adaNoFace">Вход в учётную запись выполнен успешно, пароль тот же.</speak>
+            <speak chara="adaNoFace">Отправлен запрос на посадку целевого источника и снятие многомерного камуфляжа путём декогеренции.</speak>
+            <speak chara="adaNoFace">Многомерный камуфляж снят.</speak>
+            <speak chara="adaNoFace">Мягкая посадка прошла успешно.</speak>
+            <show chara="adaSmileRadioFar" position="left"/>
+            <speak chara="adaNoFace">Цель должна быть прямо перед вами, пожалуйста, примите.</speak>
+            <goto goto="250" change="#ffffff"/>
+        </scene>
+        <scene id="250" background="CG17-1.jpg">
+            <bgm src="10_20_PeerGynt.mp3" status="continue"></bgm>
+            <text>Её было просто невозможно не заметить.</text>
+            <text>Она сияла, словно луна.</text>
+            <text>Со снятием многомерного камуфляжа из пустоты появился жёлто-белый светящийся шар и медленно опустился перед группой.</text>
+            <speak chara="teslaNoFace">Ада! Что это такое?!</speak>
+            <speak chara="adaNoFace">Плавающая капсула для хранения тип 1625. Обладает многомерным камуфляжем, способна зависать над заданной точкой, оставаясь необнаруженной длительное время.</speak>
+            <speak chara="einNoFace">Открой её, Ада.</speak>
+            <speak chara="adaNoFace">Поняла, доктор Эйнштейн.</speak>
+            <goto goto="260" change="#ffffff"/>
+        </scene>
+        <scene id="260" background="CG17-2.jpg">
+            <bgm src="10_20_PeerGynt.mp3" status="continue"></bgm>
+            <text>Жёлто-белый световой шар, со скоростью падающего осеннего листа, медленно раскрыл свою оболочку.</text>
+            <text>Этот гигант размером с человека раскрылся в разные стороны, подобно цветущему лотосу, обнажив прозрачный контейнер внутри.</text>
+            <speak chara="weltNoFace">Это...</speak>
+            <text>Внутри прозрачного контейнера тихо парил синий шар диаметром около десяти сантиметров.</text>
+            <speak chara="adaNoFace">ⴳⴽⵓ ⵐ ⵋⵓ (Балу чжа Шу)!</speak>
+            <speak chara="weltNoFace">А?!</speak>
+            <speak chara="teslaNoFace">Ада, что ты говоришь?</speak>
+            <speak chara="adaNoFace">Божественный Ключ! Доктор Тесла, это Божественный Ключ!</speak>
+            <speak chara="adaNoFace">Идентификационный код цели — «Божественный Ключ №9: Звезда Эдема»!</speak>
+            <end post="U2FsdGVkX18OCUSLhPy1oDwFhkQc"/>
+        </scene>
+    </story>
+</data>

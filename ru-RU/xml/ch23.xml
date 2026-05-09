@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data>
+    <story>
+        <scene id="0" background="bg.jpg">
+            <bgm src="mid-lude.mp3" status="start"></bgm>
+            <cg src="newсhapter.png" bg="bg.jpg"></cg>
+            <goto goto="10" change="#000000"/>
+        </scene>
+        <scene id="10" background="CG22-2.jpg">
+            <bgm src="04_20_Brigantia.mp3" status="start"></bgm>
+            <speak chara="schroCatNoFace">...Эта сила... и правда кардинально отличается от той, что была мгновение назад...</speak>
+            <goto goto="20" change="0"/>
+        </scene>
+        <scene id="20" background="schroFadeAway1.jpg">
+            <bgm src="04_20_Brigantia.mp3" status="continue"></bgm>
+            <speak chara="schroCatNoFace">Хех... Поставить на кон эти оставшиеся крупицы времени было правильным решением...</speak>
+            <goto goto="30" change="0"/>
+        </scene>
+        <scene id="30" background="schroFadeAway2.jpg">
+            <bgm src="04_20_Brigantia.mp3" status="continue"></bgm>
+            <speak chara="schroCatNoFace">Первый Херршер новой эры... поздравляю... ты больше не «Его» марионетка...</speak>
+            <goto goto="40" change="0"/>
+        </scene>
+        <scene id="40" background="schroFadeAway3.jpg">
+            <bgm src="04_20_Brigantia.mp3" status="continue"></bgm>
+            <speak chara="schroCatNoFace">Хе-хе... Раз так, можно считать, что я выиграла это пари...</speak>
+            <goto goto="50" change="#ffffff"/>
+        </scene>
+        <scene id="50" background="white.jpg">
+            <bgm src="04_20_Brigantia.mp3" status="stop"></bgm>
+            <sound src="04_20_fell.mp3"/>
+            <speak chara="reannaNoNameNoFace">Что вы тут устроили, негодники!</speak>
+            <goto goto="60" change="0"/>
+        </scene>
+        <scene id="60" background="white.jpg">
+            <bgm src="11_17_tatakau.mp3" status="start"></bgm>
+            <cg src="CG23-1.jpg" fadeIn="0" fadeOut="1"></cg>
+            <goto goto="70" change="0"/>
+        </scene>
+        <scene id="70" background="CG23-2-1.jpg">
+            <bgm src="11_17_tatakau.mp3" status="continue"></bgm>
+            <speak chara="reannaNoFace">Я — чернота, сходящая в ад;</speak>
+            <goto goto="72" change="0"/>
+        </scene>
+        <scene id="72" background="CG23-2-2.jpg">
+            <bgm src="11_17_tatakau.mp3" status="continue"></bgm>
+            <speak chara="reannaNoFace">Я — белизна, пришедшая с небес;</speak>
+            <goto goto="74" change="0"/>
+        </scene>
+        <scene id="74" background="CG23-2.jpg">
+            <bgm src="11_17_tatakau.mp3" status="continue"></bgm>
+            <speak chara="reannaNoFace">Божественный Ключ: Цветок Бездны, Вторая номинальная мощность...</speak>
+            <goto goto="80" change="0"/>
+        </scene>
+        <scene id="80" background="white.jpg">
+            <bgm src="11_17_tatakau.mp3" status="continue"></bgm>
+            <cg src="shengqiangBack.png" bg="white.jpg" fadeIn="0" fadeOut="0"></cg>
+            <bgm src="11_17_tatakau.mp3" status="stop"></bgm>
+            <sound src="05_18_smash.mp3"/>
+            <cg src="niliuStab.png" bg="CG23-3.jpg" fadeIn="0" fadeOut="1000"></cg>
+            <goto goto="90" change="#000000"/>
+        </scene>
+        <scene id="90" background="scienceEngineWarning.jpg">
+            <bgm src="10_25_noise.mp3" status="start"></bgm>
+            <text>Около семи часов назад, Нью-Джерси, город Эдисон.</text>
+            <speak chara="schroNoFace">...Аномальный скачок мощности реактора!</speak>
+            <speak chara="schroNoFace">Критический коэффициент превышен!</speak>
+            <speak chara="schroNoFace">Реакция вот-вот выйдет из-под контроля!</speak>
+            <speak chara="nokiaNoFace">!</speak>
+            <speak chara="nokiaNoFace">Как это внезапно...</speak>
+            <speak chara="edisonNoFace">...Всем пройти в убежище! Быстро!</speak>
+            <speak chara="edisonNoFace">Не думайте о других, спасайтесь сами!</speak>
+            <speak chara="nokiaNoFace">Но...</speak>
+            <speak chara="edisonNoFace">Нет времени на сантименты! Живо внутрь!</speak>
+            <goto goto="100" change="#000000"/>
+        </scene>
+        <scene id="100" background="CG23-3.jpg">
+            <bgm src="11_17_memory.mp3" status="start"></bgm>
+            <speak chara="schroCatNoFace">Ты... зачем...</speak>
+            <speak chara="reannaNoFace">Тш-ш... не двигайся.</speak>
+            <speak chara="reannaNoFace">Очень скоро... всё закончится.</speak>
+            <goto goto="110" change="#ffffff"/>
+        </scene>
+        <scene id="110" background="cloudSky.jpg">
+            <bgm src="11_17_memory.mp3" status="continue"></bgm>
+            <text>...</text>
+            <text>Полчаса спустя, в роскошном спорткаре со снятой крышей...</text>
+            <goto goto="120" change="0"/>
+        </scene>
+        <scene id="120" background="connecticutRoad.jpg">
+            <bgm src="11_17_memory.mp3" status="continue"></bgm>
+            <show chara="reaLaughArmedNoLanceClose-up" position="left"/>
+            <speak chara="reannaNoFace">...Ну же, скажи что-нибудь?</speak>
+            <show chara="reaEmbarraArmedNoLanceClose-up" position="left"/>
+            <speak chara="reannaNoFace">Я, конечно, знаю, что ты молчалива... но сейчас всё уж слишком мрачно.</speak>
+            <show chara="reaEmbarraArmedNoLanceClose-up" position="left" opacity="0.7"/>
+            <bgm src="10_20_londonderry_p.mp3" status="start"></bgm>
+            <show chara="schroShrinkLanceClose-up" position="right"/>
+            <speak chara="schroNoFace">...Зачем... ты спасла меня...</speak>
+            <show chara="schroShrinkLanceClose-up" position="right" opacity="0.7"/>
+            <show chara="reaSeriousArmedNoLanceClose-up" position="left"/>
+            <speak chara="reannaNoFace">...Зачем? Ну правда, не могла же я просто смотреть, как вы совершаете глупости.</speak>
+            <show chara="reaNormalArmedNoLanceClose-up" position="left"/>
+            <speak chara="reannaNoFace">Слушай внимательно. энергия Хонкая в твоём теле уже полностью заблокирована «Белым Цветком» в твоей правой руке...</speak>
+            <speak chara="reannaNoFace">Когда мы разберёмся с этим инцидентом, у твоих товарищей будет полно времени, чтобы вылечить тебя.</speak>
+            <show chara="reaNormalArmedNoLanceClose-up" position="left" opacity="0.7"/>
+            <show chara="schroShrinkLanceClose-up" position="right"/>
+            <speak chara="schroNoFace">...Но... я...</speak>
+            <show chara="schroShrinkLanceClose-up" position="right" opacity="0.7"/>
+            <show chara="reaNormalArmedNoLanceClose-up" position="left"/>
+            <speak chara="reannaNoFace">Тот, кто подвергся эрозии Хонкая, неизбежно поддаётся провокациям воли Хонкая и совершает невероятные глупости.</speak>
+            <show chara="reaSmileArmedNoLanceClose-up" position="left"/>
+            <speak chara="reannaNoFace">...Но к тебе это не относится.</speak>
+            <show chara="reaNormalArmedNoLanceClose-up" position="left"/>
+            <speak chara="reannaNoFace">Подвергнуться эрозии настолько, чтобы почти потерять половину тела, но при этом всё ещё быть способной рационально мыслить...</speak>
+            <show chara="reaSmileArmedNoLanceClose-up" position="left"/>
+            <speak chara="reannaNoFace">...это уже делает тебя в разы выносливее, чем 99,9% людей, ты понимаешь это, доктор Шрёдингер?</speak>
+            <show chara="reaSmileArmedNoLanceClose-up" position="left" opacity="0.7"/>
+            <show chara="schroShrinkLanceClose-up" position="right"/>
+            <speak chara="schroNoFace">...</speak>
+            <show chara="schroShrinkLanceClose-up" position="right" opacity="0.7"/>
+            <show chara="reaSeriousArmedNoLanceClose-up" position="left"/>
+            <speak chara="reannaNoFace">...Конечно, это не значит, что я одобряю твои действия.</speak>
+            <show chara="reaNormalArmedNoLanceClose-up" position="left"/>
+            <speak chara="reannaNoFace">Оставим пока в стороне причинение вреда невинным. В любом случае, ты вряд ли смогла бы победить настоящего Херршера.</speak>
+            <show chara="reaSeriousArmedNoLanceClose-up" position="left"/>
+            <speak chara="reannaNoFace">Если бы Вельт был на стороне Хонкая, ты бы просто искала смерти;</speak>
+            <show chara="reaNormalArmedNoLanceClose-up" position="left"/>
+            <speak chara="reannaNoFace">А если бы он был на нашей стороне — как сейчас — ты бы заставила его нести на себе проклятие «убийцы».</speak>
+            <show chara="reaSeriousArmedNoLanceClose-up" position="left"/>
+            <speak chara="reannaNoFace">Это ужасный поступок, понимаешь?</speak>
+            <show chara="reaSeriousArmedNoLanceClose-up" position="left" opacity="0.7"/>
+            <show chara="schroShrinkLanceClose-up" position="right"/>
+            <speak chara="schroNoFace">...</speak>
+            <show chara="schroShrinkLanceClose-up" position="right" opacity="0.7"/>
+            <show chara="reaHahArmedNoLanceClose-up" position="left"/>
+            <speak chara="reannaNoFace">Впрочем, не бери в голову...</speak>
+            <show chara="reaSmileArmedNoLanceClose-up" position="left"/>
+            <speak chara="reannaNoFace">Всё уже позади, верно же?</speak>
+            <show chara="reaHahArmedNoLanceClose-up" position="left"/>
+            <speak chara="reannaNoFace">В будущем у тебя ещё будет уйма времени, чтобы наладить с ними отношения.</speak>
+            <show chara="reaHahArmedNoLanceClose-up" position="left" opacity="0.7"/>
+            <show chara="schroShrinkLanceClose-up" position="right"/>
+            <speak chara="schroNoFace">Реанна...</speak>
+            <show chara="schroNormalLanceClose-up" position="right"/>
+            <speak chara="schroNoFace">Я...</speak>
+            <speak chara="schroNoFace">Я не знаю, смогу ли...</speak>
+            <speak chara="schroNoFace">...</speak>
+            <show chara="schroSmileLanceClose-up" position="right"/>
+            <speak chara="schroNoFace">...Но я буду стараться.</speak>
+            <speak chara="schroNoFace">...Стараться достичь твоего уровня.</speak>
+            <show chara="schroSmileLanceClose-up" position="right" opacity="0.7"/>
+            <show chara="reaHahArmedNoLanceClose-up" position="left"/>
+            <speak chara="reannaNoFace">Ха-ха... Из меня вряд ли выйдет хороший пример для подражания.</speak>
+            <show chara="reaSmileArmedNoLanceClose-up" position="left"/>
+            <speak chara="reannaNoFace">Ещё во время нашего боя... ты ведь уже должна была заметить?</speak>
+            <show chara="reaHahArmedNoLanceClose-up" position="left"/>
+            <speak chara="reannaNoFace">Я ведь... куда более «продвинутый» случай, чем ты.</speak>
+            <show chara="reaSmileArmedNoLanceClose-up" position="left"/>
+            <speak chara="reannaNoFace">В физическом смысле.</speak>
+            <goto goto="130" change="#ffffff"/>
+        </scene>
+        <scene id="130" background="tankInside.jpg">
+            <bgm src="04_20_tank.mp3" status="start"></bgm>
+            <show chara="teslaAstonishGlassWinterClose-up" position="left"/>
+            <speak chara="teslaNoFace">Э... погодите-погодите...</speak>
+            <speak chara="teslaNoFace">Слишком много информации...</speak>
+            <show chara="teslaShoutWinterClose-up" position="left"/>
+            <speak chara="teslaNoFace">То есть... эта мрачная девица, которая наполовину превратилась в зверя Хонкая, специально пришла нарваться на неприятности, чтобы пробудить твои способности?</speak>
+            <speak chara="teslaNoFace">Специально разнесла чужой дом? И заодно избила меня до полусмерти?</speak>
+            <show chara="teslaShoutWinterClose-up" position="left" opacity="0.7"/>
+            <show chara="weltSorryNewClose-up" position="right"/>
+            <speak chara="weltNoFace">Выходит, так...</speak>
+            <show chara="weltSorryNewClose-up" position="right" opacity="0.7"/>
+            <show chara="teslaNormalGlassWinterClose-up" position="left"/>
+            <speak chara="teslaNoFace">И что в итоге? В чём именно заключаются твои способности?</speak>
+            <show chara="teslaNormalGlassWinterClose-up" position="left" opacity="0.7"/>
+            <show chara="weltAstonishNewClose-up" position="right"/>
+            <speak chara="weltNoFace">...А?</speak>
+            <show chara="weltAstonishNewClose-up" position="right" opacity="0.7"/>
+            <show chara="teslaShameGlassWinterClose-up" position="left"/>
+            <speak chara="teslaNoFace">А что? Раз уж ты по-прежнему на нашей стороне, разве мы не должны начать сразу с конструктивных вопросов?</speak>
+            <show chara="teslaShameGlassWinterClose-up" position="left" opacity="0.7"/>
+            <show chara="weltAstonishNewClose-up" position="right"/>
+            <speak chara="weltNoFace">Эм...</speak>
+            <speak chara="weltNoFace">В... вот это да, в твоём стиле, Тесла...</speak>
+            <show chara="weltAstonishNewClose-up" position="right" opacity="0.7"/>
+            <show chara="teslaSnickerGlassWinterClose-up" position="left"/>
+            <speak chara="teslaNoFace">Хе-хе, способность быстро принимать изменения мира — это необходимое условие для изобретателя!</speak>
+            <show chara="teslaBiteGlassWinterClose-up" position="left"/>
+            <speak chara="teslaNoFace">...Тц. Почему мне кажется, что ты мне льстишь.</speak>
+            <show chara="teslaShameGlassWinterClose-up" position="left"/>
+            <speak chara="teslaNoFace">...Короче говоря, отвечай на мой вопрос!</speak>
+            <show chara="teslaShameGlassWinterClose-up" position="left" opacity="0.7"/>
+            <show chara="weltEmbarraNewClose-up" position="right"/>
+            <speak chara="weltNoFace">Эм... ну...</speak>
+            <speak chara="weltNoFace">Я... я и сам не очень понимаю...</speak>
+            <show chara="weltEmbarraNewClose-up" position="right" opacity="0.7"/>
+            <show chara="teslaAstonishGlassWinterClose-up" position="left"/>
+            <speak chara="teslaNoFace">...А?</speak>
+            <show chara="teslaAstonishGlassWinterClose-up" position="left" opacity="0.7"/>
+            <show chara="einSmileWinterClose-up" position="right"/>
+            <speak chara="einNoFace">Не торопись, доктор Тесла. Помимо того, что Вельт сам отверг эту таинственную волю...</speak>
+            <show chara="einNormalWinterClose-up" position="right"/>
+            <speak chara="einNoFace">На данный момент мы можем быть уверены в следующем: во-первых, он использует Звезду Эдема намного эффективнее нас; во-вторых, в его теле остаются «осколки душ» жертв Берлинского инцидента с Хонкаем.</speak>
+            <show chara="einSeriousEmWinterClose-up" position="right"/>
+            <speak chara="einNoFace">Если суждение Шрёдингер о том, что он Херршер, верно... тогда эти два известных факта на самом деле не представляют никакой ценности для выводов.</speak>
+            <show chara="einSeriousEmWinterClose-up" position="right" opacity="0.7"/>
+            <show chara="teslaNormalGlassWinterClose-up" position="left"/>
+            <speak chara="teslaNoFace">...</speak>
+            <show chara="teslaNormalGlassWinterClose-up" position="left" opacity="0.7"/>
+            <show chara="einNormalWinterClose-up" position="right"/>
+            <speak chara="einNoFace">Божественный Ключ — это оружие, созданное с использованием ядра Херршера, и естественно, что Херршеру сподручнее им пользоваться, чем нам;</speak>
+            <show chara="einSeriousEmWinterClose-up" position="right"/>
+            <speak chara="einNoFace">А эти осколки душ, вероятно, лишь побочный эффект его истинной способности... иначе бы они не говорили все разом.</speak>
+            <show chara="einSmileWinterClose-up" position="right"/>
+            <speak chara="einNoFace">В общем... требовать от нас узнать из этого больше информации не слишком ли это самонадеянно?</speak>
+            <show chara="einSmileWinterClose-up" position="right" opacity="0.7"/>
+            <show chara="teslaBoringGlassWinterClose-up" position="left"/>
+            <speak chara="teslaNoFace">...</speak>
+            <show chara="teslaShameGlassWinterClose-up" position="left"/>
+            <speak chara="teslaNoFace">Всё так, но...</speak>
+            <show chara="teslaNormalGlassWinterClose-up" position="left"/>
+            <speak chara="teslaNoFace">Но... если этот дурак и правда Херршер, то он ведь был им с самого начала, да?</speak>
+            <show chara="teslaNormalGlassWinterClose-up" position="left" opacity="0.7"/>
+            <show chara="einSeriousEmWinterClose-up" position="right"/>
+            <speak chara="einNoFace">Ты имеешь в виду...</speak>
+            <show chara="einSeriousEmWinterClose-up" position="right" opacity="0.7"/>
+            <show chara="teslaNormalGlassWinterClose-up" position="left"/>
+            <speak chara="teslaNoFace">Не забывай... предполагаемый масштаб этой катастрофы сопоставим с берлинской...</speak>
+            <speak chara="teslaNoFace">Иными словами, раз уж этот дурак Вельт — Херршер, а та тихоня Шрёдингер — нет...</speak>
+            <speak chara="teslaNoFace">Тогда в Нью-Йорке мы, скорее всего, столкнёмся с ещё одним «свежеиспечённым» парнем.</speak>
+            <speak chara="teslaNoFace">Наверное, так и есть?</speak>
+            <goto goto="140" change="#ffffff"/>
+        </scene>
+        <scene id="140" background="connecticutRoad.jpg">
+            <bgm src="11_17_memory.mp3" status="start"></bgm>
+            <show chara="reaNormalArmedNoLanceClose-up" position="left"/>
+            <speak chara="reannaNoFace">То есть... мисс Эдисон во время инцидента успела спрятаться в убежище?</speak>
+            <show chara="reaNormalArmedNoLanceClose-up" position="left" opacity="0.7"/>
+            <show chara="schroNormalLanceClose-up" position="right"/>
+            <speak chara="schroNoFace">...Нет, не успела.</speak>
+            <show chara="schroNormalLanceClose-up" position="right" opacity="0.7"/>
+            <show chara="reaSeriousArmedNoLanceClose-up" position="left"/>
+            <speak chara="reannaNoFace">А? Разве она не заталкивала силой доктора Нокианвиртанена внутрь вместе с собой?</speak>
+            <show chara="reaSeriousArmedNoLanceClose-up" position="left" opacity="0.7"/>
+            <show chara="schroNormalLanceClose-up" position="right"/>
+            <speak chara="schroNoFace">...Так и было. Но потом она снова выскочила наружу.</speak>
+            <show chara="schroNormalLanceClose-up" position="right" opacity="0.7"/>
+            <show chara="reaSeriousArmedNoLanceClose-up" position="left"/>
+            <speak chara="reannaNoFace">...</speak>
+            <show chara="reaSeriousArmedNoLanceClose-up" position="left" opacity="0.7"/>
+            <show chara="schroShrinkLanceClose-up" position="right"/>
+            <speak chara="schroNoFace">...Чтобы защитить меня.</speak>
+            <show chara="schroShrinkLanceClose-up" position="right" opacity="0.7"/>
+            <show chara="reaSeriousArmedNoLanceClose-up" position="left"/>
+            <speak chara="reannaNoFace">...Погоди. Если я правильно поняла, ты была слишком близко к реактору и тебе некуда было бежать?</speak>
+            <show chara="reaSeriousArmedNoLanceClose-up" position="left" opacity="0.7"/>
+            <show chara="schroNormalLanceClose-up" position="right"/>
+            <speak chara="schroNoFace">...Да.</speak>
+            <show chara="schroNormalLanceClose-up" position="right" opacity="0.7"/>
+            <show chara="reaSeriousArmedNoLanceClose-up" position="left"/>
+            <speak chara="reannaNoFace">...Тогда чем именно мисс Эдисон защитила тебя?</speak>
+            <show chara="reaSeriousArmedNoLanceClose-up" position="left" opacity="0.7"/>
+            <show chara="schroNormalLanceClose-up" position="right"/>
+            <speak chara="schroNoFace">...Я не знаю.</speak>
+            <show chara="schroNormalLanceClose-up" position="right" opacity="0.7"/>
+            <show chara="reaSeriousArmedNoLanceClose-up" position="left"/>
+            <speak chara="reannaNoFace">...Что?</speak>
+            <show chara="reaSeriousArmedNoLanceClose-up" position="left" opacity="0.7"/>
+            <show chara="schroNormalLanceClose-up" position="right"/>
+            <speak chara="schroNoFace">Но я уверена, что эта сила не могла принадлежать человеку.</speak>
+            <show chara="schroSmileLanceClose-up" position="right"/>
+            <speak chara="schroNoFace">И всё же это совершенно точно не было чем-то одной природы с Хонкаем.</speak>
+            <show chara="schroNormalLanceClose-up" position="right"/>
+            <speak chara="schroNoFace">Я чувствую, что с помощью этой силы она прямо сейчас продолжает сражаться с Хонкаем.</speak>
+            <show chara="schroShrinkLanceClose-up" position="right"/>
+            <speak chara="schroNoFace">...Но боюсь, что это уже та сфера, в которую никто из нас не в силах вмешаться.</speak>
+            <goto goto="150" change="#ffffff"/>
+        </scene>
+        <scene id="150" background="cloudSky.jpg">
+            <bgm src="04_20_Brigantia.mp3" status="start"></bgm>
+            <text>Тем временем где-то высоко в небе...</text>
+            <show chara="edisonAngelHelplessFar" position="center"/>
+            <speak chara="edisonAngelNoNameNoFace">Чёрт... в таком состоянии я вообще не могу передать сообщение!</speak>
+            <speak chara="edisonAngelNoNameNoFace">Если я не выдержу...</speak>
+            <show chara="edisonAngelAngryFar" position="center"/>
+            <speak chara="edisonAngelNoNameNoFace">Эй! Трус с банкноты, который только и умеет, что говорить! Придумай уже хоть что-нибудь!</speak>
+            <show chara="dollarFranklinAhFar" position="center"/>
+            <speak chara="dollarFranklinNoFace">...Ты и так очень стараешься, мисс Эдисон.</speak>
+            <show chara="dollarFranklinEmFar" position="center"/>
+            <speak chara="dollarFranklinNoFace" remark="next">Но я должен отметить: в тот момент, когда ты решила позаимствовать силу ■■■■ и использовать «Интерферометр», он утратил любую связь с «тем самым» одиннадцатимерным пространством-временем, и именно поэтому я появился, чтобы поговорить с тобой.</speak>
+            <remark post="U2FsdGVkX1+X733EXSLz1fznthEa">
+                <p class="article-text-h">Примечание:</p>
+                <p class="article-text">Теория струн (впоследствии переросшая в М-теорию) в теоретической физике предполагает, что все элементарные частицы можно [представить] в виде особых [колебаний] в неком особом пространстве (десятимерном). Эти колебания называются «струнами», которые в М-теории представляются более фундаментальными «бранами». Таким образом, она строится на одиннадцатимерном пространстве-времени (десять пространственных измерений плюс одно временное).</p>
+                <p class="article-text">«Людям очень повезло обнаружить совершенно новую симметрию... Один из способов объяснить её состоит в предположении, что у пространства-времени, помимо известных нам измерений, есть и другие, дополнительные. Их называют грассмановыми измерениями, так как они измеряются в так называемых грассмановых переменных, а не в обычных действительных числах... Для такого позитивиста, как я, вопрос «А действительно ли существуют дополнительные измерения?» лишён всякого смысла. Максимум, о чём можно спросить, — хорошо ли математическая модель с дополнительными измерениями описывает Вселенную?» — Стивен Хокинг, «Мир в ореховой скорлупке».</p>
+            </remark>
+            <show chara="dollarFranklinAhFar" position="center"/>
+            <speak chara="dollarFranklinNoFace">Я представляю тот способ мышления, который ты способна понять; повторяю ещё раз, я — всего лишь творение ■■■■, ничем не отличающееся от тебя нынешней.</speak>
+            <show chara="dollarFranklinEmFar" position="center"/>
+            <speak chara="dollarFranklinNoFace">Что касается тебя... те способности, которыми ты сейчас обладаешь — это результат того, что твоя жизнь исчерпала самые разные возможности в качестве платы.</speak>
+            <show chara="dollarFranklinAhFar" position="center"/>
+            <speak chara="dollarFranklinNoFace">Если ты хочешь пожаловаться, то я отвечу лишь одно: ты слишком поспешила воспользоваться «Интерферометром», попытавшись форсировать события, и в результате лишь ограничила раскрытие ещё большего потенциала.</speak>
+            <show chara="edisonAngelQuestionFar" position="center"/>
+            <speak chara="edisonAngelNoFace">Что? Я поспешила? В той ситуации любой человек поступил бы так же!</speak>
+            <show chara="dollarFranklinAhFar" position="center"/>
+            <speak chara="dollarFranklinNoFace">...Поэтому я и говорю, что ты очень старалась, мисс Эдисон.</speak>
+            <show chara="dollarFranklinEmFar" position="center"/>
+            <speak chara="dollarFranklinNoFace">«Они» действительно не оставят аномалии на этой планете без внимания...</speak>
+            <show chara="dollarFranklinAhFar" position="center"/>
+            <speak chara="dollarFranklinNoFace">Но это совершенно точно произойдёт не тем способом, который мы в состоянии понять.</speak>
+            <show chara="dollarFranklinEmFar" position="center"/>
+            <speak chara="dollarFranklinNoFace">Должно быть, для «Них» выживание или гибель человечества не имеет абсолютно никакого значения.</speak>
+            <show chara="dollarFranklinAhFar" position="center"/>
+            <speak chara="dollarFranklinNoFace">То, что «Их» по-настоящему интересует, — это определённая рябь в одиннадцатимерном пространстве-времени, которую мы всё ещё не можем осознать...</speak>
+            <show chara="dollarFranklinEmFar" position="center"/>
+            <speak chara="dollarFranklinNoFace">...а аномалии на этой планете — всего лишь несколько раздражающих лягушачьих кваканий среди этой ряби.</speak>
+            <show chara="edisonAngelAngryFar" position="center"/>
+            <speak chara="edisonAngelNoFace">...И как мне поможет то, что ты мне это рассказал? Бесполезная болтовня!</speak>
+            <show chara="dollarFranklinEmFar" position="center"/>
+            <speak chara="dollarFranklinNoFace">Я всего лишь банкнота, на какие конструктивные советы с моей стороны ты надеешься?</speak>
+            <show chara="dollarFranklinAhFar" position="center"/>
+            <speak chara="dollarFranklinNoFace">...К тому же, даже будь я настоящим Бенджамином Франклином, разве я бы смог придумать какой-нибудь гениальный план в такой ситуации?</speak>
+            <show chara="edisonAngelSeriousFar" position="center"/>
+            <speak chara="edisonAngelNoFace">...</speak>
+            <show chara="edisonAngelSmileFar" position="center"/>
+            <speak chara="edisonAngelNoFace">...Верно. Не ожидала, что я тоже поддамся минутному замешательству и стану надеяться, что какая-то банкнота прямо выдаст мне ответ.</speak>
+            <show chara="edisonAngelSeriousFar" position="center"/>
+            <speak chara="edisonAngelNoFace">И пусть... сейчас я докажу Им, этим всевышним созданиям...</speak>
+            <show chara="edisonAngelAngryFar" position="center"/>
+            <speak chara="edisonAngelNoFace">Что дела человечества в конечном итоге должны решать сами люди!</speak>
+            <speak chara="edisonAngelNoFace">Нэнси Томас Эдисон, даже если её разорвёт на куски, ни за что не позволит Нью-Йорку повторить судьбу Берлина!</speak>
+            <end post="U2FsdGVkX1+x3U0ZNdcph971qhGD"/>
+        </scene>
+    </story>
+</data>

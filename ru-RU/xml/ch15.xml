@@ -1,0 +1,387 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data>
+    <story>
+        <scene id="0" background="bg.jpg">
+            <bgm src="mid-lude.mp3" status="start"></bgm>
+            <cg src="newсhapter.png" bg="bg.jpg"></cg>
+            <goto goto="10" change="#000000"/>
+        </scene>
+        <scene id="10" background="CG15-0.jpg">
+            <bgm src="11_3_themeOtto.mp3" status="start"></bgm>
+            <speak chara="weltNoFace">Ты... Так это ты присылал те письма...</speak>
+            <goto goto="20" change="0"/>
+        </scene>
+        <scene id="20" background="CG14-2.jpg">
+            <bgm src="11_3_themeOtto.mp3" status="continue"></bgm>
+            <speak chara="ottoNoNameNoFace">Ах. Верно. «Клоун Альфа».</speak>
+            <speak chara="ottoNoNameNoFace">Но... раз уж мы встретились лицом к лицу, пожалуй, нужно представиться «как следует».</speak>
+            <speak chara="ottoNoNameNoFace">Моё имя — Отто Апокалипсис.</speak>
+            <speak chara="ottoNoFace">Нынешний епископ Шиксала.</speak>
+            <speak chara="ottoNoFace">Не стой столбом. Как насчёт того, чтобы забраться в воду и согреться?</speak>
+            <goto goto="30" change="#ffffff"/>
+        </scene>
+        <scene id="30" background="CG15-1.jpg">
+            <bgm src="11_3_themeOtto.mp3" status="continue"></bgm>
+            <speak chara="weltNoFace">Отто... Апокалипсис?</speak>
+            <speak chara="ottoNoFace">Ха-ха-ха, верно, это моё настоящее имя, я не лгу.</speak>
+            <speak chara="ottoNoFace">«Отто Апокалипсис».</speak>
+            <speak chara="ottoNoFace">Правда, в организации моё имя упоминают нечасто... ха-ха-ха-ха.</speak>
+            <speak chara="weltNoFace">(Неужели это тот самый, о ком упоминала Г.А. в записях из соулиума...?)</speak>
+            <speak chara="weltNoFace">(Нет, не может быть... разве тот человек не жил больше ста лет назад?)</speak>
+            <speak chara="weltNoFace">(Тогда этот человек... Второй, Третий или ещё какой наследник?)</speak>
+            <speak chara="weltNoFace">(Всё же он выглядит таким молодым...)</speak>
+            <goto goto="40" change="0"/>
+        </scene>
+        <scene id="40" background="CG15-2.jpg">
+            <bgm src="11_3_themeOtto.mp3" status="continue"></bgm>
+            <speak chara="ottoNoFace">...Полагаю, до тебя доходили некоторые неприятные слухи.</speak>
+            <speak chara="ottoNoFace">Обо мне.</speak>
+            <speak chara="ottoNoFace">Некоторые из них правдивы, а другие — не более чем беспочвенные выдумки.</speak>
+            <speak chara="ottoNoFace">Но всё это не имеет значения.</speak>
+            <goto goto="50" change="0"/>
+        </scene>
+        <scene id="50" background="CG15-3.jpg">
+            <bgm src="11_3_themeOtto.mp3" status="continue"></bgm>
+            <speak chara="ottoNoFace">Сегодня я пришёл сюда не как епископ...</speak>
+            <speak chara="ottoNoFace">...просто, раз уж мы открылись друг другу, называть друг друга псевдонимами было бы слишком формально.</speak>
+            <goto goto="60" change="0"/>
+        </scene>
+        <scene id="60" background="CG15-4.jpg">
+            <bgm src="11_3_themeOtto.mp3" status="continue"></bgm>
+            <speak chara="weltNoFace">...</speak>
+            <speak chara="weltNoFace">Ты... что ты задумал?</speak>
+            <goto goto="70" change="0"/>
+        </scene>
+        <scene id="70" background="CG15-5.jpg">
+            <bgm src="11_3_themeOtto.mp3" status="continue"></bgm>
+            <speak chara="ottoNoFace">«О, мой дорогой друг, к чему так нервничать».</speak>
+            <goto goto="80" change="0"/>
+        </scene>
+        <scene id="80" background="CG15-6.jpg">
+            <bgm src="11_3_themeOtto.mp3" status="continue"></bgm>
+            <speak chara="ottoNoFace">...Пф, сейчас, наверное, не лучшее время дразнить тебя театральным тоном.</speak>
+            <speak chara="ottoNoFace">Если прямое изложение моих целей поможет тебе успокоиться... так тому и быть.</speak>
+            <speak chara="ottoNoFace">Я хочу, чтобы ты, «Вельт», стал моим преемником, преемником Отто Апокалипсиса.</speak>
+            <speak chara="ottoNoFace">Иными словами, я буду обучать тебя, чтобы после моего ухода... ты стал следующим епископом Шиксала.</speak>
+            <speak chara="ottoNoFace">Что скажешь?</speak>
+            <goto goto="90" change="0"/>
+        </scene>
+        <scene id="90" background="CG15-7.jpg">
+            <bgm src="11_3_themeOtto.mp3" status="continue"></bgm>
+            <speak chara="weltNoFace">Чт...</speak>
+            <speak chara="weltNoFace">Что?</speak>
+            <goto goto="100" change="0"/>
+        </scene>
+        <scene id="100" background="CG15-8.jpg">
+            <bgm src="11_3_themeOtto.mp3" status="continue"></bgm>
+            <speak chara="ottoNoFace">Ах.</speak>
+            <speak chara="ottoNoFace">Перейдя прямо к делу, я, кажется, изрядно тебя напугал.</speak>
+            <goto goto="110" change="0"/>
+        </scene>
+        <scene id="110" background="CG15-7.jpg">
+            <bgm src="11_3_themeOtto.mp3" status="continue"></bgm>
+            <speak chara="ottoNoFace">Но ты должен знать... «Апокалипсис» никогда не были семьёй, скованной кровными узами.</speak>
+            <speak chara="ottoNoFace">С незапамятных времён и по сей день она постоянно принимает в свои ряды самых многообещающих людей этого мира.</speak>
+            <speak chara="ottoNoFace">Поэтому, если ты согласен... уже сегодня ты можешь сменить фамилию и стать моим названым братом.</speak>
+            <goto goto="120" change="0"/>
+        </scene>
+        <scene id="120" background="CG15-6.jpg">
+            <bgm src="11_3_themeOtto.mp3" status="continue"></bgm>
+            <speak chara="weltNoFace">Э...</speak>
+            <speak chara="weltNoFace">...Что?</speak>
+            <goto goto="125" change="0"/>
+        </scene>
+        <scene id="125" background="CG15-9.jpg">
+            <bgm src="11_3_themeOtto.mp3" status="continue"></bgm>
+            <speak chara="ottoNoFace">Вполне естественно, что ты сбит с толку таким предложением при первой же встрече.</speak>
+            <goto goto="130" change="0"/>
+        </scene>
+        <scene id="130" background="CG15-3.jpg">
+            <bgm src="11_3_themeOtto.mp3" status="continue"></bgm>
+            <speak chara="ottoNoFace">Но с моей точки зрения...</speak>
+            <speak chara="ottoNoFace">Я, как глава семьи Апокалипсис, наблюдаю за тобой уже очень долгое время.</speak>
+            <speak chara="ottoNoFace">Я верю, что ты, будучи моей противоположностью, вырастешь в поистине великого лидера.</speak>
+            <goto goto="140" change="0"/>
+        </scene>
+        <scene id="140" background="CG15-4.jpg">
+            <bgm src="11_3_themeOtto.mp3" status="continue"></bgm>
+            <speak chara="weltNoFace">...Противоположностью? О чём ты?</speak>
+            <goto goto="150" change="0"/>
+        </scene>
+        <scene id="150" background="CG15-1.jpg">
+            <bgm src="11_3_themeOtto.mp3" status="continue"></bgm>
+            <speak chara="ottoNoFace">Ха-ха-ха-ха, твоё внимание и вправду привлекают совсем не те вещи, что остальных.</speak>
+            <goto goto="160" change="0"/>
+        </scene>
+        <scene id="160" background="CG15-8.jpg">
+            <bgm src="11_3_themeOtto.mp3" status="continue"></bgm>
+            <speak chara="ottoNoFace">Грубо говоря, я считаю себя никудышным епископом.</speak>
+            <speak chara="ottoNoFace">Причина, по которой я им стал, кроется исключительно в моих личных желаниях... но это не главное.</speak>
+            <goto goto="170" change="0"/>
+        </scene>
+        <scene id="170" background="CG15-3.jpg">
+            <bgm src="11_3_themeOtto.mp3" status="continue"></bgm>
+            <speak chara="ottoNoFace">Главное сегодня то... что я хочу видеть своим наследником человека, обладающего поистине «великим даром».</speak>
+            <speak chara="weltNoFace">...Я? Великим даром?</speak>
+            <goto goto="180" change="0"/>
+        </scene>
+        <scene id="180" background="CG15-6.jpg">
+            <bgm src="11_3_themeOtto.mp3" status="continue"></bgm>
+            <speak chara="ottoNoFace">Именно. Великим даром.</speak>
+            <speak chara="ottoNoFace">Дар — это талант, который ещё не раскрылся... поэтому вполне нормально, что ты не видишь в себе ничего особенного.</speak>
+            <speak chara="ottoNoFace">Давай сделаем так.</speak>
+            <goto goto="190" change="0"/>
+        </scene>
+        <scene id="190" background="CG15-10.jpg">
+            <bgm src="11_3_themeOtto.mp3" status="continue"></bgm>
+            <speak chara="ottoNoFace">Я слышал, за последние два года ты прочитал немало книг...</speak>
+            <speak chara="ottoNoFace">...Так как ты считаешь, кого за тысячелетия человеческой цивилизации можно назвать по-настоящему «великим»?</speak>
+            <speak chara="weltNoFace">...</speak>
+            <speak chara="ottoNoFace">Не волнуйся, говори первое, что приходит в голову.</speak>
+            <speak chara="ottoNoFace">Это просто беседа друзей по переписке, так что не бойся сказать что-то не то.</speak>
+            <goto goto="200" change="0"/>
+        </scene>
+        <scene id="200" background="CG15-11.jpg">
+            <bgm src="11_3_themeOtto.mp3" status="continue"></bgm>
+            <speak chara="weltNoFace">...</speak>
+            <speak chara="weltNoFace">Называть меня начитанным — явное преувеличение. Раз уж ты настаиваешь, я могу привести в пример лишь пару известных личностей.</speak>
+            <speak chara="weltNoFace">«Если я видела дальше других, то потому, что стояла на плечах гигантов».</speak>
+            <speak chara="weltNoFace">Как насчёт Ньютон?</speak>
+            <goto goto="210" change="0"/>
+        </scene>
+        <scene id="210" background="CG15-12.jpg">
+            <bgm src="11_3_themeOtto.mp3" status="continue"></bgm>
+            <speak chara="ottoNoFace">Ха-ха-ха, разве этой фразой она не просто высмеивала кое-кого?</speak>
+            <speak chara="ottoNoFace">Конечно, проницательность Ньютон в математике, безусловно, была непревзойдённой...</speak>
+            <speak chara="ottoNoFace">Но если говорить о «величии», способном постичь саму суть вещей, на мой взгляд, она уступает Шекспир.</speak>
+            <goto goto="220" change="0"/>
+        </scene>
+        <scene id="220" background="CG15-11.jpg">
+            <bgm src="11_3_themeOtto.mp3" status="continue"></bgm>
+            <speak chara="weltNoFace">...</speak>
+            <speak chara="weltNoFace">Раз уж ты упомянул Шекспир, писательницу, написавшую монолог «Быть или не быть»... что ты думаешь о ней?</speak>
+            <goto goto="230" change="0"/>
+        </scene>
+        <scene id="230" background="CG15-12.jpg">
+            <bgm src="11_3_themeOtto.mp3" status="continue"></bgm>
+            <speak chara="ottoNoFace">Ха-ха... Всё, что она делала, — это собирала всевозможные мирские страдания и выставляла их напоказ.</speak>
+            <speak chara="ottoNoFace">Её кругозор был поистине выдающимся, но в глубине души у неё не было ни капли сочувствия.</speak>
+            <goto goto="240" change="0"/>
+        </scene>
+        <scene id="240" background="CG15-11.jpg">
+            <bgm src="11_3_themeOtto.mp3" status="continue"></bgm>
+            <speak chara="weltNoFace">...</speak>
+            <speak chara="weltNoFace">Следуя твоим словам, теоретики часто заперты в рамках своих дисциплин, а творцы, вынужденные обнажать конфликты, должны обладать каменным сердцем...</speak>
+            <speak chara="weltNoFace">Тогда как насчёт религиозных лидеров, призывающих к добру... например, Будда Шакьямуни, что скажешь о нём?</speak>
+            <goto goto="250" change="0"/>
+        </scene>
+        <scene id="250" background="CG15-13.jpg">
+            <bgm src="11_3_themeOtto.mp3" status="continue"></bgm>
+            <speak chara="ottoNoFace">Ха... Перебирая варианты, ты в итоге упомянул предка семьи Апокалипсис?</speak>
+            <goto goto="260" change="0"/>
+        </scene>
+        <scene id="260" background="CG15-2.jpg">
+            <bgm src="11_3_themeOtto.mp3" status="continue"></bgm>
+            <speak chara="weltNoFace">П-предка?</speak>
+            <speak chara="ottoNoFace">Эх... Если я начну рассказывать тебе всю подноготную этой истории, нам и трёх дней с тремя ночами не хватит.</speak>
+            <goto goto="270" change="0"/>
+        </scene>
+        <scene id="270" background="CG15-2.jpg">
+            <bgm src="11_3_themeOtto.mp3" status="continue"></bgm>
+            <speak chara="ottoNoFace">Но если перейти сразу к выводам... у него было желание, но не хватало сил; он смотрел вдаль, но не видел того, что под ногами. Я не могу назвать такого человека великим.</speak>
+            <goto goto="280" change="0"/>
+        </scene>
+        <scene id="280" background="CG15-15.jpg">
+            <bgm src="11_3_themeOtto.mp3" status="continue"></bgm>
+            <speak chara="weltNoFace">...Кажется, у тебя и впрямь слишком высокие стандарты.</speak>
+            <speak chara="weltNoFace">В таком случае: твёрдо стоящий на земле и мыслящий глобально — отец современной России, Пётр Великий, как насчёт него?</speak>
+            <speak chara="ottoNoFace">У Петра, бесспорно, была невероятная смелость... но массовые убийства невинных стали пятном, которое этому царю не смыть.</speak>
+            <speak chara="ottoNoFace">По-настоящему великий человек должен уметь предотвращать ненужное кровопролитие.</speak>
+            <speak chara="weltNoFace">...</speak>
+            <speak chara="weltNoFace">А реформировавшая санитарные нормы в больницах и спасшая бесчисленное множество жизней «Ангел в белом», Флоренс Найтингейл?</speak>
+            <speak chara="ottoNoFace">У неё действительно был великий талант... но пожизненная преданность медицине фактически ограничила его развитие.</speak>
+            <speak chara="weltNoFace">...</speak>
+            <goto goto="290" change="0"/>
+        </scene>
+        <scene id="290" background="CG15-14.jpg">
+            <bgm src="11_3_themeOtto.mp3" status="continue"></bgm>
+            <speak chara="weltNoFace">Хотя я могу вспомнить такие имена, как Смит, Дарвин, Клаузевиц и другие...</speak>
+            <speak chara="weltNoFace">Но, судя по твоим невероятно высоким стандартам, они тоже не могут считаться «по-настоящему великими», так?</speak>
+            <speak chara="ottoNoFace">Совершенно верно.</speak>
+            <speak chara="ottoNoFace">Все они были выдающимися умами, способными в одиночку изменить положение дел в своей сфере...</speak>
+            <speak chara="ottoNoFace">И всё же им не хватало сил, чтобы применять свои рациональные идеи во многих других областях.</speak>
+            <speak chara="weltNoFace">...Думаешь, я способен сделать то, чего не смогли они?</speak>
+            <goto goto="300" change="0"/>
+        </scene>
+        <scene id="300" background="CG15-10.jpg">
+            <bgm src="11_3_themeOtto.mp3" status="continue"></bgm>
+            <speak chara="ottoNoFace">Конечно, я не могу гарантировать, что ты с этим справишься.</speak>
+            <speak chara="ottoNoFace">Да и с точки зрения интеллекта тебе до них далеко.</speak>
+            <speak chara="ottoNoFace">Но... у тебя есть преимущество, которого не было ни у кого из них.</speak>
+            <speak chara="weltNoFace">Преимущество... которого у них не было?</speak>
+            <goto goto="310" change="0"/>
+        </scene>
+        <scene id="310" background="CG15-12.jpg">
+            <bgm src="11_3_themeOtto.mp3" status="continue"></bgm>
+            <speak chara="ottoNoFace">Ха-ха-ха-ха...</speak>
+            <speak chara="ottoNoFace">Подумай о том, с какими людьми ты общался в последнее время.</speak>
+            <speak chara="ottoNoFace">Эйнштейн — обладательница самого высокого IQ в истории.</speak>
+            <speak chara="ottoNoFace">Тесла — самый разрушительный изобретатель всех времён.</speak>
+            <speak chara="ottoNoFace">Планк — самый неординарный физик нашего времени.</speak>
+            <speak chara="ottoNoFace">Бригантия — сильнейшая валькирия нашего Шиксала.</speak>
+            <speak chara="ottoNoFace">О, и та, кого ты встретил только сегодня — «Бессмертный Мудрец», Фу Хуа.</speak>
+            <speak chara="ottoNoFace">Они все весьма высокого мнения о тебе, не находишь?</speak>
+            <speak chara="weltNoFace">Э... П-правда...</speak>
+            <speak chara="ottoNoFace">Ха-ха-ха...</speak>
+            <speak chara="ottoNoFace">Ты действительно совершенно себя не знаешь.</speak>
+            <goto goto="320" change="0"/>
+        </scene>
+        <scene id="320" background="CG15-14.jpg">
+            <bgm src="11_3_themeOtto.mp3" status="continue"></bgm>
+            <speak chara="ottoNoFace">Скажем так...</speak>
+            <speak chara="ottoNoFace">Среди нас ты единственный, кто смог найти общий язык со всей этой пятёркой...</speak>
+            <speak chara="ottoNoFace">...Ты первый, кому это удалось.</speak>
+            <speak chara="weltNoFace">Э...?</speak>
+            <goto goto="330" change="0"/>
+        </scene>
+        <scene id="330" background="CG15-10.jpg">
+            <bgm src="11_3_themeOtto.mp3" status="continue"></bgm>
+            <speak chara="ottoNoFace">Не понимаешь, к чему я клоню?</speak>
+            <speak chara="ottoNoFace">По-настоящему великие люди — это не те, кто просто преуспел в своей отрасли...</speak>
+            <speak chara="ottoNoFace">...а те, кто может непринуждённо общаться с этими выдающимися умами, позволяя каждому из них раскрыть свой максимальный потенциал.</speak>
+            <goto goto="340" change="0"/>
+        </scene>
+        <scene id="340" background="CG15-3.jpg">
+            <bgm src="11_3_themeOtto.mp3" status="continue"></bgm>
+            <speak chara="ottoNoFace">И ты, насколько мне известно, — самый подходящий кандидат для того, чтобы взрастить в себе подобное величие.</speak>
+            <speak chara="weltNoFace">...</speak>
+            <speak chara="weltNoFace">Разве таких людей, как я, не пруд пруди?</speak>
+            <goto goto="350" change="0"/>
+        </scene>
+        <scene id="350" background="CG15-16.jpg">
+            <bgm src="11_3_themeOtto.mp3" status="continue"></bgm>
+            <speak chara="ottoNoFace" remark="next">Ха-ха-ха... Если я хищник из хищников, то ты — самое настоящее травоядное!</speak>
+            <remark>
+                <p class="article-text-h">Примечание:</p>
+                <p class="article-text">«Хищники» («肉食系») в популярной культуре — это люди, активно стремящиеся к успеху в обществе, жаждущие славы и богатства, а также вкладывающие много сил в отношения.</p>
+                <p class="article-text">«Травоядные» («草食系») — это, напротив, люди интровертные, бережливые, лишённые амбиций, равнодушные к мирской суете и довольствующиеся спокойной, размеренной жизнью.</p>
+            </remark>
+            <speak chara="weltNoFace">Травоядное?.. Хищник?..</speak>
+            <speak chara="ottoNoFace">Ха-ха-ха... Не страшно, если ты не понимаешь таких метафор.</speak>
+            <goto goto="360" change="0"/>
+        </scene>
+        <scene id="360" background="CG15-10.jpg">
+            <bgm src="11_3_themeOtto.mp3" status="continue"></bgm>
+            <speak chara="ottoNoFace">Я лишь хочу напомнить, что внутренний мир человека состоит не только из его характера и темперамента...</speak>
+            <speak chara="ottoNoFace" remark="next">Прежде всего, он определяется его «онтологией».</speak>
+            <remark post="U2FsdGVkX18tR4+bS6CJ6pZEYeP1">
+                <p class="article-text-h">Примечание:</p>
+                <p class="article-text">Онтология — фундаментальный раздел метафизики, изучающий бытие как таковое, сущностные характеристики всех реально существующих вещей.</p>
+                <p class="article-text">В информатике «онтология» означает любую «формализованную, явную и детальную спецификацию концептуализации». Например, информацию об издании книги в библиотечной поисковой системе можно считать «онтологией» этой книги.</p>
+            </remark>
+            <goto goto="370" change="0"/>
+        </scene>
+        <scene id="370" background="CG15-9.jpg">
+            <bgm src="11_3_themeOtto.mp3" status="continue"></bgm>
+            <speak chara="weltNoFace">Онтологией?</speak>
+            <speak chara="ottoNoFace">В онтологии нет ничего мистического.</speak>
+            <goto goto="380" change="0"/>
+        </scene>
+        <scene id="380" background="CG15-14.jpg">
+            <bgm src="11_3_themeOtto.mp3" status="continue"></bgm>
+            <speak chara="ottoNoFace">Я живу на свете уже больше пятисот лет... и всё это время моей онтологией была лишь призрачная тень той, кого называли «Святой девой».</speak>
+            <goto goto="390" change="0"/>
+        </scene>
+        <scene id="390" background="CG15-2.jpg">
+            <bgm src="11_3_themeOtto.mp3" status="continue"></bgm>
+            <speak chara="weltNoFace">П-пятьсот лет?</speak>
+            <goto goto="400" change="0"/>
+        </scene>
+        <scene id="400" background="CG15-8.jpg">
+            <bgm src="11_3_themeOtto.mp3" status="continue"></bgm>
+            <speak chara="ottoNoFace">Ничего особенного... просто я заключил сделку с дьяволом.</speak>
+            <speak chara="ottoNoFace">К тому же, будь я на твоём месте... мне бы вообще не пришлось так заморачиваться.</speak>
+            <goto goto="410" change="0"/>
+        </scene>
+        <scene id="410" background="CG15-8.jpg">
+            <bgm src="11_3_themeOtto.mp3" status="continue"></bgm>
+            <speak chara="weltNoFace">Э... ч-что ты имеешь в виду?</speak>
+            <speak chara="ottoNoFace">Я имею в виду, что тебе было бы гораздо проще прожить пятьсот лет, чем мне. Намного проще.</speak>
+            <speak chara="ottoNoFace">Но сегодня речь не об этом.</speak>
+            <goto goto="420" change="0"/>
+        </scene>
+        <scene id="420" background="CG15-10.jpg">
+            <bgm src="11_3_themeOtto.mp3" status="continue"></bgm>
+            <speak chara="ottoNoFace">Что я действительно хочу сказать, так это то, что твоя онтология — при правильном направлении — может оказаться в сто раз сильнее моей.</speak>
+            <speak chara="weltNoFace">Моя? Сильнее твоей?</speak>
+            <goto goto="430" change="0"/>
+        </scene>
+        <scene id="430" background="CG15-10.jpg">
+            <bgm src="11_3_themeOtto.mp3" status="continue"></bgm>
+            <speak chara="ottoNoFace">Да. Твоя сильнее моей.</speak>
+            <speak chara="ottoNoFace">Неужели ты сам этого не осознаёшь? Твоя онтология... это не какой-то отдельный объект восхищения...</speak>
+            <speak chara="ottoNoFace">...а «человечество» в целом.</speak>
+            <speak chara="weltNoFace">...Онтология... это всё человечество?</speak>
+            <goto goto="440" change="0"/>
+        </scene>
+        <scene id="440" background="CG15-3.jpg">
+            <bgm src="11_3_themeOtto.mp3" status="continue"></bgm>
+            <speak chara="ottoNoFace" remark="next">«Если мы избрали профессию, в рамках которой мы больше всего можем трудиться для человечества,»</speak>
+            <speak chara="ottoNoFace" remark="next">«то мы не согнёмся под её бременем, потому что это — жертва во имя всех;»</speak>
+            <speak chara="ottoNoFace" remark="next">«тогда мы испытаем не жалкую, ограниченную, эгоистическую радость,»</speak>
+            <speak chara="ottoNoFace" remark="next">«а наше счастье будет принадлежать миллионам,»</speak>
+            <speak chara="ottoNoFace" remark="next">«наши дела будут жить тогда тихой, но вечно действенной жизнью,»</speak>
+            <speak chara="ottoNoFace" remark="next">«а над нашим прахом прольются горячие слёзы благородных людей.»</speak>
+            <remark post="U2FsdGVkX19fqm4S6R03iCxtPxrm">
+                <p class="article-text-h">Примечание:</p>
+                <p class="article-text">Это последний абзац эссе «Размышления юноши при выборе профессии».</p>
+                <p class="article-text">Его автор — 17-летний Карл Маркс. Всю оставшуюся жизнь он будет пытаться воплотить эту, казалось бы, отдающую «синдромом восьмиклассника» идею в реальность.</p>
+            </remark>
+            <goto goto="450" change="0"/>
+        </scene>
+        <scene id="450" background="CG15-10.jpg">
+            <bgm src="11_3_themeOtto.mp3" status="continue"></bgm>
+            <speak chara="ottoNoFace">Я вот о чём: завидовал ли ты когда-нибудь от всего сердца людям, способным произносить столь грандиозные слова?</speak>
+            <speak chara="ottoNoFace">Не казалось ли тебе, что сколько бы раз ты ни перерождался, ты всё равно захочешь быть союзником правосудия?</speak>
+            <goto goto="460" change="0"/>
+        </scene>
+        <scene id="460" background="black">
+            <bgm src="11_3_themeOtto.mp3" status="stop"></bgm>
+            <speak chara="ottoNoFace">...</speak>
+            <bgm src="themeWelt.mp3" status="start"></bgm>
+            <speak chara="ottoNoFace">Хех... Мировая война закончилась десять лет назад...</speak>
+            <speak chara="ottoNoFace">А электроснабжение в пригородах Лондона всё такое же скверное?</speak>
+            <speak chara="weltNoFace">...</speak>
+            <speak chara="ottoNoFace">Подожди здесь, никуда не уходи. Я попрошу у хозяйки что-нибудь для освещения.</speak>
+            <speak chara="weltNoFace">...Не нужно.</speak>
+            <goto goto="470" change="0"/>
+        </scene>
+        <scene id="470" background="CG15-II.jpg">
+            <bgm src="themeWelt.mp3" status="continue"></bgm>
+            <speak chara="ottoNoFace">...Хм?</speak>
+            <speak chara="weltNoFace">Если ты действительно намерен убедить меня что-то сделать...</speak>
+            <speak chara="weltNoFace">В следующий раз, пожалуйста, не будь таким эгоцентричным.</speak>
+            <speak chara="weltNoFace">Ты совершенно ничего не понимаешь, епископ.</speak>
+            <speak chara="ottoNoFace">...</speak>
+            <speak chara="ottoNoFace">Я... сказал что-то не так?</speak>
+            <speak chara="weltNoFace">...</speak>
+            <speak chara="weltNoFace">Нет, на самом деле ты не сказал ничего плохого.</speak>
+            <speak chara="weltNoFace">Но именно поэтому—</speak>
+            <speak chara="weltNoFace">...мне ещё сложнее... поверить тебе в данный момент.</speak>
+            <speak chara="ottoNoFace">...</speak>
+            <speak chara="ottoNoFace">Вот как.</speak>
+            <speak chara="ottoNoFace">Что ж... надеюсь, время даст тебе ответы.</speak>
+            <speak chara="weltNoFace">...</speak>
+            <speak chara="weltNoFace">Прощай.</speak>
+            <speak chara="ottoNoFace">...</speak>
+            <speak chara="ottoNoFace">До встречи, мой друг.</speak>
+            <goto goto="480" change="#ffffff"/>
+        </scene>
+        <scene id="480" background="black">
+            <bgm src="horror.mp3" status="start"></bgm>
+            <speak chara="ritaNoNameNoFace">(...Господин Вельт, задержитесь на секунду.)</speak>
+            <speak chara="weltNoFace">...Кто здесь?</speak>
+            <end post="U2FsdGVkX1+AlvvhouB8t0rZkK+K"/>
+        </scene>
+    </story>
+</data>
