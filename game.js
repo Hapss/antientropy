@@ -2433,7 +2433,7 @@ function remark_btn_show() {
     .css('cursor', 'pointer')
 }
 
-// Добавлена полная поддержка строк и извлечения атрибута post или achievement
+// Извлечения атрибута post или achievement с правильным фильтром фейковых ID
 function post_achievement_in_event(eventNode) {
   if (!eventNode) return;
   var postAttr = (typeof eventNode === 'string') ? eventNode : (eventNode.getAttribute('post') || eventNode.getAttribute('achievement'));
@@ -2452,8 +2452,6 @@ function post_achievement_in_event(eventNode) {
       var digitsMatch = postAttr.match(/\d{5}/g);
       if (digitsMatch) {
         post_achievement(digitsMatch.join(','));
-      } else {
-        post_achievement(postAttr);
       }
     }
   }
@@ -2646,52 +2644,59 @@ var masterPortraits = [
 // Резервный in-memory кэш на случай, если localStorage не работает (например, в приватном режиме)
 var memoryAchievements = [];
 
+var STORAGE_KEY = 'anti_entropy_achievements';
+
 function getLocalAchievements() {
-  var raw = null;
+  var saved = [];
+  var isStorageWorking = true;
   try {
-    raw = localStorage.getItem('anti_entropy_achievements');
+      var testKey = 'anti_entropy_test';
+      localStorage.setItem(testKey, '1');
+      localStorage.removeItem(testKey);
   } catch(e) {
-    // Если доступ к localStorage заблокирован (SecurityError в iframe или приватном режиме)
-    return memoryAchievements.slice();
+      isStorageWorking = false;
   }
-  
-  if (raw) {
-    try {
-      var parsed = JSON.parse(raw);
-      if (Array.isArray(parsed)) {
-        return parsed.map(function(item) { return Number(item); }).filter(function(item) { return !isNaN(item); });
-      } else if (typeof parsed === 'number' || typeof parsed === 'string') {
-        var n = Number(parsed);
-        if (!isNaN(n)) return [n];
+
+  if (isStorageWorking) {
+      var raw = localStorage.getItem(STORAGE_KEY);
+      if (raw) {
+          try {
+              var parsed = JSON.parse(raw);
+              if (Array.isArray(parsed)) {
+                  saved = parsed;
+              } else if (typeof parsed === 'number' || typeof parsed === 'string') {
+                  saved = [parsed];
+              }
+          } catch(err) {
+              saved = raw.split(',');
+          }
       }
-    } catch(err) {
-      // Резервная защита на случай битого JSON (если сохранилось как строка "10010,10011")
-      return raw.split(',').map(function(i) { return Number(i.trim()); }).filter(function(i) { return !isNaN(i); });
-    }
+  } else {
+      saved = memoryAchievements.slice();
   }
-  
-  // Возврат резервного массива
-  return memoryAchievements.slice();
+
+  // Строгая проверка ID достижений для отбраковки мусора
+  return saved.map(function(item) { return Number(item); }).filter(function(item) { return !isNaN(item) && item >= 10000; });
 }
 
 function saveLocalAchievement(ach_id) {
   var saved = getLocalAchievements();
   var ids = String(ach_id).split(',');
   var changed = false;
+
   for (var i = 0; i < ids.length; i++) {
-    var id = Number(ids[i].trim());
-    if (!isNaN(id) && saved.indexOf(id) === -1) {
-      saved.push(id);
-      changed = true;
-    }
+      var id = Number(ids[i].trim());
+      if (!isNaN(id) && id >= 10000 && saved.indexOf(id) === -1) {
+          saved.push(id);
+          changed = true;
+      }
   }
+
   if (changed) {
-    memoryAchievements = saved.slice();
-    try {
-      localStorage.setItem('anti_entropy_achievements', JSON.stringify(saved));
-    } catch(e) {
-      // Игнорируем ошибку: достижение уже сохранено в memoryAchievements
-    }
+      memoryAchievements = saved.slice();
+      try {
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(saved));
+      } catch(e) {}
   }
 }
 
@@ -2719,7 +2724,7 @@ function post_achievement(str_ach, callbackOne, callbackTwo) {
     }
   }
   
-  var progress = masterAchievementData.length > 0 ? unlockedIds.length / masterAchievementData.length : 0;
+  var progress = masterAchievementData.length > 0 ? unlockedAchievements.length / masterAchievementData.length : 0;
   var portraitsToReturn = masterPortraits.slice(0, Math.ceil(progress * masterPortraits.length));
 
   ajax_answer_achievement = {
