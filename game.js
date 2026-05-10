@@ -716,6 +716,11 @@ function Action(gotoScene, gotoAction, skipKey, loadKey2) {
 
   thisScene = sceneList[gotoScene]
 
+  // Если получение ачивки срабатывает на входе в сцену:
+  if (gotoAction === 0) {
+    post_achievement_in_event(thisScene)
+  }
+
   if (gotoAction < 2) {
     historyChoiceList = new Array() // Очистить отметки выбора
   }
@@ -987,7 +992,7 @@ function processAction(act, gotoScene, gotoAction, skipKey, loadKey2) {
         if (loadKey2) return
       }
       dialogAutoplay('stop')
-      post_achievement_in_event(act) // Добавлено: проверяем сам блок <choices>
+      post_achievement_in_event(act)
       var choiceList = act.childNodes
       var choices = []
       for (var i = 0; i < choiceList.length; i++) {
@@ -1017,7 +1022,7 @@ function processAction(act, gotoScene, gotoAction, skipKey, loadKey2) {
 
     case 'show':
       lastEventNode = gotoAction
-      post_achievement_in_event(act) // Добавлено: некоторые визуальные события тоже могут давать ачивки
+      post_achievement_in_event(act)
       var position = act.getAttribute('position')
       if (!position) {
         position = 'center'
@@ -1107,7 +1112,7 @@ function processAction(act, gotoScene, gotoAction, skipKey, loadKey2) {
 
     case 'goto':
       lastEventNode = 0
-      post_achievement_in_event(act) // Добавлено
+      post_achievement_in_event(act)
       gotoA(act.getAttribute('goto'), act.getAttribute('change'), skipKey)
       break
 
@@ -1155,6 +1160,15 @@ function processAction(act, gotoScene, gotoAction, skipKey, loadKey2) {
         nextAction(gotoScene, gotoAction, skipKey)
       }
       break
+
+    case 'achievement':
+    case 'post':
+      lastEventNode = gotoAction;
+      post_achievement_in_event(act);
+      if (!skipKey || !loadKey2) {
+        nextAction(gotoScene, gotoAction, skipKey);
+      }
+      break;
 
     default:
       if (!skipKey || !loadKey2) {
@@ -2436,14 +2450,52 @@ function remark_btn_show() {
 // Надежное извлечение достижений из любых форматов XML
 function post_achievement_in_event(eventNode) {
   if (!eventNode) return;
-  var postAttr = (typeof eventNode === 'string') ? eventNode : (eventNode.getAttribute('post') || eventNode.getAttribute('achievement'));
-  
-  if (postAttr) {
-    var strAttr = String(postAttr);
-    var digitsMatch = strAttr.match(/\d{5}/g);
-    if (digitsMatch && digitsMatch.length > 0) {
-      post_achievement(digitsMatch.join(','));
+  var idsToUnlock = [];
+  var regex = /10[0-9]{3}/g; // Поиск 10010, 10262 и т.д.
+
+  if (typeof eventNode === 'string' || typeof eventNode === 'number') {
+    var matches = String(eventNode).match(regex);
+    if (matches) {
+        for (var m = 0; m < matches.length; m++) idsToUnlock.push(matches[m]);
     }
+  } else if (eventNode.getAttribute) {
+     // Проверяем все возможные атрибуты в самом узле
+     var attrs = ['post', 'achievement', 'achievement_id'];
+     // Допускаем извлечение из id, если это специфичный тег
+     if (eventNode.nodeName === 'achievement' || eventNode.nodeName === 'log') {
+         attrs.push('id');
+     }
+     
+     for (var i = 0; i < attrs.length; i++) {
+         var val = eventNode.getAttribute(attrs[i]);
+         if (val) {
+             var matches = String(val).match(regex);
+             if (matches) {
+                 for (var m = 0; m < matches.length; m++) idsToUnlock.push(matches[m]);
+             }
+         }
+     }
+
+     // Проверяем всех детей рекурсивно на случай если ID спрятан глубже
+     if (eventNode.querySelectorAll) {
+         var children = eventNode.querySelectorAll('[post], [achievement], [achievement_id]');
+         for (var c = 0; c < children.length; c++) {
+             var child = children[c];
+             for (var i = 0; i < attrs.length; i++) {
+                 var val = child.getAttribute(attrs[i]);
+                 if (val) {
+                     var matches = String(val).match(regex);
+                     if (matches) {
+                         for (var m = 0; m < matches.length; m++) idsToUnlock.push(matches[m]);
+                     }
+                 }
+             }
+         }
+     }
+  }
+
+  if (idsToUnlock.length > 0) {
+      post_achievement(idsToUnlock.join(','));
   }
 }
 
@@ -2671,7 +2723,9 @@ function saveLocalAchievement(ach_id) {
   var changed = false;
 
   for (var i = 0; i < ids.length; i++) {
-      var id = Number(ids[i].trim());
+      var idStr = ids[i].match(/\d+/);
+      if (!idStr) continue;
+      var id = Number(idStr[0]);
       if (!isNaN(id) && id >= 10000 && saved.indexOf(id) === -1) {
           saved.push(id);
           changed = true;
@@ -2954,6 +3008,8 @@ function exhibitionPage(page) {
             'background-image',
             "url('" + base_url + "ru-RU/resources/achievement/" + exhibition_list[i].getAttribute('type') + "_b.png')"
           );
+        } else {
+            pHtml_tip.css('background-image', 'none');
         }
       } else {
         pHtml_txt.html(exhibition_list[i].getAttribute('text') || '??? ??? ??? ??? ??? ??? ??? ??? ???');
@@ -2967,10 +3023,11 @@ function exhibitionPage(page) {
             'background-image',
             "url('" + base_url + "ru-RU/resources/achievement/" + exhibition_list[i].getAttribute('type') + ".png')"
           );
+        } else {
+            pHtml_tip.css('background-image', 'none');
         }
       }
 
-      // Явные размеры для иконки
       pHtml_pic.addClass('exhibition-member-image').css({
           'position': 'absolute',
           'left': '0.6rem',
@@ -2984,7 +3041,6 @@ function exhibitionPage(page) {
           'background-repeat': 'no-repeat'
       });
       
-      // Явные размеры для значка персонажа
       pHtml_tip.addClass('exhibition-member-tips').css({
           'position': 'absolute',
           'left': '2.8rem',
