@@ -2433,7 +2433,6 @@ function remark_btn_show() {
     .css('cursor', 'pointer')
 }
 
-// Извлечения атрибута post или achievement с правильным фильтром фейковых ID
 function post_achievement_in_event(eventNode) {
   if (!eventNode) return;
   var postAttr = (typeof eventNode === 'string') ? eventNode : (eventNode.getAttribute('post') || eventNode.getAttribute('achievement'));
@@ -2640,24 +2639,13 @@ var masterPortraits = [
   {name: "ein", index: 749}, {name: "ha", index: 552}, {name: "fuhua", index: 746},
   {name: "tesla", index: 760}, {name: "otto", index: 750}, {name: "yang", index: 750}, {name: "plank", index: 549}
 ];
-
-// Резервный in-memory кэш на случай, если localStorage не работает (например, в приватном режиме)
 var memoryAchievements = [];
 
 var STORAGE_KEY = 'anti_entropy_achievements';
 
 function getLocalAchievements() {
   var saved = [];
-  var isStorageWorking = true;
   try {
-      var testKey = 'anti_entropy_test';
-      localStorage.setItem(testKey, '1');
-      localStorage.removeItem(testKey);
-  } catch(e) {
-      isStorageWorking = false;
-  }
-
-  if (isStorageWorking) {
       var raw = localStorage.getItem(STORAGE_KEY);
       if (raw) {
           try {
@@ -2671,12 +2659,19 @@ function getLocalAchievements() {
               saved = raw.split(',');
           }
       }
-  } else {
-      saved = memoryAchievements.slice();
+  } catch(e) {
   }
 
-  // Строгая проверка ID достижений для отбраковки мусора
-  return saved.map(function(item) { return Number(item); }).filter(function(item) { return !isNaN(item) && item >= 10000; });
+  var merged = saved.concat(memoryAchievements);
+  var unique = [];
+  for (var i = 0; i < merged.length; i++) {
+      var num = Number(merged[i]);
+      if (!isNaN(num) && num >= 10000 && unique.indexOf(num) === -1) {
+          unique.push(num);
+      }
+  }
+  
+  return unique;
 }
 
 function saveLocalAchievement(ach_id) {
@@ -2700,22 +2695,7 @@ function saveLocalAchievement(ach_id) {
   }
 }
 
-// Теперь функция работает полностью синхронно для устранения состояния гонки между обновлением и отрисовкой
-function post_achievement(str_ach, callbackOne, callbackTwo) {
-  ajax_answer_achievement = null;
-
-  if (str_ach && str_ach !== 'LOAD') {
-    saveLocalAchievement(str_ach);
-    achievement_result = null; 
-    achievement_list = [];
-    
-    // Синхронный возврат при сохранении (устраняет визуальный баг, когда интерфейс не успевал обновиться)
-    ajax_answer_achievement = { retcode: 1, msg: "success locally" };
-    if (callbackOne) callbackOne();
-    return;
-  }
-
-  // Логика загрузки (выполняется синхронно для надежности работы UI)
+function loadLocalAchievementsData() {
   var unlockedIds = getLocalAchievements();
   var unlockedAchievements = [];
   for (var i = 0; i < masterAchievementData.length; i++) {
@@ -2727,14 +2707,29 @@ function post_achievement(str_ach, callbackOne, callbackTwo) {
   var progress = masterAchievementData.length > 0 ? unlockedAchievements.length / masterAchievementData.length : 0;
   var portraitsToReturn = masterPortraits.slice(0, Math.ceil(progress * masterPortraits.length));
 
-  ajax_answer_achievement = {
+  return {
     retcode: 1,
     msg: "The achievement record has been loaded locally.",
     progress: progress.toString(),
     portrait: portraitsToReturn,
     achievement: unlockedAchievements
   };
+}
 
+function post_achievement(str_ach, callbackOne, callbackTwo) {
+  ajax_answer_achievement = null;
+
+  if (str_ach && str_ach !== 'LOAD') {
+    saveLocalAchievement(str_ach);
+    achievement_result = loadLocalAchievementsData();
+    achievement_list = achievement_result['achievement'];
+    
+    ajax_answer_achievement = { retcode: 1, msg: "success locally" };
+    if (callbackOne) callbackOne();
+    return;
+  }
+
+  ajax_answer_achievement = loadLocalAchievementsData();
   if (callbackOne) callbackOne();
 }
 
@@ -2745,17 +2740,8 @@ var achievement_portraits = new Array()
 function portraitPage(typeReturn) {
   startLoad()
   if (!typeReturn) {
-    post_achievement(
-      'LOAD',
-      function () {
-        achievement_result = ajax_answer_achievement
-        portraitPage(10)
-      },
-      function () {
-        achievement_result = ajax_answer_achievement
-        portraitPage(10)
-      }
-    )
+    achievement_result = loadLocalAchievementsData();
+    portraitPage(10)
     return
   } else if (!achievement_result) {
     LoadFinish()
@@ -2909,16 +2895,8 @@ function exhibitionPage(page) {
     exhibition_index = Number(page)
   }
 
-  if (!achievement_result) {
-    post_achievement('LOAD', function() {
-        achievement_result = ajax_answer_achievement;
-        if (achievement_result && achievement_result['achievement']) {
-            achievement_list = achievement_result['achievement'];
-        }
-        exhibitionPage(page);
-    });
-    return;
-  }
+  achievement_result = loadLocalAchievementsData();
+  achievement_list = achievement_result['achievement'];
 
   var xmlDoc = loadExistXmlFile('exhibition_list', function () {
     var doc = xml_files_all_in_this['exhibition_list'];
