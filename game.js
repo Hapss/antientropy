@@ -2433,25 +2433,16 @@ function remark_btn_show() {
     .css('cursor', 'pointer')
 }
 
+// Надежное извлечение достижений из любых форматов XML
 function post_achievement_in_event(eventNode) {
   if (!eventNode) return;
   var postAttr = (typeof eventNode === 'string') ? eventNode : (eventNode.getAttribute('post') || eventNode.getAttribute('achievement'));
   
   if (postAttr) {
-    var achIds = [];
-    var match;
-    var regex = /id=(\d+)/g;
-    while ((match = regex.exec(postAttr)) !== null) {
-      achIds.push(match[1]);
-    }
-    
-    if (achIds.length > 0) {
-      post_achievement(achIds.join(','));
-    } else {
-      var digitsMatch = postAttr.match(/\d{5}/g);
-      if (digitsMatch) {
-        post_achievement(digitsMatch.join(','));
-      }
+    var strAttr = String(postAttr);
+    var digitsMatch = strAttr.match(/\d{5}/g);
+    if (digitsMatch && digitsMatch.length > 0) {
+      post_achievement(digitsMatch.join(','));
     }
   }
 }
@@ -2757,10 +2748,10 @@ function portraitPage(typeReturn) {
     var clamped_icon = p_val > 0.90 ? 0.90 : p_val;
 
     var achievement_progress = parseInt(p_val * 100) + '%';
-    var achievement_progress_rem = p_val * 28.55 + 'rem';
-    var achievement_progress_text = clamped_text * 28.55 + 1.3 + 0.5 + 'rem';
-    var achievement_progress_text_r = 1.3 + 0.5 + 'rem';
-    var achievement_progress_icon = clamped_icon * 28.55 - 1.3 + 'rem';
+    var achievement_progress_rem = (p_val * 28.55) + 'rem';
+    var achievement_progress_text = (clamped_text * 28.55 + 1.3 + 0.5) + 'rem';
+    var achievement_progress_text_r = (1.3 + 0.5) + 'rem';
+    var achievement_progress_icon = (clamped_icon * 28.55 - 1.3) + 'rem';
     
     achievement_list = achievement_result['achievement']
     achievement_portraits = achievement_result['portrait']
@@ -2852,7 +2843,11 @@ function portraitPage(typeReturn) {
           }
         }
         
-        $('.progress-span').css('width', achievement_progress_rem)
+        $('.progress-span').css({
+          'width': achievement_progress_rem,
+          'display': 'block',
+          'background-color': '#ffb12a' // Резервный цвет на всякий случай
+        });
         $('.progress-icon').css('left', achievement_progress_icon)
         
         if (p_val <= 0.8) {
@@ -2935,57 +2930,68 @@ function exhibitionPage(page) {
       pHtml_tit.html(getText(exhibition_list[i]))
       
       var isUnlocked = false;
+      var unlockedText = '';
+      var unlockedImage = '';
+
       for (var j = 0; j < achievement_list.length; j++) {
-        if (Number(achievement_list[j]['achievement']) == listId) {
-          var unlockedText = achievement_list[j]['text'];
-          pHtml_txt.html(unlockedText)
-          pHtml_txt.css('color', '#ffffff');
-          pHtml_pic.css(
-            'background-image',
-            "url('" + base_url + 'ru-RU/resources/achievement/' + achievement_list[j]['image'] + "_h.png')"
-          )
-          if (exhibition_list[i].getAttribute('type') != 'end') {
-            pHtml_tip.css(
-              'background-image',
-              "url('" + base_url + 'ru-RU/resources/achievement/' + exhibition_list[i].getAttribute('type') + "_b.png')"
-            )
-          }
+        if (Number(achievement_list[j]['achievement']) === listId) {
+          unlockedText = achievement_list[j]['text'];
+          unlockedImage = achievement_list[j]['image'];
           isUnlocked = true;
           break;
         }
       }
 
-      if (!isUnlocked) {
-        pHtml_txt.html(exhibition_list[i].getAttribute('text') || '??? ??? ??? ??? ??? ??? ??? ??? ???')
-        pHtml_txt.css('color', '#cccccc')
+      if (isUnlocked) {
+        pHtml_txt.html(unlockedText);
+        pHtml_txt.css('color', '#ffffff');
         pHtml_pic.css(
           'background-image',
-          "url('" + base_url + "ru-RU/resources/achievement/null_h.png')"
-        )
+          "url('" + base_url + "ru-RU/resources/achievement/" + unlockedImage + "_h.png')"
+        );
         if (exhibition_list[i].getAttribute('type') != 'end') {
           pHtml_tip.css(
             'background-image',
-            "url('" + base_url + 'ru-RU/resources/achievement/' + exhibition_list[i].getAttribute('type') + ".png')"
-          )
+            "url('" + base_url + "ru-RU/resources/achievement/" + exhibition_list[i].getAttribute('type') + "_b.png')"
+          );
+        }
+      } else {
+        pHtml_txt.html(exhibition_list[i].getAttribute('text') || '??? ??? ??? ??? ??? ??? ??? ??? ???');
+        pHtml_txt.css('color', '#cccccc');
+        pHtml_pic.css(
+          'background-image',
+          "url('" + base_url + "ru-RU/resources/achievement/null_h.png')"
+        );
+        if (exhibition_list[i].getAttribute('type') != 'end') {
+          pHtml_tip.css(
+            'background-image',
+            "url('" + base_url + "ru-RU/resources/achievement/" + exhibition_list[i].getAttribute('type') + ".png')"
+          );
         }
       }
 
+      // Явные размеры для иконки
       pHtml_pic.addClass('exhibition-member-image').css({
           'position': 'absolute',
           'left': '0.6rem',
           'top': '50%',
           'margin-top': '-1.8rem',
+          'width': '3.6rem',
+          'height': '3.6rem',
           'overflow': 'visible',
           'background-size': 'contain',
           'background-position': 'center center',
           'background-repeat': 'no-repeat'
       });
       
+      // Явные размеры для значка персонажа
       pHtml_tip.addClass('exhibition-member-tips').css({
           'position': 'absolute',
           'left': '2.8rem',
           'top': '50%',
           'margin-top': '-2.2rem',
+          'width': '1.8rem',
+          'height': '1.8rem',
           'overflow': 'visible',
           'background-size': 'contain',
           'background-position': 'center center',
