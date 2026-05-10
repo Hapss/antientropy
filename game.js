@@ -2375,17 +2375,30 @@ function showCatalogFrame(page) {
 }
 //-------------------------------------------------------
 function setCookie(name, value) {
-  localStorage.setItem(name, value)
+  try {
+    localStorage.setItem(name, value)
+  } catch(e) {
+    // Безопасный режим на случай блокировки хранилища
+  }
 }
 
 /// Удалить cookie
 function delCookie(name) {
-  localStorage.removeItem(name)
+  try {
+    localStorage.removeItem(name)
+  } catch(e) {
+    // Безопасный режим
+  }
 }
 
 // Прочитать cookie
 function getCookie(name) {
-  return localStorage.getItem(name)
+  try {
+    return localStorage.getItem(name)
+  } catch(e) {
+    // Возвращаем null, если хранилище заблокировано
+    return null;
+  }
 }
 
 function GetQueryString(_name) {
@@ -2634,25 +2647,30 @@ var masterPortraits = [
 var memoryAchievements = [];
 
 function getLocalAchievements() {
+  var raw = null;
   try {
-    var saved = localStorage.getItem('anti_entropy_achievements');
-    if (saved) {
-      var parsed = JSON.parse(saved);
+    raw = localStorage.getItem('anti_entropy_achievements');
+  } catch(e) {
+    // Если доступ к localStorage заблокирован (SecurityError в iframe или приватном режиме)
+    return memoryAchievements.slice();
+  }
+  
+  if (raw) {
+    try {
+      var parsed = JSON.parse(raw);
       if (Array.isArray(parsed)) {
         return parsed.map(function(item) { return Number(item); }).filter(function(item) { return !isNaN(item); });
       } else if (typeof parsed === 'number' || typeof parsed === 'string') {
         var n = Number(parsed);
         if (!isNaN(n)) return [n];
       }
-    }
-  } catch(e) {
+    } catch(err) {
       // Резервная защита на случай битого JSON (если сохранилось как строка "10010,10011")
-      var raw = localStorage.getItem('anti_entropy_achievements');
-      if (raw) {
-          return raw.split(',').map(function(i) { return Number(i.trim()); }).filter(function(i) { return !isNaN(i); });
-      }
+      return raw.split(',').map(function(i) { return Number(i.trim()); }).filter(function(i) { return !isNaN(i); });
+    }
   }
-  // Возврат резервного массива, если хранилище недоступно
+  
+  // Возврат резервного массива
   return memoryAchievements.slice();
 }
 
@@ -2672,7 +2690,7 @@ function saveLocalAchievement(ach_id) {
     try {
       localStorage.setItem('anti_entropy_achievements', JSON.stringify(saved));
     } catch(e) {
-      console.warn("Не удалось сохранить достижение в localStorage (возможно, приватный режим). Сохранено в памяти.", e);
+      // Игнорируем ошибку: достижение уже сохранено в memoryAchievements
     }
   }
 }
@@ -2974,7 +2992,10 @@ function exhibitionPage(page) {
           'left': '0.6rem',
           'top': '50%',
           'margin-top': '-1.8rem',
-          'overflow': 'visible'
+          'overflow': 'visible',
+          'background-size': 'contain',
+          'background-position': 'center center',
+          'background-repeat': 'no-repeat'
       });
       
       pHtml_tip.addClass('exhibition-member-tips').css({
@@ -2982,7 +3003,10 @@ function exhibitionPage(page) {
           'left': '2.8rem',
           'top': '50%',
           'margin-top': '-2.2rem',
-          'overflow': 'visible'
+          'overflow': 'visible',
+          'background-size': 'contain',
+          'background-position': 'center center',
+          'background-repeat': 'no-repeat'
       });
       
       var pHtml_text_wrapper = $('<div></div>').css({
