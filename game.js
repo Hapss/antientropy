@@ -716,7 +716,6 @@ function Action(gotoScene, gotoAction, skipKey, loadKey2) {
 
   thisScene = sceneList[gotoScene]
 
-  // Гарантированно вылавливаем достижение, если оно висит на самой сцене (post="..." в теге <scene>)
   if (gotoAction === 0 && thisScene) {
     post_achievement_in_event(thisScene)
   }
@@ -771,6 +770,11 @@ function processAction(act, gotoScene, gotoAction, skipKey, loadKey2) {
   if ($.inArray(act.nodeName, ['text', 'speak', 'choices']) >= 0) {
     $('#all').show();
   }
+
+  // УНИВЕРСАЛЬНЫЙ ПЕРЕХВАТЧИК АЧИВОК
+  // Ловит достижение абсолютно на любом событии сцены, если оно там спрятано
+  post_achievement_in_event(act);
+
   switch (act.nodeName) {
     case 'cg':
       if (skipKey) {
@@ -779,7 +783,6 @@ function processAction(act, gotoScene, gotoAction, skipKey, loadKey2) {
       dialogAutoplay('stop') // Принудительно прекратить автовоспроизведение
       lastEventNode = gotoAction
       $('#all').hide()
-      post_achievement_in_event(act)
       var fadeInTimeCG = 300
       var fadeOutTimeCG = 300
       if (act.getAttribute('fadeIn') != null) {
@@ -896,7 +899,6 @@ function processAction(act, gotoScene, gotoAction, skipKey, loadKey2) {
       ClearDialog() // Очистить временно загруженное форматирование
       $('.dialog').show()
       $('.dialog-chara').hide()
-      post_achievement_in_event(act)
       var tempAttribute = act.getAttribute('article')
       var thisTextTemp = null
       if (tempAttribute != null) {
@@ -952,7 +954,6 @@ function processAction(act, gotoScene, gotoAction, skipKey, loadKey2) {
       ClearDialog() // Очистить временно загруженное форматирование
       $('.dialog').show()
       $('.dialog-chara').show()
-      post_achievement_in_event(act)
       $('.dialog').removeClass('dialog_article')
       $('.dialog-overflow')
         .removeClass('dialog-overflow_article')
@@ -992,7 +993,6 @@ function processAction(act, gotoScene, gotoAction, skipKey, loadKey2) {
         if (loadKey2) return
       }
       dialogAutoplay('stop')
-      post_achievement_in_event(act)
       var choiceList = act.childNodes
       var choices = []
       for (var i = 0; i < choiceList.length; i++) {
@@ -1022,7 +1022,6 @@ function processAction(act, gotoScene, gotoAction, skipKey, loadKey2) {
 
     case 'show':
       lastEventNode = gotoAction
-      post_achievement_in_event(act)
       var position = act.getAttribute('position')
       if (!position) {
         position = 'center'
@@ -1104,7 +1103,6 @@ function processAction(act, gotoScene, gotoAction, skipKey, loadKey2) {
     case 'end':
       lastEventNode = gotoAction
       dialogAutoplay('stop')
-      post_achievement_in_event(act)
       if (act.getAttribute('last')) {
         endGame(-1)
       } else endGame(1)
@@ -1112,7 +1110,6 @@ function processAction(act, gotoScene, gotoAction, skipKey, loadKey2) {
 
     case 'goto':
       lastEventNode = 0
-      post_achievement_in_event(act)
       gotoA(act.getAttribute('goto'), act.getAttribute('change'), skipKey)
       break
 
@@ -1164,7 +1161,6 @@ function processAction(act, gotoScene, gotoAction, skipKey, loadKey2) {
     case 'achievement':
     case 'post':
       lastEventNode = gotoAction;
-      post_achievement_in_event(act);
       if (!skipKey || !loadKey2) {
         nextAction(gotoScene, gotoAction, skipKey);
       }
@@ -2447,34 +2443,47 @@ function remark_btn_show() {
     .css('cursor', 'pointer')
 }
 
-// СУПЕР-ФУНКЦИЯ ДЛЯ ВЫЦЕПЛЕНИЯ ДОСТИЖЕНИЙ ИЗ ЛЮБЫХ XML ТЕГОВ
 function post_achievement_in_event(eventNode) {
   if (!eventNode) return;
   var idsToUnlock = [];
-  // Регулярка строго для 10000-10999
-  var regex = /10[0-9]{3}/g; 
+  var regex = /10[0-9]{3}/g; // Поиск любых ID от 10000 до 10999
 
-  if (typeof eventNode === 'string' || typeof eventNode === 'number') {
-    var matches = String(eventNode).match(regex);
-    if (matches) {
-        for (var m = 0; m < matches.length; m++) idsToUnlock.push(matches[m]);
+  try {
+    var strToMatch = "";
+    
+    if (typeof eventNode === 'string' || typeof eventNode === 'number') {
+      strToMatch = String(eventNode);
+    } 
+    else if (typeof XMLSerializer !== 'undefined' && eventNode.nodeType) {
+      strToMatch = new XMLSerializer().serializeToString(eventNode);
+    } 
+    else if (eventNode.outerHTML) {
+      strToMatch = eventNode.outerHTML;
+    } 
+    else if (eventNode.textContent) {
+      strToMatch = eventNode.textContent;
+    } 
+    else {
+      // Экстремальный фоллбэк на случай странных объектов
+      var attrs = ['id', 'post', 'achievement', 'achievement_id'];
+      if (eventNode.getAttribute) {
+          for (var i = 0; i < attrs.length; i++) {
+              var val = eventNode.getAttribute(attrs[i]);
+              if (val) strToMatch += " " + val;
+          }
+      }
     }
-  } else if (typeof eventNode === 'object' && eventNode.getAttribute) {
-     // Ищем в id, post, achievement_id и т.д.
-     // Например: <achievement id="10010" /> или <text post="10011" />
-     var attrs = ['id', 'post', 'achievement', 'achievement_id'];
-     for (var i = 0; i < attrs.length; i++) {
-         var val = eventNode.getAttribute(attrs[i]);
-         if (val) {
-             var matches = String(val).match(regex);
-             if (matches) {
-                 for (var m = 0; m < matches.length; m++) idsToUnlock.push(matches[m]);
-             }
-         }
-     }
+
+    var matches = strToMatch.match(regex);
+    if (matches) {
+        for (var m = 0; m < matches.length; m++) {
+            idsToUnlock.push(matches[m]);
+        }
+    }
+  } catch(e) {
+      console.error("Ошибка при парсинге достижения", e);
   }
 
-  // Если нашли хотя бы 1 номер - отправляем на сохранение
   if (idsToUnlock.length > 0) {
       post_achievement(idsToUnlock.join(','));
   }
@@ -3000,7 +3009,6 @@ function exhibitionPage(page) {
         }
       }
 
-      // Возвращены точные размеры элементов (width и height), которые могли слетать без внешнего CSS
       pHtml_pic.addClass('exhibition-member-image').css({
           'position': 'absolute',
           'left': '0.6rem',
