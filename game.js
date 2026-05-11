@@ -2406,7 +2406,6 @@ function getCookie(name) {
   try {
     return localStorage.getItem(name)
   } catch(e) {
-    // Возвращаем null, если хранилище заблокировано
     return null;
   }
 }
@@ -2418,7 +2417,6 @@ function GetQueryString(_name) {
   return null
 }
 
-// Связано с системой текстовых примечаний------------------------------------------------
 $('.remark').hide()
 remark_btn_hide()
 
@@ -2443,50 +2441,127 @@ function remark_btn_show() {
     .css('cursor', 'pointer')
 }
 
-function post_achievement_in_event(eventNode) {
-  if (!eventNode) return;
-  var idsToUnlock = [];
-  var regex = /10[0-9]{3}/g; // Поиск любых ID от 10000 до 10999
+window.memoryAchievements = [];
+window.STORAGE_KEY = 'anti_entropy_achievements_v3';
 
+window.getLocalAchievements = function() {
+  var saved = [];
   try {
-    var strToMatch = "";
-    
-    if (typeof eventNode === 'string' || typeof eventNode === 'number') {
-      strToMatch = String(eventNode);
-    } 
-    else if (typeof XMLSerializer !== 'undefined' && eventNode.nodeType) {
-      strToMatch = new XMLSerializer().serializeToString(eventNode);
-    } 
-    else if (eventNode.outerHTML) {
-      strToMatch = eventNode.outerHTML;
-    } 
-    else if (eventNode.textContent) {
-      strToMatch = eventNode.textContent;
-    } 
-    else {
-      // Экстремальный фоллбэк на случай странных объектов
-      var attrs = ['id', 'post', 'achievement', 'achievement_id'];
-      if (eventNode.getAttribute) {
-          for (var i = 0; i < attrs.length; i++) {
-              var val = eventNode.getAttribute(attrs[i]);
-              if (val) strToMatch += " " + val;
+      var raw = localStorage.getItem(window.STORAGE_KEY);
+      if (raw) {
+          try {
+              var parsed = JSON.parse(raw);
+              if (Array.isArray(parsed)) {
+                  saved = parsed;
+              } else if (typeof parsed === 'number' || typeof parsed === 'string') {
+                  saved = [Number(parsed)];
+              } else {
+                  // Мусорные данные, сносим
+                  localStorage.removeItem(window.STORAGE_KEY);
+              }
+          } catch(err) {
+              saved = raw.split(',');
           }
       }
-    }
+  } catch(e) {}
 
-    var matches = strToMatch.match(regex);
-    if (matches) {
-        for (var m = 0; m < matches.length; m++) {
-            idsToUnlock.push(matches[m]);
-        }
-    }
+  for (var i = 0; i < window.memoryAchievements.length; i++) {
+      if (saved.indexOf(window.memoryAchievements[i]) === -1) {
+          saved.push(window.memoryAchievements[i]);
+      }
+  }
+
+  var unique = [];
+  for (var j = 0; j < saved.length; j++) {
+      var num = Number(saved[j]);
+      if (!isNaN(num) && num >= 10000 && num <= 10999 && unique.indexOf(num) === -1) {
+          unique.push(num);
+      }
+  }
+  return unique;
+}
+
+window.saveLocalAchievement = function(ach_id) {
+  if (!ach_id) return;
+  var saved = window.getLocalAchievements();
+  var ids = String(ach_id).match(/10\d{3}/g) || [];
+  var changed = false;
+
+  for (var i = 0; i < ids.length; i++) {
+      var id = Number(ids[i]);
+      if (!isNaN(id) && saved.indexOf(id) === -1) {
+          saved.push(id);
+          changed = true;
+      }
+  }
+
+  if (changed) {
+      window.memoryAchievements = saved.slice();
+      try {
+          localStorage.setItem(window.STORAGE_KEY, JSON.stringify(saved));
+      } catch(e) {}
+  }
+}
+
+window.post_achievement_in_event = function(eventNode) {
+  if (!eventNode) return;
+  var idsToUnlock = [];
+  
+  function extractNumbers(node) {
+      if (!node) return;
+      if (node.attributes) {
+          for (var i = 0; i < node.attributes.length; i++) {
+              var val = node.attributes[i].value;
+              var matches = val ? val.match(/10\d{3}/g) : null;
+              if (matches) {
+                  for(var m = 0; m < matches.length; m++) idsToUnlock.push(matches[m]);
+              }
+          }
+      }
+
+      var nodeName = node.nodeName ? node.nodeName.toLowerCase() : '';
+      if (nodeName === 'achievement' || nodeName === 'post') {
+          var text = node.textContent || node.innerHTML || '';
+          var textMatches = text.match(/10\d{3}/g);
+          if (textMatches) {
+              for(var t = 0; t < textMatches.length; t++) idsToUnlock.push(textMatches[t]);
+          }
+      }
+      if (node.childNodes && node.childNodes.length > 0) {
+          for (var k = 0; k < node.childNodes.length; k++) {
+              extractNumbers(node.childNodes[k]);
+          }
+      }
+  }
+  
+  try {
+      if (typeof eventNode === 'string' || typeof eventNode === 'number') {
+          var strMatches = String(eventNode).match(/10\d{3}/g);
+          if (strMatches) {
+              for(var s = 0; s < strMatches.length; s++) idsToUnlock.push(strMatches[s]);
+          }
+      } else {
+          extractNumbers(eventNode);
+      }
   } catch(e) {
-      console.error("Ошибка при парсинге достижения", e);
+      console.error(e);
   }
 
   if (idsToUnlock.length > 0) {
-      post_achievement(idsToUnlock.join(','));
+      window.post_achievement(idsToUnlock.join(','));
   }
+}
+
+window.post_achievement = function(str_ach, callbackOne, callbackTwo) {
+  ajax_answer_achievement = null;
+  if (str_ach && str_ach !== 'LOAD') {
+    window.saveLocalAchievement(str_ach);
+  }
+  achievement_result = loadLocalAchievementsData();
+  achievement_list = achievement_result['achievement'];
+  
+  ajax_answer_achievement = { retcode: 1, msg: "success locally" };
+  if (callbackOne) callbackOne();
 }
 
 function showremark() {
@@ -2506,7 +2581,7 @@ function showremark() {
     var remarkEvent = remarkScene.childNodes[i]
     if (remarkEvent.nodeName == 'remark') {
       remarkTextBox.html(remarkEvent.innerHTML)
-      post_achievement_in_event(remarkEvent)
+      window.post_achievement_in_event(remarkEvent)
       break
     }
   }
@@ -2672,69 +2747,12 @@ var masterPortraits = [
   {name: "ein", index: 749}, {name: "ha", index: 552}, {name: "fuhua", index: 746},
   {name: "tesla", index: 760}, {name: "otto", index: 750}, {name: "yang", index: 750}, {name: "plank", index: 549}
 ];
-var memoryAchievements = [];
-
-var STORAGE_KEY = 'anti_entropy_achievements';
-
-function getLocalAchievements() {
-  var saved = [];
-  try {
-      var raw = localStorage.getItem(STORAGE_KEY);
-      if (raw) {
-          try {
-              var parsed = JSON.parse(raw);
-              if (Array.isArray(parsed)) {
-                  saved = parsed;
-              } else if (typeof parsed === 'number' || typeof parsed === 'string') {
-                  saved = [parsed];
-              }
-          } catch(err) {
-              saved = raw.split(',');
-          }
-      }
-  } catch(e) {
-  }
-
-  var merged = saved.concat(memoryAchievements);
-  var unique = [];
-  for (var i = 0; i < merged.length; i++) {
-      var num = Number(merged[i]);
-      if (!isNaN(num) && num >= 10000 && unique.indexOf(num) === -1) {
-          unique.push(num);
-      }
-  }
-  
-  return unique;
-}
-
-function saveLocalAchievement(ach_id) {
-  var saved = getLocalAchievements();
-  var ids = String(ach_id).split(',');
-  var changed = false;
-
-  for (var i = 0; i < ids.length; i++) {
-      var idStr = ids[i].match(/\d+/);
-      if (!idStr) continue;
-      var id = Number(idStr[0]);
-      if (!isNaN(id) && id >= 10000 && saved.indexOf(id) === -1) {
-          saved.push(id);
-          changed = true;
-      }
-  }
-
-  if (changed) {
-      memoryAchievements = saved.slice();
-      try {
-          localStorage.setItem(STORAGE_KEY, JSON.stringify(saved));
-      } catch(e) {}
-  }
-}
 
 function loadLocalAchievementsData() {
-  var unlockedIds = getLocalAchievements();
+  var unlockedIds = window.getLocalAchievements();
   var unlockedAchievements = [];
   for (var i = 0; i < masterAchievementData.length; i++) {
-    if (unlockedIds.indexOf(Number(masterAchievementData[i].achievement)) !== -1) {
+    if (unlockedIds.indexOf(masterAchievementData[i].achievement) !== -1) {
       unlockedAchievements.push(masterAchievementData[i]);
     }
   }
@@ -2749,23 +2767,6 @@ function loadLocalAchievementsData() {
     portrait: portraitsToReturn,
     achievement: unlockedAchievements
   };
-}
-
-function post_achievement(str_ach, callbackOne, callbackTwo) {
-  ajax_answer_achievement = null;
-
-  if (str_ach && str_ach !== 'LOAD') {
-    saveLocalAchievement(str_ach);
-    achievement_result = loadLocalAchievementsData();
-    achievement_list = achievement_result['achievement'];
-    
-    ajax_answer_achievement = { retcode: 1, msg: "success locally" };
-    if (callbackOne) callbackOne();
-    return;
-  }
-
-  ajax_answer_achievement = loadLocalAchievementsData();
-  if (callbackOne) callbackOne();
 }
 
 var achievement_result = null
