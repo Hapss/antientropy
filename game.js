@@ -716,8 +716,8 @@ function Action(gotoScene, gotoAction, skipKey, loadKey2) {
 
   thisScene = sceneList[gotoScene]
 
-  // Если получение ачивки срабатывает на входе в сцену:
-  if (gotoAction === 0) {
+  // Гарантированно вылавливаем достижение, если оно висит на самой сцене (post="..." в теге <scene>)
+  if (gotoAction === 0 && thisScene) {
     post_achievement_in_event(thisScene)
   }
 
@@ -998,20 +998,20 @@ function processAction(act, gotoScene, gotoAction, skipKey, loadKey2) {
       for (var i = 0; i < choiceList.length; i++) {
         if (choiceList[i].nodeName != '#text') {
           if (choiceList[i].getAttribute('exit') != 'no') {
-            var choicePost = choiceList[i].getAttribute('post') || choiceList[i].getAttribute('achievement');
+            // Передаем целиком сам узел выбора, чтобы при клике проверить все его атрибуты
             if (choiceList[i].getAttribute('goto') == null) {
               choices.push({
                 text: getText(choiceList[i]),
                 continueScene: gotoScene,
                 continueAction: gotoAction,
-                post: choicePost
+                postNode: choiceList[i]
               })
             } else {
               choices.push({
                 text: getText(choiceList[i]),
                 goto: choiceList[i].getAttribute('goto'),
                 change: choiceList[i].getAttribute('change'),
-                post: choicePost
+                postNode: choiceList[i]
               })
             }
           }
@@ -1308,10 +1308,10 @@ function ShowDialog(mode, content) {
               c1: content[i]['continueScene'],
               c2: content[i]['continueAction'],
               c3: i,
-              cPost: content[i]['post']
+              cNode: content[i]['postNode']
             },
             function (e) {
-              if (e.data.cPost) post_achievement_in_event(e.data.cPost);
+              if (e.data.cNode) post_achievement_in_event(e.data.cNode);
               historyChoiceList[e.data.c2] = e.data.c3
               nextAction(e.data.c1, e.data.c2)
               $('.choice_list').hide()
@@ -1326,9 +1326,9 @@ function ShowDialog(mode, content) {
             .text(content[i]['text'])
             .addClass('choice radius shadow')
             .click(
-              { g: content[i]['goto'], c: content[i]['change'], cPost: content[i]['post'] },
+              { g: content[i]['goto'], c: content[i]['change'], cNode: content[i]['postNode'] },
               function (e) {
-                if (e.data.cPost) post_achievement_in_event(e.data.cPost);
+                if (e.data.cNode) post_achievement_in_event(e.data.cNode);
                 gotoA(e.data.g, e.data.c)
                 $('.choice_list').hide()
                 $('.choice_list').html('')
@@ -1340,8 +1340,8 @@ function ShowDialog(mode, content) {
           choiceHtml = $('<li></li>')
             .text(content[i]['text'])
             .addClass('choice radius shadow')
-            .click({ g: content[i]['goto'], cPost: content[i]['post'] }, function (e) {
-              if (e.data.cPost) post_achievement_in_event(e.data.cPost);
+            .click({ g: content[i]['goto'], cNode: content[i]['postNode'] }, function (e) {
+              if (e.data.cNode) post_achievement_in_event(e.data.cNode);
               gotoA(e.data.g)
               $('.choice_list').hide()
               $('.choice_list').html('')
@@ -2447,25 +2447,22 @@ function remark_btn_show() {
     .css('cursor', 'pointer')
 }
 
-// Надежное извлечение достижений из любых форматов XML
+// СУПЕР-ФУНКЦИЯ ДЛЯ ВЫЦЕПЛЕНИЯ ДОСТИЖЕНИЙ ИЗ ЛЮБЫХ XML ТЕГОВ
 function post_achievement_in_event(eventNode) {
   if (!eventNode) return;
   var idsToUnlock = [];
-  var regex = /10[0-9]{3}/g; // Поиск 10010, 10262 и т.д.
+  // Регулярка строго для 10000-10999
+  var regex = /10[0-9]{3}/g; 
 
   if (typeof eventNode === 'string' || typeof eventNode === 'number') {
     var matches = String(eventNode).match(regex);
     if (matches) {
         for (var m = 0; m < matches.length; m++) idsToUnlock.push(matches[m]);
     }
-  } else if (eventNode.getAttribute) {
-     // Проверяем все возможные атрибуты в самом узле
-     var attrs = ['post', 'achievement', 'achievement_id'];
-     // Допускаем извлечение из id, если это специфичный тег
-     if (eventNode.nodeName === 'achievement' || eventNode.nodeName === 'log') {
-         attrs.push('id');
-     }
-     
+  } else if (typeof eventNode === 'object' && eventNode.getAttribute) {
+     // Ищем в id, post, achievement_id и т.д.
+     // Например: <achievement id="10010" /> или <text post="10011" />
+     var attrs = ['id', 'post', 'achievement', 'achievement_id'];
      for (var i = 0; i < attrs.length; i++) {
          var val = eventNode.getAttribute(attrs[i]);
          if (val) {
@@ -2475,25 +2472,9 @@ function post_achievement_in_event(eventNode) {
              }
          }
      }
-
-     // Проверяем всех детей рекурсивно на случай если ID спрятан глубже
-     if (eventNode.querySelectorAll) {
-         var children = eventNode.querySelectorAll('[post], [achievement], [achievement_id]');
-         for (var c = 0; c < children.length; c++) {
-             var child = children[c];
-             for (var i = 0; i < attrs.length; i++) {
-                 var val = child.getAttribute(attrs[i]);
-                 if (val) {
-                     var matches = String(val).match(regex);
-                     if (matches) {
-                         for (var m = 0; m < matches.length; m++) idsToUnlock.push(matches[m]);
-                     }
-                 }
-             }
-         }
-     }
   }
 
+  // Если нашли хотя бы 1 номер - отправляем на сохранение
   if (idsToUnlock.length > 0) {
       post_achievement(idsToUnlock.join(','));
   }
@@ -2802,10 +2783,10 @@ function portraitPage(typeReturn) {
     var clamped_icon = p_val > 0.90 ? 0.90 : p_val;
 
     var achievement_progress = parseInt(p_val * 100) + '%';
-    var achievement_progress_rem = (p_val * 28.55) + 'rem';
-    var achievement_progress_text = (clamped_text * 28.55 + 1.3 + 0.5) + 'rem';
-    var achievement_progress_text_r = (1.3 + 0.5) + 'rem';
-    var achievement_progress_icon = (clamped_icon * 28.55 - 1.3) + 'rem';
+    var achievement_progress_rem = p_val * 28.55 + 'rem';
+    var achievement_progress_text = clamped_text * 28.55 + 1.3 + 0.5 + 'rem';
+    var achievement_progress_text_r = 1.3 + 0.5 + 'rem';
+    var achievement_progress_icon = clamped_icon * 28.55 - 1.3 + 'rem';
     
     achievement_list = achievement_result['achievement']
     achievement_portraits = achievement_result['portrait']
@@ -2897,11 +2878,7 @@ function portraitPage(typeReturn) {
           }
         }
         
-        $('.progress-span').css({
-          'width': achievement_progress_rem,
-          'display': 'block',
-          'background-color': '#ffb12a' // Резервный цвет на всякий случай
-        });
+        $('.progress-span').css('width', achievement_progress_rem)
         $('.progress-icon').css('left', achievement_progress_icon)
         
         if (p_val <= 0.8) {
@@ -2984,50 +2961,46 @@ function exhibitionPage(page) {
       pHtml_tit.html(getText(exhibition_list[i]))
       
       var isUnlocked = false;
-      var unlockedText = '';
-      var unlockedImage = '';
-
       for (var j = 0; j < achievement_list.length; j++) {
-        if (Number(achievement_list[j]['achievement']) === listId) {
-          unlockedText = achievement_list[j]['text'];
-          unlockedImage = achievement_list[j]['image'];
+        if (Number(achievement_list[j]['achievement']) == listId) {
+          var unlockedText = achievement_list[j]['text'];
+          pHtml_txt.html(unlockedText)
+          pHtml_txt.css('color', '#ffffff');
+          pHtml_pic.css(
+            'background-image',
+            "url('" + base_url + 'ru-RU/resources/achievement/' + achievement_list[j]['image'] + "_h.png')"
+          )
+          if (exhibition_list[i].getAttribute('type') != 'end') {
+            pHtml_tip.css(
+              'background-image',
+              "url('" + base_url + 'ru-RU/resources/achievement/' + exhibition_list[i].getAttribute('type') + "_b.png')"
+            )
+          } else {
+            pHtml_tip.css('background-image', 'none')
+          }
           isUnlocked = true;
           break;
         }
       }
 
-      if (isUnlocked) {
-        pHtml_txt.html(unlockedText);
-        pHtml_txt.css('color', '#ffffff');
-        pHtml_pic.css(
-          'background-image',
-          "url('" + base_url + "ru-RU/resources/achievement/" + unlockedImage + "_h.png')"
-        );
-        if (exhibition_list[i].getAttribute('type') != 'end') {
-          pHtml_tip.css(
-            'background-image',
-            "url('" + base_url + "ru-RU/resources/achievement/" + exhibition_list[i].getAttribute('type') + "_b.png')"
-          );
-        } else {
-            pHtml_tip.css('background-image', 'none');
-        }
-      } else {
-        pHtml_txt.html(exhibition_list[i].getAttribute('text') || '??? ??? ??? ??? ??? ??? ??? ??? ???');
-        pHtml_txt.css('color', '#cccccc');
+      if (!isUnlocked) {
+        pHtml_txt.html(exhibition_list[i].getAttribute('text') || '??? ??? ??? ??? ??? ??? ??? ??? ???')
+        pHtml_txt.css('color', '#cccccc')
         pHtml_pic.css(
           'background-image',
           "url('" + base_url + "ru-RU/resources/achievement/null_h.png')"
-        );
+        )
         if (exhibition_list[i].getAttribute('type') != 'end') {
           pHtml_tip.css(
             'background-image',
-            "url('" + base_url + "ru-RU/resources/achievement/" + exhibition_list[i].getAttribute('type') + ".png')"
-          );
+            "url('" + base_url + 'ru-RU/resources/achievement/' + exhibition_list[i].getAttribute('type') + ".png')"
+          )
         } else {
-            pHtml_tip.css('background-image', 'none');
+          pHtml_tip.css('background-image', 'none')
         }
       }
 
+      // Возвращены точные размеры элементов (width и height), которые могли слетать без внешнего CSS
       pHtml_pic.addClass('exhibition-member-image').css({
           'position': 'absolute',
           'left': '0.6rem',
