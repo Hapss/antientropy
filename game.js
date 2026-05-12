@@ -118,7 +118,7 @@ function hideHistory() {
 // УЛЬТИМАТИВНАЯ ГЛОБАЛЬНАЯ СИСТЕМА ИЗВЛЕЧЕНИЯ И СОХРАНЕНИЯ ДОСТИЖЕНИЙ
 // =========================================================================
 window.memoryAchievements = [];
-window.STORAGE_KEY = 'anti_entropy_achievements_v5'; // Обновленный ключ для сброса старого кэша
+window.STORAGE_KEY = 'anti_entropy_achievements_v6'; // Обновленный ключ для сброса старого кэша
 
 window.getLocalAchievements = function() {
   var saved = [];
@@ -183,47 +183,74 @@ window.extract_achievement_id = function(node) {
     if (!node) return null;
     var ids = [];
     
-    var attrs = ['post', 'achievement', 'achievement_id'];
-    if (node.getAttribute) {
-        for (var i = 0; i < attrs.length; i++) {
-            var val = node.getAttribute(attrs[i]);
-            if (val && val.match(/10\d{3}/g)) {
-                ids = ids.concat(val.match(/10\d{3}/g));
+    function addId(val) {
+        if (!val) return;
+        var m = String(val).match(/10\d{3}/g);
+        if (m) {
+            for (var i=0; i<m.length; i++) {
+                if (ids.indexOf(m[i]) === -1) ids.push(m[i]);
             }
         }
-        var nName = node.nodeName ? node.nodeName.toLowerCase() : '';
-        if (nName === 'achievement' || nName === 'choice' || nName === 'remark' || nName === 'log') {
-            var idVal = node.getAttribute('id');
-            if (idVal && idVal.match(/10\d{3}/g)) {
-                ids = ids.concat(idVal.match(/10\d{3}/g));
+    }
+
+    function traverse(n) {
+        if (!n) return;
+        
+        var nName = n.nodeName ? n.nodeName.toLowerCase() : '';
+        
+        // 1. Проверяем абсолютно все атрибуты узла
+        if (n.attributes) {
+            for (var i = 0; i < n.attributes.length; i++) {
+                var attrName = n.attributes[i].name.toLowerCase();
+                var attrVal = n.attributes[i].value;
+                
+                // Если атрибут явно указывает на достижение
+                if (/^(post|achievement|achievement_id)$/.test(attrName)) {
+                    addId(attrVal);
+                }
+                
+                // Если ID хранится в атрибуте id для специфичных тегов
+                if (attrName === 'id' && /^(achievement|post|choice|choices|remark|log)$/.test(nName)) {
+                    addId(attrVal);
+                }
+                
+                // Ищем захардкоженные вызовы SendAjax(10xxx) внутри любых атрибутов (например, change или onclick)
+                if (attrVal) {
+                    var ajaxMatches = attrVal.match(/SendAjax\(\s*['"]?(10\d{3})['"]?\s*\)/g);
+                    if (ajaxMatches) {
+                        for (var j = 0; j < ajaxMatches.length; j++) {
+                            addId(ajaxMatches[j].match(/10\d{3}/)[0]);
+                        }
+                    }
+                }
+            }
+        }
+        
+        // 2. Проверяем текст внутри узлов achievement
+        if (nName === 'achievement' || nName === 'post') {
+            addId(n.textContent || n.innerText);
+        }
+        
+        // 3. Ищем вызовы SendAjax в текстах или скриптах
+        if (n.nodeType === 3 || n.nodeType === 4 || nName === 'script') {
+            var text = n.nodeValue || n.textContent || '';
+            var ajaxMatches = text.match(/SendAjax\(\s*['"]?(10\d{3})['"]?\s*\)/g);
+            if (ajaxMatches) {
+                for (var j = 0; j < ajaxMatches.length; j++) {
+                    addId(ajaxMatches[j].match(/10\d{3}/)[0]);
+                }
+            }
+        }
+
+        // 4. Рекурсия
+        if (n.childNodes) {
+            for (var k = 0; k < n.childNodes.length; k++) {
+                traverse(n.childNodes[k]);
             }
         }
     }
     
-    try {
-        var str = "";
-        if (typeof XMLSerializer !== 'undefined' && node.nodeType) {
-            str = new XMLSerializer().serializeToString(node);
-        } else {
-            str = String(node.innerHTML || node.textContent || node);
-        }
-        
-        var ajaxMatches = str.match(/SendAjax\(\s*['"]?(10\d{3})['"]?\s*\)/g);
-        if (ajaxMatches) {
-            for (var j = 0; j < ajaxMatches.length; j++) {
-                var numMatch = ajaxMatches[j].match(/10\d{3}/);
-                if (numMatch) ids.push(numMatch[0]);
-            }
-        }
-        
-        var tagMatches = str.match(/<achievement[^>]*id=['"]?(10\d{3})['"]?/g);
-        if (tagMatches) {
-            for (var k = 0; k < tagMatches.length; k++) {
-                var numMatch2 = tagMatches[k].match(/10\d{3}/);
-                if (numMatch2) ids.push(numMatch2[0]);
-            }
-        }
-    } catch (e) {}
+    traverse(node);
 
     if (ids.length > 0) {
         return ids.join(',');
@@ -859,6 +886,10 @@ function Action(gotoScene, gotoAction, skipKey, loadKey2) {
 
   thisScene = sceneList[gotoScene]
 
+  if (gotoAction === 0 && thisScene) {
+    window.post_achievement_in_event(thisScene)
+  }
+
   if (gotoAction < 2) {
     historyChoiceList = new Array() // Очистить отметки выбора
   }
@@ -1136,19 +1167,24 @@ function processAction(act, gotoScene, gotoAction, skipKey, loadKey2) {
       if (skipKey && loadKey2) return;
       dialogAutoplay('stop');
       
+      var parentAchId = window.extract_achievement_id(act);
       var choiceList = act.childNodes;
       var choices = [];
       for (var i = 0; i < choiceList.length; i++) {
           if (choiceList[i].nodeName != '#text') {
               if (choiceList[i].getAttribute('exit') != 'no') {
-                  var achId = window.extract_achievement_id(choiceList[i]);
+                  var childAchId = window.extract_achievement_id(choiceList[i]);
+                  var combined = [];
+                  if (parentAchId) combined.push(parentAchId);
+                  if (childAchId) combined.push(childAchId);
+                  
                   choices.push({
                       text: getText(choiceList[i]),
                       goto: choiceList[i].getAttribute('goto'),
                       change: choiceList[i].getAttribute('change'),
                       continueScene: gotoScene,
                       continueAction: gotoAction,
-                      achId: achId
+                      achId: combined.length > 0 ? combined.join(',') : null
                   });
               }
           }
@@ -2574,6 +2610,14 @@ function showremark() {
   var remarkScene = sceneList[now_scene]
   var remarkTextBox = $('div#remarkTextBox.remark-text')
   remarkTextBox.html('')
+  
+  // Дополнительно страхуемся на случай, если ачивка висит на узле <text>, вызвавшем заметку
+  var currentTextNode = remarkScene.childNodes[now_action];
+  var textAchId = window.extract_achievement_id(currentTextNode);
+  if (textAchId) {
+      window.post_achievement(textAchId);
+  }
+
   for (i = now_action; i < remarkScene.childNodes.length; i++) {
     var remarkEvent = remarkScene.childNodes[i]
     if (remarkEvent.nodeName == 'remark') {
