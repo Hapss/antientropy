@@ -118,7 +118,7 @@ function hideHistory() {
 // УЛЬТИМАТИВНАЯ ГЛОБАЛЬНАЯ СИСТЕМА ИЗВЛЕЧЕНИЯ И СОХРАНЕНИЯ ДОСТИЖЕНИЙ
 // =========================================================================
 window.memoryAchievements = [];
-window.STORAGE_KEY = 'anti_entropy_achievements_v4'; // Обновленный ключ для сброса старого кэша
+window.STORAGE_KEY = 'anti_entropy_achievements_v5'; // Обновленный ключ для сброса старого кэша
 
 window.getLocalAchievements = function() {
   var saved = [];
@@ -178,53 +178,58 @@ window.saveLocalAchievement = function(ach_id) {
   }
 }
 
-window.post_achievement_in_event = function(eventNode) {
-  if (!eventNode) return;
-  var idsToUnlock = [];
-  
-  function extractNumbers(node) {
-      if (!node) return;
-      if (node.attributes) {
-          for (var i = 0; i < node.attributes.length; i++) {
-              var val = node.attributes[i].value;
-              var matches = val ? val.match(/10\d{3}/g) : null;
-              if (matches) {
-                  for(var m = 0; m < matches.length; m++) idsToUnlock.push(matches[m]);
-              }
-          }
-      }
-      var nodeName = node.nodeName ? node.nodeName.toLowerCase() : '';
-      if (nodeName === 'achievement' || nodeName === 'post') {
-          var text = node.textContent || node.innerHTML || '';
-          var textMatches = text.match(/10\d{3}/g);
-          if (textMatches) {
-              for(var t = 0; t < textMatches.length; t++) idsToUnlock.push(textMatches[t]);
-          }
-      }
-      if (node.childNodes && node.childNodes.length > 0) {
-          for (var k = 0; k < node.childNodes.length; k++) {
-              extractNumbers(node.childNodes[k]);
-          }
-      }
-  }
-  
-  try {
-      if (typeof eventNode === 'string' || typeof eventNode === 'number') {
-          var strMatches = String(eventNode).match(/10\d{3}/g);
-          if (strMatches) {
-              for(var s = 0; s < strMatches.length; s++) idsToUnlock.push(strMatches[s]);
-          }
-      } else {
-          extractNumbers(eventNode);
-      }
-  } catch(e) {
-      console.error(e);
-  }
+// Эта функция безотказно извлекает ID достижения из любых атрибутов или внутренностей узла
+window.extract_achievement_id = function(node) {
+    if (!node) return null;
+    var ids = [];
+    
+    var attrs = ['post', 'achievement', 'achievement_id'];
+    if (node.getAttribute) {
+        for (var i = 0; i < attrs.length; i++) {
+            var val = node.getAttribute(attrs[i]);
+            if (val && val.match(/10\d{3}/g)) {
+                ids = ids.concat(val.match(/10\d{3}/g));
+            }
+        }
+        var nName = node.nodeName ? node.nodeName.toLowerCase() : '';
+        if (nName === 'achievement' || nName === 'choice' || nName === 'remark' || nName === 'log') {
+            var idVal = node.getAttribute('id');
+            if (idVal && idVal.match(/10\d{3}/g)) {
+                ids = ids.concat(idVal.match(/10\d{3}/g));
+            }
+        }
+    }
+    
+    try {
+        var str = "";
+        if (typeof XMLSerializer !== 'undefined' && node.nodeType) {
+            str = new XMLSerializer().serializeToString(node);
+        } else {
+            str = String(node.innerHTML || node.textContent || node);
+        }
+        
+        var ajaxMatches = str.match(/SendAjax\(\s*['"]?(10\d{3})['"]?\s*\)/g);
+        if (ajaxMatches) {
+            for (var j = 0; j < ajaxMatches.length; j++) {
+                var numMatch = ajaxMatches[j].match(/10\d{3}/);
+                if (numMatch) ids.push(numMatch[0]);
+            }
+        }
+        
+        var tagMatches = str.match(/<achievement[^>]*id=['"]?(10\d{3})['"]?/g);
+        if (tagMatches) {
+            for (var k = 0; k < tagMatches.length; k++) {
+                var numMatch2 = tagMatches[k].match(/10\d{3}/);
+                if (numMatch2) ids.push(numMatch2[0]);
+            }
+        }
+    } catch (e) {}
 
-  if (idsToUnlock.length > 0) {
-      window.post_achievement(idsToUnlock.join(','));
-  }
-}
+    if (ids.length > 0) {
+        return ids.join(',');
+    }
+    return null;
+};
 
 window.post_achievement = function(str_ach, callbackOne, callbackTwo) {
   ajax_answer_achievement = null;
@@ -854,10 +859,6 @@ function Action(gotoScene, gotoAction, skipKey, loadKey2) {
 
   thisScene = sceneList[gotoScene]
 
-  if (gotoAction === 0 && thisScene) {
-    window.post_achievement_in_event(thisScene)
-  }
-
   if (gotoAction < 2) {
     historyChoiceList = new Array() // Очистить отметки выбора
   }
@@ -909,7 +910,14 @@ function processAction(act, gotoScene, gotoAction, skipKey, loadKey2) {
     $('#all').show();
   }
 
-  window.post_achievement_in_event(act);
+  // УНИВЕРСАЛЬНЫЙ ПЕРЕХВАТЧИК АЧИВОК для обычных действий
+  // Мы НЕ перехватываем choices, choice и remark здесь, чтобы они срабатывали только по клику/открытию!
+  if (act.nodeName !== 'choices' && act.nodeName !== 'choice' && act.nodeName !== 'remark') {
+      var currentAchId = window.extract_achievement_id(act);
+      if (currentAchId) {
+          window.post_achievement(currentAchId);
+      }
+  }
 
   switch (act.nodeName) {
     case 'cg':
@@ -1124,36 +1132,29 @@ function processAction(act, gotoScene, gotoAction, skipKey, loadKey2) {
       break
 
     case 'choices':
-      lastEventNode = gotoAction
-      if (skipKey) {
-        if (loadKey2) return
-      }
-      dialogAutoplay('stop')
-      var choiceList = act.childNodes
-      var choices = []
+      lastEventNode = gotoAction;
+      if (skipKey && loadKey2) return;
+      dialogAutoplay('stop');
+      
+      var choiceList = act.childNodes;
+      var choices = [];
       for (var i = 0; i < choiceList.length; i++) {
-        if (choiceList[i].nodeName != '#text') {
-          if (choiceList[i].getAttribute('exit') != 'no') {
-            if (choiceList[i].getAttribute('goto') == null) {
-              choices.push({
-                text: getText(choiceList[i]),
-                continueScene: gotoScene,
-                continueAction: gotoAction,
-                postNode: choiceList[i]
-              })
-            } else {
-              choices.push({
-                text: getText(choiceList[i]),
-                goto: choiceList[i].getAttribute('goto'),
-                change: choiceList[i].getAttribute('change'),
-                postNode: choiceList[i]
-              })
-            }
+          if (choiceList[i].nodeName != '#text') {
+              if (choiceList[i].getAttribute('exit') != 'no') {
+                  var achId = window.extract_achievement_id(choiceList[i]);
+                  choices.push({
+                      text: getText(choiceList[i]),
+                      goto: choiceList[i].getAttribute('goto'),
+                      change: choiceList[i].getAttribute('change'),
+                      continueScene: gotoScene,
+                      continueAction: gotoAction,
+                      achId: achId
+                  });
+              }
           }
-        }
       }
-      ShowDialog(2, choices)
-      break
+      ShowDialog(2, choices);
+      break;
 
     case 'show':
       lastEventNode = gotoAction
@@ -1239,7 +1240,7 @@ function processAction(act, gotoScene, gotoAction, skipKey, loadKey2) {
       lastEventNode = gotoAction
       dialogAutoplay('stop')
       
-      // Автоматическое получение ачивки за завершение главы, если она не прописана явно в атрибутах
+      // Автоматическое получение ачивки за завершение главы
       var endAchievementId = 10000 + now_galgame * 10;
       window.post_achievement(String(endAchievementId));
       
@@ -1301,10 +1302,6 @@ function processAction(act, gotoScene, gotoAction, skipKey, loadKey2) {
     case 'achievement':
     case 'post':
       lastEventNode = gotoAction;
-      var textValue = getText(act);
-      if (textValue && textValue.match(/10\d{3}/)) {
-          window.post_achievement(textValue.match(/10\d{3}/)[0]);
-      }
       if (!skipKey || !loadKey2) {
         nextAction(gotoScene, gotoAction, skipKey);
       }
@@ -1439,57 +1436,34 @@ function ShowDialog(mode, content) {
     $('.choice_list').append('<ul></ul>')
 
     for (var i = 0; i < content.length; i++) {
-      if (content[i]['goto'] == null) {
-        choiceHtml = $('<li></li>')
-          .text(content[i]['text'])
-          .addClass('choice radius shadow')
-          .click(
-            {
-              c1: content[i]['continueScene'],
-              c2: content[i]['continueAction'],
-              c3: i,
-              cNode: content[i]['postNode']
-            },
-            function (e) {
-              if (e.data.cNode) window.post_achievement_in_event(e.data.cNode);
-              historyChoiceList[e.data.c2] = e.data.c3
-              nextAction(e.data.c1, e.data.c2)
-              $('.choice_list').hide()
-              $('.choice_list').html('')
-            }
-          )
+      var btnData = {
+        c1: content[i].continueScene,
+        c2: content[i].continueAction,
+        c3: i,
+        achId: content[i].achId,
+        g: content[i].goto,
+        c: content[i].change
+      };
 
-        $('.choice_list ul').append(choiceHtml)
-      } else {
-        if (content[i]['change'] != null) {
-          choiceHtml = $('<li></li>')
-            .text(content[i]['text'])
-            .addClass('choice radius shadow')
-            .click(
-              { g: content[i]['goto'], c: content[i]['change'], cNode: content[i]['postNode'] },
-              function (e) {
-                if (e.data.cNode) window.post_achievement_in_event(e.data.cNode);
-                gotoA(e.data.g, e.data.c)
-                $('.choice_list').hide()
-                $('.choice_list').html('')
-              }
-            )
+      choiceHtml = $('<li></li>')
+        .text(content[i].text)
+        .addClass('choice radius shadow')
+        .click(btnData, function (e) {
+          if (e.data.achId) {
+            window.post_achievement(e.data.achId);
+          }
+          
+          if (e.data.g == null) {
+            historyChoiceList[e.data.c2] = e.data.c3;
+            nextAction(e.data.c1, e.data.c2);
+          } else {
+            gotoA(e.data.g, e.data.c);
+          }
+          $('.choice_list').hide();
+          $('.choice_list').html('');
+        });
 
-          $('.choice_list ul').append(choiceHtml)
-        } else {
-          choiceHtml = $('<li></li>')
-            .text(content[i]['text'])
-            .addClass('choice radius shadow')
-            .click({ g: content[i]['goto'], cNode: content[i]['postNode'] }, function (e) {
-              if (e.data.cNode) window.post_achievement_in_event(e.data.cNode);
-              gotoA(e.data.g)
-              $('.choice_list').hide()
-              $('.choice_list').html('')
-            })
-
-          $('.choice_list ul').append(choiceHtml)
-        }
-      }
+      $('.choice_list ul').append(choiceHtml);
     }
     $('.choice_list').show()
   } else if (mode == 3) {
@@ -2604,7 +2578,13 @@ function showremark() {
     var remarkEvent = remarkScene.childNodes[i]
     if (remarkEvent.nodeName == 'remark') {
       remarkTextBox.html(remarkEvent.innerHTML)
-      window.post_achievement_in_event(remarkEvent)
+      
+      // Извлекаем ачивку именно в момент открытия "ремарки"
+      var achId = window.extract_achievement_id(remarkEvent);
+      if (achId) {
+          window.post_achievement(achId);
+      }
+      
       break
     }
   }
@@ -2691,7 +2671,7 @@ var masterAchievementData = [
   {"achievement":10031,"text":"Вы нашли примечание об «Улиссе».","image":"tesla"},
   {"achievement":10032,"text":"Вы выбрали один из вариантов ветвления.","image":"ein"},
   {"achievement":10033,"text":"Вы выбрали один из вариантов ветвления.","image":"welt"},
-  {"achievement":10040,"text":"Вы прочитали сюжет четвертой главы.","image":"normal"},
+  {"achievement":10040,"text":"Вы прочитали сюжет четвёртой главы.","image":"normal"},
   {"achievement":10041,"text":"Вы нашли примечание о Хамфри Богарте.","image":"nokia"},
   {"achievement":10042,"text":"Вы нашли примечание о «Польке Евы».","image":"nokia"},
   {"achievement":10043,"text":"Вы нашли примечание о «Вы, конечно, шутите, мистер Фейнман».","image":"plank"},
