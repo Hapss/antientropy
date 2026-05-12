@@ -114,7 +114,145 @@ function hideHistory() {
   setListens(now_scene, now_action);
 }
 
+// =========================================================================
+// УЛЬТИМАТИВНАЯ ГЛОБАЛЬНАЯ СИСТЕМА ИЗВЛЕЧЕНИЯ И СОХРАНЕНИЯ ДОСТИЖЕНИЙ
+// =========================================================================
+window.memoryAchievements = [];
+window.STORAGE_KEY = 'anti_entropy_achievements_v4'; // Обновленный ключ для сброса старого кэша
+
+window.getLocalAchievements = function() {
+  var saved = [];
+  try {
+      var raw = localStorage.getItem(window.STORAGE_KEY);
+      if (raw) {
+          try {
+              var parsed = JSON.parse(raw);
+              if (Array.isArray(parsed)) {
+                  saved = parsed;
+              } else if (typeof parsed === 'number' || typeof parsed === 'string') {
+                  saved = [Number(parsed)];
+              } else {
+                  localStorage.removeItem(window.STORAGE_KEY);
+              }
+          } catch(err) {
+              saved = raw.split(',');
+          }
+      }
+  } catch(e) {}
+
+  for (var i = 0; i < window.memoryAchievements.length; i++) {
+      if (saved.indexOf(window.memoryAchievements[i]) === -1) {
+          saved.push(window.memoryAchievements[i]);
+      }
+  }
+
+  var unique = [];
+  for (var j = 0; j < saved.length; j++) {
+      var num = Number(saved[j]);
+      if (!isNaN(num) && num >= 10000 && num <= 10999 && unique.indexOf(num) === -1) {
+          unique.push(num);
+      }
+  }
+  return unique;
+}
+
+window.saveLocalAchievement = function(ach_id) {
+  if (!ach_id) return;
+  var saved = window.getLocalAchievements();
+  var ids = String(ach_id).match(/10\d{3}/g) || [];
+  var changed = false;
+
+  for (var i = 0; i < ids.length; i++) {
+      var id = Number(ids[i]);
+      if (!isNaN(id) && saved.indexOf(id) === -1) {
+          saved.push(id);
+          changed = true;
+      }
+  }
+
+  if (changed) {
+      window.memoryAchievements = saved.slice();
+      try {
+          localStorage.setItem(window.STORAGE_KEY, JSON.stringify(saved));
+      } catch(e) {}
+  }
+}
+
+window.post_achievement_in_event = function(eventNode) {
+  if (!eventNode) return;
+  var idsToUnlock = [];
+  
+  function extractNumbers(node) {
+      if (!node) return;
+      if (node.attributes) {
+          for (var i = 0; i < node.attributes.length; i++) {
+              var val = node.attributes[i].value;
+              var matches = val ? val.match(/10\d{3}/g) : null;
+              if (matches) {
+                  for(var m = 0; m < matches.length; m++) idsToUnlock.push(matches[m]);
+              }
+          }
+      }
+      var nodeName = node.nodeName ? node.nodeName.toLowerCase() : '';
+      if (nodeName === 'achievement' || nodeName === 'post') {
+          var text = node.textContent || node.innerHTML || '';
+          var textMatches = text.match(/10\d{3}/g);
+          if (textMatches) {
+              for(var t = 0; t < textMatches.length; t++) idsToUnlock.push(textMatches[t]);
+          }
+      }
+      if (node.childNodes && node.childNodes.length > 0) {
+          for (var k = 0; k < node.childNodes.length; k++) {
+              extractNumbers(node.childNodes[k]);
+          }
+      }
+  }
+  
+  try {
+      if (typeof eventNode === 'string' || typeof eventNode === 'number') {
+          var strMatches = String(eventNode).match(/10\d{3}/g);
+          if (strMatches) {
+              for(var s = 0; s < strMatches.length; s++) idsToUnlock.push(strMatches[s]);
+          }
+      } else {
+          extractNumbers(eventNode);
+      }
+  } catch(e) {
+      console.error(e);
+  }
+
+  if (idsToUnlock.length > 0) {
+      window.post_achievement(idsToUnlock.join(','));
+  }
+}
+
+window.post_achievement = function(str_ach, callbackOne, callbackTwo) {
+  ajax_answer_achievement = null;
+  if (str_ach && str_ach !== 'LOAD') {
+    window.saveLocalAchievement(str_ach);
+  }
+  achievement_result = loadLocalAchievementsData();
+  achievement_list = achievement_result['achievement'];
+  
+  ajax_answer_achievement = { retcode: 1, msg: "success locally" };
+  if (callbackOne) callbackOne();
+}
+
+// ПЕРЕХВАТЧИК ФУНКЦИИ xmlhttp.js (Заменяет серверный XHR на локальное сохранение без уведомлений)
+window.SendAjax = function(endid) {
+    if (endid) {
+        window.post_achievement(String(endid));
+    }
+};
+
 $(function () {
+  // На случай, если jquery и xmlhttp загрузились в другом порядке, перестраховываемся
+  window.SendAjax = function(endid) {
+      if (endid) {
+          window.post_achievement(String(endid));
+      }
+  };
+
   preLoadUiImages('ui', uiImageList)
   $('#all').on('selectstart', function () {
     return false
@@ -717,7 +855,7 @@ function Action(gotoScene, gotoAction, skipKey, loadKey2) {
   thisScene = sceneList[gotoScene]
 
   if (gotoAction === 0 && thisScene) {
-    post_achievement_in_event(thisScene)
+    window.post_achievement_in_event(thisScene)
   }
 
   if (gotoAction < 2) {
@@ -771,9 +909,7 @@ function processAction(act, gotoScene, gotoAction, skipKey, loadKey2) {
     $('#all').show();
   }
 
-  // УНИВЕРСАЛЬНЫЙ ПЕРЕХВАТЧИК АЧИВОК
-  // Ловит достижение абсолютно на любом событии сцены, если оно там спрятано
-  post_achievement_in_event(act);
+  window.post_achievement_in_event(act);
 
   switch (act.nodeName) {
     case 'cg':
@@ -998,7 +1134,6 @@ function processAction(act, gotoScene, gotoAction, skipKey, loadKey2) {
       for (var i = 0; i < choiceList.length; i++) {
         if (choiceList[i].nodeName != '#text') {
           if (choiceList[i].getAttribute('exit') != 'no') {
-            // Передаем целиком сам узел выбора, чтобы при клике проверить все его атрибуты
             if (choiceList[i].getAttribute('goto') == null) {
               choices.push({
                 text: getText(choiceList[i]),
@@ -1103,6 +1238,11 @@ function processAction(act, gotoScene, gotoAction, skipKey, loadKey2) {
     case 'end':
       lastEventNode = gotoAction
       dialogAutoplay('stop')
+      
+      // Автоматическое получение ачивки за завершение главы, если она не прописана явно в атрибутах
+      var endAchievementId = 10000 + now_galgame * 10;
+      window.post_achievement(String(endAchievementId));
+      
       if (act.getAttribute('last')) {
         endGame(-1)
       } else endGame(1)
@@ -1161,6 +1301,10 @@ function processAction(act, gotoScene, gotoAction, skipKey, loadKey2) {
     case 'achievement':
     case 'post':
       lastEventNode = gotoAction;
+      var textValue = getText(act);
+      if (textValue && textValue.match(/10\d{3}/)) {
+          window.post_achievement(textValue.match(/10\d{3}/)[0]);
+      }
       if (!skipKey || !loadKey2) {
         nextAction(gotoScene, gotoAction, skipKey);
       }
@@ -1307,7 +1451,7 @@ function ShowDialog(mode, content) {
               cNode: content[i]['postNode']
             },
             function (e) {
-              if (e.data.cNode) post_achievement_in_event(e.data.cNode);
+              if (e.data.cNode) window.post_achievement_in_event(e.data.cNode);
               historyChoiceList[e.data.c2] = e.data.c3
               nextAction(e.data.c1, e.data.c2)
               $('.choice_list').hide()
@@ -1324,7 +1468,7 @@ function ShowDialog(mode, content) {
             .click(
               { g: content[i]['goto'], c: content[i]['change'], cNode: content[i]['postNode'] },
               function (e) {
-                if (e.data.cNode) post_achievement_in_event(e.data.cNode);
+                if (e.data.cNode) window.post_achievement_in_event(e.data.cNode);
                 gotoA(e.data.g, e.data.c)
                 $('.choice_list').hide()
                 $('.choice_list').html('')
@@ -1337,7 +1481,7 @@ function ShowDialog(mode, content) {
             .text(content[i]['text'])
             .addClass('choice radius shadow')
             .click({ g: content[i]['goto'], cNode: content[i]['postNode'] }, function (e) {
-              if (e.data.cNode) post_achievement_in_event(e.data.cNode);
+              if (e.data.cNode) window.post_achievement_in_event(e.data.cNode);
               gotoA(e.data.g)
               $('.choice_list').hide()
               $('.choice_list').html('')
@@ -2406,6 +2550,7 @@ function getCookie(name) {
   try {
     return localStorage.getItem(name)
   } catch(e) {
+    // Возвращаем null, если хранилище заблокировано
     return null;
   }
 }
@@ -2417,6 +2562,7 @@ function GetQueryString(_name) {
   return null
 }
 
+// Связано с системой текстовых примечаний------------------------------------------------
 $('.remark').hide()
 remark_btn_hide()
 
@@ -2439,129 +2585,6 @@ function remark_btn_show() {
     })
     .css('opacity', '1')
     .css('cursor', 'pointer')
-}
-
-window.memoryAchievements = [];
-window.STORAGE_KEY = 'anti_entropy_achievements_v3';
-
-window.getLocalAchievements = function() {
-  var saved = [];
-  try {
-      var raw = localStorage.getItem(window.STORAGE_KEY);
-      if (raw) {
-          try {
-              var parsed = JSON.parse(raw);
-              if (Array.isArray(parsed)) {
-                  saved = parsed;
-              } else if (typeof parsed === 'number' || typeof parsed === 'string') {
-                  saved = [Number(parsed)];
-              } else {
-                  // Мусорные данные, сносим
-                  localStorage.removeItem(window.STORAGE_KEY);
-              }
-          } catch(err) {
-              saved = raw.split(',');
-          }
-      }
-  } catch(e) {}
-
-  for (var i = 0; i < window.memoryAchievements.length; i++) {
-      if (saved.indexOf(window.memoryAchievements[i]) === -1) {
-          saved.push(window.memoryAchievements[i]);
-      }
-  }
-
-  var unique = [];
-  for (var j = 0; j < saved.length; j++) {
-      var num = Number(saved[j]);
-      if (!isNaN(num) && num >= 10000 && num <= 10999 && unique.indexOf(num) === -1) {
-          unique.push(num);
-      }
-  }
-  return unique;
-}
-
-window.saveLocalAchievement = function(ach_id) {
-  if (!ach_id) return;
-  var saved = window.getLocalAchievements();
-  var ids = String(ach_id).match(/10\d{3}/g) || [];
-  var changed = false;
-
-  for (var i = 0; i < ids.length; i++) {
-      var id = Number(ids[i]);
-      if (!isNaN(id) && saved.indexOf(id) === -1) {
-          saved.push(id);
-          changed = true;
-      }
-  }
-
-  if (changed) {
-      window.memoryAchievements = saved.slice();
-      try {
-          localStorage.setItem(window.STORAGE_KEY, JSON.stringify(saved));
-      } catch(e) {}
-  }
-}
-
-window.post_achievement_in_event = function(eventNode) {
-  if (!eventNode) return;
-  var idsToUnlock = [];
-  
-  function extractNumbers(node) {
-      if (!node) return;
-      if (node.attributes) {
-          for (var i = 0; i < node.attributes.length; i++) {
-              var val = node.attributes[i].value;
-              var matches = val ? val.match(/10\d{3}/g) : null;
-              if (matches) {
-                  for(var m = 0; m < matches.length; m++) idsToUnlock.push(matches[m]);
-              }
-          }
-      }
-
-      var nodeName = node.nodeName ? node.nodeName.toLowerCase() : '';
-      if (nodeName === 'achievement' || nodeName === 'post') {
-          var text = node.textContent || node.innerHTML || '';
-          var textMatches = text.match(/10\d{3}/g);
-          if (textMatches) {
-              for(var t = 0; t < textMatches.length; t++) idsToUnlock.push(textMatches[t]);
-          }
-      }
-      if (node.childNodes && node.childNodes.length > 0) {
-          for (var k = 0; k < node.childNodes.length; k++) {
-              extractNumbers(node.childNodes[k]);
-          }
-      }
-  }
-  
-  try {
-      if (typeof eventNode === 'string' || typeof eventNode === 'number') {
-          var strMatches = String(eventNode).match(/10\d{3}/g);
-          if (strMatches) {
-              for(var s = 0; s < strMatches.length; s++) idsToUnlock.push(strMatches[s]);
-          }
-      } else {
-          extractNumbers(eventNode);
-      }
-  } catch(e) {
-      console.error(e);
-  }
-
-  if (idsToUnlock.length > 0) {
-      window.post_achievement(idsToUnlock.join(','));
-  }
-}
-
-window.post_achievement = function(str_ach, callbackOne, callbackTwo) {
-  ajax_answer_achievement = null;
-  if (str_ach && str_ach !== 'LOAD') {
-    window.saveLocalAchievement(str_ach);
-  }
-  achievement_result = loadLocalAchievementsData();
-  achievement_list = achievement_result['achievement'];
-  
-  ajax_answer_achievement = { retcode: 1, msg: "success locally" };
-  if (callbackOne) callbackOne();
 }
 
 function showremark() {
@@ -2716,7 +2739,7 @@ var masterAchievementData = [
   {"achievement":10180,"text":"Вы прочитали сюжет восемнадцатой главы.","image":"normal"},
   {"achievement":10181,"text":"Вы нашли примечание о Бранденбургских воротах.","image":"welt"},
   {"achievement":10182,"text":"Вы нашли примечание о зоне оккупации Берлина.","image":"welt"},
-  {"achievement":10183,"text":"Вы нашли примечание о трассе 1 (US Route 1).","image":"tesla"},
+  {"achievement":10183,"text":"Вы нашли примечание о трассе 1.","image":"tesla"},
   {"achievement":10190,"text":"Вы прочитали сюжет девятнадцатой главы.","image":"normal"},
   {"achievement":10191,"text":"Вы нашли примечание о «Моби Дике».","image":"reana"},
   {"achievement":10192,"text":"Вы нашли примечание о Тюре.","image":"tesla"},
