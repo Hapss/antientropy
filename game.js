@@ -114,177 +114,14 @@ function hideHistory() {
   setListens(now_scene, now_action);
 }
 
-// =========================================================================
-// УЛЬТИМАТИВНАЯ ГЛОБАЛЬНАЯ СИСТЕМА ИЗВЛЕЧЕНИЯ И СОХРАНЕНИЯ ДОСТИЖЕНИЙ
-// =========================================================================
-window.memoryAchievements = [];
-window.STORAGE_KEY = 'anti_entropy_achievements_v6'; // Обновленный ключ для сброса старого кэша
-
-window.getLocalAchievements = function() {
-  var saved = [];
-  try {
-      var raw = localStorage.getItem(window.STORAGE_KEY);
-      if (raw) {
-          try {
-              var parsed = JSON.parse(raw);
-              if (Array.isArray(parsed)) {
-                  saved = parsed;
-              } else if (typeof parsed === 'number' || typeof parsed === 'string') {
-                  saved = [Number(parsed)];
-              } else {
-                  localStorage.removeItem(window.STORAGE_KEY);
-              }
-          } catch(err) {
-              saved = raw.split(',');
-          }
-      }
-  } catch(e) {}
-
-  for (var i = 0; i < window.memoryAchievements.length; i++) {
-      if (saved.indexOf(window.memoryAchievements[i]) === -1) {
-          saved.push(window.memoryAchievements[i]);
-      }
-  }
-
-  var unique = [];
-  for (var j = 0; j < saved.length; j++) {
-      var num = Number(saved[j]);
-      if (!isNaN(num) && num >= 10000 && num <= 10999 && unique.indexOf(num) === -1) {
-          unique.push(num);
-      }
-  }
-  return unique;
-}
-
-window.saveLocalAchievement = function(ach_id) {
-  if (!ach_id) return;
-  var saved = window.getLocalAchievements();
-  var ids = String(ach_id).match(/10\d{3}/g) || [];
-  var changed = false;
-
-  for (var i = 0; i < ids.length; i++) {
-      var id = Number(ids[i]);
-      if (!isNaN(id) && saved.indexOf(id) === -1) {
-          saved.push(id);
-          changed = true;
-      }
-  }
-
-  if (changed) {
-      window.memoryAchievements = saved.slice();
-      try {
-          localStorage.setItem(window.STORAGE_KEY, JSON.stringify(saved));
-      } catch(e) {}
-  }
-}
-
-// Эта функция безотказно извлекает ID достижения из любых атрибутов или внутренностей узла
-window.extract_achievement_id = function(node) {
-    if (!node) return null;
-    var ids = [];
-    
-    function addId(val) {
-        if (!val) return;
-        var m = String(val).match(/10\d{3}/g);
-        if (m) {
-            for (var i=0; i<m.length; i++) {
-                if (ids.indexOf(m[i]) === -1) ids.push(m[i]);
-            }
-        }
-    }
-
-    function traverse(n) {
-        if (!n) return;
-        
-        var nName = n.nodeName ? n.nodeName.toLowerCase() : '';
-        
-        // 1. Проверяем абсолютно все атрибуты узла
-        if (n.attributes) {
-            for (var i = 0; i < n.attributes.length; i++) {
-                var attrName = n.attributes[i].name.toLowerCase();
-                var attrVal = n.attributes[i].value;
-                
-                // Если атрибут явно указывает на достижение
-                if (/^(post|achievement|achievement_id)$/.test(attrName)) {
-                    addId(attrVal);
-                }
-                
-                // Если ID хранится в атрибуте id для специфичных тегов
-                if (attrName === 'id' && /^(achievement|post|choice|choices|remark|log)$/.test(nName)) {
-                    addId(attrVal);
-                }
-                
-                // Ищем захардкоженные вызовы SendAjax(10xxx) внутри любых атрибутов (например, change или onclick)
-                if (attrVal) {
-                    var ajaxMatches = attrVal.match(/SendAjax\(\s*['"]?(10\d{3})['"]?\s*\)/g);
-                    if (ajaxMatches) {
-                        for (var j = 0; j < ajaxMatches.length; j++) {
-                            addId(ajaxMatches[j].match(/10\d{3}/)[0]);
-                        }
-                    }
-                }
-            }
-        }
-        
-        // 2. Проверяем текст внутри узлов achievement
-        if (nName === 'achievement' || nName === 'post') {
-            addId(n.textContent || n.innerText);
-        }
-        
-        // 3. Ищем вызовы SendAjax в текстах или скриптах
-        if (n.nodeType === 3 || n.nodeType === 4 || nName === 'script') {
-            var text = n.nodeValue || n.textContent || '';
-            var ajaxMatches = text.match(/SendAjax\(\s*['"]?(10\d{3})['"]?\s*\)/g);
-            if (ajaxMatches) {
-                for (var j = 0; j < ajaxMatches.length; j++) {
-                    addId(ajaxMatches[j].match(/10\d{3}/)[0]);
-                }
-            }
-        }
-
-        // 4. Рекурсия
-        if (n.childNodes) {
-            for (var k = 0; k < n.childNodes.length; k++) {
-                traverse(n.childNodes[k]);
-            }
-        }
-    }
-    
-    traverse(node);
-
-    if (ids.length > 0) {
-        return ids.join(',');
-    }
-    return null;
-};
-
-window.post_achievement = function(str_ach, callbackOne, callbackTwo) {
-  ajax_answer_achievement = null;
-  if (str_ach && str_ach !== 'LOAD') {
-    window.saveLocalAchievement(str_ach);
-  }
-  achievement_result = loadLocalAchievementsData();
-  achievement_list = achievement_result['achievement'];
-  
-  ajax_answer_achievement = { retcode: 1, msg: "success locally" };
-  if (callbackOne) callbackOne();
-}
-
-// ПЕРЕХВАТЧИК ФУНКЦИИ xmlhttp.js (Заменяет серверный XHR на локальное сохранение без уведомлений)
+// Перехватчик для кнопок и ссылок, вызывающих старый PHP-скрипт напрямую
 window.SendAjax = function(endid) {
     if (endid) {
-        window.post_achievement(String(endid));
+        post_achievement(String(endid));
     }
 };
 
 $(function () {
-  // На случай, если jquery и xmlhttp загрузились в другом порядке, перестраховываемся
-  window.SendAjax = function(endid) {
-      if (endid) {
-          window.post_achievement(String(endid));
-      }
-  };
-
   preLoadUiImages('ui', uiImageList)
   $('#all').on('selectstart', function () {
     return false
@@ -886,10 +723,6 @@ function Action(gotoScene, gotoAction, skipKey, loadKey2) {
 
   thisScene = sceneList[gotoScene]
 
-  if (gotoAction === 0 && thisScene) {
-    window.post_achievement_in_event(thisScene)
-  }
-
   if (gotoAction < 2) {
     historyChoiceList = new Array() // Очистить отметки выбора
   }
@@ -941,13 +774,9 @@ function processAction(act, gotoScene, gotoAction, skipKey, loadKey2) {
     $('#all').show();
   }
 
-  // УНИВЕРСАЛЬНЫЙ ПЕРЕХВАТЧИК АЧИВОК для обычных действий
-  // Мы НЕ перехватываем choices, choice и remark здесь, чтобы они срабатывали только по клику/открытию!
+  // Перехватываем достижения для любых действий (кроме выборов и заметок, они обрабатываются по клику)
   if (act.nodeName !== 'choices' && act.nodeName !== 'choice' && act.nodeName !== 'remark') {
-      var currentAchId = window.extract_achievement_id(act);
-      if (currentAchId) {
-          window.post_achievement(currentAchId);
-      }
+      post_achievement_in_event(act);
   }
 
   switch (act.nodeName) {
@@ -1163,28 +992,26 @@ function processAction(act, gotoScene, gotoAction, skipKey, loadKey2) {
       break
 
     case 'choices':
-      lastEventNode = gotoAction;
-      if (skipKey && loadKey2) return;
-      dialogAutoplay('stop');
-      
-      var parentAchId = window.extract_achievement_id(act);
-      var choiceList = act.childNodes;
-      var choices = [];
+      lastEventNode = gotoAction
+      if (skipKey) {
+        if (loadKey2) return
+      }
+      dialogAutoplay('stop')
+      var choiceList = act.childNodes
+      var choices = []
       for (var i = 0; i < choiceList.length; i++) {
-          if (choiceList[i].nodeName != '#text') {
-              if (choiceList[i].getAttribute('exit') != 'no') {
-                  var childAchId = window.extract_achievement_id(choiceList[i]);
-                  var combined = [];
-                  if (parentAchId) combined.push(parentAchId);
-                  if (childAchId) combined.push(childAchId);
-                  
-                  choices.push({
+        if (choiceList[i].nodeName != '#text') {
+          if (choiceList[i].getAttribute('exit') != 'no') {
+            // Теперь читаем также и атрибут id у вариантов ответа
+            var choicePost = choiceList[i].getAttribute('post') || choiceList[i].getAttribute('achievement') || choiceList[i].getAttribute('id');
+            if (choiceList[i].getAttribute('goto') == null) {
+              choices.push({
                       text: getText(choiceList[i]),
                       goto: choiceList[i].getAttribute('goto'),
                       change: choiceList[i].getAttribute('change'),
                       continueScene: gotoScene,
                       continueAction: gotoAction,
-                      achId: combined.length > 0 ? combined.join(',') : null
+                      achId: achId
                   });
               }
           }
@@ -1276,9 +1103,8 @@ function processAction(act, gotoScene, gotoAction, skipKey, loadKey2) {
       lastEventNode = gotoAction
       dialogAutoplay('stop')
       
-      // Автоматическое получение ачивки за завершение главы
-      var endAchievementId = 10000 + now_galgame * 10;
-      window.post_achievement(String(endAchievementId));
+      // Выдаем достижение за завершение главы
+      post_achievement(String(10000 + now_galgame * 10));
       
       if (act.getAttribute('last')) {
         endGame(-1)
@@ -2597,6 +2423,35 @@ function remark_btn_show() {
     .css('cursor', 'pointer')
 }
 
+// Безопасный и точный парсер: ищет 5-значный ID во всех нужных атрибутах и текстах
+function post_achievement_in_event(eventNode) {
+  if (!eventNode) return;
+  var val = '';
+  if (typeof eventNode === 'string' || typeof eventNode === 'number') {
+    val = String(eventNode);
+  } else if (eventNode.getAttribute) {
+    var p = eventNode.getAttribute('post') || '';
+    var a = eventNode.getAttribute('achievement') || '';
+    var ai = eventNode.getAttribute('achievement_id') || '';
+    val = p + ',' + a + ',' + ai;
+    
+    var nn = eventNode.nodeName ? eventNode.nodeName.toLowerCase() : '';
+    if (nn === 'achievement' || nn === 'post' || nn === 'remark' || nn === 'choice' || nn === 'log') {
+        val += ',' + (eventNode.getAttribute('id') || '');
+    }
+    if (nn === 'achievement') {
+        val += ',' + (eventNode.textContent || eventNode.innerText || '');
+    }
+  }
+
+  if (val) {
+    var digitsMatch = val.match(/10\d{3}/g);
+    if (digitsMatch) {
+      post_achievement(digitsMatch.join(','));
+    }
+  }
+}
+
 function showremark() {
   var i
   dialogAutoplay('stop')
@@ -2610,14 +2465,6 @@ function showremark() {
   var remarkScene = sceneList[now_scene]
   var remarkTextBox = $('div#remarkTextBox.remark-text')
   remarkTextBox.html('')
-  
-  // Дополнительно страхуемся на случай, если ачивка висит на узле <text>, вызвавшем заметку
-  var currentTextNode = remarkScene.childNodes[now_action];
-  var textAchId = window.extract_achievement_id(currentTextNode);
-  if (textAchId) {
-      window.post_achievement(textAchId);
-  }
-
   for (i = now_action; i < remarkScene.childNodes.length; i++) {
     var remarkEvent = remarkScene.childNodes[i]
     if (remarkEvent.nodeName == 'remark') {
