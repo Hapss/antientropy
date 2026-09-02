@@ -180,6 +180,7 @@ window.extract_achievement_id = function(node) {
     if (!node) return null;
     var ids = [];
     
+    // 1. Проверяем атрибуты самого узла
     var attrs = ['post', 'achievement', 'achievement_id'];
     if (node.getAttribute) {
         for (var i = 0; i < attrs.length; i++) {
@@ -189,7 +190,7 @@ window.extract_achievement_id = function(node) {
             }
         }
         var nName = node.nodeName ? node.nodeName.toLowerCase() : '';
-        if (nName === 'achievement' || nName === 'choice' || nName === 'remark' || nName === 'log') {
+        if (nName === 'achievement' || nName === 'choice' || nName === 'remark' || nName === 'log' || nName === 'post') {
             var idVal = node.getAttribute('id');
             if (idVal && idVal.match(/10\d{3}/g)) {
                 ids = ids.concat(idVal.match(/10\d{3}/g));
@@ -197,6 +198,29 @@ window.extract_achievement_id = function(node) {
         }
     }
     
+    // 2. Рекурсивно ищем теги <post> и <achievement> внутри
+    var traverse = function(n) {
+        if (!n) return;
+        var nName = n.nodeName ? n.nodeName.toLowerCase() : '';
+        if (nName === 'post' || nName === 'achievement') {
+            if (n.getAttribute && n.getAttribute('id')) {
+                var m = n.getAttribute('id').match(/10\d{3}/g);
+                if (m) ids = ids.concat(m);
+            }
+            if (n.textContent) {
+                var tm = n.textContent.match(/10\d{3}/g);
+                if (tm) ids = ids.concat(tm);
+            }
+        }
+        if (n.childNodes && n.childNodes.length > 0) {
+            for (var j = 0; j < n.childNodes.length; j++) {
+                traverse(n.childNodes[j]);
+            }
+        }
+    };
+    traverse(node);
+    
+    // 3. Резервный поиск через парсинг строки (SendAjax и атрибуты)
     try {
         var str = "";
         if (typeof XMLSerializer !== 'undefined' && node.nodeType) {
@@ -207,23 +231,30 @@ window.extract_achievement_id = function(node) {
         
         var ajaxMatches = str.match(/SendAjax\(\s*['"]?(10\d{3})['"]?\s*\)/g);
         if (ajaxMatches) {
-            for (var j = 0; j < ajaxMatches.length; j++) {
-                var numMatch = ajaxMatches[j].match(/10\d{3}/);
+            for (var k = 0; k < ajaxMatches.length; k++) {
+                var numMatch = ajaxMatches[k].match(/10\d{3}/);
                 if (numMatch) ids.push(numMatch[0]);
             }
         }
         
-        var tagMatches = str.match(/<achievement[^>]*id=['"]?(10\d{3})['"]?/g);
+        var tagMatches = str.match(/<(?:achievement|post)[^>]*id=['"]?(10\d{3})['"]?/ig);
         if (tagMatches) {
-            for (var k = 0; k < tagMatches.length; k++) {
-                var numMatch2 = tagMatches[k].match(/10\d{3}/);
+            for (var l = 0; l < tagMatches.length; l++) {
+                var numMatch2 = tagMatches[l].match(/10\d{3}/);
                 if (numMatch2) ids.push(numMatch2[0]);
             }
         }
     } catch (e) {}
 
     if (ids.length > 0) {
-        return ids.join(',');
+        // Оставляем только уникальные ID
+        var uniqueIds = [];
+        for (var idx = 0; idx < ids.length; idx++) {
+            if (uniqueIds.indexOf(ids[idx]) === -1) {
+                uniqueIds.push(ids[idx]);
+            }
+        }
+        return uniqueIds.join(',');
     }
     return null;
 };
@@ -2595,6 +2626,7 @@ function showremark() {
     if (remarkEvent.nodeName == 'remark') {
       remarkTextBox.html(remarkEvent.innerHTML)
       
+      // Извлекаем ачивку именно в момент открытия "ремарки"
       var achId = window.extract_achievement_id(remarkEvent);
       if (achId) {
           window.post_achievement(achId);
