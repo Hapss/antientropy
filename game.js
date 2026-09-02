@@ -1,5 +1,4 @@
-var base_url = ''
-base_url = resPath
+var base_url = window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/') + 1);
 var now_galgame_tag = '_2017_anti_entropy_now_galgame'
 var now_scene_tag = '_2017_anti_entropy_now_scene'
 var now_action_tag = '_2017_anti_entropy_now_action'
@@ -15,7 +14,7 @@ var showInSceneList = new Array()
 var xml_files_all_in_this = {} // Объект для надежного хранения кэша
 var loading_xml_files = {} // Объект
 
-var tl_base_url = base_url + '/'
+var tl_base_url = base_url
 
 uiImageList.push(
   'auto.png',
@@ -45,6 +44,7 @@ function tryAudio(pauseOrPlay, indexOrInner, countNumber) {
   var audio
   if (indexOrInner == 0) audio = $('#indexbgm')[0]
   else audio = $('#bgm')[0] // Выбор элемента
+  if (!audio) return;
   if (pauseOrPlay == 0) {
     audio.pause()
     if (!isNaN(audio.duration)) audio.currentTime = 0
@@ -114,11 +114,8 @@ function hideHistory() {
   setListens(now_scene, now_action);
 }
 
-// =========================================================================
-// УЛЬТИМАТИВНАЯ ГЛОБАЛЬНАЯ СИСТЕМА ИЗВЛЕЧЕНИЯ И СОХРАНЕНИЯ ДОСТИЖЕНИЙ
-// =========================================================================
 window.memoryAchievements = [];
-window.STORAGE_KEY = 'anti_entropy_achievements_v5'; // Обновленный ключ для сброса старого кэша
+window.STORAGE_KEY = 'anti_entropy_achievements_v5';
 
 window.getLocalAchievements = function() {
   var saved = [];
@@ -240,6 +237,14 @@ window.post_achievement = function(str_ach, callbackOne, callbackTwo) {
   achievement_list = achievement_result['achievement'];
   
   ajax_answer_achievement = { retcode: 1, msg: "success locally" };
+
+  if ($('.family-portrait').is(':visible')) {
+    portraitPage(10);
+  }
+  if ($('.achievement-exhibition').is(':visible')) {
+    exhibitionPage();
+  }
+
   if (callbackOne) callbackOne();
 }
 
@@ -572,7 +577,7 @@ function cgPage(page, flag) {
     for (i in cgListSort) {
       if (j >= page * 4 && j < (page + 1) * 4) {
         $('#cg-' + (j - page * 4))
-          .css('background', "url('" + 'ru-RU/resources/cg/' + getText(cgListSort[i]) + "') no-repeat")
+          .css('background', "url('" + base_url + 'ru-RU/resources/cg/' + getText(cgListSort[i]) + "') no-repeat")
           .css('background-size', 'contain')
           .css('background-position', 'center center')
         $('#cg-' + (j - page * 4)).click(
@@ -602,7 +607,7 @@ function cgPage(page, flag) {
       for (i in cgListSort) {
         if (j >= page * 4 && j < (page + 1) * 4) {
           $('#cg-' + (j - page * 4))
-            .css('background', "url('" + 'ru-RU/resources/cg/' + getText(cgListSort[i]) + "') no-repeat")
+            .css('background', "url('" + base_url + 'ru-RU/resources/cg/' + getText(cgListSort[i]) + "') no-repeat")
             .css('background-size', 'contain')
             .css('background-position', 'center center')
           $('#cg-' + (j - page * 4)).click(
@@ -954,7 +959,7 @@ function processAction(act, gotoScene, gotoAction, skipKey, loadKey2) {
         .unbind()
         .css(
           'background',
-          "url('" + 'ru-RU/resources/cg/' +
+          "url('" + base_url + 'ru-RU/resources/cg/' +
             act.getAttribute('src') +
             "') no-repeat"
         )
@@ -1260,12 +1265,14 @@ function processAction(act, gotoScene, gotoAction, skipKey, loadKey2) {
         return
       }
       var sound = $('#sound')[0]
-      $('#sound').attr(
-        'src',
-       'https://act-webstatic.mihoyo.com/event_bh3_com/avg-anti-entropy/static_CN/resources/sound/' + act.getAttribute('src')
-      )
-      if (!isNaN(sound.duration)) sound.currentTime = 0
-      sound.play()
+      if (sound) {
+        $('#sound').attr(
+          'src',
+         'https://act-webstatic.mihoyo.com/event_bh3_com/avg-anti-entropy/static_CN/resources/sound/' + act.getAttribute('src')
+        )
+        if (!isNaN(sound.duration)) sound.currentTime = 0
+        sound.play()
+      }
 
       nextAction(gotoScene, gotoAction)
       break
@@ -1273,25 +1280,27 @@ function processAction(act, gotoScene, gotoAction, skipKey, loadKey2) {
     case 'bgm':
       lastEventNode = gotoAction
       var bgm = $('#bgm')[0]
-      if (act.getAttribute('status') == 'start') {
-        $('#bgm').attr(
-          'src',
-          'https://act-webstatic.mihoyo.com/event_bh3_com/avg-anti-entropy/static_CN/resources/sound/' + act.getAttribute('src')
-        )
-        if (!isNaN(bgm.duration)) bgm.currentTime = 0
-        bgm.play()
-      } else if (act.getAttribute('status') == 'continue') {
-        if (bgm.paused) {
+      if (bgm) {
+        if (act.getAttribute('status') == 'start') {
           $('#bgm').attr(
             'src',
-           'https://act-webstatic.mihoyo.com/event_bh3_com/avg-anti-entropy/static_CN/resources/sound/' + act.getAttribute('src')
+            'https://act-webstatic.mihoyo.com/event_bh3_com/avg-anti-entropy/static_CN/resources/sound/' + act.getAttribute('src')
           )
           if (!isNaN(bgm.duration)) bgm.currentTime = 0
           bgm.play()
+        } else if (act.getAttribute('status') == 'continue') {
+          if (bgm.paused) {
+            $('#bgm').attr(
+              'src',
+             'https://act-webstatic.mihoyo.com/event_bh3_com/avg-anti-entropy/static_CN/resources/sound/' + act.getAttribute('src')
+            )
+            if (!isNaN(bgm.duration)) bgm.currentTime = 0
+            bgm.play()
+          }
+        } else {
+          bgm.pause()
+          if (!isNaN(bgm.duration)) bgm.currentTime = 0
         }
-      } else {
-        bgm.pause()
-        if (!isNaN(bgm.duration)) bgm.currentTime = 0
       }
 
       if (!skipKey || !loadKey2) {
@@ -1554,7 +1563,7 @@ function systemAutoLoadStart(galgameKey) {
       .html(
         `<div class="cancel ru"></div><div class="submit ru" onclick="systemAutoLoad()"></div>`
       )
-      .css('background', "url('ru-RU/resources/ui/continue.png') no-repeat")
+      .css('background', "url('" + base_url + "ru-RU/resources/ui/continue.png') no-repeat")
       .css('background-size', 'auto 100%')
       .css('background-position', 'center')
     $('.cancel').click({ k: galgameKey }, function (e) {
@@ -1672,7 +1681,7 @@ function startGame(galgameKey, loadKey) {
         $('.history').hide();
         
         var bgm = $('#indexbgm')[0];
-        bgm.pause(); // главная bgm
+        if (bgm) bgm.pause(); // главная bgm
         
         LoadFinish();
 
@@ -1843,11 +1852,15 @@ function preLoadImagesCheck(imageClassName) {
 function endGame(keyFlag) {
   autoSpeed = 'stop'
   var bgm = $('#bgm')[0]
-  bgm.pause()
-  if (!isNaN(bgm.duration)) bgm.currentTime = 0
+  if (bgm) {
+    bgm.pause()
+    if (!isNaN(bgm.duration)) bgm.currentTime = 0
+  }
   var sound = $('#sound')[0]
-  sound.pause()
-  if (!isNaN(sound.duration)) sound.currentTime = 0
+  if (sound) {
+    sound.pause()
+    if (!isNaN(sound.duration)) sound.currentTime = 0
+  }
 
   if (keyFlag == null || keyFlag < 0) {
     setListens()
@@ -1860,8 +1873,10 @@ function endGame(keyFlag) {
     
     $('.menuscene').fadeIn(500, function () {
       var indexBgm = $('#indexbgm')[0]
-      if (!isNaN(indexBgm.duration)) indexBgm.currentTime = 0
-      indexBgm.play() // главная bgm
+      if (indexBgm) {
+        if (!isNaN(indexBgm.duration)) indexBgm.currentTime = 0
+        indexBgm.play() // главная bgm
+      }
       LoadFinish()
       if (thanksWordsFlag) {
         nextChapterBox()
@@ -1911,7 +1926,7 @@ function add_record() {
   )
   $('#confirm_1').css(
     'background',
-    "url('ru-RU/resources/ui/quicksave.png') no-repeat"
+    "url('" + base_url + "ru-RU/resources/ui/quicksave.png') no-repeat"
   )
   $('#confirm_1').css('background-size', 'auto 100%')
   $('#confirm_1').css('background-position', 'center')
@@ -1925,7 +1940,7 @@ function get_record() {
   )
   $('#confirm_1').css(
     'background',
-    "url('ru-RU/resources/ui/quickload.png') no-repeat"
+    "url('" + base_url + "ru-RU/resources/ui/quickload.png') no-repeat"
   )
   $('#confirm_1').css('background-size', 'auto 100%')
   $('#confirm_1').css('background-position', 'center')
@@ -1949,9 +1964,9 @@ function add_record_submit() {
 function get_record_submit() {
   autoSpeed = 'stop'
   var bgm = $('#bgm')[0]
-  bgm.pause()
-  bgm = $('#sound')[0]
-  bgm.pause()
+  if (bgm) bgm.pause()
+  var sound = $('#sound')[0]
+  if (sound) sound.pause()
   var recordScene = getCookie(now_galgame + now_scene_tag)
   var recordAction = getCookie(now_galgame + now_action_tag)
   CloseConfirmDialog()
@@ -1975,7 +1990,7 @@ function get_record_submit() {
 
 function showCgOrigin(str) {
   $('.showCgOrigin')
-    .css('background', "url('" + 'ru-RU/resources/cg/' + str + "') no-repeat")
+    .css('background', "url('" + base_url + 'ru-RU/resources/cg/' + str + "') no-repeat")
     .css('background-size', 'contain')
     .css('background-position', 'center center')
   $('.showCgOrigin').fadeIn()
@@ -1994,6 +2009,7 @@ function browserRedirect() {
   var bIsUc = sUserAgent.match(/ucweb/i) == 'ucweb'
   var bIsAndroid = sUserAgent.match(/android/i) == 'android'
   var bIsCE = sUserAgent.match(/windows ce/i) == 'windows mobile'
+  var bIsWM = sUserAgent.match(/windows phone/i) == 'windows phone'
   if (
     bIsIpad ||
     bIsIphoneOs ||
@@ -2061,9 +2077,9 @@ function get_xml_ajax_async(
 ) {
   if (!xmlFileURL) {
     if (fileType) {
-      xmlFileURL = xmlPath + xmlName + '.' + fileType
+      xmlFileURL = base_url + xmlPath + xmlName + '.' + fileType
     } else {
-      xmlFileURL = xmlPath + xmlName + '.xml?sid=' + Math.random()
+      xmlFileURL = base_url + xmlPath + xmlName + '.xml?sid=' + Math.random()
     }
   }
   $.ajax({
@@ -2135,7 +2151,7 @@ function base64Encode(input) {
 }
 
 function base64Decode(input) {
-  rv = window.atob(input)
+  var rv = window.atob(input)
   rv = escape(rv)
   rv = decodeURIComponent(rv)
   return rv
@@ -2193,7 +2209,7 @@ function catalogPageNew(page, flag) {
       }
       $('#catalog-chap-' + (j - page * 2)).css(
         'background-image',
-        "url('" +
+        "url('" + base_url +
           'ru-RU/resources/catalog/t' +
           getText(catalogListSort[i]) +
           ".png')"
@@ -2579,7 +2595,6 @@ function showremark() {
     if (remarkEvent.nodeName == 'remark') {
       remarkTextBox.html(remarkEvent.innerHTML)
       
-      // Извлекаем ачивку именно в момент открытия "ремарки"
       var achId = window.extract_achievement_id(remarkEvent);
       if (achId) {
           window.post_achievement(achId);
@@ -2677,7 +2692,7 @@ var masterAchievementData = [
   {"achievement":10043,"text":"Вы нашли примечание о «Вы, конечно, шутите, мистер Фейнман».","image":"plank"},
   {"achievement":10050,"text":"Вы прочитали сюжет пятой главы.","image":"normal"},
   {"achievement":10051,"text":"Вы нашли примечание о Последнем ледниковом максимуме.","image":"schro"},
-  {"achievement":10052,"text":"Вы нашли примечание о принципе неопределенности.","image":"schro"},
+  {"achievement":10052,"text":"Вы нашли примечание о принципиальной неопределенности.","image":"schro"},
   {"achievement":10053,"text":"Вы нашли примечание об источнике Олд Фейтфул.","image":"plank"},
   {"achievement":10060,"text":"Вы прочитали сюжет шестой главы.","image":"normal"},
   {"achievement":10061,"text":"Вы нашли примечание о Помпеях.","image":"welt"},
