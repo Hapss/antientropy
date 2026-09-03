@@ -175,22 +175,38 @@ window.saveLocalAchievement = function(ach_id) {
   }
 }
 
-// Эта функция безотказно извлекает ID достижения из любых атрибутов или внутренностей узла
 window.extract_achievement_id = function(node) {
     if (!node) return null;
     var ids = [];
+    var nodeName = node.nodeName ? node.nodeName.toLowerCase() : '';
     
-    // 1. Проверяем атрибуты самого узла
     var attrs = ['post', 'achievement', 'achievement_id'];
     if (node.getAttribute) {
         for (var i = 0; i < attrs.length; i++) {
             var val = node.getAttribute(attrs[i]);
-            if (val && val.match(/10\d{3}/g)) {
-                ids = ids.concat(val.match(/10\d{3}/g));
+            if (val) {
+                var m = val.match(/10\d{3}/g);
+                if (m) {
+                    ids = ids.concat(m);
+                } else if (val.indexOf('U2FsdGVk') === 0) {
+                    ids.push(val);
+                    
+                    try {
+                        var logType = (nodeName === 'remark' || i === 0) ? 'remark' : '';
+                        if (logType) {
+                            var logs = document.querySelectorAll('log[type="' + logType + '"]');
+                            for (var l = 0; l < logs.length; l++) {
+                                var logId = logs[l].getAttribute('id');
+                                if (logId && logId.match(/10\d{3}/)) {
+                                    ids.push(logId.match(/10\d{3}/)[0]);
+                                }
+                            }
+                        }
+                    } catch(e) {}
+                }
             }
         }
-        var nName = node.nodeName ? node.nodeName.toLowerCase() : '';
-        if (nName === 'achievement' || nName === 'choice' || nName === 'remark' || nName === 'log' || nName === 'post') {
+        if (nodeName === 'achievement' || nodeName === 'choice' || nodeName === 'remark' || nodeName === 'log' || nodeName === 'post') {
             var idVal = node.getAttribute('id');
             if (idVal && idVal.match(/10\d{3}/g)) {
                 ids = ids.concat(idVal.match(/10\d{3}/g));
@@ -198,7 +214,6 @@ window.extract_achievement_id = function(node) {
         }
     }
     
-    // 2. Рекурсивно ищем теги <post> и <achievement> внутри
     var traverse = function(n) {
         if (!n) return;
         var nName = n.nodeName ? n.nodeName.toLowerCase() : '';
@@ -210,6 +225,20 @@ window.extract_achievement_id = function(node) {
             if (n.textContent) {
                 var tm = n.textContent.match(/10\d{3}/g);
                 if (tm) ids = ids.concat(tm);
+                
+                var encTm = n.textContent.match(/U2FsdGVkX1[a-zA-Z0-9\/\+=]+/g);
+                if (encTm) {
+                    ids = ids.concat(encTm);
+                    try {
+                        var logs = document.querySelectorAll('log[type="remark"]');
+                        for (var l = 0; l < logs.length; l++) {
+                            var logId = logs[l].getAttribute('id');
+                            if (logId && logId.match(/10\d{3}/)) {
+                                ids.push(logId.match(/10\d{3}/)[0]);
+                            }
+                        }
+                    } catch(e) {}
+                }
             }
         }
         if (n.childNodes && n.childNodes.length > 0) {
@@ -220,7 +249,6 @@ window.extract_achievement_id = function(node) {
     };
     traverse(node);
     
-    // 3. Резервный поиск через парсинг строки (SendAjax и атрибуты)
     try {
         var str = "";
         if (typeof XMLSerializer !== 'undefined' && node.nodeType) {
@@ -247,7 +275,6 @@ window.extract_achievement_id = function(node) {
     } catch (e) {}
 
     if (ids.length > 0) {
-        // Оставляем только уникальные ID
         var uniqueIds = [];
         for (var idx = 0; idx < ids.length; idx++) {
             if (uniqueIds.indexOf(ids[idx]) === -1) {
