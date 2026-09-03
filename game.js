@@ -178,113 +178,116 @@ window.saveLocalAchievement = function(ach_id) {
 window.extract_achievement_id = function(node) {
     if (!node) return null;
     var ids = [];
-    var nodeName = node.nodeName ? node.nodeName.toLowerCase() : '';
-    
-    var attrs = ['post', 'achievement', 'achievement_id'];
-    if (node.getAttribute) {
-        for (var i = 0; i < attrs.length; i++) {
-            var val = node.getAttribute(attrs[i]);
-            if (val) {
-                var m = val.match(/10\d{3}/g);
-                if (m) {
-                    ids = ids.concat(m);
-                } else if (val.indexOf('U2FsdGVk') === 0) {
-                    ids.push(val);
-                    
-                    try {
-                        var logType = (nodeName === 'remark' || i === 0) ? 'remark' : '';
-                        if (logType) {
-                            var logs = document.querySelectorAll('log[type="' + logType + '"]');
-                            for (var l = 0; l < logs.length; l++) {
-                                var logId = logs[l].getAttribute('id');
-                                if (logId && logId.match(/10\d{3}/)) {
-                                    ids.push(logId.match(/10\d{3}/)[0]);
-                                }
-                            }
-                        }
-                    } catch(e) {}
-                }
+
+    var remarkNode = node;
+    if (node.nodeType === 1) {
+        var nodeName = node.nodeName.toLowerCase();
+        if (nodeName === 'text' && node.nextElementSibling && node.nextElementSibling.nodeName.toLowerCase() === 'remark') {
+            remarkNode = node.nextElementSibling;
+        } else if (node.closest) {
+            var closestRemark = node.closest('remark');
+            if (closestRemark) remarkNode = closestRemark;
+        } else if (node.parentNode) {
+            var p = node;
+            while (p && p.nodeName && p.nodeName.toLowerCase() !== 'remark' && p.nodeName.toLowerCase() !== 'body') {
+                p = p.parentNode;
             }
-        }
-        if (nodeName === 'achievement' || nodeName === 'choice' || nodeName === 'remark' || nodeName === 'log' || nodeName === 'post') {
-            var idVal = node.getAttribute('id');
-            if (idVal && idVal.match(/10\d{3}/g)) {
-                ids = ids.concat(idVal.match(/10\d{3}/g));
-            }
+            if (p && p.nodeName && p.nodeName.toLowerCase() === 'remark') remarkNode = p;
         }
     }
-    
-    var traverse = function(n) {
-        if (!n) return;
-        var nName = n.nodeName ? n.nodeName.toLowerCase() : '';
-        if (nName === 'post' || nName === 'achievement') {
-            if (n.getAttribute && n.getAttribute('id')) {
-                var m = n.getAttribute('id').match(/10\d{3}/g);
-                if (m) ids = ids.concat(m);
-            }
-            if (n.textContent) {
-                var tm = n.textContent.match(/10\d{3}/g);
-                if (tm) ids = ids.concat(tm);
-                
-                var encTm = n.textContent.match(/U2FsdGVkX1[a-zA-Z0-9\/\+=]+/g);
-                if (encTm) {
-                    ids = ids.concat(encTm);
-                    try {
-                        var logs = document.querySelectorAll('log[type="remark"]');
-                        for (var l = 0; l < logs.length; l++) {
-                            var logId = logs[l].getAttribute('id');
-                            if (logId && logId.match(/10\d{3}/)) {
-                                ids.push(logId.match(/10\d{3}/)[0]);
-                            }
-                        }
-                    } catch(e) {}
-                }
-            }
-        }
-        if (n.childNodes && n.childNodes.length > 0) {
-            for (var j = 0; j < n.childNodes.length; j++) {
-                traverse(n.childNodes[j]);
+
+    var addId = function(val) {
+        if (!val) return;
+        var matches = String(val).match(/10\d{3}/g);
+        if (matches) {
+            for (var m = 0; m < matches.length; m++) {
+                if (ids.indexOf(matches[m]) === -1) ids.push(matches[m]);
             }
         }
     };
-    traverse(node);
-    
-    try {
-        var str = "";
-        if (typeof XMLSerializer !== 'undefined' && node.nodeType) {
-            str = new XMLSerializer().serializeToString(node);
-        } else {
-            str = String(node.innerHTML || node.textContent || node);
-        }
-        
-        var ajaxMatches = str.match(/SendAjax\(\s*['"]?(10\d{3})['"]?\s*\)/g);
-        if (ajaxMatches) {
-            for (var k = 0; k < ajaxMatches.length; k++) {
-                var numMatch = ajaxMatches[k].match(/10\d{3}/);
-                if (numMatch) ids.push(numMatch[0]);
-            }
-        }
-        
-        var tagMatches = str.match(/<(?:achievement|post)[^>]*id=['"]?(10\d{3})['"]?/ig);
-        if (tagMatches) {
-            for (var l = 0; l < tagMatches.length; l++) {
-                var numMatch2 = tagMatches[l].match(/10\d{3}/);
-                if (numMatch2) ids.push(numMatch2[0]);
-            }
-        }
-    } catch (e) {}
 
-    if (ids.length > 0) {
-        var uniqueIds = [];
-        for (var idx = 0; idx < ids.length; idx++) {
-            if (uniqueIds.indexOf(ids[idx]) === -1) {
-                uniqueIds.push(ids[idx]);
+    var checkAttrs = function(target) {
+        if (!target || !target.getAttribute) return;
+        var attrs = ['post', 'achievement', 'achievement_id', 'id', 'remark'];
+        for (var i = 0; i < attrs.length; i++) {
+            var val = target.getAttribute(attrs[i]);
+            if (val) {
+                addId(val);
+                if (val.indexOf('U2FsdGVk') === 0 && window.CryptoJS && window.CryptoJS.AES) {
+                    var keys = ['secret', 'achievement', 'post', 'remark', 'key', '10000', '10001', 'game', 'novel', 'log', ''];
+                    for (var k = 0; k < keys.length; k++) {
+                        try {
+                            var decrypted = window.CryptoJS.AES.decrypt(val, keys[k]).toString(window.CryptoJS.enc.Utf8);
+                            if (decrypted) addId(decrypted);
+                        } catch(e) {}
+                    }
+                }
             }
         }
-        return uniqueIds.join(',');
+    };
+
+    checkAttrs(node);
+    if (remarkNode !== node) checkAttrs(remarkNode);
+
+    if (ids.length === 0) {
+        try {
+            var allRemarks = Array.prototype.slice.call(document.querySelectorAll('remark, [remark]'));
+            var remarkIdx = allRemarks.indexOf(remarkNode);
+            if (remarkIdx === -1) remarkIdx = allRemarks.indexOf(node);
+
+            var allLogs = Array.prototype.slice.call(document.querySelectorAll('log[type="remark"], log[id^="10"]'));
+            if (allLogs.length > 0) {
+                if (remarkIdx !== -1 && allLogs[remarkIdx]) {
+                    addId(allLogs[remarkIdx].getAttribute('id'));
+                } else {
+                    for (var l = 0; l < allLogs.length; l++) {
+                        addId(allLogs[l].getAttribute('id'));
+                    }
+                }
+            }
+        } catch(e) {}
     }
-    return null;
+
+    if (ids.length === 0) {
+        try {
+            var logs = document.getElementsByTagName('log');
+            for (var lg = 0; lg < logs.length; lg++) {
+                var lType = logs[lg].getAttribute('type');
+                var lId = logs[lg].getAttribute('id');
+                if ((lType === 'remark' || !lType) && lId) {
+                    addId(lId);
+                }
+            }
+        } catch(e) {}
+    }
+
+    if (ids.length === 0 && remarkNode) {
+        addId(remarkNode.textContent || remarkNode.innerText);
+    }
+
+    return ids.length > 0 ? ids.join(',') : null;
 };
+
+if (typeof document !== 'undefined') {
+    document.addEventListener('click', function(e) {
+        var target = e.target;
+        if (!target) return;
+
+        var isRemark = target.hasAttribute('remark') || 
+                       target.closest('[remark]') || 
+                       target.nodeName.toLowerCase() === 'remark' || 
+                       target.closest('remark');
+
+        if (isRemark) {
+            setTimeout(function() {
+                var achId = window.extract_achievement_id(target);
+                if (achId) {
+                    window.saveLocalAchievement(achId);
+                }
+            }, 50);
+        }
+    }, true);
+}
 
 window.post_achievement = function(str_ach, callbackOne, callbackTwo) {
   ajax_answer_achievement = null;
