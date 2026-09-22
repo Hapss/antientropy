@@ -1007,12 +1007,14 @@ function processAction(act, gotoScene, gotoAction, skipKey, loadKey2) {
                 text: getText(choiceList[i]),
                 continueScene: gotoScene,
                 continueAction: gotoAction,
+                node: choiceList[i],
               })
             } else {
               choices.push({
                 text: getText(choiceList[i]),
                 goto: choiceList[i].getAttribute('goto'),
                 change: choiceList[i].getAttribute('change'),
+                node: choiceList[i],
               })
             }
           }
@@ -1298,9 +1300,11 @@ function ShowDialog(mode, content) {
               c1: content[i]['continueScene'],
               c2: content[i]['continueAction'],
               c3: i,
+              node: content[i]['node'],
             },
             function (e) {
               historyChoiceList[e.data.c2] = e.data.c3
+              post_achievement_in_event(e.data.node)
               nextAction(e.data.c1, e.data.c2)
               $('.choice_list').hide()
               $('.choice_list').html('')
@@ -1314,8 +1318,9 @@ function ShowDialog(mode, content) {
             .text(content[i]['text'])
             .addClass('choice radius shadow')
             .click(
-              { g: content[i]['goto'], c: content[i]['change'] },
+              { g: content[i]['goto'], c: content[i]['change'], node: content[i]['node'] },
               function (e) {
+                post_achievement_in_event(e.data.node)
                 gotoA(e.data.g, e.data.c)
                 $('.choice_list').hide()
                 $('.choice_list').html('')
@@ -1327,7 +1332,8 @@ function ShowDialog(mode, content) {
           choiceHtml = $('<li></li>')
             .text(content[i]['text'])
             .addClass('choice radius shadow')
-            .click({ g: content[i]['goto'] }, function (e) {
+            .click({ g: content[i]['goto'], node: content[i]['node'] }, function (e) {
+              post_achievement_in_event(e.data.node)
               gotoA(e.data.g)
               $('.choice_list').hide()
               $('.choice_list').html('')
@@ -1408,6 +1414,19 @@ function systemAutoSave() {
   setCookie(now_action_tag, now_action)
 }
 
+function startNewGame(galgameKey) {
+  if (galgameKey == null || galgameKey === '' || galgameKey === 'new') {
+    galgameKey = 1
+  }
+
+  // Новая игра не должна наследовать позицию предыдущей игры.
+  delCookie(now_galgame_tag)
+  delCookie(now_scene_tag)
+  delCookie(now_action_tag)
+  CloseConfirmDialog()
+  startGame(galgameKey, { S: 0, A: 0 })
+}
+
 function systemAutoLoad() {
   var autoLoadGal = getCookie(now_galgame_tag)
   var autoLoadSce = getCookie(now_scene_tag)
@@ -1457,11 +1476,17 @@ function startGame(galgameKey, loadKey) {
   var playKey
   autoSpeed = 'stop'
   gameLogHistory = [];
-  
-  if (checkAutoLoad() == true && loadKey == null) {
-    systemAutoLoadStart(galgameKey)
-    return
+
+  // Вызов без главы/ключа означает именно новую игру. Раньше в таком
+  // случае поведение зависело от внешнего вызывающего кода и могло приводить
+  // к запуску последнего состояния. Теперь это всегда первая глава.
+  if (galgameKey == null || galgameKey === '' || galgameKey === 'new') {
+    galgameKey = 1
   }
+
+  // Запуск новой игры не должен автоматически подхватывать последнее
+  // сохранение. Продолжение через автосохранение выполняется только
+  // отдельной функцией systemAutoLoad().
   startLoad()
   
   var xmlDoc = loadExistXmlFile('catalog_list', function () {
@@ -2607,6 +2632,91 @@ var masterAchievementData = [
   {"achievement":10262,"text":"Вы нашли примечание о «Корабле Тесея».","image":"reana"}
 ];
 
+var masterAchievementTitles = {
+  "10010": "Прошлое — лишь пролог",
+  "10011": "Оставь надежду, всяк сюда входящий",
+  "10012": "Смысл безымянных земель",
+  "10013": "Хорошие истории заслуживают приукрашивания",
+  "10020": "Если возникла идея, нужно сразу же её осуществить",
+  "10021": "Я лучше потеряю Индию, чем Шекспира",
+  "10022": "We are not amused",
+  "10030": "The day is long that never finds the night",
+  "10031": "and yes I said yes I will yes",
+  "10032": "Естественно, мы надеемся получить этому строгое доказательство",
+  "10033": "Кошмар, от которого я пытаюсь проснуться",
+  "10040": "Small and white, clean and bright",
+  "10041": "Виктор Ласло на том самолёте",
+  "10042": "Ratsatsaa ja ripidabi",
+  "10043": "Хватит дурачиться",
+  "10050": "О дивный новый мир",
+  "10051": "Замёрзшая планета",
+  "10052": "Единственное, в чём мы можем быть уверены, — это неопределённость",
+  "10053": "Королям нет покоя",
+  "10060": "Я вверяю Афину вам",
+  "10061": "Не хочу, чтобы в наши последние минуты мы убегали",
+  "10062": "Ждать и надеяться",
+  "10063": "Рыцарь Лондиниума",
+  "10070": "Мелодия Лондондерри",
+  "10071": "CTHULHU FHTAGN",
+  "10072": "Я хочу поцеловать твои губы",
+  "10073": "Англия ждёт, что каждый выполнит свой долг",
+  "10080": "Гордость и предубеждение и Хонкай",
+  "10081": "Программистка",
+  "10082": "Технари-отаку спасают мир",
+  "10083": "Здесь слишком мало места, чтобы это написать",
+  "10090": "ET NOLITE INEBRIARI VINO",
+  "10091": "Dobrého Vojáka Tesla",
+  "10100": "To be, or not to be",
+  "10101": "Вечный двигатель?",
+  "10102": "Легенда о герое Ганга",
+  "10103": "Ответ — 42",
+  "10110": "Лунный трон",
+  "10111": "Et tu, Brute?",
+  "10120": "Paradise Lost?",
+  "10121": "First Eily Dear, Then Danny Boy",
+  "10130": "В поисках утраченного времени",
+  "10140": "Zwei Dinge... Bewunderung und Ehrfurcht",
+  "10141": "Алмазная пыль",
+  "10142": "Цепь туманности",
+  "10143": "Северные врата",
+  "10150": "If Chance Will Have Me King...?",
+  "10151": "Первоначальная классификация «бытия»",
+  "10152": "Самое главное — это изменить мир",
+  "10160": "«Крёстный отец»",
+  "10161": "4 июля 1776 года",
+  "10162": "21 февраля 1848 года",
+  "10170": "Далёкое эхо",
+  "10171": "Границы разума",
+  "10172": "God save the king?",
+  "10173": "One if by land, and two if by sea",
+  "10180": "Я — смерть, поглощающая всё, и жизнь для тех, кому предстоит родиться",
+  "10181": "У армии есть государство",
+  "10182": "YOU ARE ENTERING THE AMERICAN SECTOR",
+  "10183": "Новый Рим",
+  "10190": "Расцвет Святого копья",
+  "10191": "Зовите меня Измаил",
+  "10192": "Вторники с Морри",
+  "10200": "Над пропастью во ржи",
+  "10201": "Эти непостижимые символы",
+  "10202": "Невероятная фантазия",
+  "10203": "Caledfwlch, Caliburn, Excalibur",
+  "10210": "Суперпозиция",
+  "10211": "Антисептическая операция барона Листера 12 августа 1865 года",
+  "10212": "Легенда о герое Ганга: Возвращение долга",
+  "10220": "Blowing in the Wind",
+  "10221": "Ученики Гиппократа",
+  "10230": "Умри, но не сейчас",
+  "10231": "Мир в ореховой скорлупке",
+  "10240": "Престиж",
+  "10241": "Игра в имитацию",
+  "10242": "Scarborough Fair",
+  "10250": "Prometheus Unbound",
+  "10251": "Strong Words May Never Pass Away",
+  "10260": "Он и есть Вельт",
+  "10261": "Ни один из тех, кто рождён женщиной, не сможет навредить Макбету",
+  "10262": "Корабль Тесея"
+}
+
 var masterPortraits = [
   {name: "welt", index: 750}, {name: "nokia", index: 550}, {name: "schro", index: 555},
   {name: "nancy", index: 745}, {name: "ada", index: 550}, {name: "reanna", index: 545},
@@ -2720,7 +2830,7 @@ function buildLocalAchievementResult() {
     var id = catalogIds[j]
     if (!unlockedLookup[id]) continue
 
-    var record = findLocalAchievementRecord(id)
+    var record = buildAchievementDisplayRecord(id)
     if (!record) {
       record = { achievement: id }
     }
@@ -2753,7 +2863,6 @@ function buildLocalAchievementResult() {
 function getAchievementCatalogIds() {
   var ids = []
   var seen = {}
-
   if (typeof exhibition_list !== 'undefined' && exhibition_list) {
     for (var i = 0; i < exhibition_list.length; i++) {
       var xmlId = normalizeAchievementId(exhibition_list[i].getAttribute('id'))
@@ -2787,6 +2896,45 @@ function findLocalAchievementRecord(id) {
     }
   }
   return null
+}
+
+function findExhibitionAchievementRecord(id) {
+  id = normalizeAchievementId(id)
+  if (id == null || typeof exhibition_list === 'undefined' || !exhibition_list) return null
+
+  for (var i = 0; i < exhibition_list.length; i++) {
+    var itemId = normalizeAchievementId(exhibition_list[i].getAttribute('id'))
+    if (itemId === id) return exhibition_list[i]
+  }
+  return null
+}
+
+function buildAchievementDisplayRecord(id) {
+  id = normalizeAchievementId(id)
+  if (id == null) return null
+
+  var source = findLocalAchievementRecord(id) || {}
+  var xml = findExhibitionAchievementRecord(id)
+  var record = { achievement: id }
+
+  for (var key in source) {
+    if (Object.prototype.hasOwnProperty.call(source, key)) {
+      record[key] = source[key]
+    }
+  }
+
+  if (!record.title && !record.name && xml) {
+    record.title = getText(xml)
+  }
+  if (!record.title && !record.name && masterAchievementTitles[id]) {
+    record.title = masterAchievementTitles[id]
+  }
+
+  if (!record.text && xml && xml.getAttribute('text')) {
+    record.text = xml.getAttribute('text')
+  }
+
+  return record
 }
 
 function refreshAchievementViews() {
@@ -2825,7 +2973,6 @@ function refreshAchievementViews() {
     })
   }
 
-  // Если список достижений сейчас открыт, перестраиваем его на том же разделе.
   if (typeof exhibitionPage === 'function' && exhibition_list && $('.achievement-exhibition').is(':visible')) {
     exhibitionPage(exhibition_index)
   }
@@ -2854,8 +3001,6 @@ function post_achievement(str_ach, callbackOne, callbackTwo) {
     console.error('Ошибка сохранения достижения', e)
   }
 
-  // Сразу пересобираем кэш результата. Это устраняет ситуацию, когда
-  // сохранённое достижение есть, а UI продолжает жить со старым результатом.
   refreshAchievementViews()
 
   setTimeout(function () {
@@ -2937,11 +3082,11 @@ function portraitPage(typeReturn) {
     for (var j = 0; j < achievement_list.length; j++) {
       if (
         $.inArray(
-          achievement_list[j]['image'] + '_h.png', // Добавлен суффикс _h
+          achievement_list[j]['image'] + '_h.png',
           achievementImageList
         ) < 0
       ) {
-        achievementImageList.push(achievement_list[j]['image'] + '_h.png') // Добавлен суффикс _h
+        achievementImageList.push(achievement_list[j]['image'] + '_h.png')
       }
     }
     preLoadUiImages('achievement', achievementImageList)
@@ -3052,6 +3197,11 @@ function exhibitionPage(page) {
     return;
   }
 
+  var latestAchievementResult = buildLocalAchievementResult();
+  achievement_result = latestAchievementResult;
+  achievement_list = latestAchievementResult['achievement'] || [];
+  achievement_portraits = latestAchievementResult['portrait'] || [];
+
   var xmlDoc = loadExistXmlFile('exhibition_list', function () {
     var doc = xml_files_all_in_this['exhibition_list'];
     if (!doc || doc === "FAILED") { LoadFinish(); return; }
@@ -3098,9 +3248,10 @@ function exhibitionPage(page) {
       }
 
       if (unlockedRecord) {
-        var unlockedTitle = unlockedRecord['title'] || unlockedRecord['name'] || getText(exhibition_list[i]);
-        var unlockedText = unlockedRecord['text'] || exhibition_list[i].getAttribute('text') || '??? ??? ??? ??? ??? ??? ??? ??? ???';
-        var unlockedImage = unlockedRecord['image'];
+        var displayRecord = buildAchievementDisplayRecord(listId) || unlockedRecord;
+        var unlockedTitle = displayRecord['title'] || displayRecord['name'] || getText(exhibition_list[i]);
+        var unlockedText = displayRecord['text'] || exhibition_list[i].getAttribute('text') || '??? ??? ??? ??? ??? ??? ??? ??? ???';
+        var unlockedImage = displayRecord['image'];
 
         pHtml_tit.html(unlockedTitle)
         pHtml_txt.html(unlockedText)
@@ -3150,13 +3301,7 @@ function exhibitionPage(page) {
           'overflow': 'visible'
       });
       
-      pHtml_tip.addClass('exhibition-member-tips').css({
-          'position': 'absolute',
-          'left': '2.8rem',
-          'top': '50%',
-          'margin-top': '-2.2rem',
-          'overflow': 'visible'
-      });
+      pHtml_tip.addClass('exhibition-member-tips');
       
       var pHtml_text_wrapper = $('<div></div>').css({
           'display': 'flex',
@@ -3180,7 +3325,7 @@ function exhibitionPage(page) {
           'height': 'auto',
           'margin': '0 0 2px 0',
           'color': '#fdffea',
-          'text-align': 'left', 
+          'text-align': 'left',
           'overflow': 'visible'
       });
       
