@@ -1,4 +1,5 @@
-var base_url = window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/') + 1);
+var base_url = ''
+base_url = resPath
 var now_galgame_tag = '_2017_anti_entropy_now_galgame'
 var now_scene_tag = '_2017_anti_entropy_now_scene'
 var now_action_tag = '_2017_anti_entropy_now_action'
@@ -14,7 +15,7 @@ var showInSceneList = new Array()
 var xml_files_all_in_this = {} // Объект для надежного хранения кэша
 var loading_xml_files = {} // Объект
 
-var tl_base_url = base_url
+var tl_base_url = base_url + '/'
 
 uiImageList.push(
   'auto.png',
@@ -44,7 +45,6 @@ function tryAudio(pauseOrPlay, indexOrInner, countNumber) {
   var audio
   if (indexOrInner == 0) audio = $('#indexbgm')[0]
   else audio = $('#bgm')[0] // Выбор элемента
-  if (!audio) return;
   if (pauseOrPlay == 0) {
     audio.pause()
     if (!isNaN(audio.duration)) audio.currentTime = 0
@@ -114,216 +114,7 @@ function hideHistory() {
   setListens(now_scene, now_action);
 }
 
-window.memoryAchievements = [];
-window.STORAGE_KEY = 'anti_entropy_achievements_v5';
-
-window.getLocalAchievements = function() {
-  var saved = [];
-  try {
-      var raw = localStorage.getItem(window.STORAGE_KEY);
-      if (raw) {
-          try {
-              var parsed = JSON.parse(raw);
-              if (Array.isArray(parsed)) {
-                  saved = parsed;
-              } else if (typeof parsed === 'number' || typeof parsed === 'string') {
-                  saved = [Number(parsed)];
-              } else {
-                  localStorage.removeItem(window.STORAGE_KEY);
-              }
-          } catch(err) {
-              saved = raw.split(',');
-          }
-      }
-  } catch(e) {}
-
-  for (var i = 0; i < window.memoryAchievements.length; i++) {
-      if (saved.indexOf(window.memoryAchievements[i]) === -1) {
-          saved.push(window.memoryAchievements[i]);
-      }
-  }
-
-  var unique = [];
-  for (var j = 0; j < saved.length; j++) {
-      var num = Number(saved[j]);
-      if (!isNaN(num) && num >= 10000 && num <= 10999 && unique.indexOf(num) === -1) {
-          unique.push(num);
-      }
-  }
-  return unique;
-}
-
-window.saveLocalAchievement = function(ach_id) {
-  if (!ach_id) return;
-  var saved = window.getLocalAchievements();
-  var ids = String(ach_id).match(/10\d{3}/g) || [];
-  var changed = false;
-
-  for (var i = 0; i < ids.length; i++) {
-      var id = Number(ids[i]);
-      if (!isNaN(id) && saved.indexOf(id) === -1) {
-          saved.push(id);
-          changed = true;
-      }
-  }
-
-  if (changed) {
-      window.memoryAchievements = saved.slice();
-      try {
-          localStorage.setItem(window.STORAGE_KEY, JSON.stringify(saved));
-      } catch(e) {}
-  }
-}
-
-window.extract_achievement_id = function(node) {
-    if (!node) return null;
-    var ids = [];
-
-    var remarkNode = node;
-    if (node.nodeType === 1) {
-        var nodeName = node.nodeName.toLowerCase();
-        if (nodeName === 'text' && node.nextElementSibling && node.nextElementSibling.nodeName.toLowerCase() === 'remark') {
-            remarkNode = node.nextElementSibling;
-        } else if (node.closest) {
-            var closestRemark = node.closest('remark');
-            if (closestRemark) remarkNode = closestRemark;
-        } else if (node.parentNode) {
-            var p = node;
-            while (p && p.nodeName && p.nodeName.toLowerCase() !== 'remark' && p.nodeName.toLowerCase() !== 'body') {
-                p = p.parentNode;
-            }
-            if (p && p.nodeName && p.nodeName.toLowerCase() === 'remark') remarkNode = p;
-        }
-    }
-
-    var addId = function(val) {
-        if (!val) return;
-        var matches = String(val).match(/10\d{3}/g);
-        if (matches) {
-            for (var m = 0; m < matches.length; m++) {
-                if (ids.indexOf(matches[m]) === -1) ids.push(matches[m]);
-            }
-        }
-    };
-
-    var checkAttrs = function(target) {
-        if (!target || !target.getAttribute) return;
-        var attrs = ['post', 'achievement', 'achievement_id', 'id', 'remark'];
-        for (var i = 0; i < attrs.length; i++) {
-            var val = target.getAttribute(attrs[i]);
-            if (val) {
-                addId(val);
-                if (val.indexOf('U2FsdGVk') === 0 && window.CryptoJS && window.CryptoJS.AES) {
-                    var keys = ['secret', 'achievement', 'post', 'remark', 'key', '10000', '10001', 'game', 'novel', 'log', ''];
-                    for (var k = 0; k < keys.length; k++) {
-                        try {
-                            var decrypted = window.CryptoJS.AES.decrypt(val, keys[k]).toString(window.CryptoJS.enc.Utf8);
-                            if (decrypted) addId(decrypted);
-                        } catch(e) {}
-                    }
-                }
-            }
-        }
-    };
-
-    checkAttrs(node);
-    if (remarkNode !== node) checkAttrs(remarkNode);
-
-    if (ids.length === 0) {
-        try {
-            var allRemarks = Array.prototype.slice.call(document.querySelectorAll('remark, [remark]'));
-            var remarkIdx = allRemarks.indexOf(remarkNode);
-            if (remarkIdx === -1) remarkIdx = allRemarks.indexOf(node);
-
-            var allLogs = Array.prototype.slice.call(document.querySelectorAll('log[type="remark"], log[id^="10"]'));
-            if (allLogs.length > 0) {
-                if (remarkIdx !== -1 && allLogs[remarkIdx]) {
-                    addId(allLogs[remarkIdx].getAttribute('id'));
-                } else {
-                    for (var l = 0; l < allLogs.length; l++) {
-                        addId(allLogs[l].getAttribute('id'));
-                    }
-                }
-            }
-        } catch(e) {}
-    }
-
-    if (ids.length === 0) {
-        try {
-            var logs = document.getElementsByTagName('log');
-            for (var lg = 0; lg < logs.length; lg++) {
-                var lType = logs[lg].getAttribute('type');
-                var lId = logs[lg].getAttribute('id');
-                if ((lType === 'remark' || !lType) && lId) {
-                    addId(lId);
-                }
-            }
-        } catch(e) {}
-    }
-
-    if (ids.length === 0 && remarkNode) {
-        addId(remarkNode.textContent || remarkNode.innerText);
-    }
-
-    return ids.length > 0 ? ids.join(',') : null;
-};
-
-if (typeof document !== 'undefined') {
-    document.addEventListener('click', function(e) {
-        var target = e.target;
-        if (!target) return;
-
-        var isRemark = target.hasAttribute('remark') || 
-                       target.closest('[remark]') || 
-                       target.nodeName.toLowerCase() === 'remark' || 
-                       target.closest('remark');
-
-        if (isRemark) {
-            setTimeout(function() {
-                var achId = window.extract_achievement_id(target);
-                if (achId) {
-                    window.saveLocalAchievement(achId);
-                }
-            }, 50);
-        }
-    }, true);
-}
-
-window.post_achievement = function(str_ach, callbackOne, callbackTwo) {
-  ajax_answer_achievement = null;
-  if (str_ach && str_ach !== 'LOAD') {
-    window.saveLocalAchievement(str_ach);
-  }
-  achievement_result = loadLocalAchievementsData();
-  achievement_list = achievement_result['achievement'];
-  
-  ajax_answer_achievement = { retcode: 1, msg: "success locally" };
-
-  if ($('.family-portrait').is(':visible')) {
-    portraitPage(10);
-  }
-  if ($('.achievement-exhibition').is(':visible')) {
-    exhibitionPage();
-  }
-
-  if (callbackOne) callbackOne();
-}
-
-// ПЕРЕХВАТЧИК ФУНКЦИИ xmlhttp.js (Заменяет серверный XHR на локальное сохранение без уведомлений)
-window.SendAjax = function(endid) {
-    if (endid) {
-        window.post_achievement(String(endid));
-    }
-};
-
 $(function () {
-  // На случай, если jquery и xmlhttp загрузились в другом порядке, перестраховываемся
-  window.SendAjax = function(endid) {
-      if (endid) {
-          window.post_achievement(String(endid));
-      }
-  };
-
   preLoadUiImages('ui', uiImageList)
   $('#all').on('selectstart', function () {
     return false
@@ -429,10 +220,12 @@ $.fn.autotype_text = function (gotoScene, gotoAction) {
       if (
         $('.dialog-overflow')[0].scrollHeight > $('.dialog-overflow').height()
       ) {
+        // Если содержимое выходит за пределы, отобразить все сразу
         $pThis.html(str)
         str_index_in_autotype = str.length
       }
       if (isdialogAutoplay()) {
+        // Автовоспроизведение включено во время анимации набора текста
         $pThis.html(str)
         str_index_in_autotype = str.length
       }
@@ -621,6 +414,7 @@ function cgPage(page, flag) {
   for (i = page * 4; i < (page + 1) * 4; i++) {
     $('#cg-' + (i - page * 4)).hide()
   }
+  // Предзагрузка (preload)
   var cgImageList = new Array()
   j = 0
   for (i in cgListSort) {
@@ -633,12 +427,15 @@ function cgPage(page, flag) {
     j++
   }
   preLoadUiImages('cg', cgImageList)
+  // Проверка, завершилась ли загрузка предзагруженных изображений
   if (preLoadImagesCheck() > 0) {
+    // Если уже предзагружено
+    // Загрузка
     j = 0
     for (i in cgListSort) {
       if (j >= page * 4 && j < (page + 1) * 4) {
         $('#cg-' + (j - page * 4))
-          .css('background', "url('" + base_url + 'ru-RU/resources/cg/' + getText(cgListSort[i]) + "') no-repeat")
+          .css('background', "url('" + 'ru-RU/resources/cg/' + getText(cgListSort[i]) + "') no-repeat")
           .css('background-size', 'contain')
           .css('background-position', 'center center')
         $('#cg-' + (j - page * 4)).click(
@@ -663,12 +460,14 @@ function cgPage(page, flag) {
     var i
     var j
     if (preLoadImagesCheck() > 0 || countIndexTimer > 100) {
+      // Изображения загружены, либо истекло время ожидания
       clearTimeout(preLoadImagesTimer)
+      // Загрузка
       j = 0
       for (i in cgListSort) {
         if (j >= page * 4 && j < (page + 1) * 4) {
           $('#cg-' + (j - page * 4))
-            .css('background', "url('" + base_url + 'ru-RU/resources/cg/' + getText(cgListSort[i]) + "') no-repeat")
+            .css('background', "url('" + 'ru-RU/resources/cg/' + getText(cgListSort[i]) + "') no-repeat")
             .css('background-size', 'contain')
             .css('background-position', 'center center')
           $('#cg-' + (j - page * 4)).click(
@@ -732,6 +531,7 @@ function generate_all_characterData(name) {
   })
   if (!xmlDoc) return
   if (Object.keys(characterData).length > 0) { 
+    // В этот момент xml уже загружен
     var imageList = xmlDoc.getElementsByTagName('image')
     preLoadImagesBegin(imageList)
     return
@@ -740,6 +540,7 @@ function generate_all_characterData(name) {
     generate_all_characterData(name)
   })
   if (!xmlDoc) return
+  // На данный момент characterData пуста, читаем её со следующей строки
   var characterList = xmlDoc.getElementsByTagName('character')
   for (j = 0; j < characterList.length; j++) {
     var newCharacter = {}
@@ -790,6 +591,7 @@ function generate_all_characterData(name) {
       )
     }
   }
+  // В этот момент xml уже загружен
   xmlDoc = loadExistXmlFile(name)
   if (!xmlDoc || xmlDoc === "FAILED") return; 
   var imageList = xmlDoc.getElementsByTagName('image')
@@ -827,7 +629,7 @@ function galgame(name) {
     }
     for (j = 0; uselessTexts[j] != null; j++) {
       thisSceneTemp.removeChild(uselessTexts[j])
-    }
+    } // Удаляем все элементы #text на этом этапе
     j = thisSceneTemp.getAttribute('id')
     sceneList[Number(j)] = thisSceneTemp
     sceneList0[i] = null
@@ -975,16 +777,6 @@ function processAction(act, gotoScene, gotoAction, skipKey, loadKey2) {
   if ($.inArray(act.nodeName, ['text', 'speak', 'choices']) >= 0) {
     $('#all').show();
   }
-
-  // УНИВЕРСАЛЬНЫЙ ПЕРЕХВАТЧИК АЧИВОК для обычных действий
-  // Мы НЕ перехватываем choices, choice и remark здесь, чтобы они срабатывали только по клику/открытию!
-  if (act.nodeName !== 'choices' && act.nodeName !== 'choice' && act.nodeName !== 'remark') {
-      var currentAchId = window.extract_achievement_id(act);
-      if (currentAchId) {
-          window.post_achievement(currentAchId);
-      }
-  }
-
   switch (act.nodeName) {
     case 'cg':
       if (skipKey) {
@@ -1020,7 +812,7 @@ function processAction(act, gotoScene, gotoAction, skipKey, loadKey2) {
         .unbind()
         .css(
           'background',
-          "url('" + base_url + 'ru-RU/resources/cg/' +
+          "url('" + 'ru-RU/resources/cg/' +
             act.getAttribute('src') +
             "') no-repeat"
         )
@@ -1109,6 +901,7 @@ function processAction(act, gotoScene, gotoAction, skipKey, loadKey2) {
       ClearDialog() // Очистить временно загруженное форматирование
       $('.dialog').show()
       $('.dialog-chara').hide()
+      post_achievement_in_event(act)
       var tempAttribute = act.getAttribute('article')
       var thisTextTemp = null
       if (tempAttribute != null) {
@@ -1164,6 +957,7 @@ function processAction(act, gotoScene, gotoAction, skipKey, loadKey2) {
       ClearDialog() // Очистить временно загруженное форматирование
       $('.dialog').show()
       $('.dialog-chara').show()
+      post_achievement_in_event(act)
       $('.dialog').removeClass('dialog_article')
       $('.dialog-overflow')
         .removeClass('dialog-overflow_article')
@@ -1198,29 +992,34 @@ function processAction(act, gotoScene, gotoAction, skipKey, loadKey2) {
       break
 
     case 'choices':
-      lastEventNode = gotoAction;
-      if (skipKey && loadKey2) return;
-      dialogAutoplay('stop');
-      
-      var choiceList = act.childNodes;
-      var choices = [];
-      for (var i = 0; i < choiceList.length; i++) {
-          if (choiceList[i].nodeName != '#text') {
-              if (choiceList[i].getAttribute('exit') != 'no') {
-                  var achId = window.extract_achievement_id(choiceList[i]);
-                  choices.push({
-                      text: getText(choiceList[i]),
-                      goto: choiceList[i].getAttribute('goto'),
-                      change: choiceList[i].getAttribute('change'),
-                      continueScene: gotoScene,
-                      continueAction: gotoAction,
-                      achId: achId
-                  });
-              }
-          }
+      lastEventNode = gotoAction
+      if (skipKey) {
+        if (loadKey2) return
       }
-      ShowDialog(2, choices);
-      break;
+      dialogAutoplay('stop')
+      var choiceList = act.childNodes
+      var choices = []
+      for (var i = 0; i < choiceList.length; i++) {
+        if (choiceList[i].nodeName != '#text') {
+          if (choiceList[i].getAttribute('exit') != 'no') {
+            if (choiceList[i].getAttribute('goto') == null) {
+              choices.push({
+                text: getText(choiceList[i]),
+                continueScene: gotoScene,
+                continueAction: gotoAction,
+              })
+            } else {
+              choices.push({
+                text: getText(choiceList[i]),
+                goto: choiceList[i].getAttribute('goto'),
+                change: choiceList[i].getAttribute('change'),
+              })
+            }
+          }
+        }
+      }
+      ShowDialog(2, choices)
+      break
 
     case 'show':
       lastEventNode = gotoAction
@@ -1305,11 +1104,7 @@ function processAction(act, gotoScene, gotoAction, skipKey, loadKey2) {
     case 'end':
       lastEventNode = gotoAction
       dialogAutoplay('stop')
-      
-      // Автоматическое получение ачивки за завершение главы
-      var endAchievementId = 10000 + now_galgame * 10;
-      window.post_achievement(String(endAchievementId));
-      
+      post_achievement_in_event(act)
       if (act.getAttribute('last')) {
         endGame(-1)
       } else endGame(1)
@@ -1326,14 +1121,12 @@ function processAction(act, gotoScene, gotoAction, skipKey, loadKey2) {
         return
       }
       var sound = $('#sound')[0]
-      if (sound) {
-        $('#sound').attr(
-          'src',
-         'https://act-webstatic.mihoyo.com/event_bh3_com/avg-anti-entropy/static_CN/resources/sound/' + act.getAttribute('src')
-        )
-        if (!isNaN(sound.duration)) sound.currentTime = 0
-        sound.play()
-      }
+      $('#sound').attr(
+        'src',
+       'https://act-webstatic.mihoyo.com/event_bh3_com/avg-anti-entropy/static_CN/resources/sound/' + act.getAttribute('src')
+      )
+      if (!isNaN(sound.duration)) sound.currentTime = 0
+      sound.play()
 
       nextAction(gotoScene, gotoAction)
       break
@@ -1341,41 +1134,31 @@ function processAction(act, gotoScene, gotoAction, skipKey, loadKey2) {
     case 'bgm':
       lastEventNode = gotoAction
       var bgm = $('#bgm')[0]
-      if (bgm) {
-        if (act.getAttribute('status') == 'start') {
+      if (act.getAttribute('status') == 'start') {
+        $('#bgm').attr(
+          'src',
+          'https://act-webstatic.mihoyo.com/event_bh3_com/avg-anti-entropy/static_CN/resources/sound/' + act.getAttribute('src')
+        )
+        if (!isNaN(bgm.duration)) bgm.currentTime = 0
+        bgm.play()
+      } else if (act.getAttribute('status') == 'continue') {
+        if (bgm.paused) {
           $('#bgm').attr(
             'src',
-            'https://act-webstatic.mihoyo.com/event_bh3_com/avg-anti-entropy/static_CN/resources/sound/' + act.getAttribute('src')
+           'https://act-webstatic.mihoyo.com/event_bh3_com/avg-anti-entropy/static_CN/resources/sound/' + act.getAttribute('src')
           )
           if (!isNaN(bgm.duration)) bgm.currentTime = 0
           bgm.play()
-        } else if (act.getAttribute('status') == 'continue') {
-          if (bgm.paused) {
-            $('#bgm').attr(
-              'src',
-             'https://act-webstatic.mihoyo.com/event_bh3_com/avg-anti-entropy/static_CN/resources/sound/' + act.getAttribute('src')
-            )
-            if (!isNaN(bgm.duration)) bgm.currentTime = 0
-            bgm.play()
-          }
-        } else {
-          bgm.pause()
-          if (!isNaN(bgm.duration)) bgm.currentTime = 0
         }
+      } else {
+        bgm.pause()
+        if (!isNaN(bgm.duration)) bgm.currentTime = 0
       }
 
       if (!skipKey || !loadKey2) {
         nextAction(gotoScene, gotoAction, skipKey)
       }
       break
-
-    case 'achievement':
-    case 'post':
-      lastEventNode = gotoAction;
-      if (!skipKey || !loadKey2) {
-        nextAction(gotoScene, gotoAction, skipKey);
-      }
-      break;
 
     default:
       if (!skipKey || !loadKey2) {
@@ -1506,34 +1289,53 @@ function ShowDialog(mode, content) {
     $('.choice_list').append('<ul></ul>')
 
     for (var i = 0; i < content.length; i++) {
-      var btnData = {
-        c1: content[i].continueScene,
-        c2: content[i].continueAction,
-        c3: i,
-        achId: content[i].achId,
-        g: content[i].goto,
-        c: content[i].change
-      };
+      if (content[i]['goto'] == null) {
+        choiceHtml = $('<li></li>')
+          .text(content[i]['text'])
+          .addClass('choice radius shadow')
+          .click(
+            {
+              c1: content[i]['continueScene'],
+              c2: content[i]['continueAction'],
+              c3: i,
+            },
+            function (e) {
+              historyChoiceList[e.data.c2] = e.data.c3
+              nextAction(e.data.c1, e.data.c2)
+              $('.choice_list').hide()
+              $('.choice_list').html('')
+            }
+          )
 
-      choiceHtml = $('<li></li>')
-        .text(content[i].text)
-        .addClass('choice radius shadow')
-        .click(btnData, function (e) {
-          if (e.data.achId) {
-            window.post_achievement(e.data.achId);
-          }
-          
-          if (e.data.g == null) {
-            historyChoiceList[e.data.c2] = e.data.c3;
-            nextAction(e.data.c1, e.data.c2);
-          } else {
-            gotoA(e.data.g, e.data.c);
-          }
-          $('.choice_list').hide();
-          $('.choice_list').html('');
-        });
+        $('.choice_list ul').append(choiceHtml)
+      } else {
+        if (content[i]['change'] != null) {
+          choiceHtml = $('<li></li>')
+            .text(content[i]['text'])
+            .addClass('choice radius shadow')
+            .click(
+              { g: content[i]['goto'], c: content[i]['change'] },
+              function (e) {
+                gotoA(e.data.g, e.data.c)
+                $('.choice_list').hide()
+                $('.choice_list').html('')
+              }
+            )
 
-      $('.choice_list ul').append(choiceHtml);
+          $('.choice_list ul').append(choiceHtml)
+        } else {
+          choiceHtml = $('<li></li>')
+            .text(content[i]['text'])
+            .addClass('choice radius shadow')
+            .click({ g: content[i]['goto'] }, function (e) {
+              gotoA(e.data.g)
+              $('.choice_list').hide()
+              $('.choice_list').html('')
+            })
+
+          $('.choice_list ul').append(choiceHtml)
+        }
+      }
     }
     $('.choice_list').show()
   } else if (mode == 3) {
@@ -1624,7 +1426,7 @@ function systemAutoLoadStart(galgameKey) {
       .html(
         `<div class="cancel ru"></div><div class="submit ru" onclick="systemAutoLoad()"></div>`
       )
-      .css('background', "url('" + base_url + "ru-RU/resources/ui/continue.png') no-repeat")
+      .css('background', "url('ru-RU/resources/ui/continue.png') no-repeat")
       .css('background-size', 'auto 100%')
       .css('background-position', 'center')
     $('.cancel').click({ k: galgameKey }, function (e) {
@@ -1726,6 +1528,8 @@ function startGame(galgameKey, loadKey) {
       clearTimeout(preLoadImagesTimer);
       $('.cg').css('display', 'none');
       
+      // ВСЕ манипуляции с интерфейсом и Action теперь внутри fadeIn 
+      // чтобы загрузка происходила во время черного экрана и показывалась мгновенно
       $('.transition').fadeIn(300, function () {
         $('.catalog-wrapper').hide();
         $('.catalog-wrapper-new').hide();
@@ -1742,7 +1546,7 @@ function startGame(galgameKey, loadKey) {
         $('.history').hide();
         
         var bgm = $('#indexbgm')[0];
-        if (bgm) bgm.pause(); // главная bgm
+        bgm.pause(); // главная bgm
         
         LoadFinish();
 
@@ -1913,15 +1717,11 @@ function preLoadImagesCheck(imageClassName) {
 function endGame(keyFlag) {
   autoSpeed = 'stop'
   var bgm = $('#bgm')[0]
-  if (bgm) {
-    bgm.pause()
-    if (!isNaN(bgm.duration)) bgm.currentTime = 0
-  }
+  bgm.pause()
+  if (!isNaN(bgm.duration)) bgm.currentTime = 0
   var sound = $('#sound')[0]
-  if (sound) {
-    sound.pause()
-    if (!isNaN(sound.duration)) sound.currentTime = 0
-  }
+  sound.pause()
+  if (!isNaN(sound.duration)) sound.currentTime = 0
 
   if (keyFlag == null || keyFlag < 0) {
     setListens()
@@ -1934,10 +1734,8 @@ function endGame(keyFlag) {
     
     $('.menuscene').fadeIn(500, function () {
       var indexBgm = $('#indexbgm')[0]
-      if (indexBgm) {
-        if (!isNaN(indexBgm.duration)) indexBgm.currentTime = 0
-        indexBgm.play() // главная bgm
-      }
+      if (!isNaN(indexBgm.duration)) indexBgm.currentTime = 0
+      indexBgm.play() // главная bgm
       LoadFinish()
       if (thanksWordsFlag) {
         nextChapterBox()
@@ -1987,7 +1785,7 @@ function add_record() {
   )
   $('#confirm_1').css(
     'background',
-    "url('" + base_url + "ru-RU/resources/ui/quicksave.png') no-repeat"
+    "url('ru-RU/resources/ui/quicksave.png') no-repeat"
   )
   $('#confirm_1').css('background-size', 'auto 100%')
   $('#confirm_1').css('background-position', 'center')
@@ -2001,7 +1799,7 @@ function get_record() {
   )
   $('#confirm_1').css(
     'background',
-    "url('" + base_url + "ru-RU/resources/ui/quickload.png') no-repeat"
+    "url('ru-RU/resources/ui/quickload.png') no-repeat"
   )
   $('#confirm_1').css('background-size', 'auto 100%')
   $('#confirm_1').css('background-position', 'center')
@@ -2025,9 +1823,9 @@ function add_record_submit() {
 function get_record_submit() {
   autoSpeed = 'stop'
   var bgm = $('#bgm')[0]
-  if (bgm) bgm.pause()
-  var sound = $('#sound')[0]
-  if (sound) sound.pause()
+  bgm.pause()
+  bgm = $('#sound')[0]
+  bgm.pause()
   var recordScene = getCookie(now_galgame + now_scene_tag)
   var recordAction = getCookie(now_galgame + now_action_tag)
   CloseConfirmDialog()
@@ -2051,7 +1849,7 @@ function get_record_submit() {
 
 function showCgOrigin(str) {
   $('.showCgOrigin')
-    .css('background', "url('" + base_url + 'ru-RU/resources/cg/' + str + "') no-repeat")
+    .css('background', "url('" + 'ru-RU/resources/cg/' + str + "') no-repeat")
     .css('background-size', 'contain')
     .css('background-position', 'center center')
   $('.showCgOrigin').fadeIn()
@@ -2070,7 +1868,6 @@ function browserRedirect() {
   var bIsUc = sUserAgent.match(/ucweb/i) == 'ucweb'
   var bIsAndroid = sUserAgent.match(/android/i) == 'android'
   var bIsCE = sUserAgent.match(/windows ce/i) == 'windows mobile'
-  var bIsWM = sUserAgent.match(/windows phone/i) == 'windows phone'
   if (
     bIsIpad ||
     bIsIphoneOs ||
@@ -2096,9 +1893,11 @@ function check_size() {
   var frameWidth, frameHeight;
 
   if (currentRatio > targetRatio) {
+    // Ограничиваем по высоте
     frameHeight = winHeight;
     frameWidth = winHeight * targetRatio;
   } else {
+    // Ограничиваем по ширине
     frameWidth = winWidth;
     frameHeight = winWidth / targetRatio;
   }
@@ -2122,8 +1921,8 @@ function check_size() {
     'position': 'absolute',
     'left': '50%',
     'top': '50%',
-    'transform': 'translate(-50%, -50%)',
-    'overflow': 'hidden'
+    'transform': 'translate(-50%, -50%)', // Идеальное центрирование
+    'overflow': 'hidden' // Элементы не будут выходить за рамки cg/фона
   });
 
   window.scrollTo(0, 1);
@@ -2138,9 +1937,9 @@ function get_xml_ajax_async(
 ) {
   if (!xmlFileURL) {
     if (fileType) {
-      xmlFileURL = base_url + xmlPath + xmlName + '.' + fileType
+      xmlFileURL = xmlPath + xmlName + '.' + fileType
     } else {
-      xmlFileURL = base_url + xmlPath + xmlName + '.xml?sid=' + Math.random()
+      xmlFileURL = xmlPath + xmlName + '.xml?sid=' + Math.random()
     }
   }
   $.ajax({
@@ -2212,7 +2011,7 @@ function base64Encode(input) {
 }
 
 function base64Decode(input) {
-  var rv = window.atob(input)
+  rv = window.atob(input)
   rv = escape(rv)
   rv = decodeURIComponent(rv)
   return rv
@@ -2270,7 +2069,7 @@ function catalogPageNew(page, flag) {
       }
       $('#catalog-chap-' + (j - page * 2)).css(
         'background-image',
-        "url('" + base_url +
+        "url('" +
           'ru-RU/resources/catalog/t' +
           getText(catalogListSort[i]) +
           ".png')"
@@ -2580,30 +2379,17 @@ function showCatalogFrame(page) {
 }
 //-------------------------------------------------------
 function setCookie(name, value) {
-  try {
-    localStorage.setItem(name, value)
-  } catch(e) {
-    // Безопасный режим на случай блокировки хранилища
-  }
+  localStorage.setItem(name, value)
 }
 
 /// Удалить cookie
 function delCookie(name) {
-  try {
-    localStorage.removeItem(name)
-  } catch(e) {
-    // Безопасный режим
-  }
+  localStorage.removeItem(name)
 }
 
 // Прочитать cookie
 function getCookie(name) {
-  try {
-    return localStorage.getItem(name)
-  } catch(e) {
-    // Возвращаем null, если хранилище заблокировано
-    return null;
-  }
+  return localStorage.getItem(name)
 }
 
 function GetQueryString(_name) {
@@ -2638,6 +2424,12 @@ function remark_btn_show() {
     .css('cursor', 'pointer')
 }
 
+function post_achievement_in_event(eventNode) {
+  if (eventNode.getAttribute('post')) {
+    post_achievement(eventNode.getAttribute('post'))
+  }
+}
+
 function showremark() {
   var i
   dialogAutoplay('stop')
@@ -2655,13 +2447,7 @@ function showremark() {
     var remarkEvent = remarkScene.childNodes[i]
     if (remarkEvent.nodeName == 'remark') {
       remarkTextBox.html(remarkEvent.innerHTML)
-      
-      // Извлекаем ачивку именно в момент открытия "ремарки"
-      var achId = window.extract_achievement_id(remarkEvent);
-      if (achId) {
-          window.post_achievement(achId);
-      }
-      
+      post_achievement_in_event(remarkEvent)
       break
     }
   }
@@ -2748,13 +2534,13 @@ var masterAchievementData = [
   {"achievement":10031,"text":"Вы нашли примечание об «Улиссе».","image":"tesla"},
   {"achievement":10032,"text":"Вы выбрали один из вариантов ветвления.","image":"ein"},
   {"achievement":10033,"text":"Вы выбрали один из вариантов ветвления.","image":"welt"},
-  {"achievement":10040,"text":"Вы прочитали сюжет четвёртой главы.","image":"normal"},
+  {"achievement":10040,"text":"Вы прочитали сюжет четвертой главы.","image":"normal"},
   {"achievement":10041,"text":"Вы нашли примечание о Хамфри Богарте.","image":"nokia"},
   {"achievement":10042,"text":"Вы нашли примечание о «Польке Евы».","image":"nokia"},
   {"achievement":10043,"text":"Вы нашли примечание о «Вы, конечно, шутите, мистер Фейнман».","image":"plank"},
   {"achievement":10050,"text":"Вы прочитали сюжет пятой главы.","image":"normal"},
   {"achievement":10051,"text":"Вы нашли примечание о Последнем ледниковом максимуме.","image":"schro"},
-  {"achievement":10052,"text":"Вы нашли примечание о принципиальной неопределенности.","image":"schro"},
+  {"achievement":10052,"text":"Вы нашли примечание о принципе неопределенности.","image":"schro"},
   {"achievement":10053,"text":"Вы нашли примечание об источнике Олд Фейтфул.","image":"plank"},
   {"achievement":10060,"text":"Вы прочитали сюжет шестой главы.","image":"normal"},
   {"achievement":10061,"text":"Вы нашли примечание о Помпеях.","image":"welt"},
@@ -2779,7 +2565,7 @@ var masterAchievementData = [
   {"achievement":10120,"text":"Вы прочитали сюжет двенадцатой главы.","image":"normal"},
   {"achievement":10121,"text":"Вы нашли примечание о «Danny Boy».","image":"welt"},
   {"achievement":10130,"text":"Вы прочитали сюжет тринадцатой главы.","image":"normal"},
-  {"achievement":10140,"text":"Вы прочитали сюжет четырнадцатой главы.","image":"normal"},
+  {"achievement":10140,"text":"Вы прочитали сюжет четынадцатой главы.","image":"normal"},
   {"achievement":10141,"text":"Вы нашли примечание о Денебе.","image":"ein"},
   {"achievement":10142,"text":"Вы нашли примечание о созвездии Андромеды.","image":"ein"},
   {"achievement":10143,"text":"Вы нашли примечание о Фомальгауте.","image":"ein"},
@@ -2796,7 +2582,7 @@ var masterAchievementData = [
   {"achievement":10180,"text":"Вы прочитали сюжет восемнадцатой главы.","image":"normal"},
   {"achievement":10181,"text":"Вы нашли примечание о Бранденбургских воротах.","image":"welt"},
   {"achievement":10182,"text":"Вы нашли примечание о зоне оккупации Берлина.","image":"welt"},
-  {"achievement":10183,"text":"Вы нашли примечание о трассе 1.","image":"tesla"},
+  {"achievement":10183,"text":"Вы нашли примечание о трассе 1 (US Route 1).","image":"tesla"},
   {"achievement":10190,"text":"Вы прочитали сюжет девятнадцатой главы.","image":"normal"},
   {"achievement":10191,"text":"Вы нашли примечание о «Моби Дике».","image":"reana"},
   {"achievement":10192,"text":"Вы нашли примечание о Тюре.","image":"tesla"},
@@ -2828,25 +2614,260 @@ var masterPortraits = [
   {name: "tesla", index: 760}, {name: "otto", index: 750}, {name: "yang", index: 750}, {name: "plank", index: 549}
 ];
 
-function loadLocalAchievementsData() {
-  var unlockedIds = window.getLocalAchievements();
-  var unlockedAchievements = [];
+var ACHIEVEMENT_STORAGE_KEY = 'anti_entropy_achievements'
+var localAchievementMemory = []
+
+function normalizeAchievementId(value) {
+  var n = Number(value)
+  if (!isFinite(n)) return null
+  n = Math.floor(n)
+  if (n <= 0) return null
+  return n
+}
+
+function getKnownAchievementIds() {
+  var known = {}
   for (var i = 0; i < masterAchievementData.length; i++) {
-    if (unlockedIds.indexOf(masterAchievementData[i].achievement) !== -1) {
-      unlockedAchievements.push(masterAchievementData[i]);
+    var id = normalizeAchievementId(masterAchievementData[i].achievement)
+    if (id != null) known[id] = true
+  }
+  return known
+}
+
+function normalizeAchievementArray(values) {
+  var result = []
+  var seen = {}
+
+  if (!Array.isArray(values)) values = [values]
+
+  for (var i = 0; i < values.length; i++) {
+    var raw = values[i]
+    if (raw == null) continue
+
+    var matches = String(raw).match(/\d+/g)
+    if (!matches) continue
+
+    for (var j = 0; j < matches.length; j++) {
+      var id = normalizeAchievementId(matches[j])
+      if (id == null || seen[id]) continue
+      seen[id] = true
+      result.push(id)
     }
   }
-  
-  var progress = masterAchievementData.length > 0 ? unlockedAchievements.length / masterAchievementData.length : 0;
-  var portraitsToReturn = masterPortraits.slice(0, Math.ceil(progress * masterPortraits.length));
+
+  return result
+}
+
+function getLocalAchievements() {
+  var saved = null
+
+  try {
+    saved = localStorage.getItem(ACHIEVEMENT_STORAGE_KEY)
+  } catch (e) {
+    saved = null
+  }
+
+  if (saved != null) {
+    try {
+      var parsed = JSON.parse(saved)
+      var normalized = normalizeAchievementArray(parsed)
+      localAchievementMemory = normalized.slice()
+      return normalized
+    } catch (e) {
+      var fallback = normalizeAchievementArray(saved)
+      localAchievementMemory = fallback.slice()
+      return fallback
+    }
+  }
+
+  return localAchievementMemory.slice()
+}
+
+function writeLocalAchievements(ids) {
+  var normalized = normalizeAchievementArray(ids)
+  localAchievementMemory = normalized.slice()
+  try {
+    localStorage.setItem(ACHIEVEMENT_STORAGE_KEY, JSON.stringify(normalized))
+  } catch (e) {
+    console.warn('Не удалось сохранить достижения локально', e)
+  }
+  return normalized
+}
+
+function saveLocalAchievement(ach_id) {
+  var saved = getLocalAchievements()
+  var beforeCount = saved.length
+  var incoming = normalizeAchievementArray(ach_id)
+
+  for (var i = 0; i < incoming.length; i++) {
+    if (saved.indexOf(incoming[i]) === -1) saved.push(incoming[i])
+  }
+
+  saved = writeLocalAchievements(saved)
+  return saved.length !== beforeCount
+}
+
+function buildLocalAchievementResult() {
+  var unlockedIds = getLocalAchievements()
+  var unlockedLookup = {}
+  var unlockedAchievements = []
+  var catalogIds = getAchievementCatalogIds()
+  for (var i = 0; i < unlockedIds.length; i++) {
+    unlockedLookup[unlockedIds[i]] = true
+  }
+
+  for (var j = 0; j < catalogIds.length; j++) {
+    var id = catalogIds[j]
+    if (!unlockedLookup[id]) continue
+
+    var record = findLocalAchievementRecord(id)
+    if (!record) {
+      record = { achievement: id }
+    }
+
+    var unlockedRecord = {}
+    for (var key in record) {
+      if (Object.prototype.hasOwnProperty.call(record, key)) {
+        unlockedRecord[key] = record[key]
+      }
+    }
+    unlockedAchievements.push(unlockedRecord)
+  }
+
+  var progress = catalogIds.length > 0
+    ? unlockedAchievements.length / catalogIds.length
+    : 0
+
+  if (progress < 0) progress = 0
+  if (progress > 1) progress = 1
 
   return {
     retcode: 1,
-    msg: "The achievement record has been loaded locally.",
-    progress: progress.toString(),
-    portrait: portraitsToReturn,
+    msg: 'The achievement record has been loaded locally.',
+    progress: String(progress),
+    portrait: masterPortraits.slice(0, Math.ceil(progress * masterPortraits.length)),
     achievement: unlockedAchievements
-  };
+  }
+}
+
+function getAchievementCatalogIds() {
+  var ids = []
+  var seen = {}
+
+  if (typeof exhibition_list !== 'undefined' && exhibition_list) {
+    for (var i = 0; i < exhibition_list.length; i++) {
+      var xmlId = normalizeAchievementId(exhibition_list[i].getAttribute('id'))
+      if (xmlId != null && !seen[xmlId]) {
+        seen[xmlId] = true
+        ids.push(xmlId)
+      }
+    }
+  }
+
+  if (ids.length === 0) {
+    for (var j = 0; j < masterAchievementData.length; j++) {
+      var masterId = normalizeAchievementId(masterAchievementData[j].achievement)
+      if (masterId != null && !seen[masterId]) {
+        seen[masterId] = true
+        ids.push(masterId)
+      }
+    }
+  }
+
+  return ids
+}
+
+function findLocalAchievementRecord(id) {
+  id = normalizeAchievementId(id)
+  if (id == null) return null
+
+  for (var i = 0; i < masterAchievementData.length; i++) {
+    if (normalizeAchievementId(masterAchievementData[i].achievement) === id) {
+      return masterAchievementData[i]
+    }
+  }
+  return null
+}
+
+function refreshAchievementViews() {
+  achievement_result = buildLocalAchievementResult()
+  achievement_list = achievement_result.achievement || []
+  achievement_portraits = achievement_result.portrait || []
+
+  var p_val = Number(achievement_result.progress)
+  if (!isFinite(p_val)) p_val = 0
+  if (p_val < 0) p_val = 0
+  if (p_val > 1) p_val = 1
+
+  var progressText = parseInt(p_val * 100, 10) + '%'
+  var progressRem = p_val * 28.55 + 'rem'
+  var clampedText = Math.min(p_val, 0.85)
+  var clampedIcon = Math.min(p_val, 0.90)
+  var textLeft = clampedText * 28.55 + 1.8 + 'rem'
+  var textRight = 1.8 + 'rem'
+  var iconLeft = clampedIcon * 28.55 - 1.3 + 'rem'
+
+  $('.progress-span').css('width', progressRem)
+  $('.progress-icon').css('left', iconLeft)
+  $('.progress-text').html(progressText)
+
+  if (p_val <= 0.8) {
+    $('.progress-text').css({
+      left: textLeft,
+      right: 'auto',
+      color: '#ffffff'
+    })
+  } else {
+    $('.progress-text').css({
+      left: 'auto',
+      right: textRight,
+      color: '#5b4c51'
+    })
+  }
+
+  // Если список достижений сейчас открыт, перестраиваем его на том же разделе.
+  if (typeof exhibitionPage === 'function' && exhibition_list && $('.achievement-exhibition').is(':visible')) {
+    exhibitionPage(exhibition_index)
+  }
+}
+
+function post_achievement(str_ach, callbackOne, callbackTwo) {
+  ajax_answer_achievement = null
+
+  if (str_ach === 'LOAD' || str_ach == null || String(str_ach).toUpperCase() === 'LOAD') {
+    setTimeout(function () {
+      ajax_answer_achievement = buildLocalAchievementResult()
+      achievement_result = ajax_answer_achievement
+      achievement_list = ajax_answer_achievement.achievement || []
+      achievement_portraits = ajax_answer_achievement.portrait || []
+
+      if (callbackOne) callbackOne()
+      if (callbackTwo) callbackTwo()
+    }, 0)
+    return
+  }
+
+  var changed = false
+  try {
+    changed = saveLocalAchievement(str_ach)
+  } catch (e) {
+    console.error('Ошибка сохранения достижения', e)
+  }
+
+  // Сразу пересобираем кэш результата. Это устраняет ситуацию, когда
+  // сохранённое достижение есть, а UI продолжает жить со старым результатом.
+  refreshAchievementViews()
+
+  setTimeout(function () {
+    ajax_answer_achievement = buildLocalAchievementResult()
+    achievement_result = ajax_answer_achievement
+    achievement_list = ajax_answer_achievement.achievement || []
+    achievement_portraits = ajax_answer_achievement.portrait || []
+    ajax_answer_achievement.changed = changed
+
+    if (callbackOne) callbackOne()
+    if (callbackTwo) callbackTwo()
+  }, 0)
 }
 
 var achievement_result = null
@@ -2856,8 +2877,17 @@ var achievement_portraits = new Array()
 function portraitPage(typeReturn) {
   startLoad()
   if (!typeReturn) {
-    achievement_result = loadLocalAchievementsData();
-    portraitPage(10)
+    post_achievement(
+      'LOAD',
+      function () {
+        achievement_result = ajax_answer_achievement
+        portraitPage(10)
+      },
+      function () {
+        achievement_result = ajax_answer_achievement
+        portraitPage(10)
+      }
+    )
     return
   } else if (!achievement_result) {
     LoadFinish()
@@ -2907,11 +2937,11 @@ function portraitPage(typeReturn) {
     for (var j = 0; j < achievement_list.length; j++) {
       if (
         $.inArray(
-          achievement_list[j]['image'] + '_h.png',
+          achievement_list[j]['image'] + '_h.png', // Добавлен суффикс _h
           achievementImageList
         ) < 0
       ) {
-        achievementImageList.push(achievement_list[j]['image'] + '_h.png')
+        achievementImageList.push(achievement_list[j]['image'] + '_h.png') // Добавлен суффикс _h
       }
     }
     preLoadUiImages('achievement', achievementImageList)
@@ -3011,8 +3041,16 @@ function exhibitionPage(page) {
     exhibition_index = Number(page)
   }
 
-  achievement_result = loadLocalAchievementsData();
-  achievement_list = achievement_result['achievement'];
+  if (!achievement_result) {
+    post_achievement('LOAD', function() {
+        achievement_result = ajax_answer_achievement;
+        if (achievement_result && achievement_result['achievement']) {
+            achievement_list = achievement_result['achievement'];
+        }
+        exhibitionPage(page);
+    });
+    return;
+  }
 
   var xmlDoc = loadExistXmlFile('exhibition_list', function () {
     var doc = xml_files_all_in_this['exhibition_list'];
@@ -3051,26 +3089,42 @@ function exhibitionPage(page) {
       pHtml_tit.html(getText(exhibition_list[i]))
       
       var isUnlocked = false;
+      var unlockedRecord = null;
       for (var j = 0; j < achievement_list.length; j++) {
-        if (Number(achievement_list[j]['achievement']) == listId) {
-          var unlockedText = achievement_list[j]['text'];
-          pHtml_txt.html(unlockedText)
-          pHtml_txt.css('color', '#ffffff');
-          pHtml_pic.css(
-            'background-image',
-            "url('" + base_url + 'ru-RU/resources/achievement/' + achievement_list[j]['image'] + "_h.png')"
-          )
-          if (exhibition_list[i].getAttribute('type') != 'end') {
-            pHtml_tip.css(
-              'background-image',
-              "url('" + base_url + 'ru-RU/resources/achievement/' + exhibition_list[i].getAttribute('type') + "_b.png')"
-            )
-          } else {
-            pHtml_tip.css('background-image', 'none')
-          }
-          isUnlocked = true;
+        if (Number(achievement_list[j]['achievement']) === listId) {
+          unlockedRecord = achievement_list[j];
           break;
         }
+      }
+
+      if (unlockedRecord) {
+        var unlockedTitle = unlockedRecord['title'] || unlockedRecord['name'] || getText(exhibition_list[i]);
+        var unlockedText = unlockedRecord['text'] || exhibition_list[i].getAttribute('text') || '??? ??? ??? ??? ??? ??? ??? ??? ???';
+        var unlockedImage = unlockedRecord['image'];
+
+        pHtml_tit.html(unlockedTitle)
+        pHtml_txt.html(unlockedText)
+        pHtml_txt.css('color', '#ffffff')
+
+        if (unlockedImage) {
+          pHtml_pic.css(
+            'background-image',
+            "url('" + base_url + "ru-RU/resources/achievement/" + unlockedImage + "_h.png')"
+          )
+        } else {
+          pHtml_pic.css(
+            'background-image',
+            "url('" + base_url + "ru-RU/resources/achievement/null_h.png')"
+          )
+        }
+
+        if (exhibition_list[i].getAttribute('type') != 'end') {
+          pHtml_tip.css(
+            'background-image',
+            "url('" + base_url + "ru-RU/resources/achievement/" + exhibition_list[i].getAttribute('type') + "_b.png')"
+          )
+        }
+        isUnlocked = true;
       }
 
       if (!isUnlocked) {
@@ -3085,8 +3139,6 @@ function exhibitionPage(page) {
             'background-image',
             "url('" + base_url + 'ru-RU/resources/achievement/' + exhibition_list[i].getAttribute('type') + ".png')"
           )
-        } else {
-          pHtml_tip.css('background-image', 'none')
         }
       }
 
@@ -3095,12 +3147,7 @@ function exhibitionPage(page) {
           'left': '0.6rem',
           'top': '50%',
           'margin-top': '-1.8rem',
-          'width': '3.6rem',
-          'height': '3.6rem',
-          'overflow': 'visible',
-          'background-size': 'contain',
-          'background-position': 'center center',
-          'background-repeat': 'no-repeat'
+          'overflow': 'visible'
       });
       
       pHtml_tip.addClass('exhibition-member-tips').css({
@@ -3108,12 +3155,7 @@ function exhibitionPage(page) {
           'left': '2.8rem',
           'top': '50%',
           'margin-top': '-2.2rem',
-          'width': '1.8rem',
-          'height': '1.8rem',
-          'overflow': 'visible',
-          'background-size': 'contain',
-          'background-position': 'center center',
-          'background-repeat': 'no-repeat'
+          'overflow': 'visible'
       });
       
       var pHtml_text_wrapper = $('<div></div>').css({
@@ -3138,7 +3180,7 @@ function exhibitionPage(page) {
           'height': 'auto',
           'margin': '0 0 2px 0',
           'color': '#fdffea',
-          'text-align': 'left',
+          'text-align': 'left', 
           'overflow': 'visible'
       });
       
