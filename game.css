@@ -736,9 +736,8 @@ p {
   position: absolute;
   width: 3.6rem;
   height: 3.6rem;
-  margin: 0.6rem;
   bottom: 6rem;
-  right: 0;
+  right: 100px;
   z-index: 810;
   background: url('ru-RU/resources/ui/remark.png');
   background-size: 100% 100%;
