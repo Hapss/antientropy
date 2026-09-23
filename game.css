@@ -1930,6 +1930,7 @@ ul li {
 .cg-img {
   width: 16rem;
   height: 9rem;
+  margin: 10px;
   background-repeat: no-repeat;
   background-size: auto 88%;
   background-position: center;
