@@ -219,7 +219,7 @@
             <speak chara="einNoFace">...Ты уверена? А вдруг это какая-то ловушка?</speak>
             <show chara="einSeriousEmWinterClose" position="left" opacity="0.7"/>
             <show chara="reaEmbarraArmedClose" position="right"/>
-            <speak chara="reannaNoFace">Доктор, я уничтожила множество зверей Хонкая... но ни один из них не мог сравниться интеллектом с человеком, да и вообще с млекопитающим.</speak>
+            <speak chara="reannaNoFace">Доктор, я уничтожила множество зверей Хонкая... но ни один из них не мог сравниться с человеком по интеллекту, да и вообще с млекопитающим.</speak>
             <show chara="reaSmileArmedClose" position="right"/>
             <speak chara="reannaNoFace">Клиника только что не подверглась прямой атаке. Учитывая их модель поведения, в ближайшее время здесь будет абсолютно безопасно.</speak>
             <show chara="reaLaughArmedClose" position="right"/>
